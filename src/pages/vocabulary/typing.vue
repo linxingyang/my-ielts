@@ -202,10 +202,14 @@ onMounted(() => {
               class="text-sm font-normal text-gray-400 mr-2 tracking-wide">
               {{ currentWordData?.pos }}
             </span>
+            <span class="text-sm">{{ currentWordData?.phonetic }}</span>
             {{ currentWordData?.meaning }}
           </div>
           <p class="text-gray-500 dark:text-gray-400 italic text-sm sm:text-base max-w-xl mx-auto">
             {{ currentWordData?.example }}
+          </p>
+          <p v-if="currentWordData?.translation" class="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-xl mx-auto mt-2">
+            {{ currentWordData?.translation }}
           </p>
         </div>
 

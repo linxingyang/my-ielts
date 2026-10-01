@@ -59,11 +59,13 @@ const menus = reactive([
           Salvation lies within <span class="font-bold text-#f00">IELTS</span>
         </h1>
         <div class="mb-8 max-w-screen-md lg:mb-16">
+        <!--
           <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             我的 IELTS 备考中心
-          </h2>
+          </h2>-->
           <p class="text-gray-500 sm:text-xl dark:text-gray-400">
-            Hello, This is Frank. 这里包含我备考准备的一切，从词汇、语法开始...
+            项目从 https://github.com/hefengxian/my-ielts fork 而来，感谢原作者的付出。<br/>
+            修改内容见项目README.md
           </p>
         </div>
         <div class="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-12 space-y-8 md:space-y-0">

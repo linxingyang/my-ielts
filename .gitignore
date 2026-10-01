@@ -9,3 +9,15 @@ node_modules
 *.log
 # git rm --cached auto-imports.d.ts
 auto-imports.d.ts
+
+# Python 缓存
+__pycache__/
+
+# OCR 中间产物与缓存
+_ocr_cache/
+_ocr_pages.json
+_misses.json
+_debug.py
+
+# IDE 生成
+CODEBUDDY.md

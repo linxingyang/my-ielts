@@ -1,3 +1,22 @@
+
+# 在线地址 
+
+[https://linxingyang.github.io/my-ielts/#/](https://linxingyang.github.io/my-ielts/)
+
+# 修改
+
+## 2026-10-01
+
+- 词汇页面新增单词读音
+- 词汇页面新增例句中文翻译
+
+
+---
+
+以下内容为原始READDME内容
+
+---
+
 <p><br></p>
 
 <picture>

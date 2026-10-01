@@ -336,8 +336,8 @@ function copyAllError() {
                           <input
                             :id="item.id" autocomplete="off" :class="getInputStyleClass(item)"
                             type="text"
-                            @focusout="onInputFocusOut($event, item)" 
-                            @focusin="onInputFocusIn($event, `vocabulary/audio/${category}/${item.word[0]}.mp3`)" 
+                            @focusout="onInputFocusOut($event, item)"
+                            @focusin="onInputFocusIn($event, `vocabulary/audio/${category}/${item.word[0]}.mp3`)"
                             @keydown="onInputKeydown"
                           >
                         </template>
@@ -349,6 +349,9 @@ function copyAllError() {
                               class="hover:underline" :title="`在剑桥词典中查询 ${w}`" target="_blank"
                               :href="`https://dictionary.cambridge.org/dictionary/english-chinese-simplified/${w}`"
                             >{{ w }}</a>
+                          </p>
+                          <p v-if="item.phonetic" class="text-sm">
+                            {{ item.phonetic }}
                           </p>
 
                           <div
@@ -366,7 +369,12 @@ function copyAllError() {
                         {{ isShowMeaning ? item.meaning : '' }}
                       </td>
                       <td class="p-4">
-                        {{ isTrainingModel ? '' : item.example }}
+                        <template v-if="!isTrainingModel">
+                          <p>{{ item.example }}</p>
+                          <p v-if="item.translation" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                            {{ item.translation }}
+                          </p>
+                        </template>
                       </td>
                       <td class="p-4">
                         {{ isTrainingModel ? '' : item.extra }}
