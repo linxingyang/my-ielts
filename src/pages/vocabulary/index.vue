@@ -371,7 +371,10 @@ function copyAllError() {
                       <td class="p-4">
                         <template v-if="!isTrainingModel">
                           <p>{{ item.example }}</p>
-                          <p v-if="item.translation" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                          <p v-if="item.note" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                            {{ item.note }}
+                          </p>
+                          <p v-else-if="item.translation" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
                             {{ item.translation }}
                           </p>
                         </template>

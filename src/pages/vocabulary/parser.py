@@ -9,6 +9,7 @@ from urllib.parse import quote
 CUR_DIR = Path(__file__).absolute().parent
 PHONETICS_PATH = CUR_DIR / 'phonetics.json'
 TRANSLATIONS_PATH = CUR_DIR / 'translations.json'
+NOTES_PATH = CUR_DIR / 'notes.json'
 
 
 def norm_example(s):
@@ -19,6 +20,13 @@ def load_translations():
     # 例句的书本翻译（由 _ocr_all.py + _extract_trans.py 从原书 PDF OCR 提取）
     if TRANSLATIONS_PATH.exists():
         return json.loads(TRANSLATIONS_PATH.read_text(encoding='utf-8'))
+    return {}
+
+
+def load_notes():
+    # 词条完整书本内容（例句译文、【记】、【搭】等，由 _extract_full.py 从原书 PDF OCR 提取）
+    if NOTES_PATH.exists():
+        return json.loads(NOTES_PATH.read_text(encoding='utf-8'))
     return {}
 
 
@@ -137,6 +145,7 @@ def lookup_phonetic(mapping, word_variants):
 
 def parse(phonetics):
     translations = load_translations()
+    notes = load_notes()
     part_mapping = {
         0: 'word',
         1: 'pos',
@@ -178,6 +187,7 @@ def parse(phonetics):
                 word_dict['word'] = word_dict['word'].split('/')
                 word_dict['phonetic'] = lookup_phonetic(phonetics, word_dict['word'])
                 word_dict['translation'] = translations.get(norm_example(word_dict['example']), '')
+                word_dict['note'] = notes.get(norm_example(word_dict['word'] if isinstance(word_dict['word'], str) else ' '.join(word_dict['word'])), '')
                 group.append(word_dict)
             if group:
                 category_body['words'].append(group)
