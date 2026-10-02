@@ -153,20 +153,30 @@ def parse(phonetics):
         3: 'example',
         4: 'extra',
     }
-    result = defaultdict(lambda: {'label': '', 'audio': '', 'groupCount': 0, 'wordCount': 0, 'words': []})
+    result = defaultdict(lambda: {'label': '', 'source': 'ielts', 'audio': '', 'groupCount': 0, 'wordCount': 0, 'words': []})
     vocabulary_path = CUR_DIR / 'vocabulary.txt'
     contents = '\n'.join([l.strip() for l in vocabulary_path.read_text(encoding='utf-8').split('\n')])
     categories = contents.split('===\n')
+    public_audio_dir = CUR_DIR.parent.parent.parent / 'public' / 'vocabulary' / 'audio'
     cur_id = 0
-    category_index = 0
+    source_counters = defaultdict(int)
     for category in categories:
-        category_index += 1
         category_parts = category.split('+++\n')
-        label = f"{str(category_index).zfill(2)}_{category_parts[0].strip()}"
+        title = category_parts[0].strip()
+        # 章节标题支持 `名称|source` 后缀，指定所属词库（ielts/cet4/cet6/awl），各词库独立编号
+        if '|' in title:
+            name, source = title.rsplit('|', 1)
+            name, source = name.strip(), source.strip()
+        else:
+            name, source = title, 'ielts'
+        source_counters[source] += 1
+        label = f"{str(source_counters[source]).zfill(2)}_{name}"
         category_body = result[label]
         word_groups = category_parts[1].split('---\n')
         category_body['label'] = label
-        category_body['audio'] = f"{label}.mp3"
+        category_body['source'] = source
+        # 整章朗读音频仅真经章节有，文件不存在时置空（前端据此隐藏播放器）
+        category_body['audio'] = f"{label}.mp3" if (public_audio_dir / f"{label}.mp3").exists() else ''
         category_body['groupCount'] = len(word_groups)
         word_count = 0
         for word_group in word_groups:

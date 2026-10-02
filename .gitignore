@@ -21,3 +21,6 @@ _debug.py
 
 # IDE 生成
 CODEBUDDY.md
+src/pages/vocabulary/_audio_log.txt
+src/pages/vocabulary/_audio_err.txt
+src/pages/vocabulary/_missing_examples.txt

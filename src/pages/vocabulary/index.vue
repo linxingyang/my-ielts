@@ -1,6 +1,7 @@
 <!-- eslint-disable eslint-comments/no-unlimited-disable -->
 <script setup generic="T extends any, O extends any">
 import vocabulary from './vocabulary'
+import { VOCAB_SOURCES } from '~/composables/vocabularyCategory'
 import {
   chapterProgress,
   cycleWordStatus,
@@ -10,7 +11,7 @@ import {
   setWordStatus,
 } from '~/composables/wordStatus'
 
-const CHAPTER_KEY = 'vocabulary_chapter'
+const { source, sourceOptions, category, chapterOptions, sourceLabel, sourceDesc } = useVocabularyCategory('vocabulary_chapter')
 
 const isTrainingModel = ref(false)
 const isShowMeaning = ref(true)
@@ -22,8 +23,6 @@ const isShowSource = ref(false)
 
 const trainingStats = ref('')
 const keyword = ref('')
-const chapters = Object.keys(vocabulary)
-const category = ref(localStorage.getItem(CHAPTER_KEY) || chapters[0])
 
 const loaded = ref(false)
 const refVocabulary = reactive(vocabulary)
@@ -55,9 +54,9 @@ const wordList = computed(() => {
   return {}
 })
 
-watch(category, (newVal, oldVal) => {
+watch(category, (newVal) => {
   // console.log(newVal, oldVal)
-  localStorage.setItem(CHAPTER_KEY, newVal)
+  localStorage.setItem('vocabulary_chapter', newVal)
 })
 
 const statusIconMap = {
@@ -82,6 +81,37 @@ const progress = computed(() => {
     fuzzyPct: total > 0 ? `${(result.fuzzy / total) * 100}%` : '0%',
   }
 })
+
+// 聚合多个章节的三态统计；total 取自数据中的 wordCount（固定值），进度 = 已学（认识+模糊）/ 总数
+function aggregateProgress(keys) {
+  const totals = { known: 0, fuzzy: 0, unknown: 0, total: 0 }
+  for (const k of keys) {
+    const chapter = refVocabulary[k]
+    if (!chapter)
+      continue
+    const p = chapterProgress(chapter.words.flat())
+    totals.known += p.known
+    totals.fuzzy += p.fuzzy
+    totals.unknown += p.unknown
+    totals.total += chapter.wordCount
+  }
+  const learned = totals.known + totals.fuzzy
+  return {
+    ...totals,
+    learned,
+    pct: totals.total > 0 ? Math.round((learned / totals.total) * 100) : 0,
+  }
+}
+
+// 当前词库的总统计
+const sourceProgress = computed(() => aggregateProgress(chapterOptions.value))
+
+// 全部词库的总统计（学习总览面板用）
+const allSourcesProgress = computed(() =>
+  VOCAB_SOURCES.map(s => ({
+    ...s,
+    ...aggregateProgress(Object.keys(refVocabulary).filter(k => refVocabulary[k].source === s.key)),
+  })))
 
 const fileInput = ref(null)
 
@@ -268,20 +298,35 @@ function copyAllError() {
       <div class="items-center justify-between lg:flex">
         <div class="mb-4 lg:mb-0">
           <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">
-            雅思词汇真经
+            {{ sourceLabel }}
           </h3>
-          <span class="text-base font-normal text-gray-500 dark:text-gray-400">涵盖雅思必备核心词，逻辑词群记忆法</span>
+          <span class="text-base font-normal text-gray-500 dark:text-gray-400">{{ sourceDesc }}</span>
+          <div class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            共 <b>{{ sourceProgress.total }}</b> 词 ·
+            已认识 <b class="text-green-500">{{ sourceProgress.known }}</b> ·
+            模糊 <b class="text-yellow-500">{{ sourceProgress.fuzzy }}</b> ·
+            未学 <b>{{ sourceProgress.unknown }}</b> ·
+            进度 <b class="text-green-500">{{ sourceProgress.pct }}%</b>
+          </div>
+          <div class="mt-2 h-1.5 w-64 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+            <div class="h-full bg-green-500" :style="{ width: `${sourceProgress.pct}%` }" />
+          </div>
         </div>
-        <div class="items-center sm:flex">
-          <div class="flex items-center">
+        <div class="items-center sm:flex sm:flex-wrap">
+          <div class="flex flex-wrap items-center">
+            <select
+              v-model="source"
+              class="block w-40 shrink-0 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+            >
+              <option v-for="s in sourceOptions" :key="s.key" :value="s.key">
+                {{ s.label }}
+              </option>
+            </select>
             <select
               v-model="category"
-              class="block w-full flex-1 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+              class="ml-2 block w-52 shrink-0 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
             >
-              <!-- <option value="">
-                全部章节
-              </option> -->
-              <option v-for="(_, k) in refVocabulary" :key="k" :value="k">
+              <option v-for="k in chapterOptions" :key="k" :value="k">
                 {{ k }}
               </option>
             </select>
@@ -298,42 +343,85 @@ function copyAllError() {
                 class="block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
                 placeholder="Search">
             </div> -->
-            <label class="ml-2 inline-flex cursor-pointer items-center">
+            <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
               <input v-model="isTrainingModel" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
               />
-              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">练习模式</span>
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">练习模式</span>
             </label>
-            <label class="ml-2 inline-flex cursor-pointer items-center">
+            <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
               <input v-model="isOnlyShowUnknown" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
               />
-              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">只看未认识</span>
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">只看未认识</span>
             </label>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isShowMeaning" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
               />
-              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">释义</span>
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">释义</span>
             </label>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isShowSource" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
               />
-              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">原词</span>
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">原词</span>
             </label>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isAutoPlayWordAudio" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
               />
-              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">自动播放</span>
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">自动播放</span>
             </label>
           </div>
+        </div>
+      </div>
+      <!-- 学习总览：全部词库统计，点击行切换词库 -->
+      <div class="mt-2 border border-gray-200 rounded-lg p-3 dark:border-gray-700">
+        <div class="mb-2 flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+            学习总览（共 {{ allSourcesProgress.reduce((sum, s) => sum + s.total, 0) }} 词，点击行切换词库）
+          </span>
+          <span class="flex shrink-0 items-center">
+            <button
+              type="button"
+              class="inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+              @click="exportStatus"
+            >
+              导出记录
+            </button>
+            <button
+              type="button"
+              class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+              @click="fileInput?.click()"
+            >
+              导入记录
+            </button>
+            <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
+          </span>
+        </div>
+        <div
+          v-for="row in allSourcesProgress"
+          :key="row.key"
+          class="flex cursor-pointer items-center rounded-lg px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-700"
+          @click="source = row.key"
+        >
+          <span
+            class="w-28 shrink-0 text-sm"
+            :class="row.key === source ? 'font-bold text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'"
+          >{{ row.label }}</span>
+          <span class="w-44 shrink-0 text-xs text-gray-500 dark:text-gray-400">
+            已学 {{ row.learned }} / {{ row.total }} 词
+          </span>
+          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+            <div class="h-full bg-green-500" :style="{ width: `${row.pct}%` }" />
+          </div>
+          <span class="ml-3 w-12 shrink-0 text-right text-xs text-gray-500 dark:text-gray-400">{{ row.pct }}%</span>
         </div>
       </div>
       <!-- Table -->
@@ -382,23 +470,8 @@ function copyAllError() {
                             模糊 <b class="text-yellow-500">{{ progress.fuzzy }}</b> ·
                             未学 <b>{{ progress.unknown }}</b>
                           </span>
-                          <button
-                            type="button"
-                            class="ml-4 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
-                            @click="exportStatus"
-                          >
-                            导出记录
-                          </button>
-                          <button
-                            type="button"
-                            class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
-                            @click="fileInput?.click()"
-                          >
-                            导入记录
-                          </button>
-                          <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
                         </div>
-                        <div class="justify-items-end">
+                        <div v-if="refVocabulary[category].audio" class="justify-items-end">
                           <audio controls class="chapter">
                             <source :src="`vocabulary/audio/${refVocabulary[category].audio}`" type="audio/mpeg">
                           </audio>
@@ -423,7 +496,7 @@ function copyAllError() {
                       <td>
                         <i
                           class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
-                          @click="play(`vocabulary/audio/${category}/${item.word[0]}.mp3`)"
+                          @click="play(wordAudioUrl(item.word[0]))"
                         />
 
                         <i
@@ -442,7 +515,7 @@ function copyAllError() {
                             :id="item.id" autocomplete="off" :class="getInputStyleClass(item)"
                             type="text"
                             @focusout="onInputFocusOut($event, item)"
-                            @focusin="onInputFocusIn($event, `vocabulary/audio/${category}/${item.word[0]}.mp3`)"
+                            @focusin="onInputFocusIn($event, wordAudioUrl(item.word[0]))"
                             @keydown="onInputKeydown"
                           >
                         </template>

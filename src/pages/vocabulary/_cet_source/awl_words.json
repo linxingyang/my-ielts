@@ -1,0 +1,6340 @@
+[
+ {
+  "word": "Analyse",
+  "arabic_translation": "يحلل",
+  "english_definition": "Examine methodically and in detail the constitution or structure of something.",
+  "example_sentence": "We need to analyse the results of the experiment.",
+  "synonyms": [
+   "examine",
+   "inspect",
+   "scrutinize"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Approach",
+  "arabic_translation": "نهج / فاتح",
+  "english_definition": "A way of dealing with a situation or problem.",
+  "example_sentence": "She has a very practical approach to life.",
+  "synonyms": [
+   "method",
+   "procedure",
+   "strategy"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Area",
+  "arabic_translation": "منطقة / مجال",
+  "english_definition": "A region or part of a town, a country, or the world.",
+  "example_sentence": "The rural areas are becoming more populated.",
+  "synonyms": [
+   "region",
+   "sector",
+   "zone"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Assessment",
+  "arabic_translation": "تقييم",
+  "english_definition": "The evaluation or estimation of the nature, quality, or ability of someone or something.",
+  "example_sentence": "The initial assessment of the damage was $10,000.",
+  "synonyms": [
+   "evaluation",
+   "appraisal",
+   "judgment"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Assume",
+  "arabic_translation": "يفترض",
+  "english_definition": "Suppose to be the case, without proof.",
+  "example_sentence": "I assume that you are familiar with the rules.",
+  "synonyms": [
+   "suppose",
+   "presume",
+   "think"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Authority",
+  "arabic_translation": "سلطة / هيئة",
+  "english_definition": "The power or right to give orders, make decisions, and enforce obedience.",
+  "example_sentence": "He has the authority to sign the contract.",
+  "synonyms": [
+   "power",
+   "command",
+   "control"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Available",
+  "arabic_translation": "متاح / متوفر",
+  "english_definition": "Able to be used or obtained; at someone's disposal.",
+  "example_sentence": "Is the manager available at the moment?",
+  "synonyms": [
+   "ready",
+   "accessible",
+   "obtainable"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Benefit",
+  "arabic_translation": "فائدة / مصلحة",
+  "english_definition": "An advantage or profit gained from something.",
+  "example_sentence": "There are many benefits to exercise.",
+  "synonyms": [
+   "advantage",
+   "profit",
+   "gain"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Concept",
+  "arabic_translation": "مفهوم",
+  "english_definition": "An abstract idea; a general notion.",
+  "example_sentence": "Structuralism is a difficult concept to grasp.",
+  "synonyms": [
+   "idea",
+   "notion",
+   "theory"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Consistent",
+  "arabic_translation": "متسق / ثابت",
+  "english_definition": "Acting or done in the same way over time, especially so as to be fair or accurate.",
+  "example_sentence": "The results are consistent with previous findings.",
+  "synonyms": [
+   "steady",
+   "stable",
+   "uniform"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Constitutional",
+  "arabic_translation": "دستوري",
+  "english_definition": "Relating to an established set of principles governing a state.",
+  "example_sentence": "The court ruled that the law was constitutional.",
+  "synonyms": [
+   "legal",
+   "authorized",
+   "lawful"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Context",
+  "arabic_translation": "سياق",
+  "english_definition": "The circumstances that form the setting for an event, statement, or idea.",
+  "example_sentence": "You need to look at the quote in context.",
+  "synonyms": [
+   "situation",
+   "background",
+   "framework"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Contract",
+  "arabic_translation": "عقد",
+  "english_definition": "A written or spoken agreement, especially one concerning employment, sales, or tenancy.",
+  "example_sentence": "She signed a three-year contract with the company.",
+  "synonyms": [
+   "agreement",
+   "deal",
+   "bond"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Create",
+  "arabic_translation": "ينشئ / يخلق",
+  "english_definition": "Bring something into existence.",
+  "example_sentence": "We want to create a more inclusive environment.",
+  "synonyms": [
+   "make",
+   "generate",
+   "produce"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Data",
+  "arabic_translation": "بيانات",
+  "english_definition": "Facts and statistics collected together for reference or analysis.",
+  "example_sentence": "The data shows a clear trend in global warming.",
+  "synonyms": [
+   "information",
+   "statistics",
+   "facts"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Definition",
+  "arabic_translation": "تعريف",
+  "english_definition": "A statement of the exact meaning of a word.",
+  "example_sentence": "There is no simple definition of happiness.",
+  "synonyms": [
+   "meaning",
+   "explanation",
+   "description"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Derived",
+  "arabic_translation": "مشتق",
+  "english_definition": "Obtained from a specified source.",
+  "example_sentence": "The word is derived from Latin.",
+  "synonyms": [
+   "obtained",
+   "taken",
+   "descended"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Distribution",
+  "arabic_translation": "توزيع",
+  "english_definition": "The action of sharing something out among a number of recipients.",
+  "example_sentence": "The distribution of wealth is very unequal.",
+  "synonyms": [
+   "sharing",
+   "allocation",
+   "delivery"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Economic",
+  "arabic_translation": "اقتصادي",
+  "english_definition": "Relating to economics or the economy.",
+  "example_sentence": "The country is facing an economic crisis.",
+  "synonyms": [
+   "financial",
+   "monetary",
+   "commercial"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Environment",
+  "arabic_translation": "بيئة",
+  "english_definition": "The surroundings or conditions in which a person, animal, or plant lives.",
+  "example_sentence": "We must protect the environment for future generations.",
+  "synonyms": [
+   "surroundings",
+   "atmosphere",
+   "habitat"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Established",
+  "arabic_translation": "راسخ / مؤسس",
+  "english_definition": "Having been in existence for a long time and therefore recognized and generally accepted.",
+  "example_sentence": "The company is an established leader in the market.",
+  "synonyms": [
+   "settled",
+   "founded",
+   "secure"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Estimate",
+  "arabic_translation": "تقدير",
+  "english_definition": "Roughly calculate or judge the value, number, quantity, or extent of.",
+  "example_sentence": "Scientists estimate that the population will triple.",
+  "synonyms": [
+   "calculate",
+   "evaluate",
+   "guess"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Evidence",
+  "arabic_translation": "دليل",
+  "english_definition": "The available body of facts or information indicating whether a belief or proposition is true or valid.",
+  "example_sentence": "There is no evidence to support his claim.",
+  "synonyms": [
+   "proof",
+   "confirmation",
+   "testimony"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Export",
+  "arabic_translation": "تصدير",
+  "english_definition": "Send (goods or services) to another country for sale.",
+  "example_sentence": "The country's main export is oil.",
+  "synonyms": [
+   "shipping",
+   "transmission",
+   "sale"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Factors",
+  "arabic_translation": "عوامل",
+  "english_definition": "A circumstance, fact, or influence that contributes to a result or outcome.",
+  "example_sentence": "Many factors contributed to the success of the mission.",
+  "synonyms": [
+   "causes",
+   "elements",
+   "influences"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Financial",
+  "arabic_translation": "مالي",
+  "english_definition": "Relating to finance.",
+  "example_sentence": "She works as a financial advisor.",
+  "synonyms": [
+   "monetary",
+   "fiscal",
+   "economic"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Formula",
+  "arabic_translation": "صيغة / معادلة",
+  "english_definition": "A mathematical relationship or rule expressed in symbols.",
+  "example_sentence": "The formula for calculating area is simple.",
+  "synonyms": [
+   "recipe",
+   "method",
+   "equation"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Function",
+  "arabic_translation": "وظيفة",
+  "english_definition": "An activity or purpose natural to or intended for a person or thing.",
+  "example_sentence": "The main function of the heart is to pump blood.",
+  "synonyms": [
+   "purpose",
+   "role",
+   "duty"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Identified",
+  "arabic_translation": "محدد / مميز",
+  "english_definition": "Recognized or distinguished as being a particular person or thing.",
+  "example_sentence": "The police identified the suspect from a witness description.",
+  "synonyms": [
+   "recognized",
+   "spotted",
+   "distinguished"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Income",
+  "arabic_translation": "دخل",
+  "english_definition": "Money received, especially on a regular basis, for work or through investments.",
+  "example_sentence": "Her annual income is around $50,000.",
+  "synonyms": [
+   "earnings",
+   "salary",
+   "profit"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Indicate",
+  "arabic_translation": "يشير / يوضح",
+  "english_definition": "Point out; show.",
+  "example_sentence": "Studies indicate that the treatment is effective.",
+  "synonyms": [
+   "show",
+   "point out",
+   "signal"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Individual",
+  "arabic_translation": "فرد / فردي",
+  "english_definition": "Single; separate.",
+  "example_sentence": "Each individual student has different needs.",
+  "synonyms": [
+   "single",
+   "separate",
+   "person"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Interpretation",
+  "arabic_translation": "تفسير",
+  "english_definition": "The action of explaining the meaning of something.",
+  "example_sentence": "There are many different interpretations of the poem.",
+  "synonyms": [
+   "explanation",
+   "meaning",
+   "analysis"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Involved",
+  "arabic_translation": "مشارك / متورط",
+  "english_definition": "Connected or concerned with someone or something.",
+  "example_sentence": "He was involved in the decision-making process.",
+  "synonyms": [
+   "connected",
+   "concerned",
+   "active"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Issues",
+  "arabic_translation": "قضايا / مشكلات",
+  "english_definition": "An important topic or problem for debate or discussion.",
+  "example_sentence": "The environment is one of the most pressing issues of our time.",
+  "synonyms": [
+   "problems",
+   "topics",
+   "concerns"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Labour",
+  "arabic_translation": "عمل / عمالة",
+  "english_definition": "Work, especially hard physical work.",
+  "example_sentence": "The cost of labour is rising in many countries.",
+  "synonyms": [
+   "work",
+   "effort",
+   "toil"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Legal",
+  "arabic_translation": "قانوني",
+  "english_definition": "Relating to the law.",
+  "example_sentence": "The company is facing legal action.",
+  "synonyms": [
+   "lawful",
+   "authorized",
+   "valid"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Legislation",
+  "arabic_translation": "تشريع",
+  "english_definition": "Laws, considered collectively.",
+  "example_sentence": "New legislation will be introduced to tackle the problem.",
+  "synonyms": [
+   "law",
+   "statute",
+   "rule"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Major",
+  "arabic_translation": "رئيسي / كبير",
+  "english_definition": "Important, serious, or significant.",
+  "example_sentence": "The project represents a major breakthrough.",
+  "synonyms": [
+   "important",
+   "significant",
+   "large"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Method",
+  "arabic_translation": "طريقة / أسلوب",
+  "english_definition": "A particular procedure for accomplishing or approaching something.",
+  "example_sentence": "The traditional method of teaching language is being challenged.",
+  "synonyms": [
+   "way",
+   "procedure",
+   "system"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Occur",
+  "arabic_translation": "يحدث",
+  "english_definition": "Happen; take place.",
+  "example_sentence": "The accident occurred late at night.",
+  "synonyms": [
+   "happen",
+   "take place",
+   "transpire"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Percent",
+  "arabic_translation": "بالمئة",
+  "english_definition": "One part in every hundred.",
+  "example_sentence": "Ten percent of the students were absent.",
+  "synonyms": [
+   "percentage",
+   "portion",
+   "share"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Period",
+  "arabic_translation": "فترة",
+  "english_definition": "A length or portion of time.",
+  "example_sentence": "The Renaissance was a period of great artistic achievement.",
+  "synonyms": [
+   "time",
+   "era",
+   "interval"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Policy",
+  "arabic_translation": "سياسة",
+  "english_definition": "A course or principle of action adopted or proposed by a government, party, business, or individual.",
+  "example_sentence": "The government's foreign policy is under review.",
+  "synonyms": [
+   "strategy",
+   "rule",
+   "plan"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Principle",
+  "arabic_translation": "مبدأ",
+  "english_definition": "A fundamental truth or proposition that serves as the foundation for a system of belief or behaviour.",
+  "example_sentence": "The principle of free speech is essential to democracy.",
+  "synonyms": [
+   "truth",
+   "belief",
+   "rule"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Procedure",
+  "arabic_translation": "إجراء",
+  "english_definition": "An established or official way of doing something.",
+  "example_sentence": "The procedure for applying for a visa is straightforward.",
+  "synonyms": [
+   "process",
+   "method",
+   "system"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Process",
+  "arabic_translation": "عملية",
+  "english_definition": "A series of actions or steps taken in order to achieve a particular end.",
+  "example_sentence": "Learning a new language is a long process.",
+  "synonyms": [
+   "procedure",
+   "operation",
+   "action"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Required",
+  "arabic_translation": "مطلوب",
+  "english_definition": "Necessary; needed.",
+  "example_sentence": "Students are required to attend all classes.",
+  "synonyms": [
+   "necessary",
+   "needed",
+   "essential"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Research",
+  "arabic_translation": "بحث",
+  "english_definition": "The systematic investigation into and study of materials and sources in order to establish facts and reach new conclusions.",
+  "example_sentence": "She is doing research into the causes of cancer.",
+  "synonyms": [
+   "study",
+   "investigation",
+   "analysis"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Response",
+  "arabic_translation": "استجابة / رد",
+  "english_definition": "A reaction to something.",
+  "example_sentence": "We received an immediate response to our inquiry.",
+  "synonyms": [
+   "answer",
+   "reaction",
+   "reply"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Role",
+  "arabic_translation": "دور",
+  "english_definition": "The function assumed or part played by a person or thing in a particular situation.",
+  "example_sentence": "She has a major role in the project.",
+  "synonyms": [
+   "part",
+   "function",
+   "duty"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Section",
+  "arabic_translation": "قسم",
+  "english_definition": "Any of the more or less distinct parts into which something is or may be divided or from which it is made up.",
+  "example_sentence": "The book is divided into three sections.",
+  "synonyms": [
+   "part",
+   "segment",
+   "division"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Sector",
+  "arabic_translation": "قطاع",
+  "english_definition": "An area or portion that is distinct from others.",
+  "example_sentence": "The public sector is under pressure to cut costs.",
+  "synonyms": [
+   "area",
+   "part",
+   "zone"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Significant",
+  "arabic_translation": "مهم / ذو دلالة",
+  "english_definition": "Sufficiently great or important to be worthy of attention; noteworthy.",
+  "example_sentence": "The results of the study are statistically significant.",
+  "synonyms": [
+   "important",
+   "noteworthy",
+   "large"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Similar",
+  "arabic_translation": "مشابه",
+  "english_definition": "Having a resemblance in appearance, character, or quantity, without being identical.",
+  "example_sentence": "The two paintings are very similar in style.",
+  "synonyms": [
+   "alike",
+   "resembling",
+   "equivalent"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Source",
+  "arabic_translation": "مصدر",
+  "english_definition": "A place, person, or thing from which something originates or can be obtained.",
+  "example_sentence": "Where is the source of the river?",
+  "synonyms": [
+   "origin",
+   "root",
+   "beginning"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Specific",
+  "arabic_translation": "محدد / خاص",
+  "english_definition": "Clearly defined or identified.",
+  "example_sentence": "The doctor gave me specific instructions on how to use the medicine.",
+  "synonyms": [
+   "particular",
+   "precise",
+   "detailed"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Structure",
+  "arabic_translation": "هيكل / بنية",
+  "english_definition": "The arrangement of and relations between the parts or elements of something complex.",
+  "example_sentence": "The structure of the building is unsound.",
+  "synonyms": [
+   "form",
+   "organization",
+   "build"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Theory",
+  "arabic_translation": "نظرية",
+  "english_definition": "A supposition or a system of ideas intended to explain something.",
+  "example_sentence": "Einstein's theory of relativity revolutionized physics.",
+  "synonyms": [
+   "idea",
+   "hypothesis",
+   "notion"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Variables",
+  "arabic_translation": "متغيرات",
+  "english_definition": "An element, feature, or factor that is liable to vary or change.",
+  "example_sentence": "There are many variables to consider in this experiment.",
+  "synonyms": [
+   "factors",
+   "elements",
+   "variations"
+  ],
+  "sublist": 1
+ },
+ {
+  "word": "Achieve",
+  "arabic_translation": "يحقق / ينجز",
+  "english_definition": "Successfully reach (a desired objective or result) by effort, skill, or courage.",
+  "example_sentence": "She worked hard to achieve her goals.",
+  "synonyms": [
+   "reach",
+   "attain",
+   "accomplish"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Acquisition",
+  "arabic_translation": "اكتساب / شراء",
+  "english_definition": "The learning or developing of a skill, habit, or quality.",
+  "example_sentence": "The acquisition of language is a complex process.",
+  "synonyms": [
+   "learning",
+   "gain",
+   "attainment"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Administration",
+  "arabic_translation": "إدارة",
+  "english_definition": "The process or activity of running a business, organization, etc.",
+  "example_sentence": "She works in the hospital administration.",
+  "synonyms": [
+   "management",
+   "direction",
+   "control"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Affect",
+  "arabic_translation": "يؤثر",
+  "english_definition": "Have an effect on; make a difference to.",
+  "example_sentence": "The weather can affect your mood.",
+  "synonyms": [
+   "influence",
+   "impact",
+   "change"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Appropriate",
+  "arabic_translation": "مناسب / ملائم",
+  "english_definition": "Suitable or proper in the circumstances.",
+  "example_sentence": "Is this dress appropriate for a wedding?",
+  "synonyms": [
+   "suitable",
+   "proper",
+   "fitting"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Aspects",
+  "arabic_translation": "جوانب",
+  "english_definition": "A particular part or feature of something.",
+  "example_sentence": "We need to consider all aspects of the problem.",
+  "synonyms": [
+   "features",
+   "parts",
+   "sides"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Assistance",
+  "arabic_translation": "مساعدة / عون",
+  "english_definition": "The provision of money, resources, or information to help someone.",
+  "example_sentence": "The company offers financial assistance to its employees.",
+  "synonyms": [
+   "help",
+   "aid",
+   "support"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Categories",
+  "arabic_translation": "فئات",
+  "english_definition": "A group, often named or numbered, to which items are assigned based on similarity or defined criteria.",
+  "example_sentence": "Just as a monoid consists of an underlying set with a binary operation \"on top of it\" which is closed, associative and with an identity, a category consists of an underlying digraph with an arrow composition operation \"on top of it\" which is transitively closed, associative, and with an identity at each object. In fact, a category's composition operation, when restricted to a single one of its objects, turns that object's set of arrows (which would all be loops) into a monoid.",
+  "synonyms": [
+   "class",
+   "family",
+   "genus"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Chapter",
+  "arabic_translation": "الفصل",
+  "english_definition": "(authorship) One of the main sections into which the text of a book is divided.",
+  "example_sentence": "Detective novel writers try to keep up the suspense until the last chapter.",
+  "synonyms": [
+   "ch.",
+   "chpt."
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Commission",
+  "arabic_translation": "عمولة",
+  "english_definition": "A sending or mission (to do or accomplish something).",
+  "example_sentence": "The aircraft carrier was commissioned in 1944, during WWII.",
+  "synonyms": [
+   "committee",
+   "government body"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Community",
+  "arabic_translation": "مجتمع",
+  "english_definition": "A group sharing a common understanding, and often the same language, law, manners, and/or tradition.",
+  "example_sentence": "a community of goods",
+  "synonyms": [
+   "community_syn1",
+   "community_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Complex",
+  "arabic_translation": "معقد",
+  "english_definition": "A network of interconnected systems.",
+  "example_sentence": "Jim has a real complex about working for a woman boss.",
+  "synonyms": [
+   "complicated",
+   "detailed",
+   "difficult"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Computer",
+  "arabic_translation": "حاسوب",
+  "english_definition": "A person employed to perform computations; one who computes.",
+  "example_sentence": "We analyzed the role of computer in our research.",
+  "synonyms": [
+   "'puter",
+   "box",
+   "calculator"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Conclusion",
+  "arabic_translation": "خاتمة",
+  "english_definition": "The end, finish, close or last part of something.",
+  "example_sentence": "The board has come to the conclusion that the proposed takeover would not be in the interest of our shareholders.",
+  "synonyms": [
+   "endpoint",
+   "terminus",
+   "epilogue"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Conduct",
+  "arabic_translation": "سلوك",
+  "english_definition": "The act or method of controlling or directing",
+  "example_sentence": "He conducted himself well.",
+  "synonyms": [
+   "control",
+   "guidance",
+   "management"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Consequences",
+  "arabic_translation": "عواقب",
+  "english_definition": "That which follows something on which it depends; that which is produced by a cause.",
+  "example_sentence": "I'm warning you. If you don't get me the report on time, there will be consequences.",
+  "synonyms": [
+   "aftercome",
+   "distinction",
+   "implication"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Construction",
+  "arabic_translation": "بناء",
+  "english_definition": "The process of constructing.",
+  "example_sentence": "American conservatives tend to favor strict construction of the Constitution.",
+  "synonyms": [
+   "building"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Consumer",
+  "arabic_translation": "مستهلك",
+  "english_definition": "One who, or that which, consumes.",
+  "example_sentence": "Our consumers are upwardly mobile and middle-class.",
+  "synonyms": [
+   "consumer_syn1",
+   "consumer_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Credit",
+  "arabic_translation": "ائتمان",
+  "english_definition": "Reliance on the truth of something said or done; faith; trust.",
+  "example_sentence": "Credit the point guard with another assist.",
+  "synonyms": [
+   "unit",
+   "accept",
+   "believe"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Cultural",
+  "arabic_translation": "ثقافية",
+  "english_definition": "Pertaining to culture.",
+  "example_sentence": "We analyzed the role of cultural in our research.",
+  "synonyms": [
+   "cultural_syn1",
+   "cultural_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Design",
+  "arabic_translation": "تصميم",
+  "english_definition": "A specification of an object or process, referring to requirements to be satisfied and thus conditions to be met for them to solve a problem.",
+  "example_sentence": "The client had me create new designs until they were satisfied with one.",
+  "synonyms": [
+   "design_syn1",
+   "design_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Distinction",
+  "arabic_translation": "امتياز",
+  "english_definition": "That which distinguishes; a single occurrence of a determining factor or feature, the fact of being divided; separation, discrimination.",
+  "example_sentence": "She had the distinction of meeting the Queen.",
+  "synonyms": [
+   "distinction_syn1",
+   "distinction_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Elements",
+  "arabic_translation": "عناصر",
+  "english_definition": "One of the simplest or essential parts or principles of which anything consists, or upon which the constitution or fundamental powers of anything are based.",
+  "example_sentence": "The element in this electric kettle can heat the water in under a minute.",
+  "synonyms": [
+   "chemical element",
+   "firststuff",
+   "member"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Equation",
+  "arabic_translation": "معادلة",
+  "english_definition": "The act or process of equating two or more things, or the state of those things being equal (that is, identical).",
+  "example_sentence": "We need to bring the balance of power into equation",
+  "synonyms": [
+   "equation_syn1",
+   "equation_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Evaluation",
+  "arabic_translation": "تقييم",
+  "english_definition": "An assessment, such as an annual personnel performance review used as the basis for a salary increase or bonus, or a summary of a particular situation.",
+  "example_sentence": "We analyzed the role of evaluation in our research.",
+  "synonyms": [
+   "evaluation_syn1",
+   "evaluation_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Features",
+  "arabic_translation": "سمات",
+  "english_definition": "One's structure or make-up: form, shape, bodily proportions.",
+  "example_sentence": "one of the features of the landscape",
+  "synonyms": [
+   "features_syn1",
+   "features_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Final",
+  "arabic_translation": "أخير",
+  "english_definition": "A final examination; a test or examination given at the end of a term or class; the test that concludes a class.",
+  "example_sentence": "a final judgment;   the battle of Waterloo brought the contest to a final issue",
+  "synonyms": [
+   "dernier",
+   "endly",
+   "terminal"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Focus",
+  "arabic_translation": "ركز",
+  "english_definition": "A point at which reflected or refracted rays of light converge.",
+  "example_sentence": "The text box won't receive the user's keystrokes unless you explicitly focus it.",
+  "synonyms": [
+   "focus_syn1",
+   "focus_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Impact",
+  "arabic_translation": "تأثير",
+  "english_definition": "The striking of one body against another; collision.",
+  "example_sentence": "Ideas impacted on the mind.",
+  "synonyms": [
+   "impact_syn1",
+   "impact_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Injury",
+  "arabic_translation": "إصابة",
+  "english_definition": "Damage to the body of a human or animal.",
+  "example_sentence": "Slander is an injury to the character.",
+  "synonyms": [
+   "injury_syn1",
+   "injury_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Institute",
+  "arabic_translation": "معهد",
+  "english_definition": "An organization founded to promote a cause",
+  "example_sentence": "I work in a medical research institute.",
+  "synonyms": [
+   "institute_syn1",
+   "institute_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Investment",
+  "arabic_translation": "استثمار",
+  "english_definition": "The act of investing, or state of being invested.",
+  "example_sentence": "Giving your children a good education is a wise long-term investment.",
+  "synonyms": [
+   "investment_syn1",
+   "investment_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Items",
+  "arabic_translation": "أغراض",
+  "english_definition": "A distinct physical object.",
+  "example_sentence": "an item concerning the weather",
+  "synonyms": [
+   "subject",
+   "topic",
+   "article"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Journal",
+  "arabic_translation": "مجلة",
+  "english_definition": "A diary or daily record of a person, organization, vessel etc.; daybook.",
+  "example_sentence": "The university's biology department subscribes to half a dozen academic journals.",
+  "synonyms": [
+   "daybook",
+   "diary"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Maintenance",
+  "arabic_translation": "صيانة",
+  "english_definition": "Actions performed to keep some machine or system functioning or in service.",
+  "example_sentence": "We analyzed the role of maintenance in our research.",
+  "synonyms": [
+   "maintenance_syn1",
+   "maintenance_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Normal",
+  "arabic_translation": "طبيعي",
+  "english_definition": "A line or vector that is perpendicular to another line, surface, or plane.",
+  "example_sentence": "The interior normal vector of an ideal perfect sphere will always point toward the center, and the exterior normal vector directly away, and both will always be co-linear with the ray whose' tip ends at the point of intersection, which is the intersection of all three sets of points.",
+  "synonyms": [
+   "hale",
+   "healthy",
+   "well"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Obtained",
+  "arabic_translation": "مُقتَنىً",
+  "english_definition": "To get hold of; to gain possession of, to procure; to acquire, in any way.",
+  "example_sentence": "We analyzed the role of obtained in our research.",
+  "synonyms": [
+   "obtained_syn1",
+   "obtained_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Participation",
+  "arabic_translation": "مشاركة",
+  "english_definition": "The academic concept of 'participation'.",
+  "example_sentence": "We analyzed the role of participation in our research.",
+  "synonyms": [
+   "participation_syn1",
+   "participation_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Perceived",
+  "arabic_translation": "ملموس",
+  "english_definition": "The academic concept of 'perceived'.",
+  "example_sentence": "We analyzed the role of perceived in our research.",
+  "synonyms": [
+   "perceived_syn1",
+   "perceived_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Positive",
+  "arabic_translation": "إيجابي",
+  "english_definition": "The academic concept of 'positive'.",
+  "example_sentence": "We analyzed the role of positive in our research.",
+  "synonyms": [
+   "positive_syn1",
+   "positive_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Potential",
+  "arabic_translation": "محتمل",
+  "english_definition": "The academic concept of 'potential'.",
+  "example_sentence": "We analyzed the role of potential in our research.",
+  "synonyms": [
+   "potential_syn1",
+   "potential_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Previous",
+  "arabic_translation": "سابق",
+  "english_definition": "The academic concept of 'previous'.",
+  "example_sentence": "We analyzed the role of previous in our research.",
+  "synonyms": [
+   "previous_syn1",
+   "previous_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Primary",
+  "arabic_translation": "أساسي",
+  "english_definition": "The academic concept of 'primary'.",
+  "example_sentence": "We analyzed the role of primary in our research.",
+  "synonyms": [
+   "primary_syn1",
+   "primary_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Purchase",
+  "arabic_translation": "شراء",
+  "english_definition": "The academic concept of 'purchase'.",
+  "example_sentence": "We analyzed the role of purchase in our research.",
+  "synonyms": [
+   "purchase_syn1",
+   "purchase_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Range",
+  "arabic_translation": "يتراوح",
+  "english_definition": "The academic concept of 'range'.",
+  "example_sentence": "We analyzed the role of range in our research.",
+  "synonyms": [
+   "range_syn1",
+   "range_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Region",
+  "arabic_translation": "منطقة",
+  "english_definition": "The academic concept of 'region'.",
+  "example_sentence": "We analyzed the role of region in our research.",
+  "synonyms": [
+   "region_syn1",
+   "region_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Regulations",
+  "arabic_translation": "أنظمة",
+  "english_definition": "The academic concept of 'regulations'.",
+  "example_sentence": "We analyzed the role of regulations in our research.",
+  "synonyms": [
+   "regulations_syn1",
+   "regulations_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Relevant",
+  "arabic_translation": "مناسب",
+  "english_definition": "The academic concept of 'relevant'.",
+  "example_sentence": "We analyzed the role of relevant in our research.",
+  "synonyms": [
+   "relevant_syn1",
+   "relevant_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Resident",
+  "arabic_translation": "مقيم",
+  "english_definition": "The academic concept of 'resident'.",
+  "example_sentence": "We analyzed the role of resident in our research.",
+  "synonyms": [
+   "resident_syn1",
+   "resident_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Resources",
+  "arabic_translation": "موارد",
+  "english_definition": "The academic concept of 'resources'.",
+  "example_sentence": "We analyzed the role of resources in our research.",
+  "synonyms": [
+   "resources_syn1",
+   "resources_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Restricted",
+  "arabic_translation": "مقيد",
+  "english_definition": "The academic concept of 'restricted'.",
+  "example_sentence": "We analyzed the role of restricted in our research.",
+  "synonyms": [
+   "restricted_syn1",
+   "restricted_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Security",
+  "arabic_translation": "حماية",
+  "english_definition": "The academic concept of 'security'.",
+  "example_sentence": "We analyzed the role of security in our research.",
+  "synonyms": [
+   "security_syn1",
+   "security_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Select",
+  "arabic_translation": "يختار",
+  "english_definition": "The academic concept of 'select'.",
+  "example_sentence": "We analyzed the role of select in our research.",
+  "synonyms": [
+   "select_syn1",
+   "select_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Site",
+  "arabic_translation": "موقع",
+  "english_definition": "The academic concept of 'site'.",
+  "example_sentence": "We analyzed the role of site in our research.",
+  "synonyms": [
+   "site_syn1",
+   "site_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Sought",
+  "arabic_translation": "طلب",
+  "english_definition": "The academic concept of 'sought'.",
+  "example_sentence": "We analyzed the role of sought in our research.",
+  "synonyms": [
+   "sought_syn1",
+   "sought_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Strategies",
+  "arabic_translation": "الاستراتيجيات",
+  "english_definition": "The academic concept of 'strategies'.",
+  "example_sentence": "We analyzed the role of strategies in our research.",
+  "synonyms": [
+   "strategies_syn1",
+   "strategies_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Survey",
+  "arabic_translation": "استطلاع",
+  "english_definition": "The academic concept of 'survey'.",
+  "example_sentence": "We analyzed the role of survey in our research.",
+  "synonyms": [
+   "survey_syn1",
+   "survey_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Text",
+  "arabic_translation": "نص",
+  "english_definition": "The academic concept of 'text'.",
+  "example_sentence": "We analyzed the role of text in our research.",
+  "synonyms": [
+   "text_syn1",
+   "text_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Traditional",
+  "arabic_translation": "تقليدي",
+  "english_definition": "The academic concept of 'traditional'.",
+  "example_sentence": "We analyzed the role of traditional in our research.",
+  "synonyms": [
+   "traditional_syn1",
+   "traditional_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Transfer",
+  "arabic_translation": "تحويل",
+  "english_definition": "The academic concept of 'transfer'.",
+  "example_sentence": "We analyzed the role of transfer in our research.",
+  "synonyms": [
+   "transfer_syn1",
+   "transfer_syn2"
+  ],
+  "sublist": 2
+ },
+ {
+  "word": "Alternative",
+  "arabic_translation": "بديل",
+  "english_definition": "The academic concept of 'alternative'.",
+  "example_sentence": "We analyzed the role of alternative in our research.",
+  "synonyms": [
+   "alternative_syn1",
+   "alternative_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Circumstances",
+  "arabic_translation": "ظروف",
+  "english_definition": "The academic concept of 'circumstances'.",
+  "example_sentence": "We analyzed the role of circumstances in our research.",
+  "synonyms": [
+   "circumstances_syn1",
+   "circumstances_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Comments",
+  "arabic_translation": "تعليقات",
+  "english_definition": "The academic concept of 'comments'.",
+  "example_sentence": "We analyzed the role of comments in our research.",
+  "synonyms": [
+   "comments_syn1",
+   "comments_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Component",
+  "arabic_translation": "عنصر",
+  "english_definition": "The academic concept of 'component'.",
+  "example_sentence": "We analyzed the role of component in our research.",
+  "synonyms": [
+   "component_syn1",
+   "component_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Consent",
+  "arabic_translation": "موافقة",
+  "english_definition": "The academic concept of 'consent'.",
+  "example_sentence": "We analyzed the role of consent in our research.",
+  "synonyms": [
+   "consent_syn1",
+   "consent_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Considerable",
+  "arabic_translation": "كبير",
+  "english_definition": "The academic concept of 'considerable'.",
+  "example_sentence": "We analyzed the role of considerable in our research.",
+  "synonyms": [
+   "considerable_syn1",
+   "considerable_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Constant",
+  "arabic_translation": "ثابت",
+  "english_definition": "The academic concept of 'constant'.",
+  "example_sentence": "We analyzed the role of constant in our research.",
+  "synonyms": [
+   "constant_syn1",
+   "constant_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Constraints",
+  "arabic_translation": "قيود",
+  "english_definition": "The academic concept of 'constraints'.",
+  "example_sentence": "We analyzed the role of constraints in our research.",
+  "synonyms": [
+   "constraints_syn1",
+   "constraints_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Contribution",
+  "arabic_translation": "مساهمة",
+  "english_definition": "The academic concept of 'contribution'.",
+  "example_sentence": "We analyzed the role of contribution in our research.",
+  "synonyms": [
+   "contribution_syn1",
+   "contribution_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Convention",
+  "arabic_translation": "مؤتمر",
+  "english_definition": "The academic concept of 'convention'.",
+  "example_sentence": "We analyzed the role of convention in our research.",
+  "synonyms": [
+   "convention_syn1",
+   "convention_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Coordination",
+  "arabic_translation": "تنسيق",
+  "english_definition": "The academic concept of 'coordination'.",
+  "example_sentence": "We analyzed the role of coordination in our research.",
+  "synonyms": [
+   "coordination_syn1",
+   "coordination_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Core",
+  "arabic_translation": "جوهر",
+  "english_definition": "The academic concept of 'core'.",
+  "example_sentence": "We analyzed the role of core in our research.",
+  "synonyms": [
+   "core_syn1",
+   "core_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Corporate",
+  "arabic_translation": "شركة كبرى",
+  "english_definition": "The academic concept of 'corporate'.",
+  "example_sentence": "We analyzed the role of corporate in our research.",
+  "synonyms": [
+   "corporate_syn1",
+   "corporate_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Corresponding",
+  "arabic_translation": "مُتَجَانِس",
+  "english_definition": "The academic concept of 'corresponding'.",
+  "example_sentence": "We analyzed the role of corresponding in our research.",
+  "synonyms": [
+   "corresponding_syn1",
+   "corresponding_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Criteria",
+  "arabic_translation": "معايير",
+  "english_definition": "The academic concept of 'criteria'.",
+  "example_sentence": "We analyzed the role of criteria in our research.",
+  "synonyms": [
+   "criteria_syn1",
+   "criteria_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Deduction",
+  "arabic_translation": "خصم",
+  "english_definition": "The academic concept of 'deduction'.",
+  "example_sentence": "We analyzed the role of deduction in our research.",
+  "synonyms": [
+   "deduction_syn1",
+   "deduction_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Demonstrate",
+  "arabic_translation": "يوضح",
+  "english_definition": "The academic concept of 'demonstrate'.",
+  "example_sentence": "We analyzed the role of demonstrate in our research.",
+  "synonyms": [
+   "demonstrate_syn1",
+   "demonstrate_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Document",
+  "arabic_translation": "وثيقة",
+  "english_definition": "The academic concept of 'document'.",
+  "example_sentence": "We analyzed the role of document in our research.",
+  "synonyms": [
+   "document_syn1",
+   "document_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Dominant",
+  "arabic_translation": "مسيطر",
+  "english_definition": "The academic concept of 'dominant'.",
+  "example_sentence": "We analyzed the role of dominant in our research.",
+  "synonyms": [
+   "dominant_syn1",
+   "dominant_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Emphasis",
+  "arabic_translation": "توكيد",
+  "english_definition": "The academic concept of 'emphasis'.",
+  "example_sentence": "We analyzed the role of emphasis in our research.",
+  "synonyms": [
+   "emphasis_syn1",
+   "emphasis_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Ensure",
+  "arabic_translation": "يضمن",
+  "english_definition": "The academic concept of 'ensure'.",
+  "example_sentence": "We analyzed the role of ensure in our research.",
+  "synonyms": [
+   "ensure_syn1",
+   "ensure_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Excluded",
+  "arabic_translation": "مستبعد",
+  "english_definition": "The academic concept of 'excluded'.",
+  "example_sentence": "We analyzed the role of excluded in our research.",
+  "synonyms": [
+   "excluded_syn1",
+   "excluded_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Framework",
+  "arabic_translation": "نطاق",
+  "english_definition": "The academic concept of 'framework'.",
+  "example_sentence": "We analyzed the role of framework in our research.",
+  "synonyms": [
+   "framework_syn1",
+   "framework_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Funds",
+  "arabic_translation": "أموال",
+  "english_definition": "The academic concept of 'funds'.",
+  "example_sentence": "We analyzed the role of funds in our research.",
+  "synonyms": [
+   "funds_syn1",
+   "funds_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Illustrated",
+  "arabic_translation": "يتضح",
+  "english_definition": "The academic concept of 'illustrated'.",
+  "example_sentence": "We analyzed the role of illustrated in our research.",
+  "synonyms": [
+   "illustrated_syn1",
+   "illustrated_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Immigration",
+  "arabic_translation": "الهجرة",
+  "english_definition": "The academic concept of 'immigration'.",
+  "example_sentence": "We analyzed the role of immigration in our research.",
+  "synonyms": [
+   "immigration_syn1",
+   "immigration_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Implies",
+  "arabic_translation": "ضمنا",
+  "english_definition": "The academic concept of 'implies'.",
+  "example_sentence": "We analyzed the role of implies in our research.",
+  "synonyms": [
+   "implies_syn1",
+   "implies_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Initial",
+  "arabic_translation": "أولي",
+  "english_definition": "The academic concept of 'initial'.",
+  "example_sentence": "We analyzed the role of initial in our research.",
+  "synonyms": [
+   "initial_syn1",
+   "initial_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Instance",
+  "arabic_translation": "مثال",
+  "english_definition": "The academic concept of 'instance'.",
+  "example_sentence": "We analyzed the role of instance in our research.",
+  "synonyms": [
+   "instance_syn1",
+   "instance_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Interaction",
+  "arabic_translation": "تفاعل",
+  "english_definition": "The academic concept of 'interaction'.",
+  "example_sentence": "We analyzed the role of interaction in our research.",
+  "synonyms": [
+   "interaction_syn1",
+   "interaction_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Layer",
+  "arabic_translation": "طبقة",
+  "english_definition": "The academic concept of 'layer'.",
+  "example_sentence": "We analyzed the role of layer in our research.",
+  "synonyms": [
+   "layer_syn1",
+   "layer_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Link",
+  "arabic_translation": "وصلة",
+  "english_definition": "The academic concept of 'link'.",
+  "example_sentence": "We analyzed the role of link in our research.",
+  "synonyms": [
+   "link_syn1",
+   "link_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Location",
+  "arabic_translation": "موقع",
+  "english_definition": "The academic concept of 'location'.",
+  "example_sentence": "We analyzed the role of location in our research.",
+  "synonyms": [
+   "location_syn1",
+   "location_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Maximum",
+  "arabic_translation": "الحد الأقصى",
+  "english_definition": "The academic concept of 'maximum'.",
+  "example_sentence": "We analyzed the role of maximum in our research.",
+  "synonyms": [
+   "maximum_syn1",
+   "maximum_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Minorities",
+  "arabic_translation": "الأقليات",
+  "english_definition": "The academic concept of 'minorities'.",
+  "example_sentence": "We analyzed the role of minorities in our research.",
+  "synonyms": [
+   "minorities_syn1",
+   "minorities_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Negative",
+  "arabic_translation": "سلبي",
+  "english_definition": "The academic concept of 'negative'.",
+  "example_sentence": "We analyzed the role of negative in our research.",
+  "synonyms": [
+   "negative_syn1",
+   "negative_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Outcomes",
+  "arabic_translation": "النتائج",
+  "english_definition": "The academic concept of 'outcomes'.",
+  "example_sentence": "We analyzed the role of outcomes in our research.",
+  "synonyms": [
+   "outcomes_syn1",
+   "outcomes_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Partnership",
+  "arabic_translation": "شراكة",
+  "english_definition": "The academic concept of 'partnership'.",
+  "example_sentence": "We analyzed the role of partnership in our research.",
+  "synonyms": [
+   "partnership_syn1",
+   "partnership_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Philosophy",
+  "arabic_translation": "فلسفة",
+  "english_definition": "The academic concept of 'philosophy'.",
+  "example_sentence": "We analyzed the role of philosophy in our research.",
+  "synonyms": [
+   "philosophy_syn1",
+   "philosophy_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Physical",
+  "arabic_translation": "بدني",
+  "english_definition": "The academic concept of 'physical'.",
+  "example_sentence": "We analyzed the role of physical in our research.",
+  "synonyms": [
+   "physical_syn1",
+   "physical_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Proportion",
+  "arabic_translation": "حَجم",
+  "english_definition": "The academic concept of 'proportion'.",
+  "example_sentence": "We analyzed the role of proportion in our research.",
+  "synonyms": [
+   "proportion_syn1",
+   "proportion_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Published",
+  "arabic_translation": "نشرت",
+  "english_definition": "The academic concept of 'published'.",
+  "example_sentence": "We analyzed the role of published in our research.",
+  "synonyms": [
+   "published_syn1",
+   "published_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Reaction",
+  "arabic_translation": "رد فعل",
+  "english_definition": "The academic concept of 'reaction'.",
+  "example_sentence": "We analyzed the role of reaction in our research.",
+  "synonyms": [
+   "reaction_syn1",
+   "reaction_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Registered",
+  "arabic_translation": "مسجل",
+  "english_definition": "The academic concept of 'registered'.",
+  "example_sentence": "We analyzed the role of registered in our research.",
+  "synonyms": [
+   "registered_syn1",
+   "registered_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Reliance",
+  "arabic_translation": "الاعتماد",
+  "english_definition": "The academic concept of 'reliance'.",
+  "example_sentence": "We analyzed the role of reliance in our research.",
+  "synonyms": [
+   "reliance_syn1",
+   "reliance_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Removed",
+  "arabic_translation": "تمت إزالته",
+  "english_definition": "The academic concept of 'removed'.",
+  "example_sentence": "We analyzed the role of removed in our research.",
+  "synonyms": [
+   "removed_syn1",
+   "removed_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Scheme",
+  "arabic_translation": "مخطط",
+  "english_definition": "The academic concept of 'scheme'.",
+  "example_sentence": "We analyzed the role of scheme in our research.",
+  "synonyms": [
+   "scheme_syn1",
+   "scheme_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Sequence",
+  "arabic_translation": "تسلسل",
+  "english_definition": "The academic concept of 'sequence'.",
+  "example_sentence": "We analyzed the role of sequence in our research.",
+  "synonyms": [
+   "sequence_syn1",
+   "sequence_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Sex",
+  "arabic_translation": "الجنس",
+  "english_definition": "The academic concept of 'sex'.",
+  "example_sentence": "We analyzed the role of sex in our research.",
+  "synonyms": [
+   "sex_syn1",
+   "sex_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Shift",
+  "arabic_translation": "يحول",
+  "english_definition": "The academic concept of 'shift'.",
+  "example_sentence": "We analyzed the role of shift in our research.",
+  "synonyms": [
+   "shift_syn1",
+   "shift_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Specified",
+  "arabic_translation": "محدد",
+  "english_definition": "The academic concept of 'specified'.",
+  "example_sentence": "We analyzed the role of specified in our research.",
+  "synonyms": [
+   "specified_syn1",
+   "specified_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Sufficient",
+  "arabic_translation": "كافٍ",
+  "english_definition": "The academic concept of 'sufficient'.",
+  "example_sentence": "We analyzed the role of sufficient in our research.",
+  "synonyms": [
+   "sufficient_syn1",
+   "sufficient_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Task",
+  "arabic_translation": "مهمة",
+  "english_definition": "The academic concept of 'task'.",
+  "example_sentence": "We analyzed the role of task in our research.",
+  "synonyms": [
+   "task_syn1",
+   "task_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Technical",
+  "arabic_translation": "اِصطِلاحِيّ",
+  "english_definition": "The academic concept of 'technical'.",
+  "example_sentence": "We analyzed the role of technical in our research.",
+  "synonyms": [
+   "technical_syn1",
+   "technical_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Techniques",
+  "arabic_translation": "التقنيات",
+  "english_definition": "The academic concept of 'techniques'.",
+  "example_sentence": "We analyzed the role of techniques in our research.",
+  "synonyms": [
+   "techniques_syn1",
+   "techniques_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Validity",
+  "arabic_translation": "صحة",
+  "english_definition": "The academic concept of 'validity'.",
+  "example_sentence": "We analyzed the role of validity in our research.",
+  "synonyms": [
+   "validity_syn1",
+   "validity_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Volume",
+  "arabic_translation": "مقدار",
+  "english_definition": "The academic concept of 'volume'.",
+  "example_sentence": "We analyzed the role of volume in our research.",
+  "synonyms": [
+   "volume_syn1",
+   "volume_syn2"
+  ],
+  "sublist": 3
+ },
+ {
+  "word": "Access",
+  "arabic_translation": "وصول",
+  "english_definition": "The academic concept of 'access'.",
+  "example_sentence": "We analyzed the role of access in our research.",
+  "synonyms": [
+   "access_syn1",
+   "access_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Adequate",
+  "arabic_translation": "مناسب",
+  "english_definition": "The academic concept of 'adequate'.",
+  "example_sentence": "We analyzed the role of adequate in our research.",
+  "synonyms": [
+   "adequate_syn1",
+   "adequate_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Annual",
+  "arabic_translation": "سنوي",
+  "english_definition": "The academic concept of 'annual'.",
+  "example_sentence": "We analyzed the role of annual in our research.",
+  "synonyms": [
+   "annual_syn1",
+   "annual_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Apparent",
+  "arabic_translation": "واضح",
+  "english_definition": "Capable of being seen, or easily seen; open to view; visible to the eye, eyely; within sight or view.",
+  "example_sentence": "We analyzed the role of apparent in our research.",
+  "synonyms": [
+   "clear",
+   "distinct",
+   "obvious"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Approximate",
+  "arabic_translation": "تقريبي",
+  "english_definition": "The academic concept of 'approximate'.",
+  "example_sentence": "We analyzed the role of approximate in our research.",
+  "synonyms": [
+   "approximate_syn1",
+   "approximate_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Attitudes",
+  "arabic_translation": "المواقف",
+  "english_definition": "The academic concept of 'attitudes'.",
+  "example_sentence": "We analyzed the role of attitudes in our research.",
+  "synonyms": [
+   "attitudes_syn1",
+   "attitudes_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Attributed",
+  "arabic_translation": "المنسوب",
+  "english_definition": "The academic concept of 'attributed'.",
+  "example_sentence": "We analyzed the role of attributed in our research.",
+  "synonyms": [
+   "attributed_syn1",
+   "attributed_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Civil",
+  "arabic_translation": "مدني",
+  "english_definition": "The academic concept of 'civil'.",
+  "example_sentence": "We analyzed the role of civil in our research.",
+  "synonyms": [
+   "civil_syn1",
+   "civil_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Code",
+  "arabic_translation": "شفرة",
+  "english_definition": "A short symbol, often with little relation to the item it represents.",
+  "example_sentence": "coding in the CT scanner",
+  "synonyms": [
+   "code_syn1",
+   "code_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Commitment",
+  "arabic_translation": "التزام",
+  "english_definition": "The act or an instance of committing, putting in charge, keeping, or trust, especially:",
+  "example_sentence": "We analyzed the role of commitment in our research.",
+  "synonyms": [
+   "allegiance",
+   "charge",
+   "committal"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Communication",
+  "arabic_translation": "تواصل",
+  "english_definition": "The act or fact of communicating anything; transmission.",
+  "example_sentence": "A round archway at the far end of the hallway provided communication to the main chamber.",
+  "synonyms": [
+   "communication_syn1",
+   "communication_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Conference",
+  "arabic_translation": "مؤتمر",
+  "english_definition": "The act of consulting together formally; serious conversation or discussion; interchange of views.",
+  "example_sentence": "We analyzed the role of conference in our research.",
+  "synonyms": [
+   "conference_syn1",
+   "conference_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Contrast",
+  "arabic_translation": "مقابلة",
+  "english_definition": "A difference in lightness, brightness and/or hue between two colours that makes them more or less distinguishable.",
+  "example_sentence": "Foreground and background strongly contrast.",
+  "synonyms": [
+   "contrast_syn1",
+   "contrast_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Cycle",
+  "arabic_translation": "دورة",
+  "english_definition": "An interval of space or time in which one set of events or phenomena is completed.",
+  "example_sentence": "They have their cycling game going tonight.",
+  "synonyms": [
+   "cycle_syn1",
+   "cycle_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Debate",
+  "arabic_translation": "مناظرة",
+  "english_definition": "An argument, or discussion, usually in an ordered or formal setting, often with more than two people, generally ending with a vote or other decision.",
+  "example_sentence": "He was debating where he'd spend his holiday.",
+  "synonyms": [
+   "debate_syn1",
+   "debate_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Despite",
+  "arabic_translation": "بالرغم من",
+  "english_definition": "Disdain, contemptuous feelings, hatred.",
+  "example_sentence": "We analyzed the role of despite in our research.",
+  "synonyms": [
+   "in spite of",
+   "maugre"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Dimensions",
+  "arabic_translation": "أبعاد",
+  "english_definition": "A single aspect of a given thing.",
+  "example_sentence": "The dimension of velocity is length divided by time.",
+  "synonyms": [
+   "aspect",
+   "attribute",
+   "property"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Domestic",
+  "arabic_translation": "محلي",
+  "english_definition": "A house servant; a maid; a household worker.",
+  "example_sentence": "domestic violence;  domestic hot water",
+  "synonyms": [
+   "domesticated",
+   "bourgeois",
+   "civilized"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Emerged",
+  "arabic_translation": "ظهرت",
+  "english_definition": "To come into view.",
+  "example_sentence": "Gradually the truth emerged.",
+  "synonyms": [
+   "come forth",
+   "forthcome",
+   "heave in sight"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Error",
+  "arabic_translation": "خطأ",
+  "english_definition": "The state, quality, or condition of being wrong.",
+  "example_sentence": "The block transmission errored near the start and could not be received.",
+  "synonyms": [
+   "blooper",
+   "blunder",
+   "boo-boo"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Ethnic",
+  "arabic_translation": "عرقي",
+  "english_definition": "The academic concept of 'ethnic'.",
+  "example_sentence": "We analyzed the role of ethnic in our research.",
+  "synonyms": [
+   "ethnic_syn1",
+   "ethnic_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Goals",
+  "arabic_translation": "الأهداف",
+  "english_definition": "The academic concept of 'goals'.",
+  "example_sentence": "We analyzed the role of goals in our research.",
+  "synonyms": [
+   "goals_syn1",
+   "goals_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Granted",
+  "arabic_translation": "ممنوح",
+  "english_definition": "The academic concept of 'granted'.",
+  "example_sentence": "We analyzed the role of granted in our research.",
+  "synonyms": [
+   "granted_syn1",
+   "granted_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Hence",
+  "arabic_translation": "لذلك",
+  "english_definition": "The academic concept of 'hence'.",
+  "example_sentence": "We analyzed the role of hence in our research.",
+  "synonyms": [
+   "hence_syn1",
+   "hence_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Hypothesis",
+  "arabic_translation": "فرضية",
+  "english_definition": "The academic concept of 'hypothesis'.",
+  "example_sentence": "We analyzed the role of hypothesis in our research.",
+  "synonyms": [
+   "hypothesis_syn1",
+   "hypothesis_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Implementation",
+  "arabic_translation": "تطبيق",
+  "english_definition": "The academic concept of 'implementation'.",
+  "example_sentence": "We analyzed the role of implementation in our research.",
+  "synonyms": [
+   "implementation_syn1",
+   "implementation_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Implications",
+  "arabic_translation": "تداعيات",
+  "english_definition": "The academic concept of 'implications'.",
+  "example_sentence": "We analyzed the role of implications in our research.",
+  "synonyms": [
+   "implications_syn1",
+   "implications_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Imposed",
+  "arabic_translation": "فرضت",
+  "english_definition": "The academic concept of 'imposed'.",
+  "example_sentence": "We analyzed the role of imposed in our research.",
+  "synonyms": [
+   "imposed_syn1",
+   "imposed_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Integration",
+  "arabic_translation": "اندماج",
+  "english_definition": "The academic concept of 'integration'.",
+  "example_sentence": "We analyzed the role of integration in our research.",
+  "synonyms": [
+   "integration_syn1",
+   "integration_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Internal",
+  "arabic_translation": "داخلي",
+  "english_definition": "The academic concept of 'internal'.",
+  "example_sentence": "We analyzed the role of internal in our research.",
+  "synonyms": [
+   "internal_syn1",
+   "internal_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Investigation",
+  "arabic_translation": "تحقيق",
+  "english_definition": "The academic concept of 'investigation'.",
+  "example_sentence": "We analyzed the role of investigation in our research.",
+  "synonyms": [
+   "investigation_syn1",
+   "investigation_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Job",
+  "arabic_translation": "وظيفة",
+  "english_definition": "The academic concept of 'job'.",
+  "example_sentence": "We analyzed the role of job in our research.",
+  "synonyms": [
+   "job_syn1",
+   "job_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Label",
+  "arabic_translation": "ملصق",
+  "english_definition": "The academic concept of 'label'.",
+  "example_sentence": "We analyzed the role of label in our research.",
+  "synonyms": [
+   "label_syn1",
+   "label_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Mechanism",
+  "arabic_translation": "آلية",
+  "english_definition": "The academic concept of 'mechanism'.",
+  "example_sentence": "We analyzed the role of mechanism in our research.",
+  "synonyms": [
+   "mechanism_syn1",
+   "mechanism_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Obvious",
+  "arabic_translation": "بديهي",
+  "english_definition": "The academic concept of 'obvious'.",
+  "example_sentence": "We analyzed the role of obvious in our research.",
+  "synonyms": [
+   "obvious_syn1",
+   "obvious_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Occupational",
+  "arabic_translation": "المهنية",
+  "english_definition": "The academic concept of 'occupational'.",
+  "example_sentence": "We analyzed the role of occupational in our research.",
+  "synonyms": [
+   "occupational_syn1",
+   "occupational_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Option",
+  "arabic_translation": "خيار",
+  "english_definition": "The academic concept of 'option'.",
+  "example_sentence": "We analyzed the role of option in our research.",
+  "synonyms": [
+   "option_syn1",
+   "option_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Output",
+  "arabic_translation": "الإخراج",
+  "english_definition": "The academic concept of 'output'.",
+  "example_sentence": "We analyzed the role of output in our research.",
+  "synonyms": [
+   "output_syn1",
+   "output_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Overall",
+  "arabic_translation": "إجمالي",
+  "english_definition": "The academic concept of 'overall'.",
+  "example_sentence": "We analyzed the role of overall in our research.",
+  "synonyms": [
+   "overall_syn1",
+   "overall_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Parallel",
+  "arabic_translation": "موازي",
+  "english_definition": "The academic concept of 'parallel'.",
+  "example_sentence": "We analyzed the role of parallel in our research.",
+  "synonyms": [
+   "parallel_syn1",
+   "parallel_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Parameters",
+  "arabic_translation": "حدود",
+  "english_definition": "The academic concept of 'parameters'.",
+  "example_sentence": "We analyzed the role of parameters in our research.",
+  "synonyms": [
+   "parameters_syn1",
+   "parameters_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Phase",
+  "arabic_translation": "مرحلة",
+  "english_definition": "The academic concept of 'phase'.",
+  "example_sentence": "We analyzed the role of phase in our research.",
+  "synonyms": [
+   "phase_syn1",
+   "phase_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Predicted",
+  "arabic_translation": "توقع",
+  "english_definition": "The academic concept of 'predicted'.",
+  "example_sentence": "We analyzed the role of predicted in our research.",
+  "synonyms": [
+   "predicted_syn1",
+   "predicted_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Principal",
+  "arabic_translation": "رئيسي",
+  "english_definition": "The academic concept of 'principal'.",
+  "example_sentence": "We analyzed the role of principal in our research.",
+  "synonyms": [
+   "principal_syn1",
+   "principal_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Prior",
+  "arabic_translation": "قبل",
+  "english_definition": "The academic concept of 'prior'.",
+  "example_sentence": "We analyzed the role of prior in our research.",
+  "synonyms": [
+   "prior_syn1",
+   "prior_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Professional",
+  "arabic_translation": "احترافي",
+  "english_definition": "The academic concept of 'professional'.",
+  "example_sentence": "We analyzed the role of professional in our research.",
+  "synonyms": [
+   "professional_syn1",
+   "professional_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Project",
+  "arabic_translation": "مشروع",
+  "english_definition": "The academic concept of 'project'.",
+  "example_sentence": "We analyzed the role of project in our research.",
+  "synonyms": [
+   "project_syn1",
+   "project_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Promote",
+  "arabic_translation": "يرقي",
+  "english_definition": "The academic concept of 'promote'.",
+  "example_sentence": "We analyzed the role of promote in our research.",
+  "synonyms": [
+   "promote_syn1",
+   "promote_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Regime",
+  "arabic_translation": "النظام",
+  "english_definition": "The academic concept of 'regime'.",
+  "example_sentence": "We analyzed the role of regime in our research.",
+  "synonyms": [
+   "regime_syn1",
+   "regime_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Resolution",
+  "arabic_translation": "دقة",
+  "english_definition": "The academic concept of 'resolution'.",
+  "example_sentence": "We analyzed the role of resolution in our research.",
+  "synonyms": [
+   "resolution_syn1",
+   "resolution_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Retained",
+  "arabic_translation": "احتفظ بها",
+  "english_definition": "The academic concept of 'retained'.",
+  "example_sentence": "We analyzed the role of retained in our research.",
+  "synonyms": [
+   "retained_syn1",
+   "retained_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Series",
+  "arabic_translation": "مسلسل",
+  "english_definition": "The academic concept of 'series'.",
+  "example_sentence": "We analyzed the role of series in our research.",
+  "synonyms": [
+   "series_syn1",
+   "series_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Statistics",
+  "arabic_translation": "إحصائيات",
+  "english_definition": "The academic concept of 'statistics'.",
+  "example_sentence": "We analyzed the role of statistics in our research.",
+  "synonyms": [
+   "statistics_syn1",
+   "statistics_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Status",
+  "arabic_translation": "حالة",
+  "english_definition": "The academic concept of 'status'.",
+  "example_sentence": "We analyzed the role of status in our research.",
+  "synonyms": [
+   "status_syn1",
+   "status_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Stress",
+  "arabic_translation": "ضغط",
+  "english_definition": "The academic concept of 'stress'.",
+  "example_sentence": "We analyzed the role of stress in our research.",
+  "synonyms": [
+   "stress_syn1",
+   "stress_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Subsequent",
+  "arabic_translation": "تالي",
+  "english_definition": "The academic concept of 'subsequent'.",
+  "example_sentence": "We analyzed the role of subsequent in our research.",
+  "synonyms": [
+   "subsequent_syn1",
+   "subsequent_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Sum",
+  "arabic_translation": "مجموع",
+  "english_definition": "The academic concept of 'sum'.",
+  "example_sentence": "We analyzed the role of sum in our research.",
+  "synonyms": [
+   "sum_syn1",
+   "sum_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Summary",
+  "arabic_translation": "ملخص",
+  "english_definition": "The academic concept of 'summary'.",
+  "example_sentence": "We analyzed the role of summary in our research.",
+  "synonyms": [
+   "summary_syn1",
+   "summary_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Undertaken",
+  "arabic_translation": "تم القيام بها",
+  "english_definition": "The academic concept of 'undertaken'.",
+  "example_sentence": "We analyzed the role of undertaken in our research.",
+  "synonyms": [
+   "undertaken_syn1",
+   "undertaken_syn2"
+  ],
+  "sublist": 4
+ },
+ {
+  "word": "Academic",
+  "arabic_translation": "أكاديمي",
+  "english_definition": "The academic concept of 'academic'.",
+  "example_sentence": "We analyzed the role of academic in our research.",
+  "synonyms": [
+   "academic_syn1",
+   "academic_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Adjustment",
+  "arabic_translation": "تعديل",
+  "english_definition": "The academic concept of 'adjustment'.",
+  "example_sentence": "We analyzed the role of adjustment in our research.",
+  "synonyms": [
+   "adjustment_syn1",
+   "adjustment_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Alter",
+  "arabic_translation": "تغيير",
+  "english_definition": "The academic concept of 'alter'.",
+  "example_sentence": "We analyzed the role of alter in our research.",
+  "synonyms": [
+   "alter_syn1",
+   "alter_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Amendment",
+  "arabic_translation": "تعديل",
+  "english_definition": "The academic concept of 'amendment'.",
+  "example_sentence": "We analyzed the role of amendment in our research.",
+  "synonyms": [
+   "amendment_syn1",
+   "amendment_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Aware",
+  "arabic_translation": "واعي",
+  "english_definition": "The academic concept of 'aware'.",
+  "example_sentence": "We analyzed the role of aware in our research.",
+  "synonyms": [
+   "aware_syn1",
+   "aware_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Capacity",
+  "arabic_translation": "سعة",
+  "english_definition": "The academic concept of 'capacity'.",
+  "example_sentence": "We analyzed the role of capacity in our research.",
+  "synonyms": [
+   "capacity_syn1",
+   "capacity_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Challenge",
+  "arabic_translation": "تحدي",
+  "english_definition": "The academic concept of 'challenge'.",
+  "example_sentence": "We analyzed the role of challenge in our research.",
+  "synonyms": [
+   "challenge_syn1",
+   "challenge_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Clause",
+  "arabic_translation": "بند",
+  "english_definition": "The academic concept of 'clause'.",
+  "example_sentence": "We analyzed the role of clause in our research.",
+  "synonyms": [
+   "clause_syn1",
+   "clause_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Compounds",
+  "arabic_translation": "مركبات",
+  "english_definition": "The academic concept of 'compounds'.",
+  "example_sentence": "We analyzed the role of compounds in our research.",
+  "synonyms": [
+   "compounds_syn1",
+   "compounds_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Conflict",
+  "arabic_translation": "صراع",
+  "english_definition": "The academic concept of 'conflict'.",
+  "example_sentence": "We analyzed the role of conflict in our research.",
+  "synonyms": [
+   "conflict_syn1",
+   "conflict_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Consultation",
+  "arabic_translation": "التشاور",
+  "english_definition": "The academic concept of 'consultation'.",
+  "example_sentence": "We analyzed the role of consultation in our research.",
+  "synonyms": [
+   "consultation_syn1",
+   "consultation_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Contact",
+  "arabic_translation": "اتصال",
+  "english_definition": "The academic concept of 'contact'.",
+  "example_sentence": "We analyzed the role of contact in our research.",
+  "synonyms": [
+   "contact_syn1",
+   "contact_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Decline",
+  "arabic_translation": "انخفاض",
+  "english_definition": "The academic concept of 'decline'.",
+  "example_sentence": "We analyzed the role of decline in our research.",
+  "synonyms": [
+   "decline_syn1",
+   "decline_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Discretion",
+  "arabic_translation": "تقدير",
+  "english_definition": "The academic concept of 'discretion'.",
+  "example_sentence": "We analyzed the role of discretion in our research.",
+  "synonyms": [
+   "discretion_syn1",
+   "discretion_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Draft",
+  "arabic_translation": "مسودة",
+  "english_definition": "The academic concept of 'draft'.",
+  "example_sentence": "We analyzed the role of draft in our research.",
+  "synonyms": [
+   "draft_syn1",
+   "draft_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Enable",
+  "arabic_translation": "يُمكَِن",
+  "english_definition": "The academic concept of 'enable'.",
+  "example_sentence": "We analyzed the role of enable in our research.",
+  "synonyms": [
+   "enable_syn1",
+   "enable_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Energy",
+  "arabic_translation": "طاقة",
+  "english_definition": "The academic concept of 'energy'.",
+  "example_sentence": "We analyzed the role of energy in our research.",
+  "synonyms": [
+   "energy_syn1",
+   "energy_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Enforcement",
+  "arabic_translation": "الإنفاذ",
+  "english_definition": "The academic concept of 'enforcement'.",
+  "example_sentence": "We analyzed the role of enforcement in our research.",
+  "synonyms": [
+   "enforcement_syn1",
+   "enforcement_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Entities",
+  "arabic_translation": "الكيانات",
+  "english_definition": "The academic concept of 'entities'.",
+  "example_sentence": "We analyzed the role of entities in our research.",
+  "synonyms": [
+   "entities_syn1",
+   "entities_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Equivalent",
+  "arabic_translation": "مقابل",
+  "english_definition": "The academic concept of 'equivalent'.",
+  "example_sentence": "We analyzed the role of equivalent in our research.",
+  "synonyms": [
+   "equivalent_syn1",
+   "equivalent_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Evolution",
+  "arabic_translation": "تطور",
+  "english_definition": "The academic concept of 'evolution'.",
+  "example_sentence": "We analyzed the role of evolution in our research.",
+  "synonyms": [
+   "evolution_syn1",
+   "evolution_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Exposure",
+  "arabic_translation": "التعرض",
+  "english_definition": "The academic concept of 'exposure'.",
+  "example_sentence": "We analyzed the role of exposure in our research.",
+  "synonyms": [
+   "exposure_syn1",
+   "exposure_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "External",
+  "arabic_translation": "خارجي",
+  "english_definition": "The academic concept of 'external'.",
+  "example_sentence": "We analyzed the role of external in our research.",
+  "synonyms": [
+   "external_syn1",
+   "external_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Facilitate",
+  "arabic_translation": "يسهل",
+  "english_definition": "The academic concept of 'facilitate'.",
+  "example_sentence": "We analyzed the role of facilitate in our research.",
+  "synonyms": [
+   "facilitate_syn1",
+   "facilitate_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Fundamental",
+  "arabic_translation": "أساسي",
+  "english_definition": "The academic concept of 'fundamental'.",
+  "example_sentence": "We analyzed the role of fundamental in our research.",
+  "synonyms": [
+   "fundamental_syn1",
+   "fundamental_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Generated",
+  "arabic_translation": "ولدت",
+  "english_definition": "The academic concept of 'generated'.",
+  "example_sentence": "We analyzed the role of generated in our research.",
+  "synonyms": [
+   "generated_syn1",
+   "generated_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Generation",
+  "arabic_translation": "جيل",
+  "english_definition": "The academic concept of 'generation'.",
+  "example_sentence": "We analyzed the role of generation in our research.",
+  "synonyms": [
+   "generation_syn1",
+   "generation_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Image",
+  "arabic_translation": "صورة",
+  "english_definition": "The academic concept of 'image'.",
+  "example_sentence": "We analyzed the role of image in our research.",
+  "synonyms": [
+   "image_syn1",
+   "image_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Liberal",
+  "arabic_translation": "ليبرالي",
+  "english_definition": "The academic concept of 'liberal'.",
+  "example_sentence": "We analyzed the role of liberal in our research.",
+  "synonyms": [
+   "liberal_syn1",
+   "liberal_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Licence",
+  "arabic_translation": "رخصة",
+  "english_definition": "The academic concept of 'licence'.",
+  "example_sentence": "We analyzed the role of licence in our research.",
+  "synonyms": [
+   "licence_syn1",
+   "licence_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Logic",
+  "arabic_translation": "منطق",
+  "english_definition": "The academic concept of 'logic'.",
+  "example_sentence": "We analyzed the role of logic in our research.",
+  "synonyms": [
+   "logic_syn1",
+   "logic_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Marginal",
+  "arabic_translation": "هامشية",
+  "english_definition": "The academic concept of 'marginal'.",
+  "example_sentence": "We analyzed the role of marginal in our research.",
+  "synonyms": [
+   "marginal_syn1",
+   "marginal_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Medical",
+  "arabic_translation": "طبي",
+  "english_definition": "The academic concept of 'medical'.",
+  "example_sentence": "We analyzed the role of medical in our research.",
+  "synonyms": [
+   "medical_syn1",
+   "medical_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Mental",
+  "arabic_translation": "عقلي",
+  "english_definition": "The academic concept of 'mental'.",
+  "example_sentence": "We analyzed the role of mental in our research.",
+  "synonyms": [
+   "mental_syn1",
+   "mental_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Modified",
+  "arabic_translation": "معدل",
+  "english_definition": "The academic concept of 'modified'.",
+  "example_sentence": "We analyzed the role of modified in our research.",
+  "synonyms": [
+   "modified_syn1",
+   "modified_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Monitoring",
+  "arabic_translation": "يراقب",
+  "english_definition": "The academic concept of 'monitoring'.",
+  "example_sentence": "We analyzed the role of monitoring in our research.",
+  "synonyms": [
+   "monitoring_syn1",
+   "monitoring_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Network",
+  "arabic_translation": "شبكة",
+  "english_definition": "The academic concept of 'network'.",
+  "example_sentence": "We analyzed the role of network in our research.",
+  "synonyms": [
+   "network_syn1",
+   "network_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Notion",
+  "arabic_translation": "فكرة",
+  "english_definition": "The academic concept of 'notion'.",
+  "example_sentence": "We analyzed the role of notion in our research.",
+  "synonyms": [
+   "notion_syn1",
+   "notion_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Objective",
+  "arabic_translation": "موضوعي",
+  "english_definition": "The academic concept of 'objective'.",
+  "example_sentence": "We analyzed the role of objective in our research.",
+  "synonyms": [
+   "objective_syn1",
+   "objective_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Orientation",
+  "arabic_translation": "توجيه",
+  "english_definition": "The academic concept of 'orientation'.",
+  "example_sentence": "We analyzed the role of orientation in our research.",
+  "synonyms": [
+   "orientation_syn1",
+   "orientation_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Perspective",
+  "arabic_translation": "وجهة نظر",
+  "english_definition": "The academic concept of 'perspective'.",
+  "example_sentence": "We analyzed the role of perspective in our research.",
+  "synonyms": [
+   "perspective_syn1",
+   "perspective_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Precise",
+  "arabic_translation": "دقيق",
+  "english_definition": "(NNES or European Union documents) To make or render precise; to specify.",
+  "example_sentence": "We analyzed the role of precise in our research.",
+  "synonyms": [
+   "precise_syn1",
+   "precise_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Prime",
+  "arabic_translation": "رئيس الوزراء",
+  "english_definition": "The first hour of daylight; the first canonical hour.",
+  "example_sentence": "Thirteen is a prime number.",
+  "synonyms": [
+   "prime number",
+   "choice",
+   "prize"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Psychology",
+  "arabic_translation": "علم النفس",
+  "english_definition": "The study of the human mind.",
+  "example_sentence": "We analyzed the role of psychology in our research.",
+  "synonyms": [
+   "psychology_syn1",
+   "psychology_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Pursue",
+  "arabic_translation": "يتحرى",
+  "english_definition": "To follow urgently, originally with intent to capture or harm; to chase.",
+  "example_sentence": "Her rival pursued a quite different course.",
+  "synonyms": [
+   "pursue_syn1",
+   "pursue_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Ratio",
+  "arabic_translation": "نسبة",
+  "english_definition": "A number representing a comparison between two named things.",
+  "example_sentence": "The schoolchildren ganged up to ratio the school catering over its shamefully undemocratic inclusion of vegetables in meals.",
+  "synonyms": [
+   "ratio_syn1",
+   "ratio_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Rejected",
+  "arabic_translation": "مرفوض",
+  "english_definition": "To refuse to accept.",
+  "example_sentence": "I've been rejected three times this week.",
+  "synonyms": [
+   "abjure",
+   "abnegate",
+   "decline"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Revenue",
+  "arabic_translation": "ربح",
+  "english_definition": "The income returned by an investment.",
+  "example_sentence": "We analyzed the role of revenue in our research.",
+  "synonyms": [
+   "net sales",
+   "turnover"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Stability",
+  "arabic_translation": "استقرار",
+  "english_definition": "The condition of being stable or in equilibrium, and thus resistant to change.",
+  "example_sentence": "We analyzed the role of stability in our research.",
+  "synonyms": [
+   "stability_syn1",
+   "stability_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Styles",
+  "arabic_translation": "الأنماط",
+  "english_definition": "Senses relating to a thin, pointed object.",
+  "example_sentence": "We analyzed the role of styles in our research.",
+  "synonyms": [
+   "designate",
+   "dub",
+   "name"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Substitution",
+  "arabic_translation": "الاستبدال",
+  "english_definition": "The act of substituting or the state of being substituted.",
+  "example_sentence": "We analyzed the role of substitution in our research.",
+  "synonyms": [
+   "substitution_syn1",
+   "substitution_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Sustainable",
+  "arabic_translation": "مستمر",
+  "english_definition": "Able to be sustained.",
+  "example_sentence": "We analyzed the role of sustainable in our research.",
+  "synonyms": [
+   "sustainable_syn1",
+   "sustainable_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Symbolic",
+  "arabic_translation": "رمزي",
+  "english_definition": "Pertaining to a symbol.",
+  "example_sentence": "a symbolic gesture",
+  "synonyms": [
+   "symbolic_syn1",
+   "symbolic_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Target",
+  "arabic_translation": "هدف",
+  "english_definition": "A butt or mark to shoot at, as for practice, or to test the accuracy of a firearm, or the force of a projectile.",
+  "example_sentence": "This cross-platform compiler can target any of several processors.",
+  "synonyms": [
+   "target language"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Transition",
+  "arabic_translation": "انتقال",
+  "english_definition": "The process of change from one form, state, style or place to another.",
+  "example_sentence": "The soldier was transitioned from a combat role to a strategic role.",
+  "synonyms": [
+   "transition_syn1",
+   "transition_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Trend",
+  "arabic_translation": "اتجاه",
+  "english_definition": "An inclination in a particular direction.",
+  "example_sentence": "What topics have been trending on social networks this week?",
+  "synonyms": [
+   "trend_syn1",
+   "trend_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Version",
+  "arabic_translation": "إصدار",
+  "english_definition": "A specific form or variation of something.",
+  "example_sentence": "External cephalic version is a process by which a breech baby can sometimes be turned from buttocks or foot first to head first.",
+  "synonyms": [
+   "ver",
+   "ver."
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Whereas",
+  "arabic_translation": "بينما",
+  "english_definition": "A clause, as in legal documents, stating whereas.",
+  "example_sentence": "He came first in the race, whereas his brother came last.",
+  "synonyms": [
+   "whereas_syn1",
+   "whereas_syn2"
+  ],
+  "sublist": 5
+ },
+ {
+  "word": "Abstract",
+  "arabic_translation": "خلاصة",
+  "english_definition": "An abridgement or summary of a longer publication.",
+  "example_sentence": "He abstracted out the square root function.",
+  "synonyms": [
+   "abridgment",
+   "compendium",
+   "epitome"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Accurate",
+  "arabic_translation": "دقيق",
+  "english_definition": "Telling the truth or giving a true result; exact; not defective or faulty",
+  "example_sentence": "My horoscopes I read last week were surprisingly accurate.",
+  "synonyms": [
+   "correct",
+   "exact",
+   "just"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Acknowledged",
+  "arabic_translation": "اعترف",
+  "english_definition": "To admit the knowledge of; to recognize as a fact or truth; to declare one's belief in",
+  "example_sentence": "This is to acknowledge your kind invitation to participate in the upcoming debate.",
+  "synonyms": [
+   "admit",
+   "allow",
+   "avow"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Aggregate",
+  "arabic_translation": "إجمالي",
+  "english_definition": "A mass, assemblage, or sum of particulars; something consisting of elements but considered as a whole.",
+  "example_sentence": "aggregate glands",
+  "synonyms": [
+   "skandha",
+   "cluster"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Allocation",
+  "arabic_translation": "توزيع",
+  "english_definition": "The process or procedure for allocating things, especially money or other resources.",
+  "example_sentence": "The allocation of new permits is on a first-come, first-served basis.",
+  "synonyms": [
+   "allocation_syn1",
+   "allocation_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Assigned",
+  "arabic_translation": "مُكَلَّف",
+  "english_definition": "To designate or set apart something for some purpose.",
+  "example_sentence": "We assign 100 to x.",
+  "synonyms": [
+   "allocate",
+   "earmark",
+   "consign"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Attached",
+  "arabic_translation": "مُرفَق",
+  "english_definition": "To fasten, to join to (literally and figuratively).",
+  "example_sentence": "In this group of mushrooms, the attachment of the gills to the stipe ranges from attached to almost decurrent.",
+  "synonyms": [
+   "affix",
+   "annex",
+   "connect"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Author",
+  "arabic_translation": "مؤلف",
+  "english_definition": "The academic concept of 'author'.",
+  "example_sentence": "We analyzed the role of author in our research.",
+  "synonyms": [
+   "author_syn1",
+   "author_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Bond",
+  "arabic_translation": "رابطة",
+  "english_definition": "The academic concept of 'bond'.",
+  "example_sentence": "We analyzed the role of bond in our research.",
+  "synonyms": [
+   "bond_syn1",
+   "bond_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Brief",
+  "arabic_translation": "مختصر",
+  "english_definition": "The academic concept of 'brief'.",
+  "example_sentence": "We analyzed the role of brief in our research.",
+  "synonyms": [
+   "brief_syn1",
+   "brief_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Capable",
+  "arabic_translation": "قادر",
+  "english_definition": "The academic concept of 'capable'.",
+  "example_sentence": "We analyzed the role of capable in our research.",
+  "synonyms": [
+   "capable_syn1",
+   "capable_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Cited",
+  "arabic_translation": "استشهد",
+  "english_definition": "The academic concept of 'cited'.",
+  "example_sentence": "We analyzed the role of cited in our research.",
+  "synonyms": [
+   "cited_syn1",
+   "cited_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Cooperative",
+  "arabic_translation": "تعاونية",
+  "english_definition": "The academic concept of 'cooperative'.",
+  "example_sentence": "We analyzed the role of cooperative in our research.",
+  "synonyms": [
+   "cooperative_syn1",
+   "cooperative_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Discrimination",
+  "arabic_translation": "تمييز",
+  "english_definition": "The academic concept of 'discrimination'.",
+  "example_sentence": "We analyzed the role of discrimination in our research.",
+  "synonyms": [
+   "discrimination_syn1",
+   "discrimination_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Display",
+  "arabic_translation": "عرض",
+  "english_definition": "The academic concept of 'display'.",
+  "example_sentence": "We analyzed the role of display in our research.",
+  "synonyms": [
+   "display_syn1",
+   "display_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Diversity",
+  "arabic_translation": "تنوع",
+  "english_definition": "The academic concept of 'diversity'.",
+  "example_sentence": "We analyzed the role of diversity in our research.",
+  "synonyms": [
+   "diversity_syn1",
+   "diversity_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Domain",
+  "arabic_translation": "اِختِصاص",
+  "english_definition": "The academic concept of 'domain'.",
+  "example_sentence": "We analyzed the role of domain in our research.",
+  "synonyms": [
+   "domain_syn1",
+   "domain_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Edition",
+  "arabic_translation": "طبعة",
+  "english_definition": "The academic concept of 'edition'.",
+  "example_sentence": "We analyzed the role of edition in our research.",
+  "synonyms": [
+   "edition_syn1",
+   "edition_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Enhanced",
+  "arabic_translation": "معززة",
+  "english_definition": "The academic concept of 'enhanced'.",
+  "example_sentence": "We analyzed the role of enhanced in our research.",
+  "synonyms": [
+   "enhanced_syn1",
+   "enhanced_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Estate",
+  "arabic_translation": "العقارات",
+  "english_definition": "The academic concept of 'estate'.",
+  "example_sentence": "We analyzed the role of estate in our research.",
+  "synonyms": [
+   "estate_syn1",
+   "estate_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Exceed",
+  "arabic_translation": "يزيد عن",
+  "english_definition": "The academic concept of 'exceed'.",
+  "example_sentence": "We analyzed the role of exceed in our research.",
+  "synonyms": [
+   "exceed_syn1",
+   "exceed_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Expert",
+  "arabic_translation": "خبير",
+  "english_definition": "The academic concept of 'expert'.",
+  "example_sentence": "We analyzed the role of expert in our research.",
+  "synonyms": [
+   "expert_syn1",
+   "expert_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Explicit",
+  "arabic_translation": "صريحة",
+  "english_definition": "The academic concept of 'explicit'.",
+  "example_sentence": "We analyzed the role of explicit in our research.",
+  "synonyms": [
+   "explicit_syn1",
+   "explicit_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Federal",
+  "arabic_translation": "الفيدرالية",
+  "english_definition": "The academic concept of 'federal'.",
+  "example_sentence": "We analyzed the role of federal in our research.",
+  "synonyms": [
+   "federal_syn1",
+   "federal_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Fees",
+  "arabic_translation": "مصاريف",
+  "english_definition": "The academic concept of 'fees'.",
+  "example_sentence": "We analyzed the role of fees in our research.",
+  "synonyms": [
+   "fees_syn1",
+   "fees_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Flexibility",
+  "arabic_translation": "المرونة",
+  "english_definition": "The academic concept of 'flexibility'.",
+  "example_sentence": "We analyzed the role of flexibility in our research.",
+  "synonyms": [
+   "flexibility_syn1",
+   "flexibility_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Furthermore",
+  "arabic_translation": "بالإضافة إلى",
+  "english_definition": "The academic concept of 'furthermore'.",
+  "example_sentence": "We analyzed the role of furthermore in our research.",
+  "synonyms": [
+   "furthermore_syn1",
+   "furthermore_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Gender",
+  "arabic_translation": "جنس",
+  "english_definition": "The academic concept of 'gender'.",
+  "example_sentence": "We analyzed the role of gender in our research.",
+  "synonyms": [
+   "gender_syn1",
+   "gender_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Ignored",
+  "arabic_translation": "تم تجاهله",
+  "english_definition": "The academic concept of 'ignored'.",
+  "example_sentence": "We analyzed the role of ignored in our research.",
+  "synonyms": [
+   "ignored_syn1",
+   "ignored_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Incentive",
+  "arabic_translation": "حافز",
+  "english_definition": "The academic concept of 'incentive'.",
+  "example_sentence": "We analyzed the role of incentive in our research.",
+  "synonyms": [
+   "incentive_syn1",
+   "incentive_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Incidence",
+  "arabic_translation": "حدوث",
+  "english_definition": "The academic concept of 'incidence'.",
+  "example_sentence": "We analyzed the role of incidence in our research.",
+  "synonyms": [
+   "incidence_syn1",
+   "incidence_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Incorporated",
+  "arabic_translation": "إدماج",
+  "english_definition": "The academic concept of 'incorporated'.",
+  "example_sentence": "We analyzed the role of incorporated in our research.",
+  "synonyms": [
+   "incorporated_syn1",
+   "incorporated_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Index",
+  "arabic_translation": "فِهرِس",
+  "english_definition": "The academic concept of 'index'.",
+  "example_sentence": "We analyzed the role of index in our research.",
+  "synonyms": [
+   "index_syn1",
+   "index_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Inhibition",
+  "arabic_translation": "تثبيط",
+  "english_definition": "The academic concept of 'inhibition'.",
+  "example_sentence": "We analyzed the role of inhibition in our research.",
+  "synonyms": [
+   "inhibition_syn1",
+   "inhibition_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Initiatives",
+  "arabic_translation": "المبادرات",
+  "english_definition": "The academic concept of 'initiatives'.",
+  "example_sentence": "We analyzed the role of initiatives in our research.",
+  "synonyms": [
+   "initiatives_syn1",
+   "initiatives_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Input",
+  "arabic_translation": "مدخل",
+  "english_definition": "The academic concept of 'input'.",
+  "example_sentence": "We analyzed the role of input in our research.",
+  "synonyms": [
+   "input_syn1",
+   "input_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Instructions",
+  "arabic_translation": "تعليمات",
+  "english_definition": "The academic concept of 'instructions'.",
+  "example_sentence": "We analyzed the role of instructions in our research.",
+  "synonyms": [
+   "instructions_syn1",
+   "instructions_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Intelligence",
+  "arabic_translation": "ذكاء",
+  "english_definition": "The academic concept of 'intelligence'.",
+  "example_sentence": "We analyzed the role of intelligence in our research.",
+  "synonyms": [
+   "intelligence_syn1",
+   "intelligence_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Interval",
+  "arabic_translation": "فاصلة",
+  "english_definition": "The academic concept of 'interval'.",
+  "example_sentence": "We analyzed the role of interval in our research.",
+  "synonyms": [
+   "interval_syn1",
+   "interval_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Lecture",
+  "arabic_translation": "محاضرة",
+  "english_definition": "The academic concept of 'lecture'.",
+  "example_sentence": "We analyzed the role of lecture in our research.",
+  "synonyms": [
+   "lecture_syn1",
+   "lecture_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Migration",
+  "arabic_translation": "الهجرة",
+  "english_definition": "The academic concept of 'migration'.",
+  "example_sentence": "We analyzed the role of migration in our research.",
+  "synonyms": [
+   "migration_syn1",
+   "migration_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Minimum",
+  "arabic_translation": "الحد الأدنى",
+  "english_definition": "The academic concept of 'minimum'.",
+  "example_sentence": "We analyzed the role of minimum in our research.",
+  "synonyms": [
+   "minimum_syn1",
+   "minimum_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Ministry",
+  "arabic_translation": "الوزارة",
+  "english_definition": "The academic concept of 'ministry'.",
+  "example_sentence": "We analyzed the role of ministry in our research.",
+  "synonyms": [
+   "ministry_syn1",
+   "ministry_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Motivation",
+  "arabic_translation": "تحفيز",
+  "english_definition": "The academic concept of 'motivation'.",
+  "example_sentence": "We analyzed the role of motivation in our research.",
+  "synonyms": [
+   "motivation_syn1",
+   "motivation_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Neutral",
+  "arabic_translation": "حيادي",
+  "english_definition": "The academic concept of 'neutral'.",
+  "example_sentence": "We analyzed the role of neutral in our research.",
+  "synonyms": [
+   "neutral_syn1",
+   "neutral_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Nevertheless",
+  "arabic_translation": "مع ذلك",
+  "english_definition": "The academic concept of 'nevertheless'.",
+  "example_sentence": "We analyzed the role of nevertheless in our research.",
+  "synonyms": [
+   "nevertheless_syn1",
+   "nevertheless_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Overseas",
+  "arabic_translation": "في الخارج",
+  "english_definition": "The academic concept of 'overseas'.",
+  "example_sentence": "We analyzed the role of overseas in our research.",
+  "synonyms": [
+   "overseas_syn1",
+   "overseas_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Preceding",
+  "arabic_translation": "السابقة",
+  "english_definition": "The academic concept of 'preceding'.",
+  "example_sentence": "We analyzed the role of preceding in our research.",
+  "synonyms": [
+   "preceding_syn1",
+   "preceding_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Presumption",
+  "arabic_translation": "افتراض",
+  "english_definition": "The academic concept of 'presumption'.",
+  "example_sentence": "We analyzed the role of presumption in our research.",
+  "synonyms": [
+   "presumption_syn1",
+   "presumption_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Priority",
+  "arabic_translation": "أولوية",
+  "english_definition": "The academic concept of 'priority'.",
+  "example_sentence": "We analyzed the role of priority in our research.",
+  "synonyms": [
+   "priority_syn1",
+   "priority_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Rational",
+  "arabic_translation": "عاقِل",
+  "english_definition": "The academic concept of 'rational'.",
+  "example_sentence": "We analyzed the role of rational in our research.",
+  "synonyms": [
+   "rational_syn1",
+   "rational_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Recovery",
+  "arabic_translation": "استعادة",
+  "english_definition": "The academic concept of 'recovery'.",
+  "example_sentence": "We analyzed the role of recovery in our research.",
+  "synonyms": [
+   "recovery_syn1",
+   "recovery_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Revealed",
+  "arabic_translation": "مكشوف",
+  "english_definition": "The academic concept of 'revealed'.",
+  "example_sentence": "We analyzed the role of revealed in our research.",
+  "synonyms": [
+   "revealed_syn1",
+   "revealed_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Scope",
+  "arabic_translation": "نِطَاق",
+  "english_definition": "The academic concept of 'scope'.",
+  "example_sentence": "We analyzed the role of scope in our research.",
+  "synonyms": [
+   "scope_syn1",
+   "scope_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Subsidiary",
+  "arabic_translation": "فرعية",
+  "english_definition": "The academic concept of 'subsidiary'.",
+  "example_sentence": "We analyzed the role of subsidiary in our research.",
+  "synonyms": [
+   "subsidiary_syn1",
+   "subsidiary_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Tapes",
+  "arabic_translation": "الأشرطة",
+  "english_definition": "The academic concept of 'tapes'.",
+  "example_sentence": "We analyzed the role of tapes in our research.",
+  "synonyms": [
+   "tapes_syn1",
+   "tapes_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Trace",
+  "arabic_translation": "يتعقب",
+  "english_definition": "The academic concept of 'trace'.",
+  "example_sentence": "We analyzed the role of trace in our research.",
+  "synonyms": [
+   "trace_syn1",
+   "trace_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Transformation",
+  "arabic_translation": "تحويل",
+  "english_definition": "The academic concept of 'transformation'.",
+  "example_sentence": "We analyzed the role of transformation in our research.",
+  "synonyms": [
+   "transformation_syn1",
+   "transformation_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Underlying",
+  "arabic_translation": "الكامنة",
+  "english_definition": "The academic concept of 'underlying'.",
+  "example_sentence": "We analyzed the role of underlying in our research.",
+  "synonyms": [
+   "underlying_syn1",
+   "underlying_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Utility",
+  "arabic_translation": "جدوى",
+  "english_definition": "The academic concept of 'utility'.",
+  "example_sentence": "We analyzed the role of utility in our research.",
+  "synonyms": [
+   "utility_syn1",
+   "utility_syn2"
+  ],
+  "sublist": 6
+ },
+ {
+  "word": "Adaptation",
+  "arabic_translation": "التكيف",
+  "english_definition": "The academic concept of 'adaptation'.",
+  "example_sentence": "We analyzed the role of adaptation in our research.",
+  "synonyms": [
+   "adaptation_syn1",
+   "adaptation_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Adults",
+  "arabic_translation": "البالغين",
+  "english_definition": "The academic concept of 'adults'.",
+  "example_sentence": "We analyzed the role of adults in our research.",
+  "synonyms": [
+   "adults_syn1",
+   "adults_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Advocate",
+  "arabic_translation": "يدافع عن",
+  "english_definition": "The academic concept of 'advocate'.",
+  "example_sentence": "We analyzed the role of advocate in our research.",
+  "synonyms": [
+   "advocate_syn1",
+   "advocate_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Aid",
+  "arabic_translation": "يساعد",
+  "english_definition": "The academic concept of 'aid'.",
+  "example_sentence": "We analyzed the role of aid in our research.",
+  "synonyms": [
+   "aid_syn1",
+   "aid_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Channel",
+  "arabic_translation": "قناة",
+  "english_definition": "The academic concept of 'channel'.",
+  "example_sentence": "We analyzed the role of channel in our research.",
+  "synonyms": [
+   "channel_syn1",
+   "channel_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Chemical",
+  "arabic_translation": "كيميائية",
+  "english_definition": "The academic concept of 'chemical'.",
+  "example_sentence": "We analyzed the role of chemical in our research.",
+  "synonyms": [
+   "chemical_syn1",
+   "chemical_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Classical",
+  "arabic_translation": "كلاسيكي",
+  "english_definition": "The academic concept of 'classical'.",
+  "example_sentence": "We analyzed the role of classical in our research.",
+  "synonyms": [
+   "classical_syn1",
+   "classical_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Comprehensive",
+  "arabic_translation": "شامل",
+  "english_definition": "The academic concept of 'comprehensive'.",
+  "example_sentence": "We analyzed the role of comprehensive in our research.",
+  "synonyms": [
+   "comprehensive_syn1",
+   "comprehensive_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Comprise",
+  "arabic_translation": "تشمل",
+  "english_definition": "The academic concept of 'comprise'.",
+  "example_sentence": "We analyzed the role of comprise in our research.",
+  "synonyms": [
+   "comprise_syn1",
+   "comprise_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Confirmed",
+  "arabic_translation": "مؤكد",
+  "english_definition": "The academic concept of 'confirmed'.",
+  "example_sentence": "We analyzed the role of confirmed in our research.",
+  "synonyms": [
+   "confirmed_syn1",
+   "confirmed_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Contrary",
+  "arabic_translation": "على العكس من ذلك",
+  "english_definition": "The academic concept of 'contrary'.",
+  "example_sentence": "We analyzed the role of contrary in our research.",
+  "synonyms": [
+   "contrary_syn1",
+   "contrary_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Converted",
+  "arabic_translation": "تحويلها",
+  "english_definition": "The academic concept of 'converted'.",
+  "example_sentence": "We analyzed the role of converted in our research.",
+  "synonyms": [
+   "converted_syn1",
+   "converted_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Couple",
+  "arabic_translation": "زوج",
+  "english_definition": "The academic concept of 'couple'.",
+  "example_sentence": "We analyzed the role of couple in our research.",
+  "synonyms": [
+   "couple_syn1",
+   "couple_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Decades",
+  "arabic_translation": "عقود",
+  "english_definition": "The academic concept of 'decades'.",
+  "example_sentence": "We analyzed the role of decades in our research.",
+  "synonyms": [
+   "decades_syn1",
+   "decades_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Definite",
+  "arabic_translation": "محدد",
+  "english_definition": "The academic concept of 'definite'.",
+  "example_sentence": "We analyzed the role of definite in our research.",
+  "synonyms": [
+   "definite_syn1",
+   "definite_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Deny",
+  "arabic_translation": "ينكر",
+  "english_definition": "The academic concept of 'deny'.",
+  "example_sentence": "We analyzed the role of deny in our research.",
+  "synonyms": [
+   "deny_syn1",
+   "deny_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Differentiation",
+  "arabic_translation": "التمايز",
+  "english_definition": "The academic concept of 'differentiation'.",
+  "example_sentence": "We analyzed the role of differentiation in our research.",
+  "synonyms": [
+   "differentiation_syn1",
+   "differentiation_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Disposal",
+  "arabic_translation": "تصرف",
+  "english_definition": "The academic concept of 'disposal'.",
+  "example_sentence": "We analyzed the role of disposal in our research.",
+  "synonyms": [
+   "disposal_syn1",
+   "disposal_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Dynamic",
+  "arabic_translation": "متحرك",
+  "english_definition": "The academic concept of 'dynamic'.",
+  "example_sentence": "We analyzed the role of dynamic in our research.",
+  "synonyms": [
+   "dynamic_syn1",
+   "dynamic_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Eliminate",
+  "arabic_translation": "اِسْتَبْعَد",
+  "english_definition": "The academic concept of 'eliminate'.",
+  "example_sentence": "We analyzed the role of eliminate in our research.",
+  "synonyms": [
+   "eliminate_syn1",
+   "eliminate_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Empirical",
+  "arabic_translation": "تجريبي",
+  "english_definition": "The academic concept of 'empirical'.",
+  "example_sentence": "We analyzed the role of empirical in our research.",
+  "synonyms": [
+   "empirical_syn1",
+   "empirical_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Equipment",
+  "arabic_translation": "معدات",
+  "english_definition": "The academic concept of 'equipment'.",
+  "example_sentence": "We analyzed the role of equipment in our research.",
+  "synonyms": [
+   "equipment_syn1",
+   "equipment_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Extract",
+  "arabic_translation": "يستخرج",
+  "english_definition": "The academic concept of 'extract'.",
+  "example_sentence": "We analyzed the role of extract in our research.",
+  "synonyms": [
+   "extract_syn1",
+   "extract_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "File",
+  "arabic_translation": "ملف",
+  "english_definition": "The academic concept of 'file'.",
+  "example_sentence": "We analyzed the role of file in our research.",
+  "synonyms": [
+   "file_syn1",
+   "file_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Finite",
+  "arabic_translation": "محدود",
+  "english_definition": "The academic concept of 'finite'.",
+  "example_sentence": "We analyzed the role of finite in our research.",
+  "synonyms": [
+   "finite_syn1",
+   "finite_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Foundation",
+  "arabic_translation": "مؤسسة",
+  "english_definition": "The academic concept of 'foundation'.",
+  "example_sentence": "We analyzed the role of foundation in our research.",
+  "synonyms": [
+   "foundation_syn1",
+   "foundation_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Global",
+  "arabic_translation": "عالمي",
+  "english_definition": "The academic concept of 'global'.",
+  "example_sentence": "We analyzed the role of global in our research.",
+  "synonyms": [
+   "global_syn1",
+   "global_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Grade",
+  "arabic_translation": "درجة",
+  "english_definition": "The academic concept of 'grade'.",
+  "example_sentence": "We analyzed the role of grade in our research.",
+  "synonyms": [
+   "grade_syn1",
+   "grade_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Guarantee",
+  "arabic_translation": "يضمن",
+  "english_definition": "The academic concept of 'guarantee'.",
+  "example_sentence": "We analyzed the role of guarantee in our research.",
+  "synonyms": [
+   "guarantee_syn1",
+   "guarantee_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Hierarchical",
+  "arabic_translation": "هرمي",
+  "english_definition": "The academic concept of 'hierarchical'.",
+  "example_sentence": "We analyzed the role of hierarchical in our research.",
+  "synonyms": [
+   "hierarchical_syn1",
+   "hierarchical_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Ideology",
+  "arabic_translation": "أيديولوجية",
+  "english_definition": "Doctrine, philosophy, body of beliefs or principles belonging to an individual or group.",
+  "example_sentence": "A dictatorship, in order to secure its reign, bans things that do not conform to its ideology.",
+  "synonyms": [
+   "ideology_syn1",
+   "ideology_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Inferred",
+  "arabic_translation": "استنتاج",
+  "english_definition": "To introduce (something) as a reasoned conclusion; to conclude by reasoning or deduction, as from premises or evidence.",
+  "example_sentence": "We analyzed the role of inferred in our research.",
+  "synonyms": [
+   "assume",
+   "conclude",
+   "construe"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Innovation",
+  "arabic_translation": "ابتكار",
+  "english_definition": "The act of innovating; the introduction of something new, in customs, rites, etc.",
+  "example_sentence": "The others, whose time had been more actively employed, began to shew symptoms of innovation,—\"the good wine did its good office.\" The frost of etiquette, and pride of birth, began to give way before the genial blessings of this benign constellation, and the formal appellatives with which the three dignitaries had hitherto addressed each other, were now familiarly abbreviated into Tully, Bally, and Killie.",
+  "synonyms": [
+   "innovation_syn1",
+   "innovation_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Insert",
+  "arabic_translation": "إدراج",
+  "english_definition": "An image inserted into text.",
+  "example_sentence": "In order to withdraw money from a cash machine, you have to insert your debit card.",
+  "synonyms": [
+   "enter",
+   "inset",
+   "introduce"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Isolated",
+  "arabic_translation": "معزول",
+  "english_definition": "To set apart or cut off from others.",
+  "example_sentence": "We analyzed the role of isolated in our research.",
+  "synonyms": [
+   "isolated_syn1",
+   "isolated_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Media",
+  "arabic_translation": "وسائط",
+  "english_definition": "The middle layer of the wall of a blood vessel or lymph vessel which is composed of connective and muscular tissue.",
+  "example_sentence": "We analyzed the role of media in our research.",
+  "synonyms": [
+   "m"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Mode",
+  "arabic_translation": "وضع",
+  "english_definition": "One of several ancient Greek scales.",
+  "example_sentence": "airplane mode; night mode",
+  "synonyms": [
+   "grammatical mood",
+   "mood"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Paradigm",
+  "arabic_translation": "نموذج",
+  "english_definition": "A pattern, a way of doing something, especially a pattern of thought, a system of beliefs, a conceptual framework.",
+  "example_sentence": "The paradigm of \"go\" is \"go, went, gone.\"",
+  "synonyms": [
+   "exemplar",
+   "posterboy",
+   "template"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Phenomenon",
+  "arabic_translation": "ظاهرة",
+  "english_definition": "A thing or being, event or process, perceptible through senses; or a fact or occurrence thereof.",
+  "example_sentence": "A volcanic eruption is an impressive phenomenon.",
+  "synonyms": [
+   "event",
+   "legend",
+   "marvel"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Priority",
+  "arabic_translation": "أولوية",
+  "english_definition": "An item's relative importance.",
+  "example_sentence": "In bankruptcy law, a business' debt to its employees has priority over its debt to a landlord, so the employees must be paid first.",
+  "synonyms": [
+   "dignity",
+   "eminence",
+   "seniority"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Prohibited",
+  "arabic_translation": "محظور",
+  "english_definition": "To forbid, disallow, or proscribe officially; to make illegal or illicit.",
+  "example_sentence": "The restaurant prohibits smoking on the patio.",
+  "synonyms": [
+   "ban",
+   "disallow",
+   "forbid"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Quotation",
+  "arabic_translation": "اقتباس",
+  "english_definition": "A fragment of a human expression that is repeated by somebody else. Most often a quotation is taken from literature or speech, but also scenes from a movie, elements of a painting, a passage of music, etc., may be quoted.",
+  "example_sentence": "Let's get a quotation for repairing the roof before we decide whether it's worth doing.",
+  "synonyms": [
+   "quote",
+   "citation"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Reverse",
+  "arabic_translation": "يعكس",
+  "english_definition": "The opposite of something.",
+  "example_sentence": "a reverse shell",
+  "synonyms": [
+   "reverse_syn1",
+   "reverse_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Simulation",
+  "arabic_translation": "محاكاة",
+  "english_definition": "Something that simulates a system or environment in order to predict actual behaviour.",
+  "example_sentence": "Some kids in the classroom will be playing simulations after school.",
+  "synonyms": [
+   "simulation_syn1",
+   "simulation_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Somewhat",
+  "arabic_translation": "إلى حد ما",
+  "english_definition": "The academic concept of 'somewhat'.",
+  "example_sentence": "We analyzed the role of somewhat in our research.",
+  "synonyms": [
+   "somewhat_syn1",
+   "somewhat_syn2"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Successive",
+  "arabic_translation": "متتالية",
+  "english_definition": "Coming one after the other in a series.",
+  "example_sentence": "a successive title; a successive empire",
+  "synonyms": [
+   "consecutive"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Survive",
+  "arabic_translation": "ينجو",
+  "english_definition": "Of a person, to continue to live; to remain alive.",
+  "example_sentence": "He did not survive the accident.",
+  "synonyms": [
+   "outlive",
+   "overlive"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Topic",
+  "arabic_translation": "عنوان",
+  "english_definition": "Subject; theme; a category or general area of interest.",
+  "example_sentence": "A society where a topic cannot be discussed, does not have free speech.",
+  "synonyms": [
+   "subject",
+   "subject area"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Transmission",
+  "arabic_translation": "الانتقال",
+  "english_definition": "The act of transmitting, e.g. data or electric power.",
+  "example_sentence": "We analyzed the role of transmission in our research.",
+  "synonyms": [
+   "gearbox",
+   "outsending"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Ultimately",
+  "arabic_translation": "أخيرًا",
+  "english_definition": "Indicating the last item.",
+  "example_sentence": "Cognate to Gottscheerish boßər, bàsser. Ultimately cognate to standard High German Wasser.",
+  "synonyms": [
+   "at last",
+   "finally",
+   "in the end"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Unique",
+  "arabic_translation": "فريد",
+  "english_definition": "A thing without a like; something unequalled or unparallelled.",
+  "example_sentence": "Every person has a unique life, therefore every person has a unique journey. ― Gary Cook",
+  "synonyms": [
+   "one of a kind",
+   "singular",
+   "sui generis"
+  ],
+  "sublist": 7
+ },
+ {
+  "word": "Abandon",
+  "arabic_translation": "يتخلى عن",
+  "english_definition": "To give up or relinquish control of, to surrender or to give oneself over, or to yield to one's emotions.",
+  "example_sentence": "Many baby girls have been abandoned on the streets of Beijing.",
+  "synonyms": [
+   "abandon_syn1",
+   "abandon_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Accompany",
+  "arabic_translation": "مرافقة",
+  "english_definition": "The academic concept of 'accompany'.",
+  "example_sentence": "We analyzed the role of accompany in our research.",
+  "synonyms": [
+   "accompany_syn1",
+   "accompany_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Accumulation",
+  "arabic_translation": "تراكم",
+  "english_definition": "The act of amassing or gathering, as into a pile.",
+  "example_sentence": "an accumulation of earth, of sand, of evils, of wealth, or of honors",
+  "synonyms": [
+   "retained earnings"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Ambiguous",
+  "arabic_translation": "غامض",
+  "english_definition": "Open to multiple interpretations.",
+  "example_sentence": "He gave an ambiguous answer.",
+  "synonyms": [
+   "equivocal"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Appendix",
+  "arabic_translation": "زائدة",
+  "english_definition": "Something attached to something else; an attachment or accompaniment.",
+  "example_sentence": "We analyzed the role of appendix in our research.",
+  "synonyms": [
+   "addition",
+   "attachment"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Appreciation",
+  "arabic_translation": "تقدير",
+  "english_definition": "The academic concept of 'appreciation'.",
+  "example_sentence": "We analyzed the role of appreciation in our research.",
+  "synonyms": [
+   "appreciation_syn1",
+   "appreciation_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Arbitrary",
+  "arabic_translation": "اِعتِباطِيّ",
+  "english_definition": "The academic concept of 'arbitrary'.",
+  "example_sentence": "We analyzed the role of arbitrary in our research.",
+  "synonyms": [
+   "arbitrary_syn1",
+   "arbitrary_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Automatically",
+  "arabic_translation": "تلقائيا",
+  "english_definition": "The academic concept of 'automatically'.",
+  "example_sentence": "We analyzed the role of automatically in our research.",
+  "synonyms": [
+   "automatically_syn1",
+   "automatically_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Bias",
+  "arabic_translation": "تحيز",
+  "english_definition": "The academic concept of 'bias'.",
+  "example_sentence": "We analyzed the role of bias in our research.",
+  "synonyms": [
+   "bias_syn1",
+   "bias_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Chart",
+  "arabic_translation": "جدول",
+  "english_definition": "The academic concept of 'chart'.",
+  "example_sentence": "We analyzed the role of chart in our research.",
+  "synonyms": [
+   "chart_syn1",
+   "chart_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Clarity",
+  "arabic_translation": "الوضوح",
+  "english_definition": "The academic concept of 'clarity'.",
+  "example_sentence": "We analyzed the role of clarity in our research.",
+  "synonyms": [
+   "clarity_syn1",
+   "clarity_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Commodity",
+  "arabic_translation": "سلعة",
+  "english_definition": "The academic concept of 'commodity'.",
+  "example_sentence": "We analyzed the role of commodity in our research.",
+  "synonyms": [
+   "commodity_syn1",
+   "commodity_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Complement",
+  "arabic_translation": "إطراء",
+  "english_definition": "The academic concept of 'complement'.",
+  "example_sentence": "We analyzed the role of complement in our research.",
+  "synonyms": [
+   "complement_syn1",
+   "complement_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Conformity",
+  "arabic_translation": "المطابقة",
+  "english_definition": "The academic concept of 'conformity'.",
+  "example_sentence": "We analyzed the role of conformity in our research.",
+  "synonyms": [
+   "conformity_syn1",
+   "conformity_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Contemporary",
+  "arabic_translation": "معاصر",
+  "english_definition": "The academic concept of 'contemporary'.",
+  "example_sentence": "We analyzed the role of contemporary in our research.",
+  "synonyms": [
+   "contemporary_syn1",
+   "contemporary_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Contradiction",
+  "arabic_translation": "تناقض",
+  "english_definition": "The academic concept of 'contradiction'.",
+  "example_sentence": "We analyzed the role of contradiction in our research.",
+  "synonyms": [
+   "contradiction_syn1",
+   "contradiction_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Crucial",
+  "arabic_translation": "مهم",
+  "english_definition": "The academic concept of 'crucial'.",
+  "example_sentence": "We analyzed the role of crucial in our research.",
+  "synonyms": [
+   "crucial_syn1",
+   "crucial_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Currency",
+  "arabic_translation": "عملة",
+  "english_definition": "The academic concept of 'currency'.",
+  "example_sentence": "We analyzed the role of currency in our research.",
+  "synonyms": [
+   "currency_syn1",
+   "currency_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Denote",
+  "arabic_translation": "دل",
+  "english_definition": "The academic concept of 'denote'.",
+  "example_sentence": "We analyzed the role of denote in our research.",
+  "synonyms": [
+   "denote_syn1",
+   "denote_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Detected",
+  "arabic_translation": "مُكتَشَف",
+  "english_definition": "The academic concept of 'detected'.",
+  "example_sentence": "We analyzed the role of detected in our research.",
+  "synonyms": [
+   "detected_syn1",
+   "detected_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Deviation",
+  "arabic_translation": "انحراف",
+  "english_definition": "The academic concept of 'deviation'.",
+  "example_sentence": "We analyzed the role of deviation in our research.",
+  "synonyms": [
+   "deviation_syn1",
+   "deviation_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Displacement",
+  "arabic_translation": "النزوح",
+  "english_definition": "The academic concept of 'displacement'.",
+  "example_sentence": "We analyzed the role of displacement in our research.",
+  "synonyms": [
+   "displacement_syn1",
+   "displacement_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Dramatic",
+  "arabic_translation": "دراماتيكي",
+  "english_definition": "The academic concept of 'dramatic'.",
+  "example_sentence": "We analyzed the role of dramatic in our research.",
+  "synonyms": [
+   "dramatic_syn1",
+   "dramatic_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Eventually",
+  "arabic_translation": "مؤخراً",
+  "english_definition": "The academic concept of 'eventually'.",
+  "example_sentence": "We analyzed the role of eventually in our research.",
+  "synonyms": [
+   "eventually_syn1",
+   "eventually_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Exhibit",
+  "arabic_translation": "يعرض",
+  "english_definition": "The academic concept of 'exhibit'.",
+  "example_sentence": "We analyzed the role of exhibit in our research.",
+  "synonyms": [
+   "exhibit_syn1",
+   "exhibit_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Exploitation",
+  "arabic_translation": "استغلال",
+  "english_definition": "The academic concept of 'exploitation'.",
+  "example_sentence": "We analyzed the role of exploitation in our research.",
+  "synonyms": [
+   "exploitation_syn1",
+   "exploitation_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Fluctuations",
+  "arabic_translation": "التقلبات",
+  "english_definition": "The academic concept of 'fluctuations'.",
+  "example_sentence": "We analyzed the role of fluctuations in our research.",
+  "synonyms": [
+   "fluctuations_syn1",
+   "fluctuations_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Guidelines",
+  "arabic_translation": "المبادئ التوجيهية",
+  "english_definition": "The academic concept of 'guidelines'.",
+  "example_sentence": "We analyzed the role of guidelines in our research.",
+  "synonyms": [
+   "guidelines_syn1",
+   "guidelines_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Highlighted",
+  "arabic_translation": "أبرز",
+  "english_definition": "The academic concept of 'highlighted'.",
+  "example_sentence": "We analyzed the role of highlighted in our research.",
+  "synonyms": [
+   "highlighted_syn1",
+   "highlighted_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Implicit",
+  "arabic_translation": "ضمني",
+  "english_definition": "The academic concept of 'implicit'.",
+  "example_sentence": "We analyzed the role of implicit in our research.",
+  "synonyms": [
+   "implicit_syn1",
+   "implicit_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Induced",
+  "arabic_translation": "المستحث",
+  "english_definition": "The academic concept of 'induced'.",
+  "example_sentence": "We analyzed the role of induced in our research.",
+  "synonyms": [
+   "induced_syn1",
+   "induced_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Inevitably",
+  "arabic_translation": "حتما",
+  "english_definition": "The academic concept of 'inevitably'.",
+  "example_sentence": "We analyzed the role of inevitably in our research.",
+  "synonyms": [
+   "inevitably_syn1",
+   "inevitably_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Inspection",
+  "arabic_translation": "تقتيش",
+  "english_definition": "The academic concept of 'inspection'.",
+  "example_sentence": "We analyzed the role of inspection in our research.",
+  "synonyms": [
+   "inspection_syn1",
+   "inspection_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Intensity",
+  "arabic_translation": "شدة",
+  "english_definition": "The academic concept of 'intensity'.",
+  "example_sentence": "We analyzed the role of intensity in our research.",
+  "synonyms": [
+   "intensity_syn1",
+   "intensity_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Manipulation",
+  "arabic_translation": "تلاعب",
+  "english_definition": "The academic concept of 'manipulation'.",
+  "example_sentence": "We analyzed the role of manipulation in our research.",
+  "synonyms": [
+   "manipulation_syn1",
+   "manipulation_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Minimises",
+  "arabic_translation": "يقلل",
+  "english_definition": "The academic concept of 'minimises'.",
+  "example_sentence": "We analyzed the role of minimises in our research.",
+  "synonyms": [
+   "minimises_syn1",
+   "minimises_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Nuclear",
+  "arabic_translation": "النووية",
+  "english_definition": "The academic concept of 'nuclear'.",
+  "example_sentence": "We analyzed the role of nuclear in our research.",
+  "synonyms": [
+   "nuclear_syn1",
+   "nuclear_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Offset",
+  "arabic_translation": "إزاحة",
+  "english_definition": "The academic concept of 'offset'.",
+  "example_sentence": "We analyzed the role of offset in our research.",
+  "synonyms": [
+   "offset_syn1",
+   "offset_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Paragraph",
+  "arabic_translation": "فقرة",
+  "english_definition": "The academic concept of 'paragraph'.",
+  "example_sentence": "We analyzed the role of paragraph in our research.",
+  "synonyms": [
+   "paragraph_syn1",
+   "paragraph_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Plus",
+  "arabic_translation": "زائد",
+  "english_definition": "The academic concept of 'plus'.",
+  "example_sentence": "We analyzed the role of plus in our research.",
+  "synonyms": [
+   "plus_syn1",
+   "plus_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Practitioners",
+  "arabic_translation": "الممارسين",
+  "english_definition": "The academic concept of 'practitioners'.",
+  "example_sentence": "We analyzed the role of practitioners in our research.",
+  "synonyms": [
+   "practitioners_syn1",
+   "practitioners_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Predominantly",
+  "arabic_translation": "في الغالب",
+  "english_definition": "The academic concept of 'predominantly'.",
+  "example_sentence": "We analyzed the role of predominantly in our research.",
+  "synonyms": [
+   "predominantly_syn1",
+   "predominantly_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Prospect",
+  "arabic_translation": "احتمال",
+  "english_definition": "The academic concept of 'prospect'.",
+  "example_sentence": "We analyzed the role of prospect in our research.",
+  "synonyms": [
+   "prospect_syn1",
+   "prospect_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Radical",
+  "arabic_translation": "متطرف",
+  "english_definition": "The academic concept of 'radical'.",
+  "example_sentence": "We analyzed the role of radical in our research.",
+  "synonyms": [
+   "radical_syn1",
+   "radical_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Random",
+  "arabic_translation": "عشوائي",
+  "english_definition": "The academic concept of 'random'.",
+  "example_sentence": "We analyzed the role of random in our research.",
+  "synonyms": [
+   "random_syn1",
+   "random_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Reinforced",
+  "arabic_translation": "عززت",
+  "english_definition": "The academic concept of 'reinforced'.",
+  "example_sentence": "We analyzed the role of reinforced in our research.",
+  "synonyms": [
+   "reinforced_syn1",
+   "reinforced_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Restore",
+  "arabic_translation": "يعيد",
+  "english_definition": "The academic concept of 'restore'.",
+  "example_sentence": "We analyzed the role of restore in our research.",
+  "synonyms": [
+   "restore_syn1",
+   "restore_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Revision",
+  "arabic_translation": "مراجعة",
+  "english_definition": "The academic concept of 'revision'.",
+  "example_sentence": "We analyzed the role of revision in our research.",
+  "synonyms": [
+   "revision_syn1",
+   "revision_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Schedule",
+  "arabic_translation": "جدول",
+  "english_definition": "The academic concept of 'schedule'.",
+  "example_sentence": "We analyzed the role of schedule in our research.",
+  "synonyms": [
+   "schedule_syn1",
+   "schedule_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Tension",
+  "arabic_translation": "توتر",
+  "english_definition": "The academic concept of 'tension'.",
+  "example_sentence": "We analyzed the role of tension in our research.",
+  "synonyms": [
+   "tension_syn1",
+   "tension_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Termination",
+  "arabic_translation": "الإنهاء",
+  "english_definition": "The academic concept of 'termination'.",
+  "example_sentence": "We analyzed the role of termination in our research.",
+  "synonyms": [
+   "termination_syn1",
+   "termination_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Theme",
+  "arabic_translation": "سمة",
+  "english_definition": "The academic concept of 'theme'.",
+  "example_sentence": "We analyzed the role of theme in our research.",
+  "synonyms": [
+   "theme_syn1",
+   "theme_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Thereby",
+  "arabic_translation": "وبالتالي",
+  "english_definition": "The academic concept of 'thereby'.",
+  "example_sentence": "We analyzed the role of thereby in our research.",
+  "synonyms": [
+   "thereby_syn1",
+   "thereby_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Uniform",
+  "arabic_translation": "زي مُوحد",
+  "english_definition": "The academic concept of 'uniform'.",
+  "example_sentence": "We analyzed the role of uniform in our research.",
+  "synonyms": [
+   "uniform_syn1",
+   "uniform_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Vehicle",
+  "arabic_translation": "عربة",
+  "english_definition": "The academic concept of 'vehicle'.",
+  "example_sentence": "We analyzed the role of vehicle in our research.",
+  "synonyms": [
+   "vehicle_syn1",
+   "vehicle_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Via",
+  "arabic_translation": "عبر",
+  "english_definition": "The academic concept of 'via'.",
+  "example_sentence": "We analyzed the role of via in our research.",
+  "synonyms": [
+   "via_syn1",
+   "via_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Virtually",
+  "arabic_translation": "افتراضيًا",
+  "english_definition": "The academic concept of 'virtually'.",
+  "example_sentence": "We analyzed the role of virtually in our research.",
+  "synonyms": [
+   "virtually_syn1",
+   "virtually_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Visual",
+  "arabic_translation": "مرئي",
+  "english_definition": "The academic concept of 'visual'.",
+  "example_sentence": "We analyzed the role of visual in our research.",
+  "synonyms": [
+   "visual_syn1",
+   "visual_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Widespread",
+  "arabic_translation": "على نطاق واسع",
+  "english_definition": "The academic concept of 'widespread'.",
+  "example_sentence": "We analyzed the role of widespread in our research.",
+  "synonyms": [
+   "widespread_syn1",
+   "widespread_syn2"
+  ],
+  "sublist": 8
+ },
+ {
+  "word": "Accommodation",
+  "arabic_translation": "إقامة",
+  "english_definition": "The academic concept of 'accommodation'.",
+  "example_sentence": "We analyzed the role of accommodation in our research.",
+  "synonyms": [
+   "accommodation_syn1",
+   "accommodation_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Analogous",
+  "arabic_translation": "مماثل",
+  "english_definition": "The academic concept of 'analogous'.",
+  "example_sentence": "We analyzed the role of analogous in our research.",
+  "synonyms": [
+   "analogous_syn1",
+   "analogous_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Anticipated",
+  "arabic_translation": "متوقع",
+  "english_definition": "The academic concept of 'anticipated'.",
+  "example_sentence": "We analyzed the role of anticipated in our research.",
+  "synonyms": [
+   "anticipated_syn1",
+   "anticipated_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Assurance",
+  "arabic_translation": "ضمان",
+  "english_definition": "The academic concept of 'assurance'.",
+  "example_sentence": "We analyzed the role of assurance in our research.",
+  "synonyms": [
+   "assurance_syn1",
+   "assurance_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Attained",
+  "arabic_translation": "بلغ",
+  "english_definition": "The academic concept of 'attained'.",
+  "example_sentence": "We analyzed the role of attained in our research.",
+  "synonyms": [
+   "attained_syn1",
+   "attained_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Behalf",
+  "arabic_translation": "نيابةً عن",
+  "english_definition": "The academic concept of 'behalf'.",
+  "example_sentence": "We analyzed the role of behalf in our research.",
+  "synonyms": [
+   "behalf_syn1",
+   "behalf_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Bulk",
+  "arabic_translation": "حجم كبير",
+  "english_definition": "The academic concept of 'bulk'.",
+  "example_sentence": "We analyzed the role of bulk in our research.",
+  "synonyms": [
+   "bulk_syn1",
+   "bulk_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Ceases",
+  "arabic_translation": "يتوقف",
+  "english_definition": "The academic concept of 'ceases'.",
+  "example_sentence": "We analyzed the role of ceases in our research.",
+  "synonyms": [
+   "ceases_syn1",
+   "ceases_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Coherence",
+  "arabic_translation": "التماسك",
+  "english_definition": "The academic concept of 'coherence'.",
+  "example_sentence": "We analyzed the role of coherence in our research.",
+  "synonyms": [
+   "coherence_syn1",
+   "coherence_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Coincide",
+  "arabic_translation": "يتزامن",
+  "english_definition": "The academic concept of 'coincide'.",
+  "example_sentence": "We analyzed the role of coincide in our research.",
+  "synonyms": [
+   "coincide_syn1",
+   "coincide_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Commenced",
+  "arabic_translation": "بدأ",
+  "english_definition": "The academic concept of 'commenced'.",
+  "example_sentence": "We analyzed the role of commenced in our research.",
+  "synonyms": [
+   "commenced_syn1",
+   "commenced_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Concurrent",
+  "arabic_translation": "متزامن",
+  "english_definition": "The academic concept of 'concurrent'.",
+  "example_sentence": "We analyzed the role of concurrent in our research.",
+  "synonyms": [
+   "concurrent_syn1",
+   "concurrent_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Confined",
+  "arabic_translation": "محصور",
+  "english_definition": "The academic concept of 'confined'.",
+  "example_sentence": "We analyzed the role of confined in our research.",
+  "synonyms": [
+   "confined_syn1",
+   "confined_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Controversy",
+  "arabic_translation": "الجدل",
+  "english_definition": "The academic concept of 'controversy'.",
+  "example_sentence": "We analyzed the role of controversy in our research.",
+  "synonyms": [
+   "controversy_syn1",
+   "controversy_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Conversely",
+  "arabic_translation": "على العكس من ذلك",
+  "english_definition": "The academic concept of 'conversely'.",
+  "example_sentence": "We analyzed the role of conversely in our research.",
+  "synonyms": [
+   "conversely_syn1",
+   "conversely_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Device",
+  "arabic_translation": "جهاز",
+  "english_definition": "The academic concept of 'device'.",
+  "example_sentence": "We analyzed the role of device in our research.",
+  "synonyms": [
+   "device_syn1",
+   "device_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Devoted",
+  "arabic_translation": "مخصص",
+  "english_definition": "The academic concept of 'devoted'.",
+  "example_sentence": "We analyzed the role of devoted in our research.",
+  "synonyms": [
+   "devoted_syn1",
+   "devoted_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Diminished",
+  "arabic_translation": "تضاءلت",
+  "english_definition": "The academic concept of 'diminished'.",
+  "example_sentence": "We analyzed the role of diminished in our research.",
+  "synonyms": [
+   "diminished_syn1",
+   "diminished_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Distorted",
+  "arabic_translation": "مشوهة",
+  "english_definition": "The academic concept of 'distorted'.",
+  "example_sentence": "We analyzed the role of distorted in our research.",
+  "synonyms": [
+   "distorted_syn1",
+   "distorted_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Duration",
+  "arabic_translation": "مدة",
+  "english_definition": "The academic concept of 'duration'.",
+  "example_sentence": "We analyzed the role of duration in our research.",
+  "synonyms": [
+   "duration_syn1",
+   "duration_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Erosion",
+  "arabic_translation": "تآكل",
+  "english_definition": "The academic concept of 'erosion'.",
+  "example_sentence": "We analyzed the role of erosion in our research.",
+  "synonyms": [
+   "erosion_syn1",
+   "erosion_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Ethical",
+  "arabic_translation": "أخلاقية",
+  "english_definition": "The academic concept of 'ethical'.",
+  "example_sentence": "We analyzed the role of ethical in our research.",
+  "synonyms": [
+   "ethical_syn1",
+   "ethical_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Format",
+  "arabic_translation": "شكل",
+  "english_definition": "The academic concept of 'format'.",
+  "example_sentence": "We analyzed the role of format in our research.",
+  "synonyms": [
+   "format_syn1",
+   "format_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Founded",
+  "arabic_translation": "تأسست",
+  "english_definition": "The academic concept of 'founded'.",
+  "example_sentence": "We analyzed the role of founded in our research.",
+  "synonyms": [
+   "founded_syn1",
+   "founded_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Incompatible",
+  "arabic_translation": "غير متوافق",
+  "english_definition": "The academic concept of 'incompatible'.",
+  "example_sentence": "We analyzed the role of incompatible in our research.",
+  "synonyms": [
+   "incompatible_syn1",
+   "incompatible_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Inherent",
+  "arabic_translation": "متأصل",
+  "english_definition": "The academic concept of 'inherent'.",
+  "example_sentence": "We analyzed the role of inherent in our research.",
+  "synonyms": [
+   "inherent_syn1",
+   "inherent_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Insights",
+  "arabic_translation": "رؤى",
+  "english_definition": "The academic concept of 'insights'.",
+  "example_sentence": "We analyzed the role of insights in our research.",
+  "synonyms": [
+   "insights_syn1",
+   "insights_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Integral",
+  "arabic_translation": "أساسي",
+  "english_definition": "The academic concept of 'integral'.",
+  "example_sentence": "We analyzed the role of integral in our research.",
+  "synonyms": [
+   "integral_syn1",
+   "integral_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Intermediate",
+  "arabic_translation": "متوسط",
+  "english_definition": "The academic concept of 'intermediate'.",
+  "example_sentence": "We analyzed the role of intermediate in our research.",
+  "synonyms": [
+   "intermediate_syn1",
+   "intermediate_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Manual",
+  "arabic_translation": "يدوي",
+  "english_definition": "A handbook.",
+  "example_sentence": "do a manual",
+  "synonyms": [
+   "enchiridion",
+   "handbook"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Mature",
+  "arabic_translation": "ناضجة",
+  "english_definition": "Fully developed; grown up in terms of physical appearance, behaviour or thinking; ripe.",
+  "example_sentence": "mature content",
+  "synonyms": [
+   "adultish",
+   "grown up",
+   "adult"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Mediation",
+  "arabic_translation": "وساطة",
+  "english_definition": "Negotiation to resolve differences conducted by some impartial party.",
+  "example_sentence": "We analyzed the role of mediation in our research.",
+  "synonyms": [
+   "mediation_syn1",
+   "mediation_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Medium",
+  "arabic_translation": "واسطة",
+  "english_definition": "(plural media or mediums) The chemistry of the surrounding environment, e.g. solid, liquid, gas, vacuum, or a specific substance such as a solvent.",
+  "example_sentence": "a happy medium",
+  "synonyms": [
+   "mediumly"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Military",
+  "arabic_translation": "جيش",
+  "english_definition": "Armed forces.",
+  "example_sentence": "If you join a military force, you may end up killing people.",
+  "synonyms": [
+   "military_syn1",
+   "military_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Minimal",
+  "arabic_translation": "الحد الأدنى",
+  "english_definition": "The smallest possible amount, quantity, or degree.",
+  "example_sentence": "We analyzed the role of minimal in our research.",
+  "synonyms": [
+   "min.",
+   "minimum"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Mutual",
+  "arabic_translation": "مشترك",
+  "english_definition": "A mutual fund.",
+  "example_sentence": "They had a mutual love of the same woman.",
+  "synonyms": [
+   "shared",
+   "reciprocative"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Norms",
+  "arabic_translation": "الأعراف",
+  "english_definition": "That which is normal or typical.",
+  "example_sentence": "Not eating your children is just one of those societal norms.",
+  "synonyms": [
+   "norms_syn1",
+   "norms_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Overlap",
+  "arabic_translation": "تداخل",
+  "english_definition": "Something that overlaps or is overlapped",
+  "example_sentence": "The set (all men) overlaps the set (vegetarians).",
+  "synonyms": [
+   "intersect"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Passive",
+  "arabic_translation": "سلبي",
+  "english_definition": "(grammar) The passive voice of verbs.",
+  "example_sentence": "a passive balloon; a passive aeroplane; passive flight, such as gliding and soaring",
+  "synonyms": [
+   "disinterested",
+   "idle",
+   "inactive"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Portion",
+  "arabic_translation": "جزء",
+  "english_definition": "An allocated amount.",
+  "example_sentence": "We analyzed the role of portion in our research.",
+  "synonyms": [
+   "part",
+   "piece",
+   "apportion"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Preliminary",
+  "arabic_translation": "تمهيدي",
+  "english_definition": "A preparation for a main matter; an introduction.",
+  "example_sentence": "These are just the preliminary results.",
+  "synonyms": [
+   "initial",
+   "introductory",
+   "preparatory"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Protocol",
+  "arabic_translation": "بروتوكول",
+  "english_definition": "The minutes, or official record, of a negotiation or transaction; especially a document drawn up officially which forms the legal basis for subsequent agreements based on it.",
+  "example_sentence": "We analyzed the role of protocol in our research.",
+  "synonyms": [
+   "policy",
+   "procedure"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Qualitative",
+  "arabic_translation": "نوعي",
+  "english_definition": "Something qualitative.",
+  "example_sentence": "We analyzed the role of qualitative in our research.",
+  "synonyms": [
+   "qualitative_syn1",
+   "qualitative_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Refine",
+  "arabic_translation": "صقل",
+  "english_definition": "To purify; reduce to a fine, unmixed, or pure state; to free from impurities.",
+  "example_sentence": "to refine someone's language",
+  "synonyms": [
+   "refine_syn1",
+   "refine_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Relaxed",
+  "arabic_translation": "استرخاء",
+  "english_definition": "To calm down.",
+  "example_sentence": "The relaxed rules were greatly tightened after the lawsuit.",
+  "synonyms": [
+   "calm"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Restraints",
+  "arabic_translation": "القيود",
+  "english_definition": "Something that restrains, ties, fastens or secures",
+  "example_sentence": "Try to exercise restraint when talking to your boss.",
+  "synonyms": [
+   "restraints_syn1",
+   "restraints_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Revolution",
+  "arabic_translation": "ثورة",
+  "english_definition": "A political upheaval in a government or nation state characterized by great change.",
+  "example_sentence": "We analyzed the role of revolution in our research.",
+  "synonyms": [
+   "revolution_syn1",
+   "revolution_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Rigid",
+  "arabic_translation": "جامد",
+  "english_definition": "A bicycle with no suspension system.",
+  "example_sentence": "We analyzed the role of rigid in our research.",
+  "synonyms": [
+   "inflexible"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Route",
+  "arabic_translation": "طريق",
+  "english_definition": "A course or way which is traveled or passed.",
+  "example_sentence": "All incoming mail was routed through a single office.",
+  "synonyms": [
+   "circuit",
+   "lu",
+   "province"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Scenario",
+  "arabic_translation": "سيناريو",
+  "english_definition": "An outline of the plot of a dramatic or literary work.",
+  "example_sentence": "We analyzed the role of scenario in our research.",
+  "synonyms": [
+   "scenario_syn1",
+   "scenario_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Sphere",
+  "arabic_translation": "جسم كروي",
+  "english_definition": "A regular three-dimensional object in which every cross-section is a circle; the figure described by the revolution of a circle about its diameter .",
+  "example_sentence": "We analyzed the role of sphere in our research.",
+  "synonyms": [
+   "celestial body",
+   "celestial sphere",
+   "2-sphere"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Subordinate",
+  "arabic_translation": "تابع",
+  "english_definition": "One who is subordinate.",
+  "example_sentence": "In the sentence “The barbecue finished before John arrived”, the subordinate clause “before John arrived” specifies the time of the main clause, “The barbecue finished”.",
+  "synonyms": [
+   "inferior",
+   "junior",
+   "report"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Supplementary",
+  "arabic_translation": "تكميلية",
+  "english_definition": "Something additional; an extra.",
+  "example_sentence": "We analyzed the role of supplementary in our research.",
+  "synonyms": [
+   "supplementary_syn1",
+   "supplementary_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Suspended",
+  "arabic_translation": "معلق",
+  "english_definition": "To halt something temporarily.",
+  "example_sentence": "to suspend a student from college; to suspend a member of a club",
+  "synonyms": [
+   "abeyant",
+   "dormant",
+   "paused"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Team",
+  "arabic_translation": "فريق",
+  "english_definition": "A set of draught animals, such as two horses in front of a carriage.",
+  "example_sentence": "to team oxen",
+  "synonyms": [
+   "team_syn1",
+   "team_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Temporary",
+  "arabic_translation": "مؤقت",
+  "english_definition": "One serving for a limited time; short-term employee.",
+  "example_sentence": "We analyzed the role of temporary in our research.",
+  "synonyms": [
+   "temp"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Trigger",
+  "arabic_translation": "مشغل",
+  "english_definition": "A finger-operated lever used to fire a gun.",
+  "example_sentence": "This story contains a rape scene and may be triggering for rape victims.",
+  "synonyms": [
+   "activate",
+   "detonate",
+   "fire"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Unified",
+  "arabic_translation": "موحد",
+  "english_definition": "United into a whole",
+  "example_sentence": "We analyzed the role of unified in our research.",
+  "synonyms": [
+   "unified_syn1",
+   "unified_syn2"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Violation",
+  "arabic_translation": "انتهاك",
+  "english_definition": "The act or an instance of violating or the condition of being violated.",
+  "example_sentence": "We analyzed the role of violation in our research.",
+  "synonyms": [
+   "desecration",
+   "transgression"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Vision",
+  "arabic_translation": "رؤية",
+  "english_definition": "The sense or ability of sight.",
+  "example_sentence": "He had a vision of the Virgin Mary.",
+  "synonyms": [
+   "eyesight",
+   "perception",
+   "sight"
+  ],
+  "sublist": 9
+ },
+ {
+  "word": "Adjacent",
+  "arabic_translation": "مجاور",
+  "english_definition": "Something that lies next to something else, especially the side of a right triangle that is neither the hypotenuse nor the opposite.",
+  "example_sentence": "A notice was sent to the house adjacent the school.",
+  "synonyms": [
+   "abutting",
+   "adjoining",
+   "contiguous"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Albeit",
+  "arabic_translation": "وإن كان",
+  "english_definition": "The academic concept of 'albeit'.",
+  "example_sentence": "We analyzed the role of albeit in our research.",
+  "synonyms": [
+   "albeit_syn1",
+   "albeit_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Assembly",
+  "arabic_translation": "حَشد",
+  "english_definition": "The academic concept of 'assembly'.",
+  "example_sentence": "We analyzed the role of assembly in our research.",
+  "synonyms": [
+   "assembly_syn1",
+   "assembly_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Collapse",
+  "arabic_translation": "ينهار",
+  "english_definition": "The academic concept of 'collapse'.",
+  "example_sentence": "We analyzed the role of collapse in our research.",
+  "synonyms": [
+   "collapse_syn1",
+   "collapse_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Colleagues",
+  "arabic_translation": "زملاء",
+  "english_definition": "The academic concept of 'colleagues'.",
+  "example_sentence": "We analyzed the role of colleagues in our research.",
+  "synonyms": [
+   "colleagues_syn1",
+   "colleagues_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Compiled",
+  "arabic_translation": "تم تجميعها",
+  "english_definition": "The academic concept of 'compiled'.",
+  "example_sentence": "We analyzed the role of compiled in our research.",
+  "synonyms": [
+   "compiled_syn1",
+   "compiled_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Conceived",
+  "arabic_translation": "تصور",
+  "english_definition": "The academic concept of 'conceived'.",
+  "example_sentence": "We analyzed the role of conceived in our research.",
+  "synonyms": [
+   "conceived_syn1",
+   "conceived_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Convinced",
+  "arabic_translation": "مقتنع",
+  "english_definition": "The academic concept of 'convinced'.",
+  "example_sentence": "We analyzed the role of convinced in our research.",
+  "synonyms": [
+   "convinced_syn1",
+   "convinced_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Depression",
+  "arabic_translation": "اكتئاب",
+  "english_definition": "The academic concept of 'depression'.",
+  "example_sentence": "We analyzed the role of depression in our research.",
+  "synonyms": [
+   "depression_syn1",
+   "depression_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Encountered",
+  "arabic_translation": "مواجهة",
+  "english_definition": "The academic concept of 'encountered'.",
+  "example_sentence": "We analyzed the role of encountered in our research.",
+  "synonyms": [
+   "encountered_syn1",
+   "encountered_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Enormous",
+  "arabic_translation": "ضخم",
+  "english_definition": "The academic concept of 'enormous'.",
+  "example_sentence": "We analyzed the role of enormous in our research.",
+  "synonyms": [
+   "enormous_syn1",
+   "enormous_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Forthcoming",
+  "arabic_translation": "المقبلة",
+  "english_definition": "The academic concept of 'forthcoming'.",
+  "example_sentence": "We analyzed the role of forthcoming in our research.",
+  "synonyms": [
+   "forthcoming_syn1",
+   "forthcoming_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Inclination",
+  "arabic_translation": "الميل",
+  "english_definition": "The academic concept of 'inclination'.",
+  "example_sentence": "We analyzed the role of inclination in our research.",
+  "synonyms": [
+   "inclination_syn1",
+   "inclination_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Integrity",
+  "arabic_translation": "نزاهة",
+  "english_definition": "The academic concept of 'integrity'.",
+  "example_sentence": "We analyzed the role of integrity in our research.",
+  "synonyms": [
+   "integrity_syn1",
+   "integrity_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Intrinsic",
+  "arabic_translation": "جوهري",
+  "english_definition": "The academic concept of 'intrinsic'.",
+  "example_sentence": "We analyzed the role of intrinsic in our research.",
+  "synonyms": [
+   "intrinsic_syn1",
+   "intrinsic_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Invoked",
+  "arabic_translation": "تم الاحتجاج به",
+  "english_definition": "The academic concept of 'invoked'.",
+  "example_sentence": "We analyzed the role of invoked in our research.",
+  "synonyms": [
+   "invoked_syn1",
+   "invoked_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Levy",
+  "arabic_translation": "ضريبة",
+  "english_definition": "The academic concept of 'levy'.",
+  "example_sentence": "We analyzed the role of levy in our research.",
+  "synonyms": [
+   "levy_syn1",
+   "levy_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Likewise",
+  "arabic_translation": "على نفس المنوال",
+  "english_definition": "The academic concept of 'likewise'.",
+  "example_sentence": "We analyzed the role of likewise in our research.",
+  "synonyms": [
+   "likewise_syn1",
+   "likewise_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Nonetheless",
+  "arabic_translation": "ومع ذلك",
+  "english_definition": "The academic concept of 'nonetheless'.",
+  "example_sentence": "We analyzed the role of nonetheless in our research.",
+  "synonyms": [
+   "nonetheless_syn1",
+   "nonetheless_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Notwithstanding",
+  "arabic_translation": "بالرغم من ذلك",
+  "english_definition": "The academic concept of 'notwithstanding'.",
+  "example_sentence": "We analyzed the role of notwithstanding in our research.",
+  "synonyms": [
+   "notwithstanding_syn1",
+   "notwithstanding_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Odd",
+  "arabic_translation": "غريب",
+  "english_definition": "The academic concept of 'odd'.",
+  "example_sentence": "We analyzed the role of odd in our research.",
+  "synonyms": [
+   "odd_syn1",
+   "odd_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Ongoing",
+  "arabic_translation": "مستمر",
+  "english_definition": "The academic concept of 'ongoing'.",
+  "example_sentence": "We analyzed the role of ongoing in our research.",
+  "synonyms": [
+   "ongoing_syn1",
+   "ongoing_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Panel",
+  "arabic_translation": "لوحة",
+  "english_definition": "The academic concept of 'panel'.",
+  "example_sentence": "We analyzed the role of panel in our research.",
+  "synonyms": [
+   "panel_syn1",
+   "panel_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Persistent",
+  "arabic_translation": "مثابر",
+  "english_definition": "The academic concept of 'persistent'.",
+  "example_sentence": "We analyzed the role of persistent in our research.",
+  "synonyms": [
+   "persistent_syn1",
+   "persistent_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Posed",
+  "arabic_translation": "طرح",
+  "english_definition": "The academic concept of 'posed'.",
+  "example_sentence": "We analyzed the role of posed in our research.",
+  "synonyms": [
+   "posed_syn1",
+   "posed_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Reluctant",
+  "arabic_translation": "متكاسل",
+  "english_definition": "The academic concept of 'reluctant'.",
+  "example_sentence": "We analyzed the role of reluctant in our research.",
+  "synonyms": [
+   "reluctant_syn1",
+   "reluctant_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "So-called",
+  "arabic_translation": "ما يسمى",
+  "english_definition": "The academic concept of 'so-called'.",
+  "example_sentence": "We analyzed the role of so-called in our research.",
+  "synonyms": [
+   "so-called_syn1",
+   "so-called_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Straightforward",
+  "arabic_translation": "واضحة",
+  "english_definition": "The academic concept of 'straightforward'.",
+  "example_sentence": "We analyzed the role of straightforward in our research.",
+  "synonyms": [
+   "straightforward_syn1",
+   "straightforward_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Undergo",
+  "arabic_translation": "الخضوع",
+  "english_definition": "The academic concept of 'undergo'.",
+  "example_sentence": "We analyzed the role of undergo in our research.",
+  "synonyms": [
+   "undergo_syn1",
+   "undergo_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "Whereby",
+  "arabic_translation": "حيث",
+  "english_definition": "The academic concept of 'whereby'.",
+  "example_sentence": "We analyzed the role of whereby in our research.",
+  "synonyms": [
+   "whereby_syn1",
+   "whereby_syn2"
+  ],
+  "sublist": 10
+ },
+ {
+  "word": "compensation",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 2
+ },
+ {
+  "word": "concentration",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 2
+ },
+ {
+  "word": "distortion",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 3
+ },
+ {
+  "word": "expansion",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 4
+ },
+ {
+  "word": "identical",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 5
+ },
+ {
+  "word": "infrastructure",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 5
+ },
+ {
+  "word": "intervention",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 6
+ },
+ {
+  "word": "justification",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 6
+ },
+ {
+  "word": "publication",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 8
+ },
+ {
+  "word": "release",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 8
+ },
+ {
+  "word": "solely",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 9
+ },
+ {
+  "word": "submit",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 9
+ },
+ {
+  "word": "technology",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 9
+ },
+ {
+  "word": "thesis",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 9
+ },
+ {
+  "word": "transport",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 10
+ },
+ {
+  "word": "visible",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 10
+ },
+ {
+  "word": "voluntary",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 10
+ },
+ {
+  "word": "welfare",
+  "arabic_translation": "",
+  "english_definition": "",
+  "example_sentence": "",
+  "synonyms": [],
+  "sublist": 10
+ }
+]
