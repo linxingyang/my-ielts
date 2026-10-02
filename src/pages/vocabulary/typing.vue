@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import vocabulary from './vocabulary'
+import { getWordStatus, recordCorrectTyping } from '~/composables/wordStatus'
 
 const CHAPTER_KEY = 'vocabulary_typing_chapter'
 const chapters = Object.keys(vocabulary)
@@ -16,8 +17,16 @@ const words = computed(() => {
   const chapter = (vocabulary as any)[selectedChapter.value]
   if (!chapter)
     return []
-  // Flatten groups into a single list of words
-  return chapter.words.flat()
+  // Flatten groups into a single list of words, skip known words
+  return chapter.words.flat().filter((item: any) => getWordStatus(item.word[0]) !== 'known')
+})
+
+const hiddenCount = computed(() => {
+  const chapter = (vocabulary as any)[selectedChapter.value]
+  if (!chapter)
+    return 0
+  const all = chapter.words.flat().length
+  return all - words.value.length
 })
 
 const currentWordData = computed(() => words.value[currentWordIndex.value])
@@ -83,13 +92,18 @@ function handleInput(e: Event) {
     wpm.value = Math.round((input.length / 5) / timeElapsed)
 
   // Check if finished
-  if (input === currentWord.value)
-    setTimeout(nextWord, 200)
+  if (input === currentWord.value) {
+    // 打对自动升级状态：未学 -> 模糊，累计答对 2 次 -> 已认识
+    const status = recordCorrectTyping(currentWord.value)
+    // 该词升级为"已认识"后会从列表中移除，索引无需再前进
+    setTimeout(() => nextWord(status === 'known'), 200)
+  }
 }
 
-function nextWord() {
-  if (currentWordIndex.value < words.value.length - 1) {
+function nextWord(skipAdvance = false) {
+  if (!skipAdvance)
     currentWordIndex.value++
+  if (currentWordIndex.value < words.value.length) {
     userInput.value = ''
     startTime.value = null
     playAudio()
@@ -112,6 +126,9 @@ onMounted(() => {
         <div>
           <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white">单词打字练习</h1>
           <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">照着背景单词输入，提升你的速度</p>
+          <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
+            本次练习 {{ words.length }} 词<template v-if="hiddenCount > 0">（已隐藏 {{ hiddenCount }} 个已认识词）</template>
+          </p>
         </div>
         <select
           v-model="selectedChapter"

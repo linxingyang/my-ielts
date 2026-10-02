@@ -1,6 +1,14 @@
 <!-- eslint-disable eslint-comments/no-unlimited-disable -->
 <script setup generic="T extends any, O extends any">
 import vocabulary from './vocabulary'
+import {
+  chapterProgress,
+  cycleWordStatus,
+  exportWordStatus,
+  getWordStatus,
+  importWordStatus,
+  setWordStatus,
+} from '~/composables/wordStatus'
 
 const CHAPTER_KEY = 'vocabulary_chapter'
 
@@ -8,6 +16,7 @@ const isTrainingModel = ref(false)
 const isShowMeaning = ref(true)
 const isAutoPlayWordAudio = ref(true)
 const isOnlyShowErrors = ref(false)
+const isOnlyShowUnknown = ref(false)
 const isFinishTraining = ref(false)
 const isShowSource = ref(false)
 
@@ -50,6 +59,64 @@ watch(category, (newVal, oldVal) => {
   // console.log(newVal, oldVal)
   localStorage.setItem(CHAPTER_KEY, newVal)
 })
+
+const statusIconMap = {
+  known: 'i-ph-check-circle-bold text-green-500',
+  fuzzy: 'i-ph-circle-half-bold text-yellow-500',
+  unknown: 'i-ph-circle-dashed text-gray-400 dark:text-gray-500',
+}
+const statusTitleMap = {
+  known: '已认识（点击改为未学）',
+  fuzzy: '模糊（点击改为已认识）',
+  unknown: '未学（点击改为模糊）',
+}
+
+const progress = computed(() => {
+  const cur = refVocabulary[category.value]
+  const result = chapterProgress(cur?.words.flat() ?? [])
+  const total = result.known + result.fuzzy + result.unknown
+  return {
+    ...result,
+    total,
+    knownPct: total > 0 ? `${(result.known / total) * 100}%` : '0%',
+    fuzzyPct: total > 0 ? `${(result.fuzzy / total) * 100}%` : '0%',
+  }
+})
+
+const fileInput = ref(null)
+
+function exportStatus() {
+  const blob = new Blob([exportWordStatus()], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `vocabulary-status-${new Date().toISOString().slice(0, 10)}.json`
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+async function onImportFile(e) {
+  const target = e.target
+  const file = target.files?.[0]
+  if (!file)
+    return
+  const text = await file.text()
+  // eslint-disable-next-line no-alert
+  window.alert(importWordStatus(text) ? '导入成功' : '导入失败：文件格式不正确')
+  target.value = ''
+}
+
+// 完成练习：拼写正确且当前为"未学"的词自动标记为"模糊"
+function finishTraining() {
+  isFinishTraining.value = true
+  const cur = refVocabulary[category.value]
+  for (const group of cur.words) {
+    for (const item of group) {
+      if (item.spellValue && !item.spellError && getWordStatus(item.word[0]) === 'unknown')
+        setWordStatus(item.word[0], 'fuzzy')
+    }
+  }
+}
 
 function calcStats() {
   let error = 0
@@ -238,6 +305,13 @@ function copyAllError() {
               />
               <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">练习模式</span>
             </label>
+            <label class="ml-2 inline-flex cursor-pointer items-center">
+              <input v-model="isOnlyShowUnknown" type="checkbox" class="peer sr-only">
+              <div
+                class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
+              />
+              <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">只看未认识</span>
+            </label>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isShowMeaning" type="checkbox" class="peer sr-only">
               <div
@@ -303,6 +377,26 @@ function copyAllError() {
                         <div class="flex flex-1 items-center">
                           <span class="text-lg">{{ category }}</span>
                           （ {{ refVocabulary[category].groupCount }} 组 {{ refVocabulary[category].wordCount }} 个词 ）
+                          <span class="ml-4 text-sm">
+                            已认识 <b class="text-green-500">{{ progress.known }}</b> ·
+                            模糊 <b class="text-yellow-500">{{ progress.fuzzy }}</b> ·
+                            未学 <b>{{ progress.unknown }}</b>
+                          </span>
+                          <button
+                            type="button"
+                            class="ml-4 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+                            @click="exportStatus"
+                          >
+                            导出记录
+                          </button>
+                          <button
+                            type="button"
+                            class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+                            @click="fileInput?.click()"
+                          >
+                            导入记录
+                          </button>
+                          <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
                         </div>
                         <div class="justify-items-end">
                           <audio controls class="chapter">
@@ -310,12 +404,16 @@ function copyAllError() {
                           </audio>
                         </div>
                       </div>
+                      <div class="mt-3 h-1.5 w-full flex overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+                        <div class="bg-green-500" :style="{ width: progress.knownPct }" />
+                        <div class="bg-yellow-400" :style="{ width: progress.fuzzyPct }" />
+                      </div>
                     </td>
                   </tr>
                   <template v-for="(wordGroup, i) of refVocabulary[category].words" :key="wordGroup.label">
                     <tr
                       v-for="item of wordGroup"
-                      v-show="(isTrainingModel && (isOnlyShowErrors ? item.spellError : true)) || !isTrainingModel" :id="`tr_${item.id}`"
+                      v-show="(!isOnlyShowUnknown || getWordStatus(item.word[0]) !== 'known') && ((isTrainingModel && (isOnlyShowErrors ? item.spellError : true)) || !isTrainingModel)" :id="`tr_${item.id}`"
                       :key="item.id"
                       :class="{ 'bg-gray-50 dark:bg-gray-700': item.id % 2 === 0, [`group-color-${i % 15}`]: true }" class="text-sm text-gray-900 dark:text-white"
                     >
@@ -326,6 +424,13 @@ function copyAllError() {
                         <i
                           class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
                           @click="play(`vocabulary/audio/${category}/${item.word[0]}.mp3`)"
+                        />
+
+                        <i
+                          :class="statusIconMap[getWordStatus(item.word[0])]"
+                          :title="statusTitleMap[getWordStatus(item.word[0])]"
+                          class="ml-4 inline-block cursor-pointer align-middle text-base"
+                          @click="cycleWordStatus(item.word[0])"
                         />
 
                         <template v-if="isTrainingModel">
@@ -401,7 +506,7 @@ function copyAllError() {
           <button
             type="button"
             class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            @click="isFinishTraining = true"
+            @click="finishTraining"
           >
             完成练习
           </button>

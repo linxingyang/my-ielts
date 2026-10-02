@@ -87,9 +87,17 @@ def is_block_end_full(text, next_word_norm=''):
 
 
 def join_block_lines(seq, ms, block_end):
-    """拼接块内行文本，过滤页码/纯符号噪声行"""
-    return ''.join(seq[k]['text'] for k in range(ms, block_end)
-                   if not GARBAGE.match(seq[k]['text'].strip()))
+    """拼接块内行文本，过滤页码/纯符号噪声行。
+    行尾与行首都是英数字符时补一个空格（英文单词跨行），中文换行处直接连接。"""
+    parts = []
+    for k in range(ms, block_end):
+        t = seq[k]['text'].strip()
+        if GARBAGE.match(t):
+            continue
+        if parts and re.search(r'[A-Za-z0-9]$', parts[-1]) and re.match(r'^[A-Za-z0-9]', t):
+            parts.append(' ')
+        parts.append(t)
+    return ''.join(parts)
 
 
 def scan_block_end(seq, me, next_word_norm, ptr_next_hint=None):
@@ -133,10 +141,43 @@ def strip_example_prefix(joined, target):
     return joined[orig_end:]
 
 
+MARKERS = '例记搭链近参同反辨构'
+
+
+def normalize_markers(text):
+    """统一【例】/【记】/【搭】等标记：OCR 对括号的识别不统一（[ ［ 【 丨缺半边等）"""
+    # 全部归一为半角方括号再统一替换为【】
+    for left, right in (('［', '['), ('【', '['), ('］', ']'), ('】', ']'),
+                        ('『', '['), ('』', ']'), ('「', '['), ('」', ']')):
+        text = text.replace(left, right)
+    # [记] 完整形式
+    text = re.sub(r'\[\s*([%s])\s*\]' % MARKERS, r'【\1】', text)
+    # 缺右括号：[搭 后面直接跟正文
+    text = re.sub(r'\[([%s])(?=[A-Za-z\u4e00-\u9fff（"\'\s])' % MARKERS, r'【\1】', text)
+    # 闭括号被 OCR 成数字 1：[记1 xxx
+    text = re.sub(r'\[([%s])\s*1(?=[A-Za-z\s]|$)' % MARKERS, r'【\1】', text)
+    text = re.sub(r'(?<![A-Za-z0-9\[【])([%s])\s*1(?=\s)' % MARKERS, r'【\1】', text)
+    # 缺左括号：记】/ 记X 正文
+    text = re.sub(r'(?<![A-Za-z0-9\[【])([%s])(?=】)' % MARKERS, r'【\1】', text)
+    text = re.sub(r'(?<![A-Za-z0-9\[【])([%s])(?=\s?[A-Za-z])' % MARKERS, r'【\1】', text)
+    # 记忆公式加号两侧补空格：“+hap” → “+ hap”
+    text = re.sub(r'([A-Za-z）\u4e00-\u9fff】])\+(?=[A-Za-z])', r'\1 +', text)
+    text = re.sub(r'\+(?=[A-Za-z])', r'+ ', text)
+    # OCR 把 “→” 识别成 “一→”
+    text = text.replace('一→', '→')
+    return text
+
+
+CJK_ADJ = r'[\u4e00-\u9fff\u3000-\u303f\uFF01-\uFF5F】]'
+
+
 def clean_note(text):
-    """去掉保留字符集以外的 OCR 噪声，压缩空白"""
+    """去掉保留字符集以外的 OCR 噪声；压缩空白并清除中文字符之间的空格（保留英文单词间空格）"""
+    text = normalize_markers(text)  # 先归一标记（全角［例］会被 KEEP 过滤，必须先转换）
     text = KEEP.sub('', text)
-    text = re.sub(r'\s+', '', text)  # 书本排版行连接处不留空格，与原提取逻辑一致
+    text = re.sub(r'\s+', ' ', text)
+    # 中文（含中文标点）相邻处的空格是换行/排版伪影，去掉
+    text = re.sub(r'(?<=%s) (?=%s)' % (CJK_ADJ, CJK_ADJ), '', text)
     return text.strip(' 。,.、')
 
 
