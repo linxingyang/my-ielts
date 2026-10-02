@@ -93,6 +93,7 @@ declare global {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
+  const searchVocabulary: typeof import('./src/composables/vocabularySearch')['searchVocabulary']
   const setWordStatus: typeof import('./src/composables/wordStatus')['setWordStatus']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
@@ -394,6 +395,7 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly searchVocabulary: UnwrapRef<typeof import('./src/composables/vocabularySearch')['searchVocabulary']>
     readonly setWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['setWordStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
@@ -685,6 +687,7 @@ declare module '@vue/runtime-core' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly searchVocabulary: UnwrapRef<typeof import('./src/composables/vocabularySearch')['searchVocabulary']>
     readonly setWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['setWordStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>

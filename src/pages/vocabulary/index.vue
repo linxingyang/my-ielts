@@ -22,7 +22,13 @@ const isFinishTraining = ref(false)
 const isShowSource = ref(false)
 
 const trainingStats = ref('')
-const keyword = ref('')
+
+// 全局搜索：输入防抖后跨词库搜索，结果展示在搜索框下方下拉面板
+const searchInputRef = ref(null)
+const searchKeywordRaw = ref('')
+const isSearchPanelOpen = ref(false)
+const debouncedKeyword = refDebounced(searchKeywordRaw, 200)
+const searchResult = computed(() => searchVocabulary(debouncedKeyword.value, 20))
 
 const loaded = ref(false)
 const refVocabulary = reactive(vocabulary)
@@ -278,6 +284,30 @@ function getInputStyleClass(item) {
   return cls.normal
 }
 
+// 点击搜索结果：切换到对应词库/章节，滚动到该词所在行并短暂高亮
+function gotoResult(r) {
+  isSearchPanelOpen.value = false
+  searchKeywordRaw.value = ''
+  source.value = r.source
+  category.value = r.chapter
+  nextTick(() => {
+    const el = document.getElementById(`tr_${r.item.id}`)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (el) {
+      el.classList.add('search-flash')
+      setTimeout(() => el.classList.remove('search-flash'), 2000)
+    }
+  })
+}
+
+// 按 / 快速聚焦搜索框（在输入框/选择框内时不生效）
+document.addEventListener('keydown', (ev) => {
+  if (ev.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(ev.target.tagName)) {
+    ev.preventDefault()
+    searchInputRef.value?.focus()
+  }
+})
+
 function copyAllError() {
   const words = refVocabulary[category.value].words
   const errorWords = []
@@ -330,19 +360,52 @@ function copyAllError() {
                 {{ k }}
               </option>
             </select>
-            <!-- <input type="text" name="email" class="ml-3 block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 focus:border-primary-500 dark:bg-gray-700 sm:text-sm dark:text-white focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500 dark:placeholder-gray-400" placeholder="关键词"> -->
-            <!-- <div class="relative ml-2 flex-1">
+            <div class="relative ml-2 w-56">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
+                <i class="i-ph-magnifying-glass h-4 w-4 text-gray-500 dark:text-gray-400" />
               </div>
-              <input v-model="keyword" type="search"
-                class="block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
-                placeholder="Search">
-            </div> -->
+              <input
+                ref="searchInputRef" v-model="searchKeywordRaw" type="search"
+                class="block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:placeholder-gray-400"
+                placeholder="搜索 / 释义（按 / 聚焦）"
+                @focus="isSearchPanelOpen = true"
+                @input="isSearchPanelOpen = true"
+                @keydown.stop
+                @keydown.esc="isSearchPanelOpen = false"
+              >
+              <!-- 搜索结果下拉面板：点击结果跳转到对应词库/章节的单词行 -->
+              <div
+                v-if="isSearchPanelOpen && searchKeywordRaw.trim()"
+                class="absolute left-0 top-full z-50 mt-1 max-h-80 max-w-[80vw] w-96 overflow-y-auto border border-gray-200 rounded-lg bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+              >
+                <div
+                  v-for="r in searchResult.results"
+                  :key="`${r.chapter}_${r.item.id}`"
+                  class="flex cursor-pointer items-center px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700"
+                  :title="`位于 ${r.sourceLabel} · ${r.chapter}`"
+                  @mousedown.prevent="gotoResult(r)"
+                >
+                  <i
+                    :class="statusIconMap[getWordStatus(r.item.word[0])]"
+                    :title="statusTitleMap[getWordStatus(r.item.word[0])]"
+                    class="mr-2 inline-block shrink-0 text-base"
+                  />
+                  <span class="shrink-0 font-medium text-gray-900 dark:text-white">{{ r.item.word[0] }}</span>
+                  <span class="ml-2 shrink-0 text-xs italic text-gray-400">{{ r.item.pos }}</span>
+                  <span class="ml-2 truncate text-gray-600 dark:text-gray-300">{{ r.item.meaning }}</span>
+                  <span class="ml-2 shrink-0 text-xs text-gray-400">{{ r.chapter }}</span>
+                </div>
+                <div
+                  v-if="searchResult.results.length && searchResult.total > searchResult.results.length"
+                  class="border-t border-gray-100 px-3 py-1.5 text-xs text-gray-400 dark:border-gray-700"
+                >
+                  共 {{ searchResult.total }} 条匹配，仅显示前 {{ searchResult.results.length }} 条
+                </div>
+                <div v-if="!searchResult.results.length" class="px-3 py-3 text-sm text-gray-400">
+                  无匹配结果
+                </div>
+              </div>
+            </div>
             <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
               <input v-model="isTrainingModel" type="checkbox" class="peer sr-only">
               <div
@@ -602,3 +665,18 @@ function copyAllError() {
     </div>
   </div>
 </template>
+
+<style scoped>
+tr.search-flash {
+  animation: search-flash 2s ease-out;
+}
+
+@keyframes search-flash {
+  0%, 60% {
+    box-shadow: inset 0 0 0 2px rgb(59 130 246);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+</style>
