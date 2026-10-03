@@ -1,14 +1,13 @@
 <!-- eslint-disable eslint-comments/no-unlimited-disable -->
 <script setup generic="T extends any, O extends any">
-import vocabulary from './vocabulary'
 import { VOCAB_SOURCES } from '~/composables/vocabularyCategory'
 import {
-  chapterProgress,
   cycleWordStatus,
   exportWordStatus,
   getWordStatus,
   importWordStatus,
   setWordStatus,
+  wordsProgress,
 } from '~/composables/wordStatus'
 
 const { source, sourceOptions, category, chapterOptions, sourceLabel, sourceDesc } = useVocabularyCategory('vocabulary_chapter')
@@ -32,34 +31,14 @@ const debouncedKeyword = refDebounced(searchKeywordRaw, 200)
 const searchResult = computed(() => searchVocabulary(debouncedKeyword.value, 20))
 
 const loaded = ref(false)
-const refVocabulary = reactive(vocabulary)
-const wordList = computed(() => {
-  const result = structuredClone(vocabulary) // deep clone
-  // const keywordValue = keyword.value.trim().toLowerCase()
-  const categoryValue = category.value
-
-  if (categoryValue !== '') {
-    // for (const key in result) {
-    //   if (key !== categoryValue)
-    //     delete result[key]
-    // }
-    return { [categoryValue]: result[categoryValue] }
-  }
-
-  /* if (keywordValue !== '') {
-    for (const key in result) {
-      const category = result[key]
-      const words = []
-      category.words.forEach((group) => {
-        words.push(group.filter((item) => {
-          return item.word.toLowerCase().includes(keywordValue)
-        }))
-      })
-      category.words = words
-    }
-  } */
-  return {}
+// 当前章节的全量数据（词库数据按需加载，未就绪时为 undefined，模板显示加载态）。
+// 数据为普通对象，订阅版本号以在加载完成时触发重渲染
+const curChapter = computed(() => {
+  touchVocabularyData()
+  return getChapterData(category.value)
 })
+// 当前章节的元信息（来自 index 清单，打开即有：组数/词数/音频）
+const curMeta = computed(() => VOCAB_MANIFEST.chapters[category.value])
 
 watch(category, (newVal) => {
   // console.log(newVal, oldVal)
@@ -77,9 +56,9 @@ const statusTitleMap = {
   unknown: '未学（点击改为模糊）',
 }
 
+// 章节进度：基于 index 清单的纯词串列表统计，无需等待全量词条数据
 const progress = computed(() => {
-  const cur = refVocabulary[category.value]
-  const result = chapterProgress(cur?.words.flat() ?? [])
+  const result = wordsProgress(curMeta.value?.wordList ?? [])
   const total = result.known + result.fuzzy + result.unknown
   return {
     ...result,
@@ -89,18 +68,18 @@ const progress = computed(() => {
   }
 })
 
-// 聚合多个章节的三态统计；total 取自数据中的 wordCount（固定值），进度 = 已学（认识+模糊）/ 总数
+// 聚合多个章节的三态统计；total 取自清单中的 wordCount（固定值），进度 = 已学（认识+模糊）/ 总数
 function aggregateProgress(keys) {
   const totals = { known: 0, fuzzy: 0, unknown: 0, total: 0 }
   for (const k of keys) {
-    const chapter = refVocabulary[k]
-    if (!chapter)
+    const meta = VOCAB_MANIFEST.chapters[k]
+    if (!meta)
       continue
-    const p = chapterProgress(chapter.words.flat())
+    const p = wordsProgress(meta.wordList)
     totals.known += p.known
     totals.fuzzy += p.fuzzy
     totals.unknown += p.unknown
-    totals.total += chapter.wordCount
+    totals.total += meta.wordCount
   }
   const learned = totals.known + totals.fuzzy
   return {
@@ -113,11 +92,11 @@ function aggregateProgress(keys) {
 // 当前词库的总统计
 const sourceProgress = computed(() => aggregateProgress(chapterOptions.value))
 
-// 全部词库的总统计（学习总览面板用）
+// 全部词库的总统计（学习总览面板用，纯清单计算，打开即准确）
 const allSourcesProgress = computed(() =>
   VOCAB_SOURCES.map(s => ({
     ...s,
-    ...aggregateProgress(Object.keys(refVocabulary).filter(k => refVocabulary[k].source === s.key)),
+    ...aggregateProgress(Object.keys(VOCAB_MANIFEST.chapters).filter(k => VOCAB_MANIFEST.chapters[k].source === s.key)),
   })))
 
 const fileInput = ref(null)
@@ -132,21 +111,34 @@ function exportStatus() {
   URL.revokeObjectURL(url)
 }
 
+// 导入学习记录：选文件后弹出方式选择（合并/覆盖），确认后执行
+const pendingImport = ref(null)
+
 async function onImportFile(e) {
   const target = e.target
   const file = target.files?.[0]
   if (!file)
     return
   const text = await file.text()
-  // eslint-disable-next-line no-alert
-  window.alert(importWordStatus(text) ? '导入成功' : '导入失败：文件格式不正确')
   target.value = ''
+  pendingImport.value = { text }
+}
+
+function confirmImport(mode) {
+  if (!pendingImport.value)
+    return
+  const ok = importWordStatus(pendingImport.value.text, mode)
+  pendingImport.value = null
+  // eslint-disable-next-line no-alert
+  window.alert(ok ? '导入成功' : '导入失败：文件格式不正确')
 }
 
 // 完成练习：拼写正确且当前为"未学"的词自动标记为"模糊"
 function finishTraining() {
   isFinishTraining.value = true
-  const cur = refVocabulary[category.value]
+  const cur = curChapter.value
+  if (!cur)
+    return
   for (const group of cur.words) {
     for (const item of group) {
       if (item.spellValue && !item.spellError && getWordStatus(item.word[0]) === 'unknown')
@@ -160,7 +152,9 @@ function calcStats() {
   let missing = 0
   let correct = 0
   if (isTrainingModel.value) {
-    const cur = refVocabulary[category.value]
+    const cur = curChapter.value
+    if (!cur)
+      return ''
     // 遍历所有单词的属性
     for (const group of cur.words) {
       for (const item of group) {
@@ -177,8 +171,12 @@ function calcStats() {
   return `${missing} 个未完成，${correct} 个正确，${error} 个错误`
 }
 
+// 当前词库数据变化时按需加载（只加载当前词库，不做后台全量预载）
+watch(source, s => loadVocabularySource(s))
+
 onMounted(() => {
   loaded.value = true
+  loadVocabularySource(source.value)
 
   // 只能同时播放一个音频
   const audioTags = document.getElementsByTagName('audio')
@@ -285,14 +283,34 @@ function getInputStyleClass(item) {
   return cls.normal
 }
 
-// 点击搜索结果：切换到对应词库/章节，滚动到该词所在行并短暂高亮
-function gotoResult(r) {
+// 在已加载的章节数据中按词形查找词条 id（清单纯词串结果跳转用）
+function findWordId(chapterLabel, word) {
+  const ch = getChapterData(chapterLabel)
+  if (!ch || !word)
+    return null
+  const lower = word.toLowerCase()
+  for (const group of ch.words) {
+    for (const item of group) {
+      if (item.word.some(v => v.toLowerCase() === lower))
+        return item.id
+    }
+  }
+  return null
+}
+
+// 点击搜索结果：切换到对应词库/章节，滚动到该词所在行并短暂高亮。
+// 未加载词库的纯词串结果会先按需加载数据，再按单词文本定位词条
+async function gotoResult(r) {
   isSearchPanelOpen.value = false
   searchKeywordRaw.value = ''
+  await loadVocabularySource(r.source)
   source.value = r.source
   category.value = r.chapter
+  const id = r.item ? r.item.id : findWordId(r.chapter, r.word)
+  if (id == null)
+    return
   nextTick(() => {
-    const el = document.getElementById(`tr_${r.item.id}`)
+    const el = document.getElementById(`tr_${id}`)
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     if (el) {
       el.classList.add('search-flash')
@@ -302,7 +320,8 @@ function gotoResult(r) {
 }
 
 // 点击关联词标签：跳转到目标词所在词库/章节并高亮（复用搜索跳转逻辑）
-function gotoRelation(r) {
+async function gotoRelation(r) {
+  await loadVocabularySource(r.source)
   source.value = r.source
   category.value = r.chapter
   nextTick(() => {
@@ -324,7 +343,9 @@ document.addEventListener('keydown', (ev) => {
 })
 
 function copyAllError() {
-  const words = refVocabulary[category.value].words
+  const words = curChapter.value?.words
+  if (!words)
+    return
   const errorWords = []
   for (const group of words) {
     for (const item of group) {
@@ -345,7 +366,7 @@ function copyAllError() {
           <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">
             {{ sourceLabel }}
           </h3>
-          <span class="text-base font-normal text-gray-500 dark:text-gray-400">{{ sourceDesc }}</span>
+          <span class="block max-w-130 truncate text-base font-normal text-gray-500 dark:text-gray-400" :title="sourceDesc">{{ sourceDesc }}</span>
           <div class="mt-2 text-sm text-gray-600 dark:text-gray-300">
             共 <b>{{ sourceProgress.total }}</b> 词 ·
             已认识 <b class="text-green-500">{{ sourceProgress.known }}</b> ·
@@ -395,19 +416,22 @@ function copyAllError() {
               >
                 <div
                   v-for="r in searchResult.results"
-                  :key="`${r.chapter}_${r.item.id}`"
+                  :key="`${r.chapter}_${r.item ? r.item.id : r.word}`"
                   class="flex cursor-pointer items-center px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700"
-                  :title="`位于 ${r.sourceLabel} · ${r.chapter}`"
+                  :title="`位于 ${r.sourceLabel} · ${r.chapter}${r.item ? '' : '（点击加载该词库）'}`"
                   @mousedown.prevent="gotoResult(r)"
                 >
                   <i
+                    v-if="r.item"
                     :class="statusIconMap[getWordStatus(r.item.word[0])]"
                     :title="statusTitleMap[getWordStatus(r.item.word[0])]"
                     class="mr-2 inline-block shrink-0 text-base"
                   />
-                  <span class="shrink-0 font-medium text-gray-900 dark:text-white">{{ r.item.word[0] }}</span>
-                  <span class="ml-2 shrink-0 text-xs italic text-gray-400">{{ r.item.pos }}</span>
-                  <span class="ml-2 truncate text-gray-600 dark:text-gray-300">{{ r.item.meaning }}</span>
+                  <i v-else class="i-ph-circle-dashed mr-2 inline-block shrink-0 text-base text-gray-300 dark:text-gray-600" />
+                  <span class="shrink-0 font-medium text-gray-900 dark:text-white">{{ r.item ? r.item.word[0] : r.word }}</span>
+                  <span v-if="r.item" class="ml-2 shrink-0 text-xs italic text-gray-400">{{ r.item.pos }}</span>
+                  <span v-if="r.item" class="ml-2 truncate text-gray-600 dark:text-gray-300">{{ r.item.meaning }}</span>
+                  <span v-else class="ml-2 truncate text-xs text-gray-400">未加载，点击载入</span>
                   <span class="ml-2 shrink-0 text-xs text-gray-400">{{ r.chapter }}</span>
                 </div>
                 <div
@@ -549,16 +573,16 @@ function copyAllError() {
                       <div class="flex flex-row">
                         <div class="flex flex-1 items-center">
                           <span class="text-lg">{{ category }}</span>
-                          （ {{ refVocabulary[category].groupCount }} 组 {{ refVocabulary[category].wordCount }} 个词 ）
+                          （ {{ curMeta?.groupCount ?? '-' }} 组 {{ curMeta?.wordCount ?? '-' }} 个词 ）
                           <span class="ml-4 text-sm">
                             已认识 <b class="text-green-500">{{ progress.known }}</b> ·
                             模糊 <b class="text-yellow-500">{{ progress.fuzzy }}</b> ·
                             未学 <b>{{ progress.unknown }}</b>
                           </span>
                         </div>
-                        <div v-if="refVocabulary[category].audio" class="justify-items-end">
+                        <div v-if="curMeta?.audio" class="justify-items-end">
                           <audio controls class="chapter">
-                            <source :src="`vocabulary/audio/${refVocabulary[category].audio}`" type="audio/mpeg">
+                            <source :src="`vocabulary/audio/${curMeta.audio}`" type="audio/mpeg">
                           </audio>
                         </div>
                       </div>
@@ -568,102 +592,112 @@ function copyAllError() {
                       </div>
                     </td>
                   </tr>
-                  <template v-for="(wordGroup, i) of refVocabulary[category].words" :key="wordGroup.label">
-                    <tr
-                      v-for="item of wordGroup"
-                      v-show="(!isOnlyShowUnknown || getWordStatus(item.word[0]) !== 'known') && ((isTrainingModel && (isOnlyShowErrors ? item.spellError : true)) || !isTrainingModel)" :id="`tr_${item.id}`"
-                      :key="item.id"
-                      :class="{ 'bg-gray-50 dark:bg-gray-700': item.id % 2 === 0, [`group-color-${i % 15}`]: true }" class="text-sm text-gray-900 dark:text-white"
-                    >
-                      <td class="p-4">
-                        {{ item.id }}
-                      </td>
-                      <td>
-                        <i
-                          class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
-                          @click="play(wordAudioUrl(item.word[0]))"
-                        />
-
-                        <i
-                          :class="statusIconMap[getWordStatus(item.word[0])]"
-                          :title="statusTitleMap[getWordStatus(item.word[0])]"
-                          class="ml-4 inline-block cursor-pointer align-middle text-base"
-                          @click="cycleWordStatus(item.word[0])"
-                        />
-
-                        <template v-if="isTrainingModel">
+                  <template v-if="curChapter">
+                    <template v-for="(wordGroup, i) of curChapter.words" :key="wordGroup.label">
+                      <tr
+                        v-for="item of wordGroup"
+                        v-show="(!isOnlyShowUnknown || getWordStatus(item.word[0]) !== 'known') && ((isTrainingModel && (isOnlyShowErrors ? item.spellError : true)) || !isTrainingModel)" :id="`tr_${item.id}`"
+                        :key="item.id"
+                        :class="{ 'bg-gray-50 dark:bg-gray-700': item.id % 2 === 0, [`group-color-${i % 15}`]: true }" class="text-sm text-gray-900 dark:text-white"
+                      >
+                        <td class="p-4">
+                          {{ item.id }}
+                        </td>
+                        <td>
                           <i
-                            :class="`${item.showSource ? 'i-ph-eye-slash-bold' : 'i-ph-eye-bold'} inline-block cursor-pointer ml-4`"
-                            title="显示原词" @click="item.showSource = !item.showSource"
+                            class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
+                            @click="play(wordAudioUrl(item.word[0]))"
                           />
-                          <input
-                            :id="item.id" autocomplete="off" :class="getInputStyleClass(item)"
-                            type="text"
-                            @focusout="onInputFocusOut($event, item)"
-                            @focusin="onInputFocusIn($event, wordAudioUrl(item.word[0]))"
-                            @keydown="onInputKeydown"
-                          >
-                        </template>
-                      </td>
-                      <td class="group relative whitespace-nowrap p-4">
-                        <div v-if="!isTrainingModel || item.showSource || (isTrainingModel && isOnlyShowErrors && item.spellError) || isShowSource">
-                          <p v-for="w in item.word" :key="w">
-                            <a
-                              class="hover:underline" :title="`在剑桥词典中查询 ${w}`" target="_blank"
-                              :href="`https://dictionary.cambridge.org/dictionary/english-chinese-simplified/${w}`"
-                            >{{ w }}</a>
-                          </p>
-                          <p v-if="item.phonetic" class="text-sm">
-                            {{ item.phonetic }}
-                          </p>
 
-                          <div
-                            class="absolute right-0 top-0 hidden h-100% items-center group-hover:flex"
-                            @click="copyText(item)"
-                          >
-                            <i class="i-ph-copy block cursor-pointer px-4" />
+                          <i
+                            :class="statusIconMap[getWordStatus(item.word[0])]"
+                            :title="statusTitleMap[getWordStatus(item.word[0])]"
+                            class="ml-4 inline-block cursor-pointer align-middle text-base"
+                            @click="cycleWordStatus(item.word[0])"
+                          />
+
+                          <template v-if="isTrainingModel">
+                            <i
+                              :class="`${item.showSource ? 'i-ph-eye-slash-bold' : 'i-ph-eye-bold'} inline-block cursor-pointer ml-4`"
+                              title="显示原词" @click="item.showSource = !item.showSource"
+                            />
+                            <input
+                              :id="item.id" autocomplete="off" :class="getInputStyleClass(item)"
+                              type="text"
+                              @focusout="onInputFocusOut($event, item)"
+                              @focusin="onInputFocusIn($event, wordAudioUrl(item.word[0]))"
+                              @keydown="onInputKeydown"
+                            >
+                          </template>
+                        </td>
+                        <!-- 高频词的有道音标含全部变体读音，可能极长：max-width 必须放在 td 上
+                             （auto 表格布局下 p 的 max-width 不参与列宽计算），超出部分省略，悬停看全文 -->
+                        <td class="group relative max-w-55 truncate p-4">
+                          <div v-if="!isTrainingModel || item.showSource || (isTrainingModel && isOnlyShowErrors && item.spellError) || isShowSource">
+                            <p v-for="w in item.word" :key="w">
+                              <a
+                                class="hover:underline" :title="`在剑桥词典中查询 ${w}`" target="_blank"
+                                :href="`https://dictionary.cambridge.org/dictionary/english-chinese-simplified/${w}`"
+                              >{{ w }}</a>
+                            </p>
+                            <p v-if="item.phonetic" class="text-sm" :title="item.phonetic">
+                              {{ item.phonetic }}
+                            </p>
+
+                            <div
+                              class="absolute right-0 top-0 hidden h-100% items-center group-hover:flex"
+                              @click="copyText(item)"
+                            >
+                              <i class="i-ph-copy block cursor-pointer px-4" />
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td style="font-style: italic; font-family: times;">
-                        {{ item.pos }}
-                      </td>
-                      <td class="p-4">
-                        {{ isShowMeaning ? item.meaning : '' }}
-                      </td>
-                      <td class="p-4">
-                        <template v-if="!isTrainingModel">
-                          <p>{{ item.example }}</p>
-                          <p v-if="item.note" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                            {{ item.note }}
-                          </p>
-                          <p v-else-if="item.translation" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                            {{ item.translation }}
-                          </p>
-                        </template>
-                      </td>
-                      <td class="p-4">
-                        {{ isTrainingModel ? '' : item.extra }}
-                        <!-- 关联词标签：同义/反义/词根/派生/形近，点击跳转高亮 -->
-                        <div
-                          v-if="!isTrainingModel && item.relations?.length"
-                          class="mt-2 flex flex-wrap gap-1.5"
-                        >
-                          <button
-                            v-for="rel in resolveRelations(item)"
-                            :key="`${rel.type}_${rel.word}`"
-                            type="button"
-                            :class="rel.tagClass"
-                            class="inline-flex cursor-pointer items-center rounded px-1.5 py-0.5 text-xs transition-transform duration-150 hover:underline hover:-translate-y-px"
-                            :title="`${rel.typeLabel}：${rel.meaning}（位于 ${rel.sourceLabel} · ${rel.chapter}）`"
-                            @click="gotoRelation(rel)"
+                        </td>
+                        <td style="font-style: italic; font-family: times;">
+                          {{ item.pos }}
+                        </td>
+                        <!-- 词义完整显示（限宽不限高，自动换行） -->
+                        <td class="max-w-70 p-4">
+                          {{ isShowMeaning ? item.meaning : '' }}
+                        </td>
+                        <td class="p-4">
+                          <template v-if="!isTrainingModel">
+                            <p>{{ item.example }}</p>
+                            <p v-if="item.note" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                              {{ item.note }}
+                            </p>
+                            <p v-else-if="item.translation" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                              {{ item.translation }}
+                            </p>
+                          </template>
+                        </td>
+                        <td class="p-4">
+                          {{ isTrainingModel ? '' : item.extra }}
+                          <!-- 关联词标签：同义/反义/词根/派生/形近，点击跳转高亮 -->
+                          <div
+                            v-if="!isTrainingModel && item.relations?.length"
+                            class="mt-2 flex flex-wrap gap-1.5"
                           >
-                            <span class="mr-1 opacity-70">{{ rel.typeLabel }}</span>{{ rel.word }}
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
+                            <button
+                              v-for="rel in resolveRelations(item)"
+                              :key="`${rel.type}_${rel.word}`"
+                              type="button"
+                              :class="rel.tagClass"
+                              class="inline-flex cursor-pointer items-center rounded px-1.5 py-0.5 text-xs transition-transform duration-150 hover:underline hover:-translate-y-px"
+                              :title="`${rel.typeLabel}：${rel.meaning}（位于 ${rel.sourceLabel} · ${rel.chapter}）`"
+                              @click="gotoRelation(rel)"
+                            >
+                              <span class="mr-1 opacity-70">{{ rel.typeLabel }}</span>{{ rel.word }}
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </template>
                   </template>
+                  <tr v-else>
+                    <td colspan="7" class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">
+                      章节词条加载中…
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -706,6 +740,48 @@ function copyAllError() {
             @click="copyAllError"
           >
             拷贝错词
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 导入学习记录：选择合并或覆盖 -->
+    <div
+      v-if="pendingImport"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+      @click.self="pendingImport = null"
+    >
+      <div class="mx-4 w-96 rounded-lg bg-white p-5 shadow-xl dark:bg-gray-800">
+        <h4 class="mb-2 text-base font-bold text-gray-900 dark:text-white">
+          导入学习记录
+        </h4>
+        <p class="mb-1 text-sm text-gray-600 dark:text-gray-300">
+          请选择导入方式：
+        </p>
+        <ul class="mb-4 text-xs text-gray-500 dark:text-gray-400">
+          <li>· 合并导入：保留当前所有记录，文件中的同名单词以文件为准</li>
+          <li>· 覆盖导入：丢弃当前所有记录，完全使用文件内容</li>
+        </ul>
+        <div class="flex justify-end gap-2">
+          <button
+            type="button"
+            class="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+            @click="pendingImport = null"
+          >
+            取消
+          </button>
+          <button
+            type="button"
+            class="rounded-lg bg-gray-600 px-3 py-2 text-sm text-white hover:bg-gray-700"
+            @click="confirmImport('merge')"
+          >
+            合并导入
+          </button>
+          <button
+            type="button"
+            class="rounded-lg bg-blue-700 px-3 py-2 text-sm text-white dark:bg-blue-600 hover:bg-blue-800 dark:hover:bg-blue-700"
+            @click="confirmImport('overwrite')"
+          >
+            覆盖导入
           </button>
         </div>
       </div>

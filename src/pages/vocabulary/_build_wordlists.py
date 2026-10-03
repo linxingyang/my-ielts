@@ -9,6 +9,8 @@
 # 5. 幂等：重新运行时先删除旧的生成章节（标题含 |cet4/|cet6/|awl）再重新生成
 #
 # 章节标题格式：`四级 A|cet4`（parser.py 按 | 拆出名称与 source）
+import csv
+import io
 import json
 import re
 import time
@@ -22,7 +24,7 @@ TRANS_PATH = CUR_DIR / 'translations.json'
 SRC_DIR = CUR_DIR / '_cet_source'
 CACHE_PATH = CUR_DIR / '_convert_cache.json'   # 有道接口增量缓存（释义/例句/机翻）
 MISSING_PATH = CUR_DIR / '_missing_examples.txt'
-GENERATED_SOURCES = {'cet4', 'cet6', 'awl'}
+GENERATED_SOURCES = {'cet4', 'cet6', 'awl', 'oxford5000', 'ngsl', 'nawl'}
 GROUP_SIZE = 8  # 每组词条数（对应 txt 中 --- 分组，与真经粒度一致）
 
 # 词表原始数据的拼写错误修正（key 为小写）
@@ -101,6 +103,73 @@ def load_awl_entries():
         out.append({'word': item['word'].strip(), 'sublist': item['sublist'],
                     'example': (item.get('example_sentence') or '').strip(),
                     'example_cn': ''})
+    return out
+
+
+# Oxford 5000 词性英文全称 → 词条缩写（未列出的保持原样）
+OXFORD_POS_MAP = {
+    'noun': 'n.', 'verb': 'v.', 'adjective': 'adj.', 'adverb': 'adv.',
+    'preposition': 'prep.', 'conjunction': 'conj.', 'pronoun': 'pron.',
+    'exclamation': 'int.', 'determiner': 'det.', 'auxiliary verb': 'aux. v.',
+    'modal verb': 'modal v.', 'number': 'num.', 'ordinal number': 'num.',
+    'indefinite article': 'art.', 'definite article': 'art.',
+    'linking verb': 'v.', 'infinitive marker': 'inf.',
+}
+OXFORD_LEVELS = ['a1', 'a2', 'b1', 'b2', 'c1']
+
+
+def load_oxford_entries():
+    # 返回 [{word, level, pos}]，同词多行取最低 CEFR 等级，词性合并
+    rows = list(csv.reader(io.open(SRC_DIR / 'oxford5k_raw.csv', encoding='utf-8')))[1:]
+    by_word = {}
+    for row in rows:
+        if len(row) < 3:
+            continue
+        word, level, pos = row[0].strip(), row[1].strip().lower(), row[2].strip()
+        if not word:
+            continue
+        by_word.setdefault(word, []).append((level, pos))
+    out = []
+    for word, variants in by_word.items():
+        levels = [lv for lv, _ in variants if lv in OXFORD_LEVELS]
+        if not levels:
+            print(f'[oxford] 跳过无等级词条: {word}')
+            continue
+        level = min(levels, key=OXFORD_LEVELS.index)
+        poss = dict.fromkeys(OXFORD_POS_MAP.get(p, p) for _, p in variants if p)
+        out.append({'word': word, 'level': level, 'pos': '/'.join(poss) or '-'})
+    return out
+
+
+def load_ngsl_xlsx():
+    # 解析 NGSL 1.01 官方 SFI 表，返回 {wordlist: [(lemma, rank), ...]}
+    import openpyxl
+    wb = openpyxl.load_workbook(SRC_DIR / 'NGSL_101_SFI.xlsx', read_only=True)
+    ws = wb['SFI adj']
+    by_list = {}
+    for i, row in enumerate(ws.iter_rows(values_only=True)):
+        if i == 0 or not row or not row[0]:
+            continue
+        lemma, wordlist, rank = str(row[0]).strip(), str(row[1] or '').strip(), row[2]
+        by_list.setdefault(wordlist, []).append((lemma, int(rank) if rank else 0))
+    wb.close()
+    return by_list
+
+
+def load_ngsl_entries():
+    # NGSL 核心表 2801 词，按频率分段
+    out = [{'word': lemma, 'band': (rank - 1) // 1000}
+           for lemma, rank in sorted(load_ngsl_xlsx().get('1 - NGSL', []), key=lambda x: x[1])]
+    return out
+
+
+NAWL_BAND_SIZE = 250
+
+
+def load_nawl_entries():
+    # NAWL 959 词，按频率每 250 词一段
+    out = [{'word': lemma, 'band': (rank - 1) // NAWL_BAND_SIZE}
+           for lemma, rank in sorted(load_ngsl_xlsx().get('3 - NAWL', []), key=lambda x: x[1])]
     return out
 
 
@@ -193,9 +262,13 @@ def build_entry(item, jj_index, seen, cache, stats, new_translations):
         return jj_index[key], None  # 整行复用真经词条
 
     pos, meaning, example, example_cn = item.get('pos', '-'), item.get('meaning', '-'), item.get('example', ''), item.get('example_cn', '')
-    if 'sublist' in item and (not meaning or meaning == '-'):
-        # AWL：中文释义走有道
-        pos, meaning = youdao_meaning(w, cache)
+    if not meaning or meaning == '-':
+        # 中文释义缺失时走有道（AWL / Oxford 5000 / NGSL / NAWL 词表均不带中文释义）
+        yp, ym = youdao_meaning(w, cache)
+        if ym:
+            meaning = ym
+            if pos in ('', '-', None):
+                pos = yp
     if 'sublist' in item and example:
         # AWL 自带例句无翻译，优先换用有道 blng 双语例句；blng 没有再保留自带例句
         blng, blng_cn = youdao_example(w, cache)
@@ -265,6 +338,42 @@ def awl_chapters(entries, jj_index, cache, new_translations):
     return sections, stats
 
 
+def oxford_chapters(entries, jj_index, cache, new_translations):
+    # 按 CEFR 等级分组（A1~C1），等级内按字母序
+    seen = set()
+    stats = {'reused': 0, 'built': 0, 'no_example': []}
+    by_level = {}
+    for item in sorted(entries, key=lambda x: (OXFORD_LEVELS.index(x['level']), x['word'])):
+        line, _ = build_entry(item, jj_index, seen, cache, stats, new_translations)
+        if line is None:
+            continue
+        by_level.setdefault(item['level'], []).append(line)
+    sections = []
+    for lv in OXFORD_LEVELS:
+        if lv not in by_level:
+            continue
+        title = f"牛津5000 {lv.upper()}|oxford5000"
+        sections.append(f"===\n{title}\n+++\n{group_words(by_level[lv])}\n")
+    return sections, stats
+
+
+def banded_chapters(entries, band_titles, source_tag, jj_index, cache, new_translations):
+    # 按频率段分组（entries 已按频率升序），用于 NGSL / NAWL
+    seen = set()
+    stats = {'reused': 0, 'built': 0, 'no_example': []}
+    by_band = {}
+    for item in entries:
+        line, _ = build_entry(item, jj_index, seen, cache, stats, new_translations)
+        if line is None:
+            continue
+        by_band.setdefault(item['band'], []).append(line)
+    sections = []
+    for band in sorted(by_band):
+        title = f"{band_titles[band]}|{source_tag}"
+        sections.append(f"===\n{title}\n+++\n{group_words(by_band[band])}\n")
+    return sections, stats
+
+
 def split_generated(txt):
     # 返回 (真经部分文本, 是否含生成章节)
     lines = txt.splitlines()
@@ -303,7 +412,14 @@ def main():
             cet6_map[key] = item
     cet6 = list(cet6_map.values())
     awl = load_awl_entries()
-    print(f'词表规模: 四级 {len(cet4)}, 六级(合并去重) {len(cet6)}, AWL {len(awl)}')
+    oxford = load_oxford_entries()
+    ngsl = load_ngsl_entries()
+    nawl = load_nawl_entries()
+    ngsl_titles = {0: 'NGSL 1-1000', 1: 'NGSL 1001-2000', 2: 'NGSL 2001-2801'}
+    nawl_titles = {b: f'NAWL {b * NAWL_BAND_SIZE + 1}-{min((b + 1) * NAWL_BAND_SIZE, len(nawl))}'
+                   for b in sorted({e['band'] for e in nawl})}
+    print(f'词表规模: 四级 {len(cet4)}, 六级(合并去重) {len(cet6)}, AWL {len(awl)}, '
+          f'牛津5000 {len(oxford)}, NGSL {len(ngsl)}, NAWL {len(nawl)}')
 
     txt = TXT_PATH.read_text(encoding='utf-8')
     jj_text, had_generated = split_generated(txt)
@@ -315,6 +431,9 @@ def main():
         ('四级', cet4, lambda: letter_chapters(cet4, '四级', 'cet4', jj_index, cache, new_translations)),
         ('六级', cet6, lambda: letter_chapters(cet6, '六级', 'cet6', jj_index, cache, new_translations)),
         ('AWL', awl, lambda: awl_chapters(awl, jj_index, cache, new_translations)),
+        ('牛津5000', oxford, lambda: oxford_chapters(oxford, jj_index, cache, new_translations)),
+        ('NGSL', ngsl, lambda: banded_chapters(ngsl, ngsl_titles, 'ngsl', jj_index, cache, new_translations)),
+        ('NAWL', nawl, lambda: banded_chapters(nawl, nawl_titles, 'nawl', jj_index, cache, new_translations)),
     ]:
         secs, stats = fn()
         sections += secs

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import vocabulary from './vocabulary'
 import { getWordStatus, recordCorrectTyping } from '~/composables/wordStatus'
 
 const { source, sourceOptions, category: selectedChapter, chapterOptions } = useVocabularyCategory('vocabulary_typing_chapter')
@@ -11,8 +10,14 @@ const wpm = ref(0)
 const accuracy = ref(100)
 const isFinished = ref(false)
 
+// 当前章节全量数据（按需加载，未就绪时为 undefined）。数据为普通对象，订阅版本号触发重算
+const curChapter = computed(() => {
+  touchVocabularyData()
+  return getChapterData(selectedChapter.value)
+})
+
 const words = computed(() => {
-  const chapter = (vocabulary as any)[selectedChapter.value]
+  const chapter = curChapter.value
   if (!chapter)
     return []
   // Flatten groups into a single list of words, skip known words
@@ -20,7 +25,7 @@ const words = computed(() => {
 })
 
 const hiddenCount = computed(() => {
-  const chapter = (vocabulary as any)[selectedChapter.value]
+  const chapter = curChapter.value
   if (!chapter)
     return 0
   const all = chapter.words.flat().length
@@ -34,6 +39,9 @@ watch(selectedChapter, (newVal) => {
   localStorage.setItem('vocabulary_typing_chapter', newVal)
   reset()
 })
+
+// 章节数据加载完成（首次进入或切换词库后异步到达）时重置练习
+watch(curChapter, chapter => chapter && reset())
 
 function reset() {
   currentWordIndex.value = 0
@@ -109,7 +117,11 @@ function nextWord(skipAdvance = false) {
   }
 }
 
+// 词库切换时按需加载该词库数据
+watch(source, s => loadVocabularySource(s))
+
 onMounted(() => {
+  loadVocabularySource(source.value)
   reset()
 })
 </script>
@@ -201,8 +213,13 @@ onMounted(() => {
       <div
         class="relative min-h-80 flex flex-col items-center justify-center overflow-hidden border border-gray-200 rounded-2xl bg-white p-8 shadow-lg dark:border-gray-700 dark:bg-gray-800"
       >
+        <!-- 章节数据未就绪 -->
+        <div v-if="!curChapter" class="text-sm text-gray-400">
+          章节词条加载中…
+        </div>
         <!-- Container for aligned layers -->
         <div
+          v-else
           class="relative mb-8 whitespace-pre-wrap break-all text-center text-4xl font-black tracking-tighter font-mono md:text-7xl sm:text-6xl"
         >
           <!-- Background Word (Grey) -->

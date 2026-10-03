@@ -1,13 +1,13 @@
 # 说明
 
-由于词汇的输入主要来源于手打，为了方便手工输入做成了特殊格式 `vocabulary.txt`。但是最终页面上使用的是 `vocabulary.js`，其中的提取和转换通过 `parser.py` 实现。修改、编辑词汇的流程如下：
+由于词汇的输入主要来源于手打，为了方便手工输入做成了特殊格式 `vocabulary.txt`。页面使用的是由 `parser.py` 生成的拆分数据文件（`vocabulary-index.json` + `vocabulary-<source>.js` + `relationGroups.js`）。修改、编辑词汇的流程如下：
 
 1. 编辑 `vocabulary.txt`
-2. 执行（先切换目录到当前目录）提取和转换 `python parser.py`，自动生成 `vocabulary.js` 文件，不要手工编辑 `vocabulary.js` 文件
+2. 执行（先切换目录到当前目录）提取和转换 `python parser.py`，自动生成数据文件，不要手工编辑任何生成文件
 
 ## 词汇分类（词库）
 
-`vocabulary.txt` 的章节标题支持 `名称|source` 后缀，标记所属词库；无后缀默认 `ielts`。各词库在 `vocabulary.js` 中带 `source` 字段，编号独立（都从 01 开始）：
+`vocabulary.txt` 的章节标题支持 `名称|source` 后缀，标记所属词库；无后缀默认 `ielts`。各词库在生成数据中带 `source` 字段，编号独立（都从 01 开始）：
 
 | source | 词库 | 章节 |
 |---|---|---|
@@ -15,18 +15,33 @@
 | `cet4` | 四级词汇 | 按字母序 A~Z（无词的字母跳过） |
 | `cet6` | 六级词汇（含四级词） | 按字母序 A~Z |
 | `awl` | AWL 学术词汇 | 官方子表 1~10 |
+| `oxford5000` | 牛津 5000 | 按 CEFR 等级 A1~C1 |
+| `ngsl` | NGSL 高频词（2800） | 按频率分段 1-1000 / 1001-2000 / 2001-2801 |
+| `nawl` | NAWL 学术词（959） | 按频率每 250 词一段 |
 
 页面（`index.vue` / `typing.vue`）通过 `~/composables/vocabularyCategory` 提供分类 + 章节两级下拉。**学习状态按单词全局共享**：一个词在任何词库标记"认识"后，其他词库同步生效。
 
-## 四级 / 六级 / AWL 词表管线
+## 数据文件结构（拆分产物）
 
-数据来源：
+`parser.py` 生成以下文件（**全部禁止手工编辑**）：
+
+- `vocabulary-index.json`：清单（词库列表 + 章节元信息 + 每章纯词串列表）。体积小，打开页面即加载；章节/词库/全库统计只依赖它，还为未加载词库提供"仅单词"搜索
+- `vocabulary-<source>.js`：每个词库一个全量数据文件（ielts/cet4/cet6/awl/oxford5000/ngsl/nawl 各一）。前端**只按需加载当前选中的词库**（`dynamic import`），切换词库时加载对应文件；搜索命中未加载词库时点击结果再加载
+- `relationGroups.js`：关联组数据，供「关联组」视图（独立小文件，常驻加载）
+
+性能注意：章节数据是有意设计的**普通对象**（非 Vue reactive），两万+ 词条做深层响应式代理会严重卡顿；数据到达通过 `vocabularyDataVersion`（shallowRef）版本号通知 computed 重算（`composables/vocabularyData.ts`）。
+
+学习进度（`wordStatus.ts`）按单词字符串全局存储，与数据文件结构无关。
+
+## 词表管线（四级/六级/AWL/牛津5000/NGSL/NAWL）
+
+数据来源（原始数据缓存在 `_cet_source/`）：
 
 - 四级：`CET4_2.json`（有道"四级英语词汇"，3739 词）
 - 六级：`CET6_2.json` ∪ `CET6_3.json` ∪ 四级（六级大纲包含四级，合并后 5964 词）
-- AWL：`awl_words.json`（Academic Word List，554 词条，按官方子表分组）
-
-原始数据缓存在 `_cet_source/`，由 `_fetch_wordlists.py` 从 GitHub `kajweb/dict` 等开源仓库下载。
+- AWL：`awl_words.json`（Academic Word List，572 词条，按官方子表分组）
+- 牛津 5000：`oxford5k_raw.csv`（GitHub `nalgeon/words`，含 CEFR 等级与词性；同词多词性取最低等级）
+- NGSL / NAWL：`NGSL_101_SFI.xlsx`（官方 NGSL 1.01 SFI 表，含 NGSL 2801 词与 NAWL 959 词及频率排名）
 
 生成流程（当前目录下执行）：
 
@@ -34,10 +49,10 @@
 2. `python _build_wordlists.py`：生成 `vocabulary.txt` 追加章节 + 补充 `translations.json`
    - 词在真经中已存在 → **整行复用**真经词条（例句/翻译/note 沿用）
    - 新词用词库自带例句+翻译；缺失时走有道 blng 双语例句补
-   - AWL 中文释义走有道 ec 词典补（缓存在 `_convert_cache.json`）
+   - 各表不带中文释义时（AWL/牛津5000/NGSL/NAWL）走有道 ec 词典补（缓存在 `_convert_cache.json`）
    - 幂等：重新运行会先删除旧的生成章节再重新生成；无例句清单在 `_missing_examples.txt`
 3. `python _prefill_phonetics.py`：用词表自带音标预填充 `phonetics.json`（可选，减少有道查询）
-4. `python parser.py`：重新生成 `vocabulary.js`
+4. `python parser.py`：重新生成拆分数据文件（见上节）
 
 ## 单词音频（共享池模式）
 

@@ -352,21 +352,56 @@ def parse(phonetics):
                 category_body['words'].append(group)
         category_body['wordCount'] = word_count
 
-    js_code = f"""
-/**
-  * pos = part of speech
+    # ---------------- 输出：index 清单 + 每词库独立 js + relationGroups ----------------
+    # index 清单：章节元信息 + 纯词串列表（word[0]），体积小、打开页面即加载；
+    # 统计（章节/词库/全库进度）只依赖清单，无需等待全量数据
+    manifest = {
+        'sources': list(dict.fromkeys(ch['source'] for ch in result.values())),
+        'chapters': {
+            label: {
+                'label': ch['label'],
+                'source': ch['source'],
+                'audio': ch['audio'],
+                'groupCount': ch['groupCount'],
+                'wordCount': ch['wordCount'],
+                'wordList': [item['word'][0] for group in ch['words'] for item in group],
+            }
+            for label, ch in result.items()
+        },
+    }
+    (CUR_DIR / 'vocabulary-index.json').write_text(
+        json.dumps(manifest, ensure_ascii=False), encoding='utf-8')
+
+    # 每词库一个 js 文件（前端按需 dynamic import，切换词库时才加载）
+    by_source = defaultdict(dict)
+    for label, ch in result.items():
+        by_source[ch['source']][label] = ch
+    for source, chapters in by_source.items():
+        js_code = f"""/**
+  * 由 parser.py 自动生成，禁止手工编辑；与同目录其他 vocabulary-*.js 配套
   */
 
-const vocabulary = {json.dumps(result, ensure_ascii=False)}
+const data = {json.dumps(chapters, ensure_ascii=False)}
 
-// 单词关联组（手工精选词根族 + Moby 同义聚类），供「关联组」学习视图使用
+export default data
+"""
+        (CUR_DIR / f'vocabulary-{source}.js').write_text(js_code, encoding='utf-8')
+
+    # 关联组独立文件（体积远小于全量词条，供「关联组」视图使用）
+    (CUR_DIR / 'relationGroups.js').write_text(f"""/**
+  * 单词关联组（手工精选词根族 + Moby 同义聚类），由 parser.py 自动生成，禁止手工编辑
+  */
+
 const relationGroups = {json.dumps(relation_groups, ensure_ascii=False)}
 
-export {{ relationGroups }}
-export default vocabulary
-"""
-    vocabulary_js_file = CUR_DIR / 'vocabulary.js'
-    vocabulary_js_file.write_text(js_code, encoding='utf-8')
+export default relationGroups
+""", encoding='utf-8')
+
+    # 旧的单文件产物已拆分，删除避免继续被打包（7MB+）
+    old_file = CUR_DIR / 'vocabulary.js'
+    if old_file.exists():
+        old_file.unlink()
+        print('[parser] 已删除旧的 vocabulary.js（数据已拆分为 vocabulary-<source>.js + vocabulary-index.json）')
 
 
 def download_audio():

@@ -16,7 +16,7 @@ const emit = defineEmits<{
 
 const typeFilter = ref('')
 const typeOptions = computed(() => {
-  const types = new Set(resolvedRelationGroups.map(g => g.type))
+  const types = new Set(resolvedRelationGroups.value.map(g => g.type))
   return Array.from(types).map(t => ({
     value: t,
     label: RELATION_TYPE_META[t]?.label || t,
@@ -25,7 +25,7 @@ const typeOptions = computed(() => {
 
 // 只保留含当前词库词条（>= 2 个）的组；当前词库词条排前
 const groups = computed<RelationGroupItem[]>(() => {
-  const match = resolvedRelationGroups.filter(g =>
+  const match = resolvedRelationGroups.value.filter(g =>
     typeFilter.value ? g.type === typeFilter.value : true)
     .map(g => ({
       ...g,

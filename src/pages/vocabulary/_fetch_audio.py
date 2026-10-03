@@ -38,7 +38,7 @@ def parse_labels():
         t = line.strip()
         if t in ('===', '+++', '---'):
             continue
-        if '|' in t and t.rsplit('|', 1)[1] in ('cet4', 'cet6', 'awl'):
+        if '|' in t and t.rsplit('|', 1)[1] in ('cet4', 'cet6', 'awl', 'oxford5000', 'ngsl', 'nawl'):
             name, source = t.rsplit('|', 1)
             cur = {'name': name.strip(), 'source': source, 'words': []}
             labels.append(cur)
@@ -80,7 +80,7 @@ def main():
                     audio_index.setdefault(f.stem.lower(), f'vocabulary/audio/{label}/{f.name}')
     print(f'真经发音: {len(audio_index)} 个文件')
 
-    # 2. 新词库（四级/六级/AWL）：唯一副本迁入/下载到 _shared/
+    # 2. 生成词库（四级/六级/AWL/牛津5000/NGSL/NAWL）：唯一副本迁入/下载到 _shared/
     SHARED_DIR.mkdir(exist_ok=True)
     chapters = parse_labels()
     total = 0
@@ -127,7 +127,7 @@ def main():
                     fail_words.setdefault(w, []).append('shared')
             print(f'  下载完成 {downloaded}/{len(to_download)}')
 
-    # 3. 清理旧的四/六/AWL 章节目录（音频已迁入共享池或属重复副本）
+    # 3. 清理旧的生成章节目录（音频已迁入共享池或属重复副本）
     removed = 0
     for label, _ in chapters:
         d = AUDIO_DIR / label

@@ -20,6 +20,14 @@ FILES = [
 
 API = 'https://api.github.com/repos/kajweb/dict/contents/{}'
 
+# (本地保存名, API 内容地址, 完整字节数)——非 zip 的原始文件，经 api.github.com raw 通道下载
+RAW_FILES = [
+    # Oxford 5000（含 CEFR 等级 a1~c1 与词性），同词多词性多行
+    ('oxford5k_raw.csv', 'https://api.github.com/repos/nalgeon/words/contents/data/oxford-5k.csv?ref=main', 1114693),
+    # NGSL 1.01 官方 SFI 表：Wordlist 列区分 1-NGSL(2801) / 2-Sup(47) / 3-NAWL(959)，带频率 Rank
+    ('NGSL_101_SFI.xlsx', 'https://api.github.com/repos/antdurrant/word.lists/contents/data-raw/list_ngsl/NGSL%2B1.01%2Bwith%2BSFI.xlsx?ref=master', 4046430),
+]
+
 
 def load_ndjson(path):
     # kajweb/dict 的数据为 NDJSON：每行一个 JSON 对象
@@ -50,6 +58,24 @@ def download_zip(repo_path, expect_size, zip_path):
         raise RuntimeError(f'大小不符: {zip_path.stat().st_size} != {expect_size}')
 
 
+def download_raw(url, expect_size, out_path):
+    # 同样走 curl 断点续传
+    for attempt in range(30):
+        have = out_path.stat().st_size if out_path.exists() else 0
+        if have >= expect_size:
+            break
+        subprocess.run([
+            'curl.exe', '-s', '--max-time', '300', '--speed-time', '30', '--speed-limit', '1000',
+            '-C', '-', '-H', 'User-Agent: Mozilla/5.0',
+            '-H', 'Accept: application/vnd.github.raw',
+            '-o', str(out_path), url,
+        ], check=False)
+    else:
+        raise RuntimeError(f'下载未完成: {url}')
+    if out_path.stat().st_size != expect_size:
+        raise RuntimeError(f'大小不符: {out_path.stat().st_size} != {expect_size}')
+
+
 for name, repo_path, size in FILES:
     out_file = OUT_DIR / name
     if out_file.exists():
@@ -65,6 +91,15 @@ for name, repo_path, size in FILES:
     zip_path.unlink()
     words = load_ndjson(out_file)
     print(f'[ok]   {name}: {len(words)} 词')
+
+for name, url, size in RAW_FILES:
+    out_file = OUT_DIR / name
+    if out_file.exists():
+        print(f'[skip] {name} 已存在')
+        continue
+    print(f'[down] {url} ...')
+    download_raw(url, size, out_file)
+    print(f'[ok]   {name}: {out_file.stat().st_size} bytes')
 
 # 打印第一条数据看结构
 sample = load_ndjson(OUT_DIR / 'CET4_2.json')[0]

@@ -7,6 +7,7 @@ export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const RELATION_TYPE_META: typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']
+  const VOCAB_MANIFEST: typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']
   const VOCAB_SOURCES: typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -37,6 +38,7 @@ declare global {
   const effectScope: typeof import('vue')['effectScope']
   const exportWordStatus: typeof import('./src/composables/wordStatus')['exportWordStatus']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const getChapterData: typeof import('./src/composables/vocabularyData')['getChapterData']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getWordStatus: typeof import('./src/composables/wordStatus')['getWordStatus']
@@ -51,6 +53,8 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const isSourceLoaded: typeof import('./src/composables/vocabularyData')['isSourceLoaded']
+  const loadVocabularySource: typeof import('./src/composables/vocabularyData')['loadVocabularySource']
   const lookupWord: typeof import('./src/composables/vocabularyRelation')['lookupWord']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
@@ -76,6 +80,7 @@ declare global {
   const onUpdated: typeof import('vue')['onUpdated']
   const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
+  const preloadVocabularyData: typeof import('./src/composables/vocabularyData')['preloadVocabularyData']
   const provide: typeof import('vue')['provide']
   const provideLocal: typeof import('@vueuse/core')['provideLocal']
   const reactify: typeof import('@vueuse/core')['reactify']
@@ -113,6 +118,7 @@ declare global {
   const toRefs: typeof import('vue')['toRefs']
   const toValue: typeof import('vue')['toValue']
   const toggleDark: typeof import('./src/composables/dark')['toggleDark']
+  const touchVocabularyData: typeof import('./src/composables/vocabularyData')['touchVocabularyData']
   const triggerRef: typeof import('vue')['triggerRef']
   const tryOnBeforeMount: typeof import('@vueuse/core')['tryOnBeforeMount']
   const tryOnBeforeUnmount: typeof import('@vueuse/core')['tryOnBeforeUnmount']
@@ -287,6 +293,8 @@ declare global {
   const useWindowFocus: typeof import('@vueuse/core')['useWindowFocus']
   const useWindowScroll: typeof import('@vueuse/core')['useWindowScroll']
   const useWindowSize: typeof import('@vueuse/core')['useWindowSize']
+  const vocabChapterStore: typeof import('./src/composables/vocabularyData')['vocabChapterStore']
+  const vocabularyDataVersion: typeof import('./src/composables/vocabularyData')['vocabularyDataVersion']
   const watch: typeof import('vue')['watch']
   const watchArray: typeof import('@vueuse/core')['watchArray']
   const watchAtMost: typeof import('@vueuse/core')['watchAtMost']
@@ -304,6 +312,7 @@ declare global {
   const watchWithFilter: typeof import('@vueuse/core')['watchWithFilter']
   const whenever: typeof import('@vueuse/core')['whenever']
   const wordAudioUrl: typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']
+  const wordsProgress: typeof import('./src/composables/wordStatus')['wordsProgress']
 }
 // for type re-export
 declare global {
@@ -316,10 +325,10 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
+    readonly VOCAB_MANIFEST: UnwrapRef<typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
-    readonly chapterProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['chapterProgress']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -346,6 +355,7 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exportWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['exportWordStatus']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getChapterData: UnwrapRef<typeof import('./src/composables/vocabularyData')['getChapterData']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['getWordStatus']>
@@ -359,6 +369,8 @@ declare module 'vue' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isSourceLoaded: UnwrapRef<typeof import('./src/composables/vocabularyData')['isSourceLoaded']>
+    readonly loadVocabularySource: UnwrapRef<typeof import('./src/composables/vocabularyData')['loadVocabularySource']>
     readonly lookupWord: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['lookupWord']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
@@ -419,6 +431,7 @@ declare module 'vue' {
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly toggleDark: UnwrapRef<typeof import('./src/composables/dark')['toggleDark']>
+    readonly touchVocabularyData: UnwrapRef<typeof import('./src/composables/vocabularyData')['touchVocabularyData']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryOnBeforeMount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeMount']>
     readonly tryOnBeforeUnmount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeUnmount']>
@@ -589,6 +602,7 @@ declare module 'vue' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly vocabularyDataVersion: UnwrapRef<typeof import('./src/composables/vocabularyData')['vocabularyDataVersion']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>
@@ -606,16 +620,17 @@ declare module 'vue' {
     readonly watchWithFilter: UnwrapRef<typeof import('@vueuse/core')['watchWithFilter']>
     readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
     readonly wordAudioUrl: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']>
+    readonly wordsProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['wordsProgress']>
   }
 }
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
+    readonly VOCAB_MANIFEST: UnwrapRef<typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
-    readonly chapterProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['chapterProgress']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -642,6 +657,7 @@ declare module '@vue/runtime-core' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly exportWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['exportWordStatus']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
+    readonly getChapterData: UnwrapRef<typeof import('./src/composables/vocabularyData')['getChapterData']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['getWordStatus']>
@@ -655,6 +671,8 @@ declare module '@vue/runtime-core' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isSourceLoaded: UnwrapRef<typeof import('./src/composables/vocabularyData')['isSourceLoaded']>
+    readonly loadVocabularySource: UnwrapRef<typeof import('./src/composables/vocabularyData')['loadVocabularySource']>
     readonly lookupWord: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['lookupWord']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
@@ -715,6 +733,7 @@ declare module '@vue/runtime-core' {
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly toggleDark: UnwrapRef<typeof import('./src/composables/dark')['toggleDark']>
+    readonly touchVocabularyData: UnwrapRef<typeof import('./src/composables/vocabularyData')['touchVocabularyData']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryOnBeforeMount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeMount']>
     readonly tryOnBeforeUnmount: UnwrapRef<typeof import('@vueuse/core')['tryOnBeforeUnmount']>
@@ -885,6 +904,7 @@ declare module '@vue/runtime-core' {
     readonly useWindowFocus: UnwrapRef<typeof import('@vueuse/core')['useWindowFocus']>
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
+    readonly vocabularyDataVersion: UnwrapRef<typeof import('./src/composables/vocabularyData')['vocabularyDataVersion']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>
@@ -902,5 +922,6 @@ declare module '@vue/runtime-core' {
     readonly watchWithFilter: UnwrapRef<typeof import('@vueuse/core')['watchWithFilter']>
     readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
     readonly wordAudioUrl: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']>
+    readonly wordsProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['wordsProgress']>
   }
 }

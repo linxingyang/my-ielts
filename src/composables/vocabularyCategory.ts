@@ -1,5 +1,5 @@
+import { VOCAB_MANIFEST } from './vocabularyData'
 import audioIndex from '~/pages/vocabulary/audioIndex.json'
-import vocabulary from '~/pages/vocabulary/vocabulary'
 
 export interface VocabSource { key: string; label: string; desc: string }
 
@@ -11,16 +11,23 @@ export function wordAudioUrl(word: string): string {
   return AUDIO_INDEX[w.toLowerCase()] || `https://dict.youdao.com/dictvoice?type=1&audio=${encodeURIComponent(w)}`
 }
 
-// 词汇分类（词库）：与 vocabulary.js 中每章的 source 字段对应
-export const VOCAB_SOURCES: VocabSource[] = [
-  { key: 'ielts', label: '雅思词汇真经', desc: '涵盖雅思必备核心词，逻辑词群记忆法' },
-  { key: 'cet4', label: '四级词汇', desc: '大学英语四级词汇，与雅思真经重叠词自动复用词条内容' },
-  { key: 'cet6', label: '六级词汇', desc: '大学英语六级词汇（含四级词），学习进度与四级、真经互通' },
-  { key: 'awl', label: 'AWL 学术词汇', desc: 'Academic Word List 学术词汇表，雅思阅读写作高频词' },
-]
+// 各词库的展示信息（label/desc 仅前端展示；可用词库列表以构建产物 vocabulary-index.json 为准，
+// 未来新增词表只需跑构建脚本 + 在此补充 label/desc）
+const SOURCE_META: Record<string, { label: string; desc: string }> = {
+  ielts: { label: '雅思词汇真经', desc: '雅思核心词 · 逻辑词群记忆法' },
+  cet4: { label: '四级词汇', desc: '大学英语四级词汇' },
+  cet6: { label: '六级词汇', desc: '大学英语六级词汇（含四级词）' },
+  awl: { label: 'AWL 学术词汇', desc: 'Academic Word List · 雅思读写高频' },
+  oxford5000: { label: '牛津 5000', desc: 'Oxford 5000 核心词 · CEFR A1~C1 分级' },
+  ngsl: { label: 'NGSL 高频词', desc: '通用高频词 2801 · 按频率分段' },
+  nawl: { label: 'NAWL 学术词', desc: 'NAWL 新学术词汇表（AWL 新版）· 按频率分段' },
+}
+
+export const VOCAB_SOURCES: VocabSource[] = VOCAB_MANIFEST.sources
+  .map(key => ({ key, ...(SOURCE_META[key] || { label: key, desc: '' }) }))
 
 const SOURCE_KEY = 'vocabulary_source'
-const chapters = Object.keys(vocabulary)
+const chapters = Object.keys(VOCAB_MANIFEST.chapters)
 
 /**
  * 词汇分类 + 章节两级联动选择。
@@ -28,14 +35,14 @@ const chapters = Object.keys(vocabulary)
  */
 export function useVocabularyCategory(chapterKey: string) {
   const storedSource = localStorage.getItem(SOURCE_KEY) || 'ielts'
-  const source = ref(VOCAB_SOURCES.some(s => s.key === storedSource) ? storedSource : 'ielts')
+  const source = ref(VOCAB_SOURCES.some(s => s.key === storedSource) ? storedSource : VOCAB_SOURCES[0].key)
 
   const storedChapter = localStorage.getItem(chapterKey) || ''
-  const category = ref(chapters.includes(storedChapter) ? storedChapter : chapters[0])
+  const category = ref(VOCAB_MANIFEST.chapters[storedChapter] ? storedChapter : chapters[0])
 
   const sourceOptions = VOCAB_SOURCES
   const chapterOptions = computed(() =>
-    chapters.filter(k => (vocabulary as any)[k]?.source === source.value))
+    chapters.filter(k => VOCAB_MANIFEST.chapters[k]?.source === source.value))
   const sourceLabel = computed(() =>
     VOCAB_SOURCES.find(s => s.key === source.value)?.label || '')
   const sourceDesc = computed(() =>

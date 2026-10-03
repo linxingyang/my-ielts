@@ -1,5 +1,9 @@
 import { VOCAB_SOURCES } from './vocabularyCategory'
-import vocabulary, { relationGroups } from '~/pages/vocabulary/vocabulary'
+import { VOCAB_MANIFEST, getChapterData, touchVocabularyData } from './vocabularyData'
+import relationGroupsData from '~/pages/vocabulary/relationGroups'
+
+/** relationGroups.js 中的关联组结构 */
+interface RelationGroup { type: string; root?: string; words: string[] }
 
 export interface RelationRef { t: string; w: string; r?: string }
 
@@ -58,30 +62,41 @@ export const RELATION_TYPE_META: Record<string, { label: string; tagClass: strin
   },
 }
 
-// 启动时构建一次词形（含变体）→ 词条位置 的解析索引，供关联解析与跳转
-const WORD_INDEX = new Map<string, WordLocation>()
-for (const [chapter, ch] of Object.entries(vocabulary as Record<string, any>)) {
-  const sourceLabel = VOCAB_SOURCES.find(s => s.key === ch.source)?.label || ch.source
-  for (const item of (ch.words as any[]).flat()) {
-    for (const w of item.word as string[]) {
-      const key = w.toLowerCase().trim()
-      if (!WORD_INDEX.has(key))
-        WORD_INDEX.set(key, { item, chapter, source: ch.source, sourceLabel })
+// 词形（含变体）→ 词条位置 的解析索引：随词库加载按版本号重建（数据为普通对象，重建仅需几十毫秒）。
+// 未加载词库的词暂不可解析，切换到对应词库（触发加载）后自动补全
+const WORD_INDEX = computed(() => {
+  touchVocabularyData()
+  const map = new Map<string, WordLocation>()
+  for (const meta of Object.values(VOCAB_MANIFEST.chapters)) {
+    const ch = getChapterData(meta.label)
+    if (!ch)
+      continue
+    const sourceLabel = VOCAB_SOURCES.find(s => s.key === meta.source)?.label || meta.source
+    for (const group of ch.words as any[][]) {
+      for (const item of group as any[]) {
+        for (const w of item.word as string[]) {
+          const key = w.toLowerCase().trim()
+          if (!map.has(key))
+            map.set(key, { item, chapter: meta.label, source: meta.source, sourceLabel })
+        }
+      }
     }
   }
-}
+  return map
+})
 
 /** 查找一个单词的词条位置（跨词库首次出现） */
 export function lookupWord(word: string): WordLocation | undefined {
-  return WORD_INDEX.get(word.toLowerCase().trim())
+  return WORD_INDEX.value.get(word.toLowerCase().trim())
 }
 
 /** 把词条的 relations 字段解析为带目标词信息的关联列表（目标词缺失时跳过） */
 export function resolveRelations(item: any): ResolvedRelation[] {
   const relations: RelationRef[] = item.relations || []
+  const index = WORD_INDEX.value
   const resolved: ResolvedRelation[] = []
   for (const r of relations) {
-    const loc = WORD_INDEX.get(r.w)
+    const loc = index.get(r.w)
     if (!loc)
       continue
     const meta = RELATION_TYPE_META[r.t]
@@ -102,25 +117,28 @@ export function resolveRelations(item: any): ResolvedRelation[] {
   return resolved
 }
 
-/** 全部关联组（手工精选词根族 + Moby 同义聚类），已解析组内词信息 */
-export const resolvedRelationGroups: RelationGroupItem[] = (relationGroups as any[])
-  .map((g) => {
-    const meta = RELATION_TYPE_META[g.type] || { label: g.type, tagClass: '' }
-    const members = (g.words as string[])
-      .map(w => WORD_INDEX.get(w))
-      .filter(loc => !!loc)
-      .map(loc => ({
-        type: g.type,
-        typeLabel: meta.label,
-        tagClass: meta.tagClass,
-        word: loc!.item.word[0],
-        meaning: loc!.item.meaning,
-        pos: loc!.item.pos,
-        id: loc!.item.id,
-        chapter: loc!.chapter,
-        source: loc!.source,
-        sourceLabel: loc!.sourceLabel,
-      }))
-    return { type: g.type, typeLabel: meta.label, tagClass: meta.tagClass, root: g.root || '', members }
-  })
-  .filter(g => g.members.length >= 2)
+/** 全部关联组（手工精选词根族 + Moby 同义聚类），已解析组内词信息（响应式） */
+export const resolvedRelationGroups = computed<RelationGroupItem[]>(() => {
+  const index = WORD_INDEX.value
+  return (relationGroupsData as RelationGroup[])
+    .map((g) => {
+      const meta = RELATION_TYPE_META[g.type] || { label: g.type, tagClass: '' }
+      const members = (g.words as string[])
+        .map(w => index.get(w))
+        .filter(loc => !!loc)
+        .map(loc => ({
+          type: g.type,
+          typeLabel: meta.label,
+          tagClass: meta.tagClass,
+          word: loc!.item.word[0],
+          meaning: loc!.item.meaning,
+          pos: loc!.item.pos,
+          id: loc!.item.id,
+          chapter: loc!.chapter,
+          source: loc!.source,
+          sourceLabel: loc!.sourceLabel,
+        }))
+      return { type: g.type, typeLabel: meta.label, tagClass: meta.tagClass, root: g.root || '', members }
+    })
+    .filter(g => g.members.length >= 2)
+})

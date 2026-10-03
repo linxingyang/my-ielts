@@ -44,10 +44,11 @@ export function recordCorrectTyping(word: string): WordStatus {
   return current
 }
 
-export function chapterProgress(words: { word: string[] }[]) {
+/** 按纯词串列表统计三态（供学习总览面板使用，无需加载全量词条数据） */
+export function wordsProgress(words: string[]) {
   const progress = { known: 0, fuzzy: 0, unknown: 0 }
-  for (const item of words)
-    progress[getWordStatus(item.word[0])]++
+  for (const w of words)
+    progress[getWordStatus(w)]++
   return progress
 }
 
@@ -60,16 +61,27 @@ export function exportWordStatus(): string {
   }, null, 2)
 }
 
-export function importWordStatus(json: string): boolean {
+/**
+ * 导入学习记录。
+ * @param mode 'merge' 合并：保留现有记录，同词以文件为准；'overwrite' 覆盖：完全使用文件内容
+ */
+export function importWordStatus(json: string, mode: 'merge' | 'overwrite' = 'overwrite'): boolean {
   try {
     const data = JSON.parse(json)
     if (typeof data !== 'object' || data === null)
       return false
     if (typeof data.status !== 'object' || data.status === null)
       return false
-    wordStatusMap.value = data.status
-    if (typeof data.correct === 'object' && data.correct !== null)
-      wordCorrectMap.value = data.correct
+    if (mode === 'merge') {
+      wordStatusMap.value = { ...wordStatusMap.value, ...data.status }
+      if (typeof data.correct === 'object' && data.correct !== null)
+        wordCorrectMap.value = { ...wordCorrectMap.value, ...data.correct }
+    }
+    else {
+      wordStatusMap.value = data.status
+      if (typeof data.correct === 'object' && data.correct !== null)
+        wordCorrectMap.value = data.correct
+    }
     return true
   }
   catch {
