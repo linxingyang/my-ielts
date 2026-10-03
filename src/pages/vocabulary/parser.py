@@ -1,8 +1,9 @@
 import json
 import re
 import time
-from pathlib import Path
 from collections import defaultdict
+from difflib import SequenceMatcher
+from pathlib import Path
 from urllib import request
 from urllib.parse import quote
 
@@ -10,6 +11,14 @@ CUR_DIR = Path(__file__).absolute().parent
 PHONETICS_PATH = CUR_DIR / 'phonetics.json'
 TRANSLATIONS_PATH = CUR_DIR / 'translations.json'
 NOTES_PATH = CUR_DIR / 'notes.json'
+RELATIONS_PATH = CUR_DIR / 'relations.json'  # 手工精选关联组（词根/同义/反义）
+AUTO_RELATIONS_PATH = CUR_DIR / 'relations_auto.json'  # Moby 自动同义聚类
+ANTONYMS_PATH = CUR_DIR / '_antonyms.json'  # Datamuse 反义词缓存
+DERIVATIONS_PATH = CUR_DIR / '_derivations.json'  # 有道派生词缓存
+
+# 每词各类型关联数量上限与总上限
+MAX_RELATIONS = {'root': 8, 'syn': 6, 'ant': 3, 'der': 4, 'sim': 3}
+MAX_RELATIONS_TOTAL = 12
 
 
 def norm_example(s):
@@ -143,9 +152,135 @@ def lookup_phonetic(mapping, word_variants):
     return ''
 
 
+def load_json(path, default):
+    if path.exists():
+        return json.loads(path.read_text(encoding='utf-8'))
+    print(f'[关联词] 缺少 {path.name}，跳过该数据源')
+    return default
+
+
+def add_relation(rel_map, word, rtype, other, root=None):
+    """添加一条关联（含去重与数量上限）。root 组的关联携带词根说明"""
+    key = (rtype, other)
+    for r in rel_map[word]:
+        if (r['t'], r['w']) == key:
+            return
+        # 已有其他类型的同词关联（如派生）时，形近词不再重复添加
+        if rtype == 'sim' and r['w'] == other:
+            return
+    if sum(1 for r in rel_map[word] if r['t'] == rtype) >= MAX_RELATIONS.get(rtype, 3):
+        return
+    if len(rel_map[word]) >= MAX_RELATIONS_TOTAL:
+        return
+    entry = {'t': rtype, 'w': other}
+    if root:
+        entry['r'] = root
+    rel_map[word].append(entry)
+
+
+def compute_similar_words(words):
+    """形近词：SequenceMatcher ratio >= 0.82，仅长度 >= 5、前 2 字母相同
+    （形近词绝大多数共享开头），每词上限 3 个"""
+    buckets = defaultdict(list)  # (前2字母, 长度) → 词列表
+    word_list = sorted(words)
+    for w in word_list:
+        if len(w) >= 5:
+            buckets[(w[:2], len(w))].append(w)
+    similar = {}
+    for w in word_list:
+        if len(w) < 5:
+            continue
+        cands = set()
+        for length in range(len(w) - 2, len(w) + 3):
+            cands.update(buckets.get((w[:2], length), []))
+        best = []
+        for v in cands:
+            if v == w:
+                continue
+            ratio = SequenceMatcher(None, w, v).ratio()
+            if ratio >= 0.82:
+                best.append((v, ratio))
+        best.sort(key=lambda x: -x[1])
+        if best:
+            similar[w] = [v for v, _ in best[:MAX_RELATIONS['sim']]]
+    return similar
+
+
+def build_relations(vocab):
+    """合并手工/自动同义/反义/派生数据，组内两两双向生成 词 → [关联] 映射。
+    返回 (rel_map, relation_groups)：rel_map 供词条合并；relation_groups 供关联组视图"""
+    rel_map = defaultdict(list)
+
+    # 1. 手工精选组（词根/同义/反义）+ 2. Moby 自动同义聚类
+    manual_groups = load_json(RELATIONS_PATH, [])
+    auto_groups = load_json(AUTO_RELATIONS_PATH, [])
+
+    type_mapping = {'root': 'root', 'synonym': 'syn', 'antonym': 'ant'}
+    relation_groups = []
+    seen_groups = set()
+    for group in manual_groups + auto_groups:
+        words = [w.strip().lower() for w in group.get('words', [])]
+        valid = [w for w in words if w in vocab]
+        missing = [w for w in words if w not in vocab]
+        if missing:
+            print(f'[关联词] 警告: {group.get("type")} 组含词库外词汇已跳过: {missing}')
+        if len(valid) < 2:
+            continue
+        rtype = type_mapping[group['type']]
+        signature = (rtype, tuple(valid))
+        if signature not in seen_groups:
+            seen_groups.add(signature)
+            relation_groups.append({'type': rtype, 'root': group.get('root', ''), 'words': valid})
+        for w in valid:
+            for other in valid:
+                if other != w:
+                    add_relation(rel_map, w, rtype, other, group.get('root'))
+
+    # 3. 反义词（Datamuse 缓存，成对双向）
+    antonyms = load_json(ANTONYMS_PATH, {})
+    ant_pairs = 0
+    for word, ants in antonyms.items():
+        if word not in vocab:
+            continue
+        for ant in ants:
+            if ant in vocab:
+                add_relation(rel_map, word, 'ant', ant)
+                add_relation(rel_map, ant, 'ant', word)
+                ant_pairs += 1
+    print(f'[关联词] 反义关系: {ant_pairs} 对')
+
+    # 4. 派生词（有道 rel_word 缓存，成对双向）
+    derivations = load_json(DERIVATIONS_PATH, {})
+    der_pairs = 0
+    for word, ders in derivations.items():
+        if word not in vocab:
+            continue
+        for dw in ders:
+            if dw in vocab:
+                add_relation(rel_map, word, 'der', dw)
+                add_relation(rel_map, dw, 'der', word)
+                der_pairs += 1
+    print(f'[关联词] 派生关系: {der_pairs} 对')
+
+    # 5. 形近词（构建时自动计算，成对双向）
+    similar = compute_similar_words(vocab)
+    sim_pairs = 0
+    for word, sims in similar.items():
+        for sv in sims:
+            add_relation(rel_map, word, 'sim', sv)
+            add_relation(rel_map, sv, 'sim', word)
+            sim_pairs += 1
+    print(f'[关联词] 形近关系: {sim_pairs} 对')
+
+    covered = sum(1 for rs in rel_map.values() if rs)
+    print(f'[关联词] 覆盖 {covered}/{len(vocab)} 词')
+    return rel_map, relation_groups
+
+
 def parse(phonetics):
     translations = load_translations()
     notes = load_notes()
+    rel_map, relation_groups = build_relations(collect_words())
     part_mapping = {
         0: 'word',
         1: 'pos',
@@ -194,10 +329,24 @@ def parse(phonetics):
                 for part_index in part_mapping:
                     dict_key = part_mapping[part_index]
                     word_dict[dict_key] = word_parts[part_index] if part_index < len(word_parts) else '-'
+                # 拓展内容缺失时置空（避免前端显示占位符 '-'）
+                if word_dict['extra'] == '-':
+                    word_dict['extra'] = ''
                 word_dict['word'] = word_dict['word'].split('/')
                 word_dict['phonetic'] = lookup_phonetic(phonetics, word_dict['word'])
                 word_dict['translation'] = translations.get(norm_example(word_dict['example']), '')
                 word_dict['note'] = notes.get(norm_example(word_dict['word'] if isinstance(word_dict['word'], str) else ' '.join(word_dict['word'])), '')
+                # 关联词：合并各变体的关联（已全局去重），按 root/syn/ant/der/sim 顺序
+                merged = []
+                seen = set()
+                for variant in word_dict['word']:
+                    for r in rel_map.get(variant.strip().lower(), []):
+                        key = (r['t'], r['w'])
+                        if key not in seen:
+                            seen.add(key)
+                            merged.append(r)
+                if merged:
+                    word_dict['relations'] = merged
                 group.append(word_dict)
             if group:
                 category_body['words'].append(group)
@@ -210,6 +359,10 @@ def parse(phonetics):
 
 const vocabulary = {json.dumps(result, ensure_ascii=False)}
 
+// 单词关联组（手工精选词根族 + Moby 同义聚类），供「关联组」学习视图使用
+const relationGroups = {json.dumps(relation_groups, ensure_ascii=False)}
+
+export {{ relationGroups }}
 export default vocabulary
 """
     vocabulary_js_file = CUR_DIR / 'vocabulary.js'

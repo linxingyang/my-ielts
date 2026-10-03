@@ -14,6 +14,7 @@ import {
 const { source, sourceOptions, category, chapterOptions, sourceLabel, sourceDesc } = useVocabularyCategory('vocabulary_chapter')
 
 const isTrainingModel = ref(false)
+const isRelationView = ref(false)
 const isShowMeaning = ref(true)
 const isAutoPlayWordAudio = ref(true)
 const isOnlyShowErrors = ref(false)
@@ -300,6 +301,20 @@ function gotoResult(r) {
   })
 }
 
+// 点击关联词标签：跳转到目标词所在词库/章节并高亮（复用搜索跳转逻辑）
+function gotoRelation(r) {
+  source.value = r.source
+  category.value = r.chapter
+  nextTick(() => {
+    const el = document.getElementById(`tr_${r.id}`)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (el) {
+      el.classList.add('search-flash')
+      setTimeout(() => el.classList.remove('search-flash'), 2000)
+    }
+  })
+}
+
 // 按 / 快速聚焦搜索框（在输入框/选择框内时不生效）
 document.addEventListener('keydown', (ev) => {
   if (ev.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(ev.target.tagName)) {
@@ -413,6 +428,13 @@ function copyAllError() {
               />
               <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">练习模式</span>
             </label>
+            <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center" title="按词根/同义/反义组成组学习">
+              <input v-model="isRelationView" type="checkbox" class="peer sr-only">
+              <div
+                class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
+              />
+              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">关联组</span>
+            </label>
             <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
               <input v-model="isOnlyShowUnknown" type="checkbox" class="peer sr-only">
               <div
@@ -488,7 +510,7 @@ function copyAllError() {
         </div>
       </div>
       <!-- Table -->
-      <div class="mt-6 flex flex-col">
+      <div v-if="!isRelationView" class="mt-6 flex flex-col">
         <div class="overflow-x-auto rounded-lg">
           <div class="inline-block min-w-full align-middle">
             <div class="overflow-hidden shadow sm:rounded-lg">
@@ -622,6 +644,23 @@ function copyAllError() {
                       </td>
                       <td class="p-4">
                         {{ isTrainingModel ? '' : item.extra }}
+                        <!-- 关联词标签：同义/反义/词根/派生/形近，点击跳转高亮 -->
+                        <div
+                          v-if="!isTrainingModel && item.relations?.length"
+                          class="mt-2 flex flex-wrap gap-1.5"
+                        >
+                          <button
+                            v-for="rel in resolveRelations(item)"
+                            :key="`${rel.type}_${rel.word}`"
+                            type="button"
+                            :class="rel.tagClass"
+                            class="inline-flex cursor-pointer items-center rounded px-1.5 py-0.5 text-xs transition-transform duration-150 hover:underline hover:-translate-y-px"
+                            :title="`${rel.typeLabel}：${rel.meaning}（位于 ${rel.sourceLabel} · ${rel.chapter}）`"
+                            @click="gotoRelation(rel)"
+                          >
+                            <span class="mr-1 opacity-70">{{ rel.typeLabel }}</span>{{ rel.word }}
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   </template>
@@ -631,6 +670,14 @@ function copyAllError() {
           </div>
         </div>
       </div>
+      <!-- 关联组学习视图 -->
+      <RelationGroupView
+        v-else
+        class="mt-6"
+        :source="source"
+        :play="play"
+        @goto="gotoRelation"
+      />
       <!-- Card Footer -->
       <div class="flex items-center justify-between pt-3 sm:pt-6">
         <div>

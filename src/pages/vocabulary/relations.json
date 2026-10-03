@@ -1,0 +1,2124 @@
+[
+ {
+  "type": "root",
+  "root": "spect / spic（看）",
+  "words": [
+   "inspect",
+   "respect",
+   "spectator",
+   "perspective",
+   "suspect",
+   "prospect",
+   "spectacle",
+   "spectrum",
+   "suspicion",
+   "suspicious",
+   "conspicuous",
+   "retrospect",
+   "expectation"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "dict / dic（说）",
+  "words": [
+   "predict",
+   "prediction",
+   "contradict",
+   "contradiction",
+   "dictate",
+   "dictation",
+   "dictionary",
+   "indicate",
+   "indication",
+   "verdict",
+   "dictator",
+   "dedicate"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "duct / duc（引导）",
+  "words": [
+   "conduct",
+   "conductor",
+   "product",
+   "production",
+   "reduce",
+   "reduction",
+   "introduce",
+   "introduction",
+   "educate",
+   "education",
+   "deduct",
+   "deduction",
+   "induce",
+   "semiconductor",
+   "productive",
+   "counterpart"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ject（扔）",
+  "words": [
+   "project",
+   "injection",
+   "inject",
+   "reject",
+   "rejection",
+   "object",
+   "objection",
+   "objective",
+   "subject",
+   "subjective",
+   "eject"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "fer（带来）",
+  "words": [
+   "transfer",
+   "refer",
+   "reference",
+   "prefer",
+   "preference",
+   "differ",
+   "difference",
+   "different",
+   "offer",
+   "conference",
+   "infer",
+   "inference",
+   "fertile",
+   "fertilizer",
+   "interfere",
+   "interference",
+   "confer",
+   " ferry",
+   "ferry"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "pos / pon（放置）",
+  "words": [
+   "position",
+   "compose",
+   "composition",
+   "deposit",
+   "oppose",
+   "opposite",
+   "propose",
+   "proposal",
+   "suppose",
+   "expose",
+   "exposure",
+   "impose",
+   "disposal",
+   "dispose",
+   "component",
+   "postpone",
+   "opponent",
+   "positive",
+   "positively"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "mit / miss（送）",
+  "words": [
+   "mission",
+   "missionary",
+   "admit",
+   "admission",
+   "permit",
+   "transmit",
+   "transmission",
+   "commit",
+   "commission",
+   "committee",
+   "commitment",
+   "dismiss",
+   "missile",
+   "emission",
+   "omit",
+   "permission",
+   "compromise"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "press（压）",
+  "words": [
+   "pressure",
+   "depress",
+   "depression",
+   "express",
+   "expression",
+   "impress",
+   "impression",
+   "impressive",
+   "compress",
+   "compression",
+   "suppress",
+   "oppress"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "tract（拉）",
+  "words": [
+   "attract",
+   "attraction",
+   "attractive",
+   "contract",
+   "extraction",
+   "extract",
+   "subtract",
+   "abstract",
+   "tractor",
+   "distract"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "vert / vers（转）",
+  "words": [
+   "convert",
+   "conversion",
+   "reverse",
+   "invert",
+   "divert",
+   "diversion",
+   "advertisement",
+   "advertise",
+   "universe",
+   "universal",
+   "anniversary",
+   "controversy",
+   "controversial",
+   "versatile",
+   "versus",
+   "vertical"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "struct（建造）",
+  "words": [
+   "structure",
+   "structural",
+   "construct",
+   "construction",
+   "instruct",
+   "instruction",
+   "instructor",
+   "infrastructure",
+   "instrument",
+   "instrumental"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "vid / vis（看）",
+  "words": [
+   "visible",
+   "vision",
+   "visual",
+   "visualize",
+   "revise",
+   "revision",
+   "supervise",
+   "supervisor",
+   "evident",
+   "evidence",
+   "provide",
+   "provision",
+   "review",
+   "preview"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "aud（听）",
+  "words": [
+   "audio",
+   "audience"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "scrib / script（写）",
+  "words": [
+   "describe",
+   "description",
+   "subscribe",
+   "subscription",
+   "prescribe",
+   "prescription",
+   "manuscript"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "graph（写/画）",
+  "words": [
+   "photograph",
+   "photography",
+   "biography",
+   "paragraph",
+   "geography",
+   "geographical",
+   "graphic",
+   "demographic"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "log / logy（学说）",
+  "words": [
+   "biology",
+   "psychology",
+   "psychological",
+   "technology",
+   "geology",
+   "ecology",
+   "ideology",
+   "apologize",
+   "apology",
+   "logic",
+   "logical",
+   "archaeology",
+   "technology"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "port（搬运）",
+  "words": [
+   "transport",
+   "transportation",
+   "import",
+   "export",
+   "report",
+   "reporter",
+   "support",
+   "portable",
+   "deport"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "cap / cept / cip（拿取）",
+  "words": [
+   "accept",
+   "acceptable",
+   "acceptance",
+   "concept",
+   "conception",
+   "except",
+   "exception",
+   "exceptional",
+   "capture",
+   "capable",
+   "capacity",
+   "captive",
+   "anticipate",
+   "participant",
+   "participate",
+   "participation",
+   "recipient",
+   "principal",
+   "principle"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ceive / cept（拿取）",
+  "words": [
+   "receive",
+   "reception",
+   "perceive",
+   "perception",
+   "deceive",
+   "conceive",
+   "concept"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "mov / mot（移动）",
+  "words": [
+   "move",
+   "movement",
+   "remove",
+   "removal",
+   "motive",
+   "motivate",
+   "motivation",
+   "motion",
+   "promote",
+   "promotion",
+   "remote",
+   "emotion",
+   "emotional",
+   "motor",
+   "automobile"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "st / sta / sist（站立）",
+  "words": [
+   "standard",
+   "standardize",
+   "status",
+   "statue",
+   "stationary",
+   "stable",
+   "stabilize",
+   "stability",
+   "establish",
+   "establishment",
+   "obstacle",
+   "instant",
+   "instantly",
+   "constant",
+   "insist",
+   "consist",
+   "consistent",
+   "persist",
+   "persistence",
+   "persistent",
+   "assist",
+   "assistance",
+   "assistant",
+   "resist",
+   "resistance",
+   "resistant",
+   "existence",
+   "substance",
+   "substantial",
+   "circumstance",
+   "distance"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "tain / ten（握持）",
+  "words": [
+   "contain",
+   "container",
+   "obtain",
+   "maintain",
+   "maintenance",
+   "sustain",
+   "sustainable",
+   "retain",
+   "entertain",
+   "entertainment",
+   "tenant",
+   "content",
+   "continuous",
+   "continent",
+   "continental"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ced / cess（走）",
+  "words": [
+   "proceed",
+   "process",
+   "procedure",
+   "succeed",
+   "succession",
+   "successive",
+   "access",
+   "accessory",
+   "exceed",
+   "exceedingly",
+   "concede",
+   "concession",
+   "recession",
+   "precede",
+   "predecessor",
+   "necessity",
+   "necessarily"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "gress / grad（走/步）",
+  "words": [
+   "progress",
+   "progressive",
+   "congress",
+   "aggressive",
+   "gradual",
+   "gradually",
+   "graduate",
+   "degrade",
+   "degradation",
+   "upgrade",
+   "ingredient"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "pel / puls（推）",
+  "words": [
+   "compel",
+   "compulsory",
+   "impulse",
+   "pulse",
+   "expel",
+   "propel",
+   "repel"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "flect / flex（弯曲）",
+  "words": [
+   "reflect",
+   "reflection",
+   "flexible",
+   "flexibility",
+   "deflect"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "flict（打击）",
+  "words": [
+   "conflict",
+   "inflict"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "rupt（破裂）",
+  "words": [
+   "rupture",
+   "interrupt",
+   "interruption",
+   "corrupt",
+   "bankrupt",
+   "erupt",
+   "abrupt",
+   "disrupt"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "sol（单独）",
+  "words": [
+   "sole",
+   "solely",
+   "solo",
+   "solitary",
+   "desolate",
+   "desert",
+   "isolate",
+   "isolated",
+   "solar"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "soc（同伴/社会）",
+  "words": [
+   "sociology",
+   "associate",
+   "association"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "sens / sent（感觉）",
+  "words": [
+   "sense",
+   "sensible",
+   "sensitive",
+   "sensitivity",
+   "sensor",
+   "sentence",
+   "consent",
+   "consensus",
+   "sentiment",
+   "nonsense",
+   "sensation",
+   "sensational"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "med / medi（中间）",
+  "words": [
+   "medium",
+   "media",
+   "mediate",
+   "mediation",
+   "immediate",
+   "immediately",
+   "intermediate",
+   "medieval",
+   "Mediterranean",
+   "medical",
+   "medicine",
+   "medication",
+   "remedy"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ann / enn（年）",
+  "words": [
+   "annual",
+   "annually",
+   "anniversary"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "chron（时间）",
+  "words": [
+   "chronic",
+   "chronology"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "temp（时间）",
+  "words": [
+   "temporary",
+   "contemporary",
+   "tempo"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "cred（相信）",
+  "words": [
+   "credit",
+   "credible",
+   "incredible"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "fid（信任）",
+  "words": [
+   "confidence",
+   "confident",
+   "confidential"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "cur / curr / cours（跑）",
+  "words": [
+   "current",
+   "currently",
+   "currency",
+   "occur",
+   "occurrence",
+   "curriculum",
+   "excursion",
+   "course",
+   "discourse"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "voc（声音/叫）",
+  "words": [
+   "vocabulary",
+   "vocal",
+   "advocate",
+   "provoke",
+   "provocative",
+   "vocation",
+   "vocational",
+   "invoke"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "dur（持续）",
+  "words": [
+   "during",
+   "durable",
+   "duration",
+   "endure",
+   "endurance"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "val（价值/强度）",
+  "words": [
+   "value",
+   "valuable",
+   "invaluable",
+   "evaluate",
+   "evaluation",
+   "equivalent",
+   "prevalent",
+   "prevalence",
+   "prevail",
+   "valid",
+   "validity",
+   "invalid"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ver（真实）",
+  "words": [
+   "verify",
+   "verdict"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "path（感觉/病）",
+  "words": [
+   "sympathy",
+   "sympathize",
+   "sympathetic",
+   "pathetic"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "gen（出生/产生）",
+  "words": [
+   "generate",
+   "generation",
+   "generator",
+   "genetic",
+   "genetics",
+   "gene",
+   "genius",
+   "genuine",
+   "degenerate",
+   "regenerate",
+   "homogeneous",
+   "hydrogen",
+   "nitrogen",
+   "oxygen",
+   "carbon dioxide"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "dem（人民）",
+  "words": [
+   "democracy",
+   "democratic",
+   "demographic",
+   "epidemic"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "ambi（两/周围）",
+  "words": [
+   "ambiguous",
+   "ambition",
+   "ambitious",
+   "ambulance"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "circum / circ（环绕）",
+  "words": [
+   "circumstance",
+   "circus",
+   "circuit",
+   "circuit",
+   "circular",
+   "circulate",
+   "circulation",
+   "circumference"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "sub（下/次）",
+  "words": [
+   "subway",
+   "submarine",
+   "submit",
+   "subordinate",
+   "subsequent",
+   "subsequently",
+   "subsidiary",
+   "subsidy",
+   "substitute",
+   "suburb"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "super / sur（上/超）",
+  "words": [
+   "superior",
+   "superiority",
+   "supermarket",
+   "supervise",
+   "superb",
+   "superficial",
+   "superintendent",
+   "supreme",
+   "supersonic",
+   "surplus",
+   "surpass"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "inter（之间）",
+  "words": [
+   "international",
+   "interact",
+   "interaction",
+   "interfere",
+   "interference",
+   "interior",
+   "internal",
+   "interpret",
+   "interpretation",
+   "interrupt",
+   "interruption",
+   "interval",
+   "intervene",
+   "intervention",
+   "interview",
+   "intermediate",
+   "interpersonal"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "trans（横穿）",
+  "words": [
+   "transfer",
+   "transport",
+   "transform",
+   "transformation",
+   "transmit",
+   "transmission",
+   "transplant",
+   "translate",
+   "transaction",
+   "transit",
+   "transition",
+   "transparent"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "pre（前）",
+  "words": [
+   "predict",
+   "prediction",
+   "precaution",
+   "precede",
+   "preceding",
+   "precise",
+   "precision",
+   "prefer",
+   "preference",
+   "prejudice",
+   "preliminary",
+   "premier",
+   "prescribe"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "post（后）",
+  "words": [
+   "postpone",
+   "postage"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "con / com（共同）",
+  "words": [
+   "confirm",
+   "conform",
+   "confront",
+   "confuse",
+   "confusion",
+   "connect",
+   "connection",
+   "conscious",
+   "consciousness",
+   "consent",
+   "conserve",
+   "conservation",
+   "consider",
+   "considerable",
+   "considerate",
+   "consideration",
+   "consist"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "de（离去/否定）",
+  "words": [
+   "decline",
+   "decorate",
+   "decrease",
+   "dedicate",
+   "deduce",
+   "defeat",
+   "defect",
+   "defend",
+   "deficit",
+   "define",
+   "definite",
+   "definitely",
+   "definition",
+   "deform",
+   "degenerate",
+   "degrade"
+  ]
+ },
+ {
+  "type": "root",
+  "root": "re（回/再）",
+  "words": [
+   "recall",
+   "receipt",
+   "receive",
+   "recession",
+   "recipe",
+   "recite",
+   "reckon",
+   "reclaim",
+   "recognize",
+   "recommend",
+   "reconcile",
+   "recover",
+   "recruit",
+   "recycle"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "disaster",
+   "catastrophe",
+   "calamity",
+   "mishap"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "important",
+   "significant",
+   "crucial",
+   "vital",
+   "essential",
+   "critical"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "enormous",
+   "immense",
+   "vast",
+   "huge",
+   "massive",
+   "tremendous",
+   "gigantic"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "minute",
+   "miniature",
+   "minimal"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "demonstrate",
+   "illustrate",
+   "reveal",
+   "exhibit",
+   "display",
+   "indicate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "consider",
+   "contemplate",
+   "ponder",
+   "deliberate",
+   "meditate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "decrease",
+   "diminish",
+   "lessen",
+   "dwindle"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "increase",
+   "surge",
+   "soar",
+   "rocket",
+   "escalate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "famous",
+   "eminent",
+   "prominent",
+   "notable"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "idle",
+   "lazy"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "brave",
+   "courageous",
+   "bold",
+   "daring",
+   "fearless",
+   "heroic"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "furious",
+   "indignant"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "cheerful",
+   "content",
+   "joyful"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "miserable",
+   "gloomy",
+   "sorrowful",
+   "melancholy"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "wealthy",
+   "affluent",
+   "prosperous"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "destitute",
+   "poor"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "intelligent",
+   "bright",
+   "brilliant",
+   "clever",
+   "smart",
+   "ingenious",
+   "shrewd"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "foolish",
+   "silly",
+   "absurd",
+   "ridiculous"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "strange",
+   "odd",
+   "bizarre",
+   "weird",
+   "peculiar",
+   "eccentric"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "sufficient",
+   "adequate",
+   "ample"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "accurate",
+   "precise",
+   "exact"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "vague",
+   "ambiguous",
+   "obscure"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "destroy",
+   "demolish",
+   "ruin",
+   "devastate",
+   "wreck"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "commence",
+   "initiate",
+   "originate",
+   "launch",
+   "begin"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "terminate",
+   "conclude",
+   "cease",
+   "finish"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "assist",
+   "aid",
+   "facilitate",
+   "help"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "damage",
+   "hurt",
+   "injure",
+   "impair",
+   "undermine",
+   "harm"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "preserve",
+   "conserve",
+   "retain",
+   "maintain",
+   "keep"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "safeguard",
+   "shield",
+   "defend",
+   "guard",
+   "protect"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "cheat",
+   "deceive"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "resent",
+   "hate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "compliment",
+   "applaud",
+   "commend",
+   "praise"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "condemn",
+   "denounce",
+   "blame",
+   "reproach",
+   "criticize"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "substitute",
+   "replace",
+   "displace"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "merge",
+   "integrate",
+   "incorporate",
+   "blend"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "divide",
+   "split",
+   "segregate",
+   "detach",
+   "separate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "assemble",
+   "collect",
+   "accumulate",
+   "gather"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "scatter",
+   "disperse",
+   "diffuse",
+   "disseminate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "puzzle",
+   "bewilder",
+   "perplex",
+   "baffle",
+   "confuse"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "astonish",
+   "amaze",
+   "astound",
+   "startle",
+   "stun"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "dull",
+   "tedious",
+   "tiresome",
+   "boring"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "arduous",
+   "tough",
+   "difficult"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "straightforward",
+   "simple",
+   "easy"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "rapid",
+   "swift",
+   "prompt",
+   "hasty",
+   "quick"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "sluggish",
+   "gradual"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "region",
+   "district",
+   "zone",
+   "territory",
+   "area"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "occupation",
+   "profession",
+   "career",
+   "vocation",
+   "employment",
+   "job"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "disease",
+   "disorder",
+   "illness"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "medication",
+   "drug",
+   "remedy",
+   "therapy",
+   "medicine"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "physician",
+   "surgeon",
+   "doctor"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "instructor",
+   "tutor",
+   "lecturer"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "academy",
+   "college",
+   "university",
+   "institution"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "terminology",
+   "vocabulary"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "conversation",
+   "gossip",
+   "discussion"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "conference",
+   "assembly",
+   "gathering",
+   "congress",
+   "summit",
+   "convention",
+   "meeting"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "funds",
+   "capital",
+   "finance",
+   "cash",
+   "currency",
+   "money"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "fee",
+   "salary",
+   "wage",
+   "income",
+   "allowance",
+   "payment"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "inexpensive",
+   "economical",
+   "cheap"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "costly",
+   "expensive"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "administration",
+   "authority",
+   "regime",
+   "government"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "legislation",
+   "regulation",
+   "legislate",
+   "law"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "offence",
+   "offense",
+   "guilt",
+   "crime"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "penalty",
+   "sanction",
+   "punishment"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "warfare",
+   "battle",
+   "combat",
+   "conflict",
+   "clash"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "faith",
+   "conviction",
+   "belief"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "suspicion",
+   "doubt"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "concept",
+   "notion",
+   "conception",
+   "idea"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "scheme",
+   "proposal",
+   "blueprint",
+   "plan"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "approach",
+   "technique",
+   "manner",
+   "method",
+   "means"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "issue",
+   "dilemma",
+   "problem"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "remedy",
+   "resolution",
+   "solution"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "consequence",
+   "outcome",
+   "effect",
+   "result"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "cause",
+   "factor",
+   "reason"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "aim",
+   "goal",
+   "objective",
+   "target",
+   "intention",
+   "purpose"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "attribute",
+   "property",
+   "characteristic",
+   "trait",
+   "feature",
+   "quality"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "quantity",
+   "volume",
+   "amount"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "category",
+   "species",
+   "breed",
+   "variety",
+   "sort",
+   "type",
+   "kind"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "component",
+   "element",
+   "constituent",
+   "segment",
+   "portion",
+   "fraction",
+   "part"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "entire",
+   "total",
+   "complete",
+   "intact"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "vacant",
+   "hollow",
+   "void",
+   "blank",
+   "empty"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "powerful",
+   "mighty",
+   "robust",
+   "sturdy"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "feeble",
+   "fragile",
+   "frail",
+   "vulnerable"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "firm",
+   "rigid",
+   "stiff",
+   "solid"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "gentle",
+   "mild",
+   "tender",
+   "delicate"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "coarse",
+   "uneven",
+   "harsh",
+   "rough"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "silent",
+   "quiet"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "pure",
+   "clean"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "foul",
+   "dirty"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "damp",
+   "humid",
+   "moist",
+   "humid"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "arid",
+   "dry"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "icy",
+   "frigid",
+   "cold"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "brilliant",
+   "radiant",
+   "luminous",
+   "bright"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "dim",
+   "gloomy",
+   "dark"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "adjacent",
+   "nearby",
+   "near",
+   "close"
+  ]
+ },
+ {
+  "type": "synonym",
+  "words": [
+   "distant",
+   "remote",
+   "far"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "advantage",
+   "drawback"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "advantage",
+   "disadvantage"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "agree",
+   "disagree"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "expand",
+   "shrink"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "expand",
+   "contract"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "support",
+   "oppose"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "abstract",
+   "concrete"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "artificial",
+   "natural"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "urban",
+   "rural"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "temporary",
+   "permanent"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "domestic",
+   "foreign"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "import",
+   "export"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "include",
+   "exclude"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "accept",
+   "reject"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "advance",
+   "retreat"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "conceal",
+   "reveal"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "conservative",
+   "radical"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "conservative",
+   "liberal"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "diligent",
+   "lazy"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "encourage",
+   "discourage"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "gentle",
+   "harsh"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "hope",
+   "despair"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "humble",
+   "arrogant"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "inferior",
+   "superior"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "innocent",
+   "guilty"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "luxury",
+   "poverty"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "major",
+   "minor"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "maximum",
+   "minimum"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "modern",
+   "ancient"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "modern",
+   "traditional"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "optimistic",
+   "pessimistic"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "optional",
+   "compulsory"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "praise",
+   "criticize"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "private",
+   "public"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "professional",
+   "amateur"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "rare",
+   "common"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "rational",
+   "emotional"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "reward",
+   "punishment"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "rigid",
+   "flexible"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "simple",
+   "complicated"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "simple",
+   "complex"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "strengthen",
+   "weaken"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "supply",
+   "demand"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "transparent",
+   "opaque"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "virtual",
+   "real"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "voluntary",
+   "compulsory"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "positive",
+   "negative"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "superior",
+   "inferior"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "sufficient",
+   "inadequate"
+  ]
+ },
+ {
+  "type": "antonym",
+  "words": [
+   "compress",
+   "stretch"
+  ]
+ }
+]

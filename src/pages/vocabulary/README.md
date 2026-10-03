@@ -49,9 +49,7 @@
 前端通过 `src/pages/vocabulary/audioIndex.json`（由 `_fetch_audio.py` 生成，`~/composables/vocabularyCategory` 的 `wordAudioUrl()` 消费）解析单词 → 音频路径；索引缺失时自动在线兜底有道 `dictvoice`，不会 404。
 
 维护：
-
 - 新增词条后运行 `python _fetch_audio.py`：增量下载缺失音频到 `_shared/` 并重新生成索引（幂等、断点续跑，失败清单在 `_missing_audio.json`）
-- 旧版"按章节目录存放"的四/六/AWL 音频目录已废弃并自动清理
 
 
 
@@ -74,6 +72,26 @@
 
 - 覆盖率约 99%（3670 条例句中 3644 条提取成功）；失败的 26 条多为：词表例句与书中原句不一致、该书页面 OCR 质量差
 - 翻译有误/缺失时，直接在 `translations.json` 中手工修改（key 为例句的小写字母数字归一化形式），改完重新执行 `python parser.py`
+
+## 单词关联词（relations）
+
+每个词条在 `vocabulary.js` 中带可选 `relations` 字段（`[{t, w, r?}]`，t 为类型缩写，w 为关联词，r 为词根说明），页面在词条行内显示彩色标签（点击跳转高亮），另有「关联组」视图按组成组学习。关联分五类：
+
+| t | 类型 | 来源 | 文件 |
+|---|---|---|---|
+| `root` | 词根 | 手工精选词根族 | `relations.json` |
+| `syn` | 同义 | 手工精选组 + Moby Thesaurus II 自动聚类 | `relations.json` + `relations_auto.json` |
+| `ant` | 反义 | Datamuse API 抓取 | `_antonyms.json`（增量缓存） |
+| `der` | 派生 | 有道 rel_word 字段抓取 | `_derivations.json`（增量缓存） |
+| `sim` | 形近 | parser.py 构建时自动计算（前 2 字母相同 + 相似度 ≥ 0.82） | 无需数据文件 |
+
+生成流程（当前目录下执行）：
+
+1. `python _fetch_relations.py`：下载 Moby Thesaurus（缓存 `_moby/`）+ 同义聚类生成 `relations_auto.json` + 增量抓取反义词/派生词（幂等断点续跑，网络失败下次重试）
+2. （可选）编辑 `relations.json` 手工补充关联组，格式：`[{"type": "root|synonym|antonym", "root": "词根说明（仅 root 组）", "words": [...]}]`
+3. `python parser.py`：合并三层关联数据（手工优先、同对词去重），组内两两双向生成，写进 `vocabulary.js`（含 `relationGroups` 导出，供关联组视图）
+
+注意：全部外部数据获取都在构建期完成并有缓存，站点为纯静态部署、运行时零外部依赖。手工/自动组中词库外词汇会在合并时警告跳过；`_gen_manual_relations.py` 可重新生成分步的手工种子组（`--force` 覆盖手工编辑）。
 
 ## 词条完整内容（note）
 

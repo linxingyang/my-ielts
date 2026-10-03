@@ -6,6 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const RELATION_TYPE_META: typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']
   const VOCAB_SOURCES: typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -50,6 +51,7 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const lookupWord: typeof import('./src/composables/vocabularyRelation')['lookupWord']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
@@ -92,7 +94,9 @@ declare global {
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
+  const resolveRelations: typeof import('./src/composables/vocabularyRelation')['resolveRelations']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
+  const resolvedRelationGroups: typeof import('./src/composables/vocabularyRelation')['resolvedRelationGroups']
   const searchVocabulary: typeof import('./src/composables/vocabularySearch')['searchVocabulary']
   const setWordStatus: typeof import('./src/composables/wordStatus')['setWordStatus']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -311,6 +315,7 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
@@ -354,6 +359,7 @@ declare module 'vue' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly lookupWord: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['lookupWord']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -394,7 +400,9 @@ declare module 'vue' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
+    readonly resolveRelations: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['resolveRelations']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly resolvedRelationGroups: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['resolvedRelationGroups']>
     readonly searchVocabulary: UnwrapRef<typeof import('./src/composables/vocabularySearch')['searchVocabulary']>
     readonly setWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['setWordStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
@@ -603,6 +611,7 @@ declare module 'vue' {
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
@@ -646,6 +655,7 @@ declare module '@vue/runtime-core' {
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly lookupWord: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['lookupWord']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -686,7 +696,9 @@ declare module '@vue/runtime-core' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
+    readonly resolveRelations: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['resolveRelations']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly resolvedRelationGroups: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['resolvedRelationGroups']>
     readonly searchVocabulary: UnwrapRef<typeof import('./src/composables/vocabularySearch')['searchVocabulary']>
     readonly setWordStatus: UnwrapRef<typeof import('./src/composables/wordStatus')['setWordStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
