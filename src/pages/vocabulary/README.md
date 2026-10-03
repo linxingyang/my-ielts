@@ -18,6 +18,7 @@
 | `oxford5000` | 牛津 5000 | 按 CEFR 等级 A1~C1 |
 | `ngsl` | NGSL 高频词（2800） | 按频率分段 1-1000 / 1001-2000 / 2001-2801 |
 | `nawl` | NAWL 学术词（959） | 按频率每 250 词一段 |
+| `opal` | OPAL 学术词汇 | 单词 / 短语两章（按是否含空格划分） |
 
 页面（`index.vue` / `typing.vue`）通过 `~/composables/vocabularyCategory` 提供分类 + 章节两级下拉。**学习状态按单词全局共享**：一个词在任何词库标记"认识"后，其他词库同步生效。
 
@@ -33,7 +34,7 @@
 
 学习进度（`wordStatus.ts`）按单词字符串全局存储，与数据文件结构无关。
 
-## 词表管线（四级/六级/AWL/牛津5000/NGSL/NAWL）
+## 词表管线（四级/六级/AWL/牛津5000/NGSL/NAWL/OPAL）
 
 数据来源（原始数据缓存在 `_cet_source/`）：
 
@@ -42,6 +43,7 @@
 - AWL：`awl_words.json`（Academic Word List，572 词条，按官方子表分组）
 - 牛津 5000：`oxford5k_raw.csv`（GitHub `nalgeon/words`，含 CEFR 等级与词性；同词多词性取最低等级）
 - NGSL / NAWL：`NGSL_101_SFI.xlsx`（官方 NGSL 1.01 SFI 表，含 NGSL 2801 词与 NAWL 959 词及频率排名）
+- OPAL：`oxford_opal.csv`（牛津学习者词典官方 OPAL 词表，GitHub `nalgeon/words` 镜像，含单词与学术短语）
 
 生成流程（当前目录下执行）：
 

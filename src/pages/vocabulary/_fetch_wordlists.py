@@ -26,6 +26,8 @@ RAW_FILES = [
     ('oxford5k_raw.csv', 'https://api.github.com/repos/nalgeon/words/contents/data/oxford-5k.csv?ref=main', 1114693),
     # NGSL 1.01 官方 SFI 表：Wordlist 列区分 1-NGSL(2801) / 2-Sup(47) / 3-NAWL(959)，带频率 Rank
     ('NGSL_101_SFI.xlsx', 'https://api.github.com/repos/antdurrant/word.lists/contents/data-raw/list_ngsl/NGSL%2B1.01%2Bwith%2BSFI.xlsx?ref=master', 4046430),
+    # OPAL（Oxford Phrasal Academic Lexicon）学术词汇表：单词 + 学术短语，列 word,level,pos,url,url
+    ('oxford_opal.csv', 'https://api.github.com/repos/nalgeon/words/contents/data/oxford-opal.csv?ref=main', 409280),
 ]
 
 

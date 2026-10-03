@@ -1,4 +1,4 @@
-# 将 四级/六级/AWL 词表转换为 vocabulary.txt 追加章节 + translations.json 补充
+# 将 四级/六级/AWL/牛津5000/NGSL/NAWL/OPAL 词表转换为 vocabulary.txt 追加章节 + translations.json 补充
 #
 # 逻辑：
 # 1. 解析现有 vocabulary.txt，建立真经词条索引（按归一化单词）
@@ -24,7 +24,7 @@ TRANS_PATH = CUR_DIR / 'translations.json'
 SRC_DIR = CUR_DIR / '_cet_source'
 CACHE_PATH = CUR_DIR / '_convert_cache.json'   # 有道接口增量缓存（释义/例句/机翻）
 MISSING_PATH = CUR_DIR / '_missing_examples.txt'
-GENERATED_SOURCES = {'cet4', 'cet6', 'awl', 'oxford5000', 'ngsl', 'nawl'}
+GENERATED_SOURCES = {'cet4', 'cet6', 'awl', 'oxford5000', 'ngsl', 'nawl', 'opal'}
 GROUP_SIZE = 8  # 每组词条数（对应 txt 中 --- 分组，与真经粒度一致）
 
 # 词表原始数据的拼写错误修正（key 为小写）
@@ -138,6 +138,27 @@ def load_oxford_entries():
         level = min(levels, key=OXFORD_LEVELS.index)
         poss = dict.fromkeys(OXFORD_POS_MAP.get(p, p) for _, p in variants if p)
         out.append({'word': word, 'level': level, 'pos': '/'.join(poss) or '-'})
+    return out
+
+
+def load_opal_entries():
+    # OPAL 学术词汇表，返回 [{word, pos, kind}]，kind: 'word'|'phrase'（按是否含空格）
+    # CSV 列数不固定（单词 4 列、短语 5 列），跳过 http 开头与 CEFR 等级列后取词性
+    LEVELS = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}
+    rows = list(csv.reader(io.open(SRC_DIR / 'oxford_opal.csv', encoding='utf-8')))[1:]
+    out = []
+    for row in rows:
+        if not row or not row[0].strip():
+            continue
+        word = row[0].strip()
+        poss = []
+        for f in row[1:]:
+            f = f.strip().lower()
+            if not f or f.startswith('http') or f in LEVELS:
+                continue
+            poss.append(OXFORD_POS_MAP.get(f, f))
+        out.append({'word': word, 'pos': '/'.join(dict.fromkeys(poss)) or '-',
+                    'kind': 'phrase' if ' ' in word else 'word'})
     return out
 
 
@@ -263,7 +284,7 @@ def build_entry(item, jj_index, seen, cache, stats, new_translations):
 
     pos, meaning, example, example_cn = item.get('pos', '-'), item.get('meaning', '-'), item.get('example', ''), item.get('example_cn', '')
     if not meaning or meaning == '-':
-        # 中文释义缺失时走有道（AWL / Oxford 5000 / NGSL / NAWL 词表均不带中文释义）
+        # 中文释义缺失时走有道（AWL / Oxford 5000 / NGSL / NAWL / OPAL 词表均不带中文释义）
         yp, ym = youdao_meaning(w, cache)
         if ym:
             meaning = ym
@@ -374,6 +395,25 @@ def banded_chapters(entries, band_titles, source_tag, jj_index, cache, new_trans
     return sections, stats
 
 
+def opal_chapters(entries, jj_index, cache, new_translations):
+    # 按 单词/短语 分两章（方案 1），章内按字母序
+    seen = set()
+    stats = {'reused': 0, 'built': 0, 'no_example': []}
+    by_kind = {'word': [], 'phrase': []}
+    for item in sorted(entries, key=lambda x: (x['kind'], norm(x['word']))):
+        line, _ = build_entry(item, jj_index, seen, cache, stats, new_translations)
+        if line is None:
+            continue
+        by_kind[item['kind']].append(line)
+    sections = []
+    for kind, label in (('word', 'OPAL 单词'), ('phrase', 'OPAL 短语')):
+        if not by_kind[kind]:
+            continue
+        title = f"{label}|opal"
+        sections.append(f"===\n{title}\n+++\n{group_words(by_kind[kind])}\n")
+    return sections, stats
+
+
 def split_generated(txt):
     # 返回 (真经部分文本, 是否含生成章节)
     lines = txt.splitlines()
@@ -415,11 +455,12 @@ def main():
     oxford = load_oxford_entries()
     ngsl = load_ngsl_entries()
     nawl = load_nawl_entries()
+    opal = load_opal_entries()
     ngsl_titles = {0: 'NGSL 1-1000', 1: 'NGSL 1001-2000', 2: 'NGSL 2001-2801'}
     nawl_titles = {b: f'NAWL {b * NAWL_BAND_SIZE + 1}-{min((b + 1) * NAWL_BAND_SIZE, len(nawl))}'
                    for b in sorted({e['band'] for e in nawl})}
     print(f'词表规模: 四级 {len(cet4)}, 六级(合并去重) {len(cet6)}, AWL {len(awl)}, '
-          f'牛津5000 {len(oxford)}, NGSL {len(ngsl)}, NAWL {len(nawl)}')
+          f'牛津5000 {len(oxford)}, NGSL {len(ngsl)}, NAWL {len(nawl)}, OPAL {len(opal)}')
 
     txt = TXT_PATH.read_text(encoding='utf-8')
     jj_text, had_generated = split_generated(txt)
@@ -434,6 +475,7 @@ def main():
         ('牛津5000', oxford, lambda: oxford_chapters(oxford, jj_index, cache, new_translations)),
         ('NGSL', ngsl, lambda: banded_chapters(ngsl, ngsl_titles, 'ngsl', jj_index, cache, new_translations)),
         ('NAWL', nawl, lambda: banded_chapters(nawl, nawl_titles, 'nawl', jj_index, cache, new_translations)),
+        ('OPAL', opal, lambda: opal_chapters(opal, jj_index, cache, new_translations)),
     ]:
         secs, stats = fn()
         sections += secs

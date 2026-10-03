@@ -24,3 +24,9 @@ CODEBUDDY.md
 src/pages/vocabulary/_audio_log.txt
 src/pages/vocabulary/_audio_err.txt
 src/pages/vocabulary/_missing_examples.txt
+
+# 管线临时运行日志（_build_opal.err / _parser_opal.err / _audio_opal.err 等）
+src/pages/vocabulary/_*.err
+
+# 音频下载中断残留
+public/vocabulary/audio/_shared/*.tmp

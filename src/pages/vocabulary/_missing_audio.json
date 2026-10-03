@@ -1,75 +1,745 @@
 {
- "thirty": [
-  "shared"
- ],
  "；（航海）使（船头）转向下风；（特定人群、场合或用途穿的）服装；穿，戴；（因长期使用而造成的）磨损，损坏；耐用性，经久性": [
   "shared",
   "shared"
  ],
- "toy": [
+ "OPAL 单词": [
   "shared"
  ],
- "weak": [
+ "OPAL 短语": [
   "shared"
  ],
- "weight": [
+ "a better understanding of": [
   "shared"
  ],
- "bombing": [
+ "a high level of": [
   "shared"
  ],
- "broadly": [
+ "a little bit about": [
   "shared"
  ],
- "genuinely": [
+ "a (little) bit more about": [
   "shared"
  ],
- "mixed": [
+ "a little bit (of)": [
   "shared"
  ],
- "countless": [
+ "all right so": [
   "shared"
  ],
- "governance": [
+ "and all the rest of it": [
   "shared"
  ],
- "lawsuit": [
+ "and so on (and so forth)": [
   "shared"
  ],
- "legendary": [
+ "(and) you can see that": [
   "shared"
  ],
- "legislative": [
+ "an impact on": [
   "shared"
  ],
- "memoir": [
+ "an important role in": [
   "shared"
  ],
- "relevance": [
+ "an important role to play in": [
   "shared"
  ],
- "social": [
+ "a number of different": [
   "shared"
  ],
- "wed": [
+ "an understanding of": [
   "shared"
  ],
- "situate": [
+ "are based on": [
   "shared"
  ],
- "institutional": [
+ "(are) less likely to": [
   "shared"
  ],
- "faithfully": [
+ "are there any questions?": [
   "shared"
  ],
- "pragmatic": [
+ "argue(s) that": [
   "shared"
  ],
- "residue": [
+ "(as) a consequence of": [
   "shared"
  ],
- "interviewer": [
+ "(as) a form of": [
+  "shared"
+ ],
+ "(as) a means of": [
+  "shared"
+ ],
+ "as a result (of)": [
+  "shared"
+ ],
+ "(as) a source of": [
+  "shared"
+ ],
+ "(as) a way of": [
+  "shared"
+ ],
+ "as in the case of": [
+  "shared"
+ ],
+ "(as": [
+  "shared"
+ ],
+ "as i said": [
+  "shared"
+ ],
+ "as i say": [
+  "shared"
+ ],
+ "aspect(s) of": [
+  "shared"
+ ],
+ "association between": [
+  "shared"
+ ],
+ "as we have seen": [
+  "shared"
+ ],
+ "at the end (of)": [
+  "shared"
+ ],
+ "a very important": [
+  "shared"
+ ],
+ "a (whole) range of": [
+  "shared"
+ ],
+ "a (whole) series of": [
+  "shared"
+ ],
+ "back to that": [
+  "shared"
+ ],
+ "based on the assumption that": [
+  "shared"
+ ],
+ "(be) due to the fact that": [
+  "shared"
+ ],
+ "been talking about": [
+  "shared"
+ ],
+ "(be": [
+  "shared"
+ ],
+ "(be) regarded as": [
+  "shared"
+ ],
+ "beyond the scope of (this book": [
+  "shared"
+ ],
+ "(by": [
+  "shared",
+  "shared"
+ ],
+ "can be applied to": [
+  "shared"
+ ],
+ "can be described": [
+  "shared"
+ ],
+ "can be found in": [
+  "shared"
+ ],
+ "can be seen (as": [
+  "shared"
+ ],
+ "(can) be thought of as": [
+  "shared"
+ ],
+ "characteristics of": [
+  "shared"
+ ],
+ "come back to (that)": [
+  "shared"
+ ],
+ "depend(s) on": [
+  "shared"
+ ],
+ "determined by": [
+  "shared"
+ ],
+ "difference(s) in": [
+  "shared"
+ ],
+ "does not appear to be": [
+  "shared"
+ ],
+ "et cetera (et cetera)": [
+  "shared"
+ ],
+ "(even) in the absence of (any)": [
+  "shared"
+ ],
+ "feature(s) of": [
+  "shared"
+ ],
+ "for a number of reasons": [
+  "shared"
+ ],
+ "for the purpose(s) of": [
+  "shared"
+ ],
+ "for those of you": [
+  "shared"
+ ],
+ "found that": [
+  "shared"
+ ],
+ "go back to (that)": [
+  "shared"
+ ],
+ "going to be talking about": [
+  "shared"
+ ],
+ "(going to) come to": [
+  "shared"
+ ],
+ "going to give you an example": [
+  "shared"
+ ],
+ "going to go into": [
+  "shared"
+ ],
+ "going to go through": [
+  "shared"
+ ],
+ "going to look at": [
+  "shared"
+ ],
+ "going to say": [
+  "shared"
+ ],
+ "going to show you": [
+  "shared"
+ ],
+ "going to talk about": [
+  "shared"
+ ],
+ "have shown that": [
+  "shared"
+ ],
+ "have to look at": [
+  "shared"
+ ],
+ "here we have": [
+  "shared"
+ ],
+ "high levels of": [
+  "shared"
+ ],
+ "if you remember": [
+  "shared"
+ ],
+ "if you think about (it)": [
+  "shared"
+ ],
+ "i (just) want to": [
+  "shared"
+ ],
+ "in a number of ways": [
+  "shared"
+ ],
+ "(in) a": [
+  "shared"
+ ],
+ "in a variety of ways": [
+  "shared"
+ ],
+ "in a way that": [
+  "shared"
+ ],
+ "(in) a (wide) variety of": [
+  "shared"
+ ],
+ "increase in the number of": [
+  "shared"
+ ],
+ "indicate(s) that": [
+  "shared"
+ ],
+ "in much the same way (as)": [
+  "shared"
+ ],
+ "in such a way (that)": [
+  "shared"
+ ],
+ "(in) the context of": [
+  "shared"
+ ],
+ "(in) the development of": [
+  "shared"
+ ],
+ "in the literature": [
+  "shared"
+ ],
+ "in the next section": [
+  "shared"
+ ],
+ "in the same way (as": [
+  "shared"
+ ],
+ "in the sense (that)": [
+  "shared"
+ ],
+ "in the study of": [
+  "shared"
+ ],
+ "is a good example of": [
+  "shared"
+ ],
+ "is a measure of": [
+  "shared"
+ ],
+ "(is) an example of": [
+  "shared"
+ ],
+ "(is": [
+  "shared"
+ ],
+ "is based on": [
+  "shared"
+ ],
+ "is defined as": [
+  "shared"
+ ],
+ "is important to": [
+  "shared"
+ ],
+ "is not the same (thing) as": [
+  "shared"
+ ],
+ "(is) (often) referred to as": [
+  "shared"
+ ],
+ "is related to": [
+  "shared"
+ ],
+ "is the most common cause of": [
+  "shared"
+ ],
+ "i suppose": [
+  "shared"
+ ],
+ "it can be shown that": [
+  "shared"
+ ],
+ "it could": [
+  "shared"
+ ],
+ "it has been argued that": [
+  "shared"
+ ],
+ "it has been shown that": [
+  "shared"
+ ],
+ "it has been suggested that": [
+  "shared"
+ ],
+ "i think (that)": [
+  "shared"
+ ],
+ "it is difficult to see (how)": [
+  "shared"
+ ],
+ "it is easy to see that": [
+  "shared"
+ ],
+ "it is fair to say that": [
+  "shared"
+ ],
+ "it is for this reason that": [
+  "shared"
+ ],
+ "it is important (to)": [
+  "shared"
+ ],
+ "it is important to note that": [
+  "shared"
+ ],
+ "it is important to realize that": [
+  "shared"
+ ],
+ "it is important to recognize": [
+  "shared"
+ ],
+ "it is important to remember that": [
+  "shared"
+ ],
+ "it is important to understand": [
+  "shared"
+ ],
+ "it is impossible to": [
+  "shared"
+ ],
+ "it is interesting to note that": [
+  "shared"
+ ],
+ "it is not clear": [
+  "shared"
+ ],
+ "it is (not) possible to": [
+  "shared"
+ ],
+ "it is not surprising that": [
+  "shared"
+ ],
+ "it is reasonable to assume that": [
+  "shared"
+ ],
+ "it is useful to": [
+  "shared"
+ ],
+ "it may be possible to": [
+  "shared"
+ ],
+ "it seems to me (that)": [
+  "shared"
+ ],
+ "i want to talk about": [
+  "shared"
+ ],
+ "i was going to": [
+  "shared"
+ ],
+ "i was talking about": [
+  "shared"
+ ],
+ "just going to": [
+  "shared"
+ ],
+ "(just) to remind you": [
+  "shared"
+ ],
+ "lead(s) to": [
+  "shared"
+ ],
+ "lies at the heart of": [
+  "shared"
+ ],
+ "linked to": [
+  "shared"
+ ],
+ "(lots and) lots of": [
+  "shared"
+ ],
+ "may be due to": [
+  "shared"
+ ],
+ "most of you": [
+  "shared"
+ ],
+ "(not only) but also": [
+  "shared"
+ ],
+ "of the total": [
+  "shared"
+ ],
+ "of this chapter": [
+  "shared"
+ ],
+ "of this study": [
+  "shared"
+ ],
+ "ok now": [
+  "shared"
+ ],
+ "one of the key": [
+  "shared"
+ ],
+ "(one of) the most important": [
+  "shared"
+ ],
+ "one of the reasons": [
+  "shared"
+ ],
+ "one of the things": [
+  "shared"
+ ],
+ "one or more of": [
+  "shared"
+ ],
+ "or something like that": [
+  "shared"
+ ],
+ "our understanding of": [
+  "shared"
+ ],
+ "(over) a period of time": [
+  "shared"
+ ],
+ "play(s) an important role (in)": [
+  "shared"
+ ],
+ "(quite) a lot (of)": [
+  "shared"
+ ],
+ "reduction in the number of": [
+  "shared"
+ ],
+ "refer(s) to": [
+  "shared"
+ ],
+ "responsible for": [
+  "shared"
+ ],
+ "result(s) in": [
+  "shared"
+ ],
+ "right so": [
+  "shared"
+ ],
+ "show(s) that": [
+  "shared"
+ ],
+ "similar to (that of)": [
+  "shared"
+ ],
+ "(so) for example": [
+  "shared"
+ ],
+ "(so) in other words": [
+  "shared"
+ ],
+ "so we have": [
+  "shared"
+ ],
+ "so you can see": [
+  "shared"
+ ],
+ "so you get": [
+  "shared"
+ ],
+ "tend(s) to be": [
+  "shared"
+ ],
+ "the advantages and disadvantages of": [
+  "shared"
+ ],
+ "the aim": [
+  "shared"
+ ],
+ "the assumption that": [
+  "shared"
+ ],
+ "the basis of": [
+  "shared"
+ ],
+ "the benefits of": [
+  "shared"
+ ],
+ "the cause(s) of": [
+  "shared"
+ ],
+ "the corresponding": [
+  "shared"
+ ],
+ "the effectiveness of": [
+  "shared"
+ ],
+ "the effect(s) of": [
+  "shared"
+ ],
+ "the extent to which": [
+  "shared"
+ ],
+ "the first thing (that)": [
+  "shared"
+ ],
+ "the frequency of": [
+  "shared"
+ ],
+ "the idea is that": [
+  "shared"
+ ],
+ "the idea that": [
+  "shared"
+ ],
+ "the implementation of": [
+  "shared"
+ ],
+ "the manner in which": [
+  "shared"
+ ],
+ "the other end of the spectrum": [
+  "shared"
+ ],
+ "the performance of": [
+  "shared"
+ ],
+ "the presence or absence of": [
+  "shared"
+ ],
+ "the prevalence of": [
+  "shared"
+ ],
+ "the probability of": [
+  "shared"
+ ],
+ "the process of": [
+  "shared"
+ ],
+ "the purposes of": [
+  "shared"
+ ],
+ "the question of (whether or not)": [
+  "shared"
+ ],
+ "the rate of (change)": [
+  "shared"
+ ],
+ "there are a number of": [
+  "shared"
+ ],
+ "the reason for this is that": [
+  "shared"
+ ],
+ "there is a need for": [
+  "shared"
+ ],
+ "there is no reason to": [
+  "shared"
+ ],
+ "the same sort of": [
+  "shared"
+ ],
+ "these sorts of": [
+  "shared"
+ ],
+ "the sorts of": [
+  "shared"
+ ],
+ "the value(s) of": [
+  "shared"
+ ],
+ "the view that": [
+  "shared"
+ ],
+ "the way(s) in which": [
+  "shared"
+ ],
+ "the way that": [
+  "shared"
+ ],
+ "this does not mean that": [
+  "shared"
+ ],
+ "this idea of": [
+  "shared"
+ ],
+ "this is (not) the case": [
+  "shared"
+ ],
+ "(this) is not to say": [
+  "shared"
+ ],
+ "to a greater or lesser extent": [
+  "shared"
+ ],
+ "to be aware of": [
+  "shared"
+ ],
+ "(to) note that": [
+  "shared"
+ ],
+ "to see how": [
+  "shared"
+ ],
+ "(to": [
+  "shared"
+ ],
+ "to suggest that": [
+  "shared"
+ ],
+ "to take account of": [
+  "shared"
+ ],
+ "(to) take into account": [
+  "shared"
+ ],
+ "to think about": [
+  "shared"
+ ],
+ "variation in": [
+  "shared"
+ ],
+ "(was": [
+  "shared"
+ ],
+ "we looked at": [
+  "shared"
+ ],
+ "we talked about": [
+  "shared"
+ ],
+ "we were talking about": [
+  "shared"
+ ],
+ "what does that mean?": [
+  "shared"
+ ],
+ "what do you think…?": [
+  "shared"
+ ],
+ "what happens if": [
+  "shared"
+ ],
+ "what happens to": [
+  "shared"
+ ],
+ "what i mean": [
+  "shared"
+ ],
+ "what i mean by": [
+  "shared"
+ ],
+ "what i want to do": [
+  "shared"
+ ],
+ "when we": [
+  "shared"
+ ],
+ "while at the same time": [
+  "shared"
+ ],
+ "why do you think…?": [
+  "shared"
+ ],
+ "will be discussed in more detail": [
+  "shared"
+ ],
+ "相信某事很可能是真实的": [
+  "shared"
+ ],
+ "认为某事存在或是真实的，尽管实际上并非如此": [
+  "shared"
+ ],
+ "用于表达震惊或惊讶，通常是对他人的行为": [
+  "shared"
+ ],
+ "用于强调一个陈述。": [
+  "shared"
+ ],
+ "you can look at": [
+  "shared"
+ ],
+ "you can see here": [
+  "shared"
+ ],
+ "you find that": [
+  "shared"
+ ],
+ "you might want to (look at)": [
+  "shared"
+ ],
+ "you will find": [
   "shared"
  ]
 }
