@@ -1,0 +1,222 @@
+- generic [ref=e2]:
+  - banner:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - link "My IELTS™" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e7]:
+              - text: My
+              - generic [ref=e8]: IELTS™
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "首页" [ref=e12] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e14]:
+              - link "词汇" [ref=e15] [cursor=pointer]:
+                - /url: "#/vocabulary"
+            - listitem [ref=e17]:
+              - link "语法" [ref=e18] [cursor=pointer]:
+                - /url: "#/grammar"
+            - listitem [ref=e20]:
+              - link "听力" [ref=e21] [cursor=pointer]:
+                - /url: "#/listening"
+            - listitem [ref=e23]:
+              - link "口语" [ref=e24] [cursor=pointer]:
+                - /url: "#/speaking"
+            - listitem [ref=e26]:
+              - link "阅读" [ref=e27] [cursor=pointer]:
+                - /url: "#/reading"
+            - listitem [ref=e29]:
+              - link "写作" [ref=e30] [cursor=pointer]:
+                - /url: "#/writing"
+        - generic [ref=e32]:
+          - link [ref=e33] [cursor=pointer]:
+            - /url: https://github.com/hefengxian/my-ielts
+          - button [ref=e34] [cursor=pointer]
+    - navigation
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - heading "音标学习" [level=3] [ref=e41]
+        - paragraph [ref=e42]: 12 个单元音：发音过程中口型、舌位保持不变 · 点击单词听发音，可整组连读
+      - generic [ref=e43]:
+        - button "美音" [ref=e44] [cursor=pointer]
+        - button "英音" [ref=e45] [cursor=pointer]
+    - generic [ref=e46]:
+      - button "单元音 12" [ref=e47] [cursor=pointer]
+      - button "双元音 8" [ref=e48] [cursor=pointer]
+      - button "清辅音 10" [ref=e49] [cursor=pointer]
+      - button "浊辅音 10" [ref=e50] [cursor=pointer]
+      - button "其他辅音 8" [ref=e51] [cursor=pointer]
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: /iː/
+            - generic [ref=e57]: 长元音 iː
+          - button "连读" [ref=e58] [cursor=pointer]
+        - paragraph [ref=e60]: 嘴角向两侧拉伸如微笑，舌尖抵下齿，发音长而紧。常见错误：读短了与 /ɪ/ 混淆（ship ≠ sheep）
+        - generic [ref=e61]:
+          - button "see" [ref=e62] [cursor=pointer]
+          - button "tree" [ref=e64] [cursor=pointer]
+          - button "meet" [ref=e66] [cursor=pointer]
+          - button "beach" [ref=e68] [cursor=pointer]
+          - button "dream" [ref=e70] [cursor=pointer]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: /ɪ/
+            - generic [ref=e76]: 短元音 ɪ
+          - button "连读" [ref=e77] [cursor=pointer]
+        - paragraph [ref=e79]: 嘴半开、放松短促，舌位比 /iː/ 低。常见错误：读成 /iː/，把 ship 读成 sheep
+        - generic [ref=e80]:
+          - button "sit" [ref=e81] [cursor=pointer]
+          - button "big" [ref=e83] [cursor=pointer]
+          - button "fish" [ref=e85] [cursor=pointer]
+          - button "city" [ref=e87] [cursor=pointer]
+          - button "window" [ref=e89] [cursor=pointer]
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]: /e/
+            - generic [ref=e95]: 短元音 e
+          - button "连读" [ref=e96] [cursor=pointer]
+        - paragraph [ref=e98]: 嘴半开，舌前部稍抬，双唇向两侧微展，短促。常见错误：口型开大了读成 /æ/
+        - generic [ref=e99]:
+          - button "bed" [ref=e100] [cursor=pointer]
+          - button "pen" [ref=e102] [cursor=pointer]
+          - button "ten" [ref=e104] [cursor=pointer]
+          - button "said" [ref=e106] [cursor=pointer]
+          - button "head" [ref=e108] [cursor=pointer]
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]:
+            - generic [ref=e113]: /æ/
+            - generic [ref=e114]: 短元音 æ
+          - button "连读" [ref=e115] [cursor=pointer]
+        - paragraph [ref=e117]: 嘴尽量张大，舌前部压低，双唇扁平。中国人最难发准的音之一，易读成 /e/
+        - generic [ref=e118]:
+          - button "cat" [ref=e119] [cursor=pointer]
+          - button "bad" [ref=e121] [cursor=pointer]
+          - button "man" [ref=e123] [cursor=pointer]
+          - button "hand" [ref=e125] [cursor=pointer]
+          - button "laugh" [ref=e127] [cursor=pointer]
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - generic [ref=e132]: /ɑː/
+            - generic [ref=e133]: 长元音 ɑː
+          - button "连读" [ref=e134] [cursor=pointer]
+        - paragraph [ref=e136]: 嘴全开，舌身放平后缩，喉咙放松，像医生检查嗓子时的"啊"，长而饱满
+        - generic [ref=e137]:
+          - button "car" [ref=e138] [cursor=pointer]
+          - button "far" [ref=e140] [cursor=pointer]
+          - button "half" [ref=e142] [cursor=pointer]
+          - button "heart" [ref=e144] [cursor=pointer]
+          - button "calm" [ref=e146] [cursor=pointer]
+      - generic [ref=e148]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]: /ɒ/
+            - generic [ref=e152]: 短元音 ɒ
+          - button "连读" [ref=e153] [cursor=pointer]
+        - paragraph [ref=e155]: 圆唇但短促放松，舌后部稍抬。英音特有，美音多读作 /ɑː/（hot）
+        - generic [ref=e156]:
+          - button "hot" [ref=e157] [cursor=pointer]
+          - button "dog" [ref=e159] [cursor=pointer]
+          - button "stop" [ref=e161] [cursor=pointer]
+          - button "box" [ref=e163] [cursor=pointer]
+          - button "watch" [ref=e165] [cursor=pointer]
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: /ɔː/
+            - generic [ref=e171]: 长元音 ɔː
+          - button "连读" [ref=e172] [cursor=pointer]
+        - paragraph [ref=e174]: 双唇收圆并保持，舌后部高抬，比 /ɒ/ 更长更紧。勿与 /əʊ/ 混淆（boat ≠ bought）
+        - generic [ref=e175]:
+          - button "door" [ref=e176] [cursor=pointer]
+          - button "ball" [ref=e178] [cursor=pointer]
+          - button "four" [ref=e180] [cursor=pointer]
+          - button "walk" [ref=e182] [cursor=pointer]
+          - button "morning" [ref=e184] [cursor=pointer]
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - generic [ref=e189]: /ʊ/
+            - generic [ref=e190]: 短元音 ʊ
+          - button "连读" [ref=e191] [cursor=pointer]
+        - paragraph [ref=e193]: 双唇微圆、放松短促，舌后部抬起。易错点：读成 /uː/，把 book 读成"布克"
+        - generic [ref=e194]:
+          - button "book" [ref=e195] [cursor=pointer]
+          - button "good" [ref=e197] [cursor=pointer]
+          - button "put" [ref=e199] [cursor=pointer]
+          - button "look" [ref=e201] [cursor=pointer]
+          - button "woman" [ref=e203] [cursor=pointer]
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - generic [ref=e208]: /uː/
+            - generic [ref=e209]: 长元音 uː
+          - button "连读" [ref=e210] [cursor=pointer]
+        - paragraph [ref=e212]: 双唇收圆前突，舌后部高抬，音长饱满。常见错误：读成汉语"乌"，缺少圆唇紧张度
+        - generic [ref=e213]:
+          - button "food" [ref=e214] [cursor=pointer]
+          - button "blue" [ref=e216] [cursor=pointer]
+          - button "school" [ref=e218] [cursor=pointer]
+          - button "tooth" [ref=e220] [cursor=pointer]
+          - button "moon" [ref=e222] [cursor=pointer]
+      - generic [ref=e224]:
+        - generic [ref=e225]:
+          - generic [ref=e226]:
+            - generic [ref=e227]: /ʌ/
+            - generic [ref=e228]: 短元音 ʌ
+          - button "连读" [ref=e229] [cursor=pointer]
+        - paragraph [ref=e231]: 嘴微开，舌身放松居中，短促。与 /æ/ 的区别：/ʌ/ 口型更小更靠中
+        - generic [ref=e232]:
+          - button "cup" [ref=e233] [cursor=pointer]
+          - button "bus" [ref=e235] [cursor=pointer]
+          - button "love" [ref=e237] [cursor=pointer]
+          - button "sun" [ref=e239] [cursor=pointer]
+          - button "come" [ref=e241] [cursor=pointer]
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]: /ɜː/
+            - generic [ref=e247]: 长元音 ɜː
+          - button "连读" [ref=e248] [cursor=pointer]
+        - paragraph [ref=e250]: 舌位居中，长音。美音明显卷舌（bird），英音不卷舌
+        - generic [ref=e251]:
+          - button "bird" [ref=e252] [cursor=pointer]
+          - button "work" [ref=e254] [cursor=pointer]
+          - button "learn" [ref=e256] [cursor=pointer]
+          - button "girl" [ref=e258] [cursor=pointer]
+          - button "early" [ref=e260] [cursor=pointer]
+      - generic [ref=e262]:
+        - generic [ref=e263]:
+          - generic [ref=e264]:
+            - generic [ref=e265]: /ə/
+            - generic [ref=e266]: 中央元音 ə（schwa）
+          - button "连读" [ref=e267] [cursor=pointer]
+        - paragraph [ref=e269]: 英语中最常见的音，只出现在非重读音节，轻短模糊。几乎所有多音节词都含它
+        - generic [ref=e270]:
+          - button "about" [ref=e271] [cursor=pointer]
+          - button "banana" [ref=e273] [cursor=pointer]
+          - button "sofa" [ref=e275] [cursor=pointer]
+          - button "teacher" [ref=e277] [cursor=pointer]
+          - button "computer" [ref=e279] [cursor=pointer]
+    - generic [ref=e281]:
+      - link "下一步：易错音对比 →" [ref=e282] [cursor=pointer]:
+        - /url: "#/speaking/minimal-pairs"
+      - link "听音辨词练习 →" [ref=e283] [cursor=pointer]:
+        - /url: "#/speaking/practice"
+  - contentinfo [ref=e284]:
+    - paragraph [ref=e285]:
+      - text: © 2026
+      - link "林兴洋" [ref=e286] [cursor=pointer]:
+        - /url: /
+      - text: . All rights reserved. Hosted By GitHub Pages. Forked from
+      - link "hefengxian/my-ielts" [ref=e287] [cursor=pointer]:
+        - /url: https://github.com/hefengxian/my-ielts
+      - text: .

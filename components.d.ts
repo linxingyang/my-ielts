@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AccentToggle: typeof import('./src/components/AccentToggle.vue')['default']
     RelationGroupView: typeof import('./src/components/RelationGroupView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
