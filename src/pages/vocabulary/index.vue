@@ -342,6 +342,18 @@ document.addEventListener('keydown', (ev) => {
   }
 })
 
+// 音标拆成英/美两行显示（"UK /a/ US /b/" 拆为两行），单个音标原样单行
+function phoneticLines(phonetic) {
+  const m = phonetic.match(/^(UK\s*\/[^/]*\/)\s*(US\s*\/.*)$/)
+  return m ? [m[1], m[2]] : [phonetic]
+}
+
+// 播放音标行对应的口音发音：UK 行播英音，US 行播美音，无口音前缀跟随当前设置
+function playPhonetic(item, line) {
+  const acc = line.startsWith('UK') ? 'uk' : line.startsWith('US') ? 'us' : undefined
+  play(wordAudioUrl(item.word[0], acc))
+}
+
 function copyAllError() {
   const words = curChapter.value?.words
   if (!words)
@@ -604,9 +616,12 @@ function copyAllError() {
                           {{ item.id }}
                         </td>
                         <td>
+                          <!-- 左侧大喇叭：仅有真经原书真人音频的词显示（真经词及其他词库中源自真经的词） -->
                           <i
+                            v-if="wordHasBookAudio(item.word[0])"
                             class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
-                            @click="play(wordAudioUrl(item.word[0]))"
+                            title="播放原书真人发音"
+                            @click="play(wordAudioUrl(item.word[0], 'book'))"
                           />
 
                           <i
@@ -641,7 +656,14 @@ function copyAllError() {
                               >{{ w }}</a>
                             </p>
                             <p v-if="item.phonetic" class="text-sm" :title="item.phonetic">
-                              {{ item.phonetic }}
+                              <span v-for="(line, idx) in phoneticLines(item.phonetic)" :key="idx" class="flex items-center">
+                                <i
+                                  class="i-ph-speaker-simple-high-bold mr-1 inline-block shrink-0 cursor-pointer text-gray-400 hover:text-primary-500 dark:text-gray-500 dark:hover:text-primary-400"
+                                  title="播放该口音发音"
+                                  @click="playPhonetic(item, line)"
+                                />
+                                {{ line }}
+                              </span>
                             </p>
 
                             <div

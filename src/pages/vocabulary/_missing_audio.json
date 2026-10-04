@@ -1,745 +1,1030 @@
 {
  "；（航海）使（船头）转向下风；（特定人群、场合或用途穿的）服装；穿，戴；（因长期使用而造成的）磨损，损坏；耐用性，经久性": [
-  "shared",
-  "shared"
- ],
- "OPAL 单词": [
-  "shared"
- ],
- "OPAL 短语": [
-  "shared"
+  "us",
+  "uk",
+  "us",
+  "uk"
  ],
  "a better understanding of": [
-  "shared"
+  "us",
+  "uk"
  ],
- "a high level of": [
-  "shared"
+ "a change in": [
+  "us"
+ ],
+ "a high degree of": [
+  "us"
  ],
  "a little bit about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "a (little) bit more about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "a little bit (of)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "all right so": [
-  "shared"
+  "us",
+  "uk"
  ],
  "and all the rest of it": [
-  "shared"
+  "us",
+  "uk"
  ],
  "and so on (and so forth)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(and) you can see that": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "an idea of": [
+  "us"
  ],
  "an impact on": [
-  "shared"
+  "us",
+  "uk"
  ],
  "an important role in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "an important role to play in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "a number of different": [
-  "shared"
+  "us",
+  "uk"
  ],
  "an understanding of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "are based on": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(are) less likely to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "are there any questions?": [
-  "shared"
+  "us",
+  "uk"
  ],
  "argue(s) that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(as) a consequence of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(as) a form of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(as) a means of": [
-  "shared"
- ],
- "as a result (of)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(as) a source of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(as) a way of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "as in the case of": [
-  "shared"
+  "uk"
  ],
  "(as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "as i said": [
-  "shared"
+  "uk"
  ],
  "as i say": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "as part of": [
+  "us"
  ],
  "aspect(s) of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "association between": [
-  "shared"
+  "us",
+  "uk"
  ],
  "as we have seen": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "as we shall see": [
+  "us"
  ],
  "at the end (of)": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "at the level of": [
+  "us"
  ],
  "a very important": [
-  "shared"
+  "us",
+  "uk"
  ],
  "a (whole) range of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "a (whole) series of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "back to that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "based on the assumption that": [
-  "shared"
+  "uk"
  ],
  "(be) due to the fact that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "been talking about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(be": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(be) regarded as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "beyond the scope of (this book": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(by": [
-  "shared",
-  "shared"
+  "us",
+  "uk",
+  "us",
+  "uk"
  ],
  "can be applied to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "can be described": [
-  "shared"
+  "us",
+  "uk"
  ],
  "can be found in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "can be seen (as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(can) be thought of as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "characteristics of": [
-  "shared"
+  "uk"
  ],
  "come back to (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "depend(s) on": [
-  "shared"
+  "us",
+  "uk"
  ],
  "determined by": [
-  "shared"
+  "uk"
  ],
  "difference(s) in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "does not appear to be": [
-  "shared"
+  "us",
+  "uk"
  ],
  "et cetera (et cetera)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(even) in the absence of (any)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "feature(s) of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "for a number of reasons": [
-  "shared"
+  "us",
+  "uk"
  ],
  "for the purpose(s) of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "for those of you": [
-  "shared"
+  "us",
+  "uk"
  ],
  "found that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "go back to (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to be talking about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(going to) come to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to give you an example": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to go into": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to go through": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to look at": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to say": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to show you": [
-  "shared"
+  "us",
+  "uk"
  ],
  "going to talk about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "have shown that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "have to look at": [
-  "shared"
+  "us",
+  "uk"
  ],
  "here we have": [
-  "shared"
+  "us",
+  "uk"
  ],
  "high levels of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "his or her": [
+  "us"
  ],
  "if you remember": [
-  "shared"
+  "uk"
  ],
  "if you think about (it)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "i (just) want to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in a number of ways": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(in) a": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in a variety of ways": [
-  "shared"
+  "uk"
  ],
  "in a way that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(in) a (wide) variety of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "increase in the number of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "indicate(s) that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in much the same way (as)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in such a way (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(in) the context of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(in) the development of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in the literature": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in the next section": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in the same way (as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in the sense (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "in the study of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is a good example of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is a measure of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(is) an example of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(is": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is based on": [
-  "shared"
+  "uk"
+ ],
+ "is consistent with": [
+  "us"
  ],
  "is defined as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is important to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is not the same (thing) as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(is) (often) referred to as": [
-  "shared"
+  "us",
+  "uk"
  ],
  "is related to": [
-  "shared"
+  "uk"
  ],
  "is the most common cause of": [
-  "shared"
- ],
- "i suppose": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it can be shown that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it could": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it has been argued that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it has been shown that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it has been suggested that": [
-  "shared"
+  "us"
  ],
  "i think (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is difficult to see (how)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is easy to see that": [
-  "shared"
+  "uk"
  ],
  "it is fair to say that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is for this reason that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is important (to)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is important to note that": [
-  "shared"
+  "us"
  ],
  "it is important to realize that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is important to recognize": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is important to remember that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is important to understand": [
-  "shared"
+  "uk"
  ],
  "it is impossible to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is interesting to note that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is not clear": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is (not) possible to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is not surprising that": [
-  "shared"
+  "uk"
  ],
  "it is reasonable to assume that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it is useful to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it may be possible to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "it seems to me (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "i want to talk about": [
-  "shared"
+  "us"
  ],
  "i was going to": [
-  "shared"
+  "uk"
  ],
  "i was talking about": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "i would like to": [
+  "us"
  ],
  "just going to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(just) to remind you": [
-  "shared"
+  "us",
+  "uk"
  ],
  "lead(s) to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "lies at the heart of": [
-  "shared"
- ],
- "linked to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(lots and) lots of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "may be due to": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "may or may not": [
+  "us"
  ],
  "most of you": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(not only) but also": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "of some kind": [
+  "us"
  ],
  "of the total": [
-  "shared"
+  "us",
+  "uk"
  ],
  "of this chapter": [
-  "shared"
+  "us",
+  "uk"
  ],
  "of this study": [
-  "shared"
+  "us",
+  "uk"
  ],
  "ok now": [
-  "shared"
+  "uk"
+ ],
+ "ok so": [
+  "us"
  ],
  "one of the key": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(one of) the most important": [
-  "shared"
+  "us",
+  "uk"
  ],
  "one of the reasons": [
-  "shared"
+  "uk"
  ],
  "one of the things": [
-  "shared"
+  "uk"
  ],
  "one or more of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "on the": [
+  "us"
  ],
  "or something like that": [
-  "shared"
+  "uk"
  ],
  "our understanding of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(over) a period of time": [
-  "shared"
+  "us",
+  "uk"
  ],
  "play(s) an important role (in)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(quite) a lot (of)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "reduction in the number of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "refer(s) to": [
-  "shared"
- ],
- "responsible for": [
-  "shared"
+  "us",
+  "uk"
  ],
  "result(s) in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "right so": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "seems to be": [
+  "us"
  ],
  "show(s) that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "similar to (that of)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(so) for example": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(so) in other words": [
-  "shared"
+  "us",
+  "uk"
  ],
  "so we have": [
-  "shared"
+  "us",
+  "uk"
  ],
  "so you can see": [
-  "shared"
+  "us",
+  "uk"
  ],
  "so you get": [
-  "shared"
+  "us",
+  "uk"
  ],
  "tend(s) to be": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the advantages and disadvantages of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the aim": [
-  "shared"
+  "us"
+ ],
+ "the analysis of": [
+  "us"
+ ],
+ "the application of": [
+  "us"
  ],
  "the assumption that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the basis of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the benefits of": [
-  "shared"
+  "uk"
  ],
  "the cause(s) of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the consequences of": [
+  "us"
  ],
  "the corresponding": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the distribution of": [
+  "us"
  ],
  "the effectiveness of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the effect(s) of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the extent to which": [
-  "shared"
+  "uk"
  ],
  "the first thing (that)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the frequency of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the idea is that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the idea that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the implementation of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the issue of": [
+  "us"
+ ],
+ "the likelihood of": [
+  "us"
  ],
  "the manner in which": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the other end of the spectrum": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the performance of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the point is that": [
+  "us"
  ],
  "the presence or absence of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the prevalence of": [
-  "shared"
+  "uk"
  ],
  "the probability of": [
-  "shared"
+  "us",
+  "uk"
  ],
- "the process of": [
-  "shared"
+ "the problem with": [
+  "us"
  ],
  "the purposes of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the question of": [
+  "us"
  ],
  "the question of (whether or not)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the rate of (change)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "there are a number of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the reason for this is that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "there is a need for": [
-  "shared"
+  "us",
+  "uk"
  ],
  "there is no reason to": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the risk of": [
+  "us"
  ],
  "the same sort of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "these sorts of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "the sort of thing": [
+  "us"
  ],
  "the sorts of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the value(s) of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the view that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the way(s) in which": [
-  "shared"
+  "us",
+  "uk"
  ],
  "the way that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "this does not mean that": [
-  "shared"
+  "uk"
  ],
  "this idea of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "this is (not) the case": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(this) is not to say": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "this means that": [
+  "us"
  ],
  "to a greater or lesser extent": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "to bear in mind": [
+  "us"
  ],
  "to be aware of": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "to ensure that": [
+  "us"
  ],
  "(to) note that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "to see how": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(to": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "to show you": [
+  "us"
  ],
  "to suggest that": [
-  "shared"
+  "us",
+  "uk"
  ],
  "to take account of": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(to) take into account": [
-  "shared"
+  "us",
+  "uk"
  ],
  "to think about": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "to work out": [
+  "us"
  ],
  "variation in": [
-  "shared"
+  "us",
+  "uk"
  ],
  "(was": [
-  "shared"
+  "us",
+  "uk"
  ],
  "we looked at": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "we talk about": [
+  "us"
  ],
  "we talked about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "we were talking about": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what does that mean?": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what do you think…?": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what happens if": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what happens to": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what i mean": [
-  "shared"
+  "uk"
  ],
  "what i mean by": [
-  "shared"
+  "us",
+  "uk"
  ],
  "what i want to do": [
-  "shared"
+  "us",
+  "uk"
  ],
  "when we": [
-  "shared"
+  "us"
  ],
  "while at the same time": [
-  "shared"
+  "us",
+  "uk"
  ],
  "why do you think…?": [
-  "shared"
+  "us",
+  "uk"
  ],
  "will be discussed in more detail": [
-  "shared"
+  "us",
+  "uk"
  ],
  "相信某事很可能是真实的": [
-  "shared"
+  "us",
+  "uk"
  ],
  "认为某事存在或是真实的，尽管实际上并非如此": [
-  "shared"
+  "us",
+  "uk"
  ],
  "用于表达震惊或惊讶，通常是对他人的行为": [
-  "shared"
+  "us",
+  "uk"
  ],
  "用于强调一个陈述。": [
-  "shared"
+  "us",
+  "uk"
  ],
  "you can look at": [
-  "shared"
+  "us",
+  "uk"
  ],
  "you can see here": [
-  "shared"
+  "us",
+  "uk"
  ],
  "you find that": [
-  "shared"
+  "us",
+  "uk"
+ ],
+ "you might say": [
+  "us"
  ],
  "you might want to (look at)": [
-  "shared"
+  "us",
+  "uk"
  ],
  "you will find": [
-  "shared"
+  "uk"
  ]
 }

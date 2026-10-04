@@ -1,14 +1,42 @@
 import { VOCAB_MANIFEST } from './vocabularyData'
+import { accent, type Accent } from './accent'
 import audioIndex from '~/pages/vocabulary/audioIndex.json'
 
 export interface VocabSource { key: string; label: string; desc: string }
 
-const AUDIO_INDEX = audioIndex as Record<string, string>
+// 口音偏好：us/uk 为有道 TTS，book 为真经原书真人音频
+export type AccentPref = Accent | 'book'
 
-// 单词发音地址：优先本地音频索引（真经真人发音 → 共享池 TTS），缺失时在线兜底有道 TTS
-export function wordAudioUrl(word: string): string {
+// 单词 → {us, uk, book?} 本地音频路径；兼容旧版纯字符串格式
+const AUDIO_INDEX = audioIndex as Record<string, { us?: string; uk?: string; book?: string } | string>
+
+// 该词是否有真经原书真人音频（决定单词行左侧大喇叭是否显示）
+export function wordHasBookAudio(word: string): boolean {
+  const entry = AUDIO_INDEX[word.trim().toLowerCase()]
+  return !!entry && typeof entry !== 'string' && !!entry.book
+}
+
+// 单词发音地址：prefer 指定口音时优先取该口音的本地音频（无则在线兜底该口音）；
+// 未指定时优先真经原书音频（与原有行为一致），否则跟随全局口音设置
+// （缺失回落另一口音，索引也缺失时在线兜底有道 TTS：type=1 英音 / type=2 美音）
+export function wordAudioUrl(word: string, prefer?: AccentPref): string {
   const w = word.trim()
-  return AUDIO_INDEX[w.toLowerCase()] || `https://dict.youdao.com/dictvoice?type=1&audio=${encodeURIComponent(w)}`
+  const entry = AUDIO_INDEX[w.toLowerCase()]
+  if (entry) {
+    if (typeof entry === 'string')
+      return entry
+    // 显式指定 book（左侧大喇叭）或未指定口音时，优先真经原书音频
+    if ((prefer === 'book' || !prefer) && entry.book)
+      return entry.book
+    const acc: Accent = !prefer || prefer === 'book' ? accent.value : prefer
+    const path = acc === 'uk' ? entry.uk : entry.us
+    if (path)
+      return path
+    if (!prefer && (entry.uk || entry.us))
+      return (entry.uk || entry.us)!
+  }
+  const type = prefer === 'uk' ? 1 : 2
+  return `https://dict.youdao.com/dictvoice?type=${type}&audio=${encodeURIComponent(w)}`
 }
 
 // 各词库的展示信息（label/desc 仅前端展示；可用词库列表以构建产物 vocabulary-index.json 为准，

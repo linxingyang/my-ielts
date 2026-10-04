@@ -1,8 +1,7 @@
 import audioIndex from '~/pages/speaking/audioIndex.json'
+import { accent, type Accent } from './accent'
 
-export type Accent = 'us' | 'uk'
-
-const ACCENT_KEY = 'speaking_accent'
+export type { Accent }
 
 /** word(小写) → 本地音频相对路径（us/uk 两套） */
 const INDEX = audioIndex as Record<string, Partial<Record<Accent, string>>>
@@ -33,9 +32,6 @@ function bindAudioUnlock() {
 
 export function usePhonemeAudio() {
   bindAudioUnlock()
-
-  // 当前口音，三页共享，localStorage 持久化
-  const accent = useLocalStorage<Accent>(ACCENT_KEY, 'us')
 
   /** 单词发音地址：优先本地音频索引，缺失时在线兜底有道 dictvoice */
   function wordAudioUrl(word: string): string {

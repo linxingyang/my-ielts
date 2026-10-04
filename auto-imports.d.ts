@@ -9,9 +9,9 @@ declare global {
   const RELATION_TYPE_META: typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']
   const VOCAB_MANIFEST: typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']
   const VOCAB_SOURCES: typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']
+  const accent: typeof import('./src/composables/accent')['accent']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
-  const chapterProgress: typeof import('./src/composables/wordStatus')['chapterProgress']
   const computed: typeof import('vue')['computed']
   const computedAsync: typeof import('@vueuse/core')['computedAsync']
   const computedEager: typeof import('@vueuse/core')['computedEager']
@@ -46,7 +46,6 @@ declare global {
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const importWordStatus: typeof import('./src/composables/wordStatus')['importWordStatus']
   const inject: typeof import('vue')['inject']
-  const injectLocal: typeof import('@vueuse/core')['injectLocal']
   const isDark: typeof import('./src/composables/dark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
   const isProxy: typeof import('vue')['isProxy']
@@ -78,11 +77,8 @@ declare global {
   const onStartTyping: typeof import('@vueuse/core')['onStartTyping']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
-  const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const pausableWatch: typeof import('@vueuse/core')['pausableWatch']
-  const preloadVocabularyData: typeof import('./src/composables/vocabularyData')['preloadVocabularyData']
   const provide: typeof import('vue')['provide']
-  const provideLocal: typeof import('@vueuse/core')['provideLocal']
   const reactify: typeof import('@vueuse/core')['reactify']
   const reactifyObject: typeof import('@vueuse/core')['reactifyObject']
   const reactive: typeof import('vue')['reactive']
@@ -153,7 +149,6 @@ declare global {
   const useBrowserLocation: typeof import('@vueuse/core')['useBrowserLocation']
   const useCached: typeof import('@vueuse/core')['useCached']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
-  const useClipboardItems: typeof import('@vueuse/core')['useClipboardItems']
   const useCloned: typeof import('@vueuse/core')['useCloned']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
@@ -195,7 +190,6 @@ declare global {
   const useFullscreen: typeof import('@vueuse/core')['useFullscreen']
   const useGamepad: typeof import('@vueuse/core')['useGamepad']
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation']
-  const useId: typeof import('vue')['useId']
   const useIdle: typeof import('@vueuse/core')['useIdle']
   const useImage: typeof import('@vueuse/core')['useImage']
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll']
@@ -212,7 +206,6 @@ declare global {
   const useMediaQuery: typeof import('@vueuse/core')['useMediaQuery']
   const useMemoize: typeof import('@vueuse/core')['useMemoize']
   const useMemory: typeof import('@vueuse/core')['useMemory']
-  const useModel: typeof import('vue')['useModel']
   const useMounted: typeof import('@vueuse/core')['useMounted']
   const useMouse: typeof import('@vueuse/core')['useMouse']
   const useMouseInElement: typeof import('@vueuse/core')['useMouseInElement']
@@ -261,7 +254,6 @@ declare global {
   const useStyleTag: typeof import('@vueuse/core')['useStyleTag']
   const useSupported: typeof import('@vueuse/core')['useSupported']
   const useSwipe: typeof import('@vueuse/core')['useSwipe']
-  const useTemplateRef: typeof import('vue')['useTemplateRef']
   const useTemplateRefsList: typeof import('@vueuse/core')['useTemplateRefsList']
   const useTextDirection: typeof import('@vueuse/core')['useTextDirection']
   const useTextSelection: typeof import('@vueuse/core')['useTextSelection']
@@ -294,7 +286,6 @@ declare global {
   const useWindowFocus: typeof import('@vueuse/core')['useWindowFocus']
   const useWindowScroll: typeof import('@vueuse/core')['useWindowScroll']
   const useWindowSize: typeof import('@vueuse/core')['useWindowSize']
-  const vocabChapterStore: typeof import('./src/composables/vocabularyData')['vocabChapterStore']
   const vocabularyDataVersion: typeof import('./src/composables/vocabularyData')['vocabularyDataVersion']
   const watch: typeof import('vue')['watch']
   const watchArray: typeof import('@vueuse/core')['watchArray']
@@ -313,6 +304,7 @@ declare global {
   const watchWithFilter: typeof import('@vueuse/core')['watchWithFilter']
   const whenever: typeof import('@vueuse/core')['whenever']
   const wordAudioUrl: typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']
+  const wordHasBookAudio: typeof import('./src/composables/vocabularyCategory')['wordHasBookAudio']
   const wordsProgress: typeof import('./src/composables/wordStatus')['wordsProgress']
 }
 // for type re-export
@@ -328,6 +320,7 @@ declare module 'vue' {
     readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
     readonly VOCAB_MANIFEST: UnwrapRef<typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
+    readonly accent: UnwrapRef<typeof import('./src/composables/accent')['accent']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -622,6 +615,7 @@ declare module 'vue' {
     readonly watchWithFilter: UnwrapRef<typeof import('@vueuse/core')['watchWithFilter']>
     readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
     readonly wordAudioUrl: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']>
+    readonly wordHasBookAudio: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordHasBookAudio']>
     readonly wordsProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['wordsProgress']>
   }
 }
@@ -631,6 +625,7 @@ declare module '@vue/runtime-core' {
     readonly RELATION_TYPE_META: UnwrapRef<typeof import('./src/composables/vocabularyRelation')['RELATION_TYPE_META']>
     readonly VOCAB_MANIFEST: UnwrapRef<typeof import('./src/composables/vocabularyData')['VOCAB_MANIFEST']>
     readonly VOCAB_SOURCES: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['VOCAB_SOURCES']>
+    readonly accent: UnwrapRef<typeof import('./src/composables/accent')['accent']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -925,6 +920,7 @@ declare module '@vue/runtime-core' {
     readonly watchWithFilter: UnwrapRef<typeof import('@vueuse/core')['watchWithFilter']>
     readonly whenever: UnwrapRef<typeof import('@vueuse/core')['whenever']>
     readonly wordAudioUrl: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordAudioUrl']>
+    readonly wordHasBookAudio: UnwrapRef<typeof import('./src/composables/vocabularyCategory')['wordHasBookAudio']>
     readonly wordsProgress: UnwrapRef<typeof import('./src/composables/wordStatus')['wordsProgress']>
   }
 }

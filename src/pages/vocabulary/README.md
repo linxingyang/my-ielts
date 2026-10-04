@@ -56,17 +56,21 @@
 3. `python _prefill_phonetics.py`：用词表自带音标预填充 `phonetics.json`（可选，减少有道查询）
 4. `python parser.py`：重新生成拆分数据文件（见上节）
 
-## 单词音频（共享池模式）
+## 单词音频（共享池模式，美/英双口音）
 
-目录结构（总共约 6900 个 mp3、560MB）：
+目录结构：
 
-- `public/vocabulary/audio/<01~22_真经章节>/<词>.mp3`：真经原书真人发音，保持原位
-- `public/vocabulary/audio/_shared/<词>.mp3`：四级/六级/AWL 词的有道 TTS 美音，**每个词只存一份**（四六级重叠词、与真经重叠词不重复存放）
+- `public/vocabulary/audio/<01~22_真经章节>/<词>.mp3`：真经原书真人发音，保持原位（索引 `book` 键，左侧大喇叭专用）
+- `public/vocabulary/audio/_shared_us/<词>.mp3`：全部词库（含真经词）的有道 TTS **美音**（`dictvoice type=2`，默认口音）
+- `public/vocabulary/audio/_shared_uk/<词>.mp3`：同上的有道 TTS **英音**（`dictvoice type=1`）
 
-前端通过 `src/pages/vocabulary/audioIndex.json`（由 `_fetch_audio.py` 生成，`~/composables/vocabularyCategory` 的 `wordAudioUrl()` 消费）解析单词 → 音频路径；索引缺失时自动在线兜底有道 `dictvoice`，不会 404。
+每个词每个口音只存一份（四六级重叠词、与真经重叠词不重复存放）。页面单词行有两个播放入口：左侧大喇叭仅有真经原书音频的词显示（真经词及其他词库中源自真经的词），播放原书真人发音；每行音标（UK/US）前各有小喇叭，点哪行播哪国口音。`wordAudioUrl(word, prefer?)` 不传口音时优先原书音频、否则跟随全局口音设置（默认美音，与口语页共用）。
+
+前端通过 `src/pages/vocabulary/audioIndex.json`（由 `_fetch_audio.py` 生成，`~/composables/vocabularyCategory` 的 `wordAudioUrl()` / `wordHasBookAudio()` 消费）解析单词 → `{us, uk, book?}` 音频路径；指定口音缺失时在线兜底该口音的有道 `dictvoice`，不会 404。
 
 维护：
-- 新增词条后运行 `python _fetch_audio.py`：增量下载缺失音频到 `_shared/` 并重新生成索引（幂等、断点续跑，失败清单在 `_missing_audio.json`）
+- 新增词条后运行 `python _fetch_audio.py`：增量下载缺失音频到对应口音池并重新生成索引（幂等、断点续跑，失败清单在 `_missing_audio.json`）
+- 历史兼容：旧 `_shared/` 里的文件当初以 type=1（英音）下载，脚本首次运行会自动整体迁入 `_shared_uk/`
 
 
 
