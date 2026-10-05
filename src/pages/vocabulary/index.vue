@@ -79,6 +79,7 @@ const progress = computed(() => {
     total,
     knownPct: total > 0 ? `${(result.known / total) * 100}%` : '0%',
     fuzzyPct: total > 0 ? `${(result.fuzzy / total) * 100}%` : '0%',
+    learnedPct: total > 0 ? Math.round(((result.known + result.fuzzy) / total) * 100) : 0,
   }
 })
 
@@ -249,6 +250,7 @@ function play(audioPath) {
 // ===== 章节连读（原书/英音/美音 逐词连播）=====
 let seqAudio = null
 let seqToken = 0
+let seqResume = null // 暂停时挂起的队列继续函数
 const isSeqPlaying = ref(false)
 const isSeqPaused = ref(false)
 
@@ -266,38 +268,53 @@ function playChapterSequence(accent) {
   seqAudio = seqAudio || document.createElement('audio')
   let i = 0
   const playNext = () => {
-    if (token !== seqToken || i >= words.length) {
-      if (token === seqToken) {
-        isSeqPlaying.value = false
-        isSeqPaused.value = false
-      }
+    if (token !== seqToken)
+      return
+    // 暂停中（无论点暂停时是在播词中还是词间间隙）：挂起队列，恢复时从此处继续
+    if (isSeqPaused.value) {
+      seqResume = playNext
+      return
+    }
+    if (i >= words.length) {
+      isSeqPlaying.value = false
+      isSeqPaused.value = false
       return
     }
     const w = words[i++]
     seqAudio.src = wordAudioUrl(w, accent)
     // 音频缺失/加载失败、或播放被浏览器拒绝时跳过继续，否则整个连读会卡停
-    seqAudio.onerror = () => setTimeout(playNext, 50)
-    seqAudio.play().catch(() => setTimeout(playNext, 100))
-    seqAudio.onended = () => setTimeout(playNext, 500)
+    seqAudio.onerror = () => { if (token === seqToken) setTimeout(playNext, 50) }
+    seqAudio.onended = () => { if (token === seqToken) setTimeout(playNext, 500) }
+    seqAudio.play().catch(() => { if (token === seqToken) setTimeout(playNext, 100) })
   }
   playNext()
 }
 
 function pauseOrResumeSequence() {
-  if (!seqAudio)
+  if (!seqAudio || !isSeqPlaying.value)
     return
-  if (isSeqPaused.value) {
-    seqAudio.play().catch(() => {})
-    isSeqPaused.value = false
+  if (!isSeqPaused.value) {
+    // 暂停：词中则停下当前发音；词间则挂起待播队列
+    isSeqPaused.value = true
+    seqAudio.pause()
   }
   else {
-    seqAudio.pause()
-    isSeqPaused.value = true
+    // 继续：优先执行挂起的队列，否则恢复当前词的播放
+    isSeqPaused.value = false
+    if (seqResume) {
+      const fn = seqResume
+      seqResume = null
+      fn()
+    }
+    else {
+      seqAudio.play().catch(() => {})
+    }
   }
 }
 
 function stopSequence() {
   seqToken++
+  seqResume = null
   if (seqAudio) {
     seqAudio.pause()
     seqAudio.onended = null
@@ -491,15 +508,84 @@ function copyAllError() {
           <span class="ml-3 w-12 shrink-0 text-right text-xs text-gray-500 dark:text-gray-400">{{ row.pct }}%</span>
         </div>
       </div>
-      <!-- Card header -->
-      <div class="items-center justify-between lg:flex">
-        <div class="mb-4 lg:mb-0">
-          <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">
-            {{ sourceLabel }}
-          </h3>
-          <span class="block max-w-130 truncate text-base font-normal text-gray-500 dark:text-gray-400" :title="sourceDesc">{{ sourceDesc }}</span>
+      <!-- Card header：上=操作区，分隔线下=章节信息区；滚动时吸顶 -->
+      <div class="sticky top-16 z-20 mb-4 flex flex-col border border-gray-200 rounded-lg bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <!-- 章节信息区 -->
+        <div class="order-2 mt-3 border-t border-gray-200 pt-3 dark:border-gray-700">
+          <div class="flex items-center px-2">
+            <span class="max-w-130 truncate text-xs text-gray-500 dark:text-gray-400" :title="sourceDesc">{{ sourceDesc }}</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 px-2 pt-1.5">
+            <span class="rounded-full bg-primary-50 px-2.5 py-0.5 text-sm font-bold text-primary-600 dark:bg-primary-500/15 dark:text-primary-400">{{ category }}</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              共 <b class="tabular-nums text-gray-700 dark:text-gray-200">{{ curMeta?.wordCount ?? '-' }}</b> 词 ·
+              已认识 <b class="tabular-nums text-green-500">{{ progress.known }}</b> ·
+              模糊 <b class="tabular-nums text-yellow-500">{{ progress.fuzzy }}</b> ·
+              未学 <b class="tabular-nums">{{ progress.unknown }}</b> ·
+              进度 <b class="tabular-nums text-green-500">{{ progress.learnedPct }}%</b>
+            </span>
+            <!-- 章节连读：原书(仅真经)/英音/美音 逐词连播 -->
+            <div v-if="curChapter" class="ml-auto flex flex-wrap items-center gap-1.5">
+              <!-- 学习状态过滤：浅底容器自成一组，与连读按钮区分 -->
+              <div class="flex flex-wrap items-center gap-1 rounded-lg bg-gray-100 p-1 dark:bg-gray-800">
+                <button
+                  v-for="opt in statusFilterOptions"
+                  :key="opt.value"
+                  type="button"
+                  class="cursor-pointer rounded-full px-3 py-1 text-sm transition-colors duration-200"
+                  :class="statusFilter === opt.value
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-600 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-400'"
+                  title="按学习状态过滤行；隐藏的行保留占位（空白行），切换零卡顿"
+                  @click="statusFilter = opt.value"
+                >
+                  {{ opt.label }}
+                </button>
+              </div>
+              <span class="mx-0.5 h-4 w-px shrink-0 bg-gray-300 dark:bg-gray-600" />
+              <button
+                v-if="source === 'ielts'"
+                class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                @click="playChapterSequence('book')"
+              >
+                原书连读
+              </button>
+              <button
+                class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                @click="playChapterSequence('uk')"
+              >
+                英音连读
+              </button>
+              <button
+                class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                @click="playChapterSequence('us')"
+              >
+                美音连读
+              </button>
+              <button
+                v-if="isSeqPlaying"
+                class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                @click="pauseOrResumeSequence"
+              >
+                {{ isSeqPaused ? '继续' : '暂停' }}
+              </button>
+              <button
+                v-if="isSeqPlaying"
+                class="cursor-pointer rounded border border-red-300 px-2 py-1 text-sm text-red-600 hover:bg-red-50 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-900/30"
+                @click="stopSequence"
+              >
+                停止
+              </button>
+            </div>
+          </div>
+          <!-- 章节进度条 -->
+          <div class="mt-2.5 h-1.5 w-full flex overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+            <div class="bg-green-500" :style="{ width: progress.knownPct }" />
+            <div class="bg-yellow-400" :style="{ width: progress.fuzzyPct }" />
+          </div>
         </div>
-        <div class="items-center sm:flex sm:flex-wrap">
+        <!-- 操作区 -->
+        <div class="order-1">
           <div class="flex flex-wrap items-center">
             <select
               v-model="source"
@@ -566,7 +652,7 @@ function copyAllError() {
                 </div>
               </div>
             </div>
-            <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
+            <label class="ml-auto inline-flex shrink-0 cursor-pointer items-center pl-2">
               <input v-model="isTrainingModel" type="checkbox" class="peer sr-only">
               <div
                 class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
@@ -580,23 +666,6 @@ function copyAllError() {
               />
               <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">关联组</span>
             </label>
-            <div
-              class="ml-2 inline-flex shrink-0 cursor-pointer items-center rounded-full bg-gray-100 p-1 text-sm dark:bg-gray-800"
-              title="按学习状态过滤行；隐藏的行保留占位（空白行），切换零卡顿"
-            >
-              <button
-                v-for="opt in statusFilterOptions"
-                :key="opt.value"
-                type="button"
-                class="cursor-pointer rounded-full px-3 py-1 transition-all duration-200"
-                :class="statusFilter === opt.value
-                  ? 'bg-primary-500 text-white shadow-sm'
-                  : 'text-gray-500 hover:text-primary-500 dark:text-gray-400'"
-                @click="statusFilter = opt.value"
-              >
-                {{ opt.label }}
-              </button>
-            </div>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isShowMeaning" type="checkbox" class="peer sr-only">
               <div
@@ -653,64 +722,6 @@ function copyAllError() {
                   </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800">
-                  <tr class="bg-hex-f3f3f3">
-                    <td
-                      colspan="7"
-                      class="px-4 py-6 text-sm font-normal text-gray-900 dark:bg-gray-500 dark:text-white"
-                    >
-                      <div class="flex flex-row">
-                        <div class="flex flex-1 items-center">
-                          <span class="text-lg">{{ category }}</span>
-                          （ {{ curMeta?.groupCount ?? '-' }} 组 {{ curMeta?.wordCount ?? '-' }} 个词 ）
-                          <span class="ml-4 text-sm">
-                            已认识 <b class="text-green-500">{{ progress.known }}</b> ·
-                            模糊 <b class="text-yellow-500">{{ progress.fuzzy }}</b> ·
-                            未学 <b>{{ progress.unknown }}</b>
-                          </span>
-                        </div>
-                        <div v-if="curChapter" class="flex shrink-0 items-center gap-1.5">
-                          <!-- 章节连读：原书(仅真经)/英音/美音 逐词连播 -->
-                          <button
-                            v-if="source === 'ielts'"
-                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
-                            @click="playChapterSequence('book')"
-                          >
-                            原书连读
-                          </button>
-                          <button
-                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
-                            @click="playChapterSequence('uk')"
-                          >
-                            英音连读
-                          </button>
-                          <button
-                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
-                            @click="playChapterSequence('us')"
-                          >
-                            美音连读
-                          </button>
-                          <button
-                            v-if="isSeqPlaying"
-                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
-                            @click="pauseOrResumeSequence"
-                          >
-                            {{ isSeqPaused ? '继续' : '暂停' }}
-                          </button>
-                          <button
-                            v-if="isSeqPlaying"
-                            class="cursor-pointer rounded border border-red-300 px-2 py-1 text-xs text-red-600 hover:bg-red-50 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-900/30"
-                            @click="stopSequence"
-                          >
-                            停止
-                          </button>
-                        </div>
-                      </div>
-                      <div class="mt-3 h-1.5 w-full flex overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
-                        <div class="bg-green-500" :style="{ width: progress.knownPct }" />
-                        <div class="bg-yellow-400" :style="{ width: progress.fuzzyPct }" />
-                      </div>
-                    </td>
-                  </tr>
                   <template v-if="curChapter">
                     <template v-for="(wordGroup, i) of curChapter.words" :key="wordGroup.label">
                       <tr
