@@ -45,14 +45,14 @@ watch(category, (newVal) => {
   stopSequence()
 })
 
-// ===== 学习状态过滤（全部/未认识/已认识/模糊）=====
+// ===== 学习状态过滤（全部/未学/已认识/模糊）=====
 // 隐藏用 visibility（行占位），切换只重绘不重排，大表格也零卡顿
 const statusFilter = ref('all')
 const statusFilterOptions = [
   { value: 'all', label: '全部' },
-  { value: 'unknown', label: '未认识' },
   { value: 'known', label: '已认识' },
   { value: 'fuzzy', label: '模糊' },
+  { value: 'unknown', label: '未学' },
 ]
 
 function isRowHiddenByFilter(item) {
@@ -102,9 +102,6 @@ function aggregateProgress(keys) {
     pct: totals.total > 0 ? Math.round((learned / totals.total) * 100) : 0,
   }
 }
-
-// 当前词库的总统计
-const sourceProgress = computed(() => aggregateProgress(chapterOptions.value))
 
 // 全部词库的总统计（学习总览面板用，纯清单计算，打开即准确）
 const allSourcesProgress = computed(() =>
@@ -448,6 +445,52 @@ function copyAllError() {
 <template>
   <div class="px-4 pt-6 2xl:px-0">
     <div class="border border-gray-200 rounded-lg bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+      <!-- 学习总览：全部词库统计，点击行切换词库 -->
+      <div class="mb-4 border border-gray-200 rounded-lg p-3 dark:border-gray-700">
+        <div class="mb-2 flex items-center justify-between">
+          <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+            学习总览（共 {{ allSourcesProgress.reduce((sum, s) => sum + s.total, 0) }} 词，点击行切换词库）
+          </span>
+          <span class="flex shrink-0 items-center">
+            <button
+              type="button"
+              class="inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+              @click="exportStatus"
+            >
+              导出学习进度
+            </button>
+            <button
+              type="button"
+              class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+              @click="fileInput?.click()"
+            >
+              导入学习进度
+            </button>
+            <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
+          </span>
+        </div>
+        <div
+          v-for="row in allSourcesProgress"
+          :key="row.key"
+          class="flex cursor-pointer items-center rounded-lg px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-700"
+          @click="source = row.key"
+        >
+          <span
+            class="w-28 shrink-0 text-sm"
+            :class="row.key === source ? 'font-bold text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'"
+          >{{ row.label }}</span>
+          <span class="w-80 shrink-0 whitespace-nowrap text-xs text-gray-500 dark:text-gray-400">
+            共 <b class="inline-block w-9 text-right tabular-nums">{{ row.total }}</b> 词 ·
+            已认识 <b class="inline-block w-8 text-right tabular-nums text-green-500">{{ row.known }}</b> ·
+            模糊 <b class="inline-block w-8 text-right tabular-nums text-yellow-500">{{ row.fuzzy }}</b> ·
+            未学 <b class="inline-block w-8 text-right tabular-nums">{{ row.unknown }}</b>
+          </span>
+          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+            <div class="h-full bg-green-500" :style="{ width: `${row.pct}%` }" />
+          </div>
+          <span class="ml-3 w-12 shrink-0 text-right text-xs text-gray-500 dark:text-gray-400">{{ row.pct }}%</span>
+        </div>
+      </div>
       <!-- Card header -->
       <div class="items-center justify-between lg:flex">
         <div class="mb-4 lg:mb-0">
@@ -455,16 +498,6 @@ function copyAllError() {
             {{ sourceLabel }}
           </h3>
           <span class="block max-w-130 truncate text-base font-normal text-gray-500 dark:text-gray-400" :title="sourceDesc">{{ sourceDesc }}</span>
-          <div class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            共 <b>{{ sourceProgress.total }}</b> 词 ·
-            已认识 <b class="text-green-500">{{ sourceProgress.known }}</b> ·
-            模糊 <b class="text-yellow-500">{{ sourceProgress.fuzzy }}</b> ·
-            未学 <b>{{ sourceProgress.unknown }}</b> ·
-            进度 <b class="text-green-500">{{ sourceProgress.pct }}%</b>
-          </div>
-          <div class="mt-2 h-1.5 w-64 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
-            <div class="h-full bg-green-500" :style="{ width: `${sourceProgress.pct}%` }" />
-          </div>
         </div>
         <div class="items-center sm:flex sm:flex-wrap">
           <div class="flex flex-wrap items-center">
@@ -586,49 +619,6 @@ function copyAllError() {
               <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">自动播放</span>
             </label>
           </div>
-        </div>
-      </div>
-      <!-- 学习总览：全部词库统计，点击行切换词库 -->
-      <div class="mt-2 border border-gray-200 rounded-lg p-3 dark:border-gray-700">
-        <div class="mb-2 flex items-center justify-between">
-          <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-            学习总览（共 {{ allSourcesProgress.reduce((sum, s) => sum + s.total, 0) }} 词，点击行切换词库）
-          </span>
-          <span class="flex shrink-0 items-center">
-            <button
-              type="button"
-              class="inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
-              @click="exportStatus"
-            >
-              导出记录
-            </button>
-            <button
-              type="button"
-              class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
-              @click="fileInput?.click()"
-            >
-              导入记录
-            </button>
-            <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
-          </span>
-        </div>
-        <div
-          v-for="row in allSourcesProgress"
-          :key="row.key"
-          class="flex cursor-pointer items-center rounded-lg px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-700"
-          @click="source = row.key"
-        >
-          <span
-            class="w-28 shrink-0 text-sm"
-            :class="row.key === source ? 'font-bold text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'"
-          >{{ row.label }}</span>
-          <span class="w-44 shrink-0 text-xs text-gray-500 dark:text-gray-400">
-            已学 {{ row.learned }} / {{ row.total }} 词
-          </span>
-          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
-            <div class="h-full bg-green-500" :style="{ width: `${row.pct}%` }" />
-          </div>
-          <span class="ml-3 w-12 shrink-0 text-right text-xs text-gray-500 dark:text-gray-400">{{ row.pct }}%</span>
         </div>
       </div>
       <!-- Table -->
