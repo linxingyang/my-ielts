@@ -237,7 +237,7 @@ function play(audioPath) {
 }
 
 // ===== 章节连读（原书/英音/美音 逐词连播）=====
-let seqAudio = null as HTMLAudioElement | null
+let seqAudio = null
 let seqToken = 0
 const isSeqPlaying = ref(false)
 
@@ -257,9 +257,9 @@ function playChapterSequence(accent) {
       return
     }
     const w = words[i++]
-    seqAudio!.src = wordAudioUrl(w, accent)
-    seqAudio!.play().catch(() => {})
-    seqAudio!.onended = () => setTimeout(playNext, 500)
+    seqAudio.src = wordAudioUrl(w, accent)
+    seqAudio.play().catch(() => {})
+    seqAudio.onended = () => setTimeout(playNext, 500)
   }
   playNext()
 }
