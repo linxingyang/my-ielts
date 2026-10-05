@@ -61,6 +61,7 @@
 目录结构：
 
 - `public/vocabulary/audio/<01~22_真经章节>/<词>.mp3`：真经原书真人发音，保持原位（索引 `book` 键，左侧大喇叭专用）
+- 章节整读 mp3（原 `01_自然地理.mp3` 等 22 个，246MB）已移除：GitHub Pages 发布大体量站点时会截断后续目录，导致英/美 TTS 文件 404。页面改为「原书连读/英音连读/美音连读」按钮逐词连播
 - `public/vocabulary/audio/_shared_us/<词>.mp3`：全部词库（含真经词）的有道 TTS **美音**（`dictvoice type=2`，默认口音）
 - `public/vocabulary/audio/_shared_uk/<词>.mp3`：同上的有道 TTS **英音**（`dictvoice type=1`）
 

@@ -43,6 +43,7 @@ const curMeta = computed(() => VOCAB_MANIFEST.chapters[category.value])
 watch(category, (newVal) => {
   // console.log(newVal, oldVal)
   localStorage.setItem('vocabulary_chapter', newVal)
+  stopSequence()
 })
 
 const statusIconMap = {
@@ -225,6 +226,7 @@ document.addEventListener('keydown', (ev) => {
 
 let audio = null
 function play(audioPath) {
+  stopSequence()
   if (audio) {
     audio.pause()
     audio.currentTime = 0
@@ -232,6 +234,43 @@ function play(audioPath) {
   audio = document.createElement('audio')
   audio.src = audioPath
   audio.play()
+}
+
+// ===== 章节连读（原书/英音/美音 逐词连播）=====
+let seqAudio = null as HTMLAudioElement | null
+let seqToken = 0
+const isSeqPlaying = ref(false)
+
+function playChapterSequence(accent) {
+  stopSequence()
+  const words = (curChapter.value?.words || []).flat().map(item => item.word[0])
+  if (words.length < 1)
+    return
+  const token = ++seqToken
+  isSeqPlaying.value = true
+  seqAudio = seqAudio || document.createElement('audio')
+  let i = 0
+  const playNext = () => {
+    if (token !== seqToken || i >= words.length) {
+      if (token === seqToken)
+        isSeqPlaying.value = false
+      return
+    }
+    const w = words[i++]
+    seqAudio!.src = wordAudioUrl(w, accent)
+    seqAudio!.play().catch(() => {})
+    seqAudio!.onended = () => setTimeout(playNext, 500)
+  }
+  playNext()
+}
+
+function stopSequence() {
+  seqToken++
+  if (seqAudio) {
+    seqAudio.pause()
+    seqAudio.onended = null
+  }
+  isSeqPlaying.value = false
 }
 
 function copyText(item) {
@@ -592,10 +631,34 @@ function copyAllError() {
                             未学 <b>{{ progress.unknown }}</b>
                           </span>
                         </div>
-                        <div v-if="curMeta?.audio" class="justify-items-end">
-                          <audio controls class="chapter">
-                            <source :src="`vocabulary/audio/${curMeta.audio}`" type="audio/mpeg">
-                          </audio>
+                        <div v-if="curChapter" class="flex shrink-0 items-center gap-1.5">
+                          <!-- 章节连读：原书(仅真经)/英音/美音 逐词连播 -->
+                          <button
+                            v-if="source === 'ielts'"
+                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                            @click="playChapterSequence('book')"
+                          >
+                            原书连读
+                          </button>
+                          <button
+                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                            @click="playChapterSequence('uk')"
+                          >
+                            英音连读
+                          </button>
+                          <button
+                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                            @click="playChapterSequence('us')"
+                          >
+                            美音连读
+                          </button>
+                          <button
+                            v-if="isSeqPlaying"
+                            class="cursor-pointer rounded border border-red-300 px-2 py-1 text-xs text-red-600 hover:bg-red-50 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-900/30"
+                            @click="stopSequence"
+                          >
+                            停止
+                          </button>
                         </div>
                       </div>
                       <div class="mt-3 h-1.5 w-full flex overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
