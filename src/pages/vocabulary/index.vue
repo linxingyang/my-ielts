@@ -224,19 +224,12 @@ document.addEventListener('keydown', (ev) => {
 })
 
 let audio = null
-function play(audioPath, word, fallbackType = 2) {
+function play(audioPath) {
   if (audio) {
     audio.pause()
     audio.currentTime = 0
   }
   audio = document.createElement('audio')
-  // 本地音频加载失败（如线上 CDN 缓存 404）时，在线兜底有道 TTS（type=1 英音 / type=2 美音）
-  audio.onerror = () => {
-    if (word && !audioPath.includes('dictvoice')) {
-      audio.src = `https://dict.youdao.com/dictvoice?type=${fallbackType}&audio=${encodeURIComponent(word.trim())}`
-      audio.play()
-    }
-  }
   audio.src = audioPath
   audio.play()
 }
@@ -256,9 +249,9 @@ function onInputKeydown(e) {
   }
 }
 
-function onInputFocusIn(e, audioPath, word) {
+function onInputFocusIn(e, audioPath) {
   if (isAutoPlayWordAudio.value)
-    play(audioPath, word)
+    play(audioPath)
 }
 
 function onInputFocusOut(e, item) {
@@ -358,7 +351,7 @@ function phoneticLines(phonetic) {
 // 播放音标行对应的口音发音：UK 行播英音，US 行播美音，无口音前缀跟随当前设置
 function playPhonetic(item, line) {
   const acc = line.startsWith('UK') ? 'uk' : line.startsWith('US') ? 'us' : undefined
-  play(wordAudioUrl(item.word[0], acc), item.word[0], acc === 'uk' ? 1 : 2)
+  play(wordAudioUrl(item.word[0], acc))
 }
 
 function copyAllError() {
@@ -628,7 +621,7 @@ function copyAllError() {
                             v-if="wordHasBookAudio(item.word[0])"
                             class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
                             title="播放原书真人发音"
-                            @click="play(wordAudioUrl(item.word[0], 'book'), item.word[0])"
+                            @click="play(wordAudioUrl(item.word[0], 'book'))"
                           />
 
                           <i
@@ -647,7 +640,7 @@ function copyAllError() {
                               :id="item.id" autocomplete="off" :class="getInputStyleClass(item)"
                               type="text"
                               @focusout="onInputFocusOut($event, item)"
-                              @focusin="onInputFocusIn($event, wordAudioUrl(item.word[0]), item.word[0])"
+                              @focusin="onInputFocusIn($event, wordAudioUrl(item.word[0]))"
                               @keydown="onInputKeydown"
                             >
                           </template>

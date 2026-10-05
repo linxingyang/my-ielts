@@ -61,15 +61,7 @@ function playAudio() {
     audio.currentTime = 0
   }
   audio = document.createElement('audio')
-  // 本地音频加载失败（如线上 CDN 缓存 404）时，在线兜底有道美音 TTS
-  const path = wordAudioUrl(word)
-  audio.onerror = () => {
-    if (word && !path.includes('dictvoice')) {
-      audio!.src = `https://dict.youdao.com/dictvoice?type=2&audio=${encodeURIComponent(word)}`
-      audio!.play()
-    }
-  }
-  audio.src = path
+  audio.src = wordAudioUrl(word)
   audio.play()
 }
 

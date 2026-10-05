@@ -110,7 +110,7 @@ const statusTitleMap: Record<string, string> = {
           <i
             class="i-ph-speaker-simple-high-bold inline-block shrink-0 cursor-pointer text-gray-500 dark:text-gray-400"
             title="播放发音"
-            @click="play(wordAudioUrl(m.word), m.word)"
+            @click="play(wordAudioUrl(m.word))"
           />
           <i
             :class="statusIcon(getWordStatus(m.word))"
