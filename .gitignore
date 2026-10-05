@@ -30,3 +30,6 @@ src/pages/vocabulary/_*.err
 
 # 音频下载中断残留
 public/vocabulary/audio/_shared/*.tmp
+build.err
+dev.err
+push.err

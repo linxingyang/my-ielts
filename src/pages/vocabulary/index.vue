@@ -17,7 +17,6 @@ const isRelationView = ref(false)
 const isShowMeaning = ref(true)
 const isAutoPlayWordAudio = ref(true)
 const isOnlyShowErrors = ref(false)
-const isOnlyShowUnknown = ref(false)
 const isFinishTraining = ref(false)
 const isShowSource = ref(false)
 
@@ -45,6 +44,20 @@ watch(category, (newVal) => {
   localStorage.setItem('vocabulary_chapter', newVal)
   stopSequence()
 })
+
+// ===== 学习状态过滤（全部/未认识/已认识/模糊）=====
+// 隐藏用 visibility（行占位），切换只重绘不重排，大表格也零卡顿
+const statusFilter = ref('all')
+const statusFilterOptions = [
+  { value: 'all', label: '全部' },
+  { value: 'unknown', label: '未认识' },
+  { value: 'known', label: '已认识' },
+  { value: 'fuzzy', label: '模糊' },
+]
+
+function isRowHiddenByFilter(item) {
+  return statusFilter.value !== 'all' && getWordStatus(item.word[0]) !== statusFilter.value
+}
 
 const statusIconMap = {
   known: 'i-ph-check-circle-bold text-green-500',
@@ -240,10 +253,15 @@ function play(audioPath) {
 let seqAudio = null
 let seqToken = 0
 const isSeqPlaying = ref(false)
+const isSeqPaused = ref(false)
 
 function playChapterSequence(accent) {
   stopSequence()
-  const words = (curChapter.value?.words || []).flat().map(item => item.word[0])
+  // 与表格行相同的可见性过滤：连读只播当前过滤模式下显示的词
+  const words = (curChapter.value?.words || [])
+    .flat()
+    .filter(item => !isRowHiddenByFilter(item))
+    .map(item => item.word[0])
   if (words.length < 1)
     return
   const token = ++seqToken
@@ -252,16 +270,33 @@ function playChapterSequence(accent) {
   let i = 0
   const playNext = () => {
     if (token !== seqToken || i >= words.length) {
-      if (token === seqToken)
+      if (token === seqToken) {
         isSeqPlaying.value = false
+        isSeqPaused.value = false
+      }
       return
     }
     const w = words[i++]
     seqAudio.src = wordAudioUrl(w, accent)
-    seqAudio.play().catch(() => {})
+    // 音频缺失/加载失败、或播放被浏览器拒绝时跳过继续，否则整个连读会卡停
+    seqAudio.onerror = () => setTimeout(playNext, 50)
+    seqAudio.play().catch(() => setTimeout(playNext, 100))
     seqAudio.onended = () => setTimeout(playNext, 500)
   }
   playNext()
+}
+
+function pauseOrResumeSequence() {
+  if (!seqAudio)
+    return
+  if (isSeqPaused.value) {
+    seqAudio.play().catch(() => {})
+    isSeqPaused.value = false
+  }
+  else {
+    seqAudio.pause()
+    isSeqPaused.value = true
+  }
 }
 
 function stopSequence() {
@@ -269,8 +304,10 @@ function stopSequence() {
   if (seqAudio) {
     seqAudio.pause()
     seqAudio.onended = null
+    seqAudio.onerror = null
   }
   isSeqPlaying.value = false
+  isSeqPaused.value = false
 }
 
 function copyText(item) {
@@ -510,13 +547,23 @@ function copyAllError() {
               />
               <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">关联组</span>
             </label>
-            <label class="ml-2 inline-flex shrink-0 cursor-pointer items-center">
-              <input v-model="isOnlyShowUnknown" type="checkbox" class="peer sr-only">
-              <div
-                class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:border after:border-gray-300 dark:border-gray-600 after:rounded-full after:bg-white dark:bg-gray-700 peer-checked:bg-blue-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-focus:ring-blue-800 rtl:peer-checked:after:-translate-x-full"
-              />
-              <span class="ms-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-300">只看未认识</span>
-            </label>
+            <div
+              class="ml-2 inline-flex shrink-0 cursor-pointer items-center rounded-full bg-gray-100 p-1 text-sm dark:bg-gray-800"
+              title="按学习状态过滤行；隐藏的行保留占位（空白行），切换零卡顿"
+            >
+              <button
+                v-for="opt in statusFilterOptions"
+                :key="opt.value"
+                type="button"
+                class="cursor-pointer rounded-full px-3 py-1 transition-all duration-200"
+                :class="statusFilter === opt.value
+                  ? 'bg-primary-500 text-white shadow-sm'
+                  : 'text-gray-500 hover:text-primary-500 dark:text-gray-400'"
+                @click="statusFilter = opt.value"
+              >
+                {{ opt.label }}
+              </button>
+            </div>
             <label v-if="isTrainingModel" class="ml-2 inline-flex cursor-pointer items-center">
               <input v-model="isShowMeaning" type="checkbox" class="peer sr-only">
               <div
@@ -654,6 +701,13 @@ function copyAllError() {
                           </button>
                           <button
                             v-if="isSeqPlaying"
+                            class="cursor-pointer rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+                            @click="pauseOrResumeSequence"
+                          >
+                            {{ isSeqPaused ? '继续' : '暂停' }}
+                          </button>
+                          <button
+                            v-if="isSeqPlaying"
                             class="cursor-pointer rounded border border-red-300 px-2 py-1 text-xs text-red-600 hover:bg-red-50 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-900/30"
                             @click="stopSequence"
                           >
@@ -671,9 +725,11 @@ function copyAllError() {
                     <template v-for="(wordGroup, i) of curChapter.words" :key="wordGroup.label">
                       <tr
                         v-for="item of wordGroup"
-                        v-show="(!isOnlyShowUnknown || getWordStatus(item.word[0]) !== 'known') && ((isTrainingModel && (isOnlyShowErrors ? item.spellError : true)) || !isTrainingModel)" :id="`tr_${item.id}`"
+                        v-show="!(isTrainingModel && isOnlyShowErrors && !item.spellError)" :id="`tr_${item.id}`"
                         :key="item.id"
-                        :class="{ 'bg-gray-50 dark:bg-gray-700': item.id % 2 === 0, [`group-color-${i % 15}`]: true }" class="text-sm text-gray-900 dark:text-white"
+                        :class="[
+                          { 'bg-gray-50 dark:bg-gray-700': item.id % 2 === 0, [`group-color-${i % 15}`]: true, 'row-hidden': isRowHiddenByFilter(item) },
+                        ]" class="text-sm text-gray-900 dark:text-white"
                       >
                         <td class="p-4">
                           {{ item.id }}
@@ -875,6 +931,18 @@ function copyAllError() {
 </template>
 
 <style scoped>
+/* 大表格优化：视口外的行跳过排版与渲染，切换显隐/滚动时明显减少卡顿。
+   contain-intrinsic-size 给视口外行一个预估行高，保证滚动条稳定 */
+tbody tr {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 64px;
+}
+
+/* 学习状态过滤：visibility 隐藏（行占位），切换时只重绘不重排，避免全表重排卡顿 */
+tr.row-hidden {
+  visibility: hidden;
+}
+
 tr.search-flash {
   animation: search-flash 2s ease-out;
 }
