@@ -47,7 +47,34 @@ watch(category, (newVal) => {
 
 // ===== 学习状态过滤（全部/未学/已认识/模糊）=====
 // 隐藏用 visibility（行占位），切换只重绘不重排，大表格也零卡顿
+// 过滤导航：不改变布局，用 上一个/下一个 在匹配词之间跳转
 const statusFilter = ref('all')
+const filterNavIndex = ref(-1)
+const filteredWords = computed(() =>
+  (curChapter.value?.words || []).flat().filter(item => !isRowHiddenByFilter(item)),
+)
+watch(statusFilter, () => (filterNavIndex.value = -1))
+
+function gotoFilteredWord(delta) {
+  const list = filteredWords.value
+  if (!list.length)
+    return
+  if (delta === 'first')
+    filterNavIndex.value = 0
+  else if (delta === 'last')
+    filterNavIndex.value = list.length - 1
+  else
+    filterNavIndex.value = (filterNavIndex.value + delta + list.length) % list.length
+  const id = list[filterNavIndex.value].id
+  nextTick(() => {
+    const el = document.getElementById(`tr_${id}`)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (el) {
+      el.classList.add('search-flash')
+      setTimeout(() => el.classList.remove('search-flash'), 2000)
+    }
+  })
+}
 const statusFilterOptions = [
   { value: 'all', label: '全部' },
   { value: 'known', label: '已认识' },
@@ -110,6 +137,33 @@ const allSourcesProgress = computed(() =>
     ...s,
     ...aggregateProgress(Object.keys(VOCAB_MANIFEST.chapters).filter(k => VOCAB_MANIFEST.chapters[k].source === s.key)),
   })))
+
+// 全词库去重后的单词列表：同一单词出现在多个词库时只保留一次（大小写不敏感）
+const allUniqueWords = computed(() => {
+  const seen = new Set()
+  const unique = []
+  for (const meta of Object.values(VOCAB_MANIFEST.chapters)) {
+    for (const w of meta.wordList) {
+      const key = w.toLowerCase()
+      if (!seen.has(key)) {
+        seen.add(key)
+        unique.push(w)
+      }
+    }
+  }
+  return unique
+})
+
+// 全词库去重统计：排除跨词库重复单词后的三态数量与进度
+const allUniqueProgress = computed(() => {
+  const p = wordsProgress(allUniqueWords.value)
+  const total = allUniqueWords.value.length
+  return {
+    ...p,
+    total,
+    pct: total > 0 ? Math.round(((p.known + p.fuzzy) / total) * 100) : 0,
+  }
+})
 
 const fileInput = ref(null)
 
@@ -486,6 +540,20 @@ function copyAllError() {
             <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
           </span>
         </div>
+        <!-- 全部词库去重汇总行：跨词库重复单词只计一次 -->
+        <div class="mb-1 flex items-center border-b border-gray-100 rounded-lg bg-gray-50 px-2 py-1.5 dark:border-gray-700 dark:bg-gray-700/40">
+          <span class="w-28 shrink-0 text-sm font-bold text-gray-900 dark:text-white">全部（去重）</span>
+          <span class="w-80 shrink-0 whitespace-nowrap text-xs text-gray-500 dark:text-gray-400">
+            共 <b class="inline-block w-9 text-right tabular-nums">{{ allUniqueProgress.total }}</b> 词 ·
+            已认识 <b class="inline-block w-8 text-right tabular-nums text-green-500">{{ allUniqueProgress.known }}</b> ·
+            模糊 <b class="inline-block w-8 text-right tabular-nums text-yellow-500">{{ allUniqueProgress.fuzzy }}</b> ·
+            未学 <b class="inline-block w-8 text-right tabular-nums">{{ allUniqueProgress.unknown }}</b>
+          </span>
+          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
+            <div class="h-full bg-green-500" :style="{ width: `${allUniqueProgress.pct}%` }" />
+          </div>
+          <span class="ml-3 w-12 shrink-0 text-right text-xs text-gray-500 dark:text-gray-400">{{ allUniqueProgress.pct }}%</span>
+        </div>
         <div
           v-for="row in allSourcesProgress"
           :key="row.key"
@@ -512,11 +580,9 @@ function copyAllError() {
       <div class="sticky top-16 z-20 mb-4 flex flex-col border border-gray-200 rounded-lg bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <!-- 章节信息区 -->
         <div class="order-2 mt-3 border-t border-gray-200 pt-3 dark:border-gray-700">
-          <div class="flex items-center px-2">
-            <span class="max-w-130 truncate text-xs text-gray-500 dark:text-gray-400" :title="sourceDesc">{{ sourceDesc }}</span>
-          </div>
-          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 px-2 pt-1.5">
-            <span class="rounded-full bg-primary-50 px-2.5 py-0.5 text-sm font-bold text-primary-600 dark:bg-primary-500/15 dark:text-primary-400">{{ category }}</span>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 px-2">
+            <span class="truncate text-xs text-gray-500 dark:text-gray-400">{{ sourceDesc }}</span>
+            <span class="rounded-full bg-primary-50 px-2.5 py-0.5 text-sm font-bold text-primary-600 dark:bg-primary-500/15 dark:text-primary-400" :title="sourceDesc">{{ category }}</span>
             <span class="text-sm text-gray-500 dark:text-gray-400">
               共 <b class="tabular-nums text-gray-700 dark:text-gray-200">{{ curMeta?.wordCount ?? '-' }}</b> 词 ·
               已认识 <b class="tabular-nums text-green-500">{{ progress.known }}</b> ·
@@ -542,6 +608,44 @@ function copyAllError() {
                   {{ opt.label }}
                 </button>
               </div>
+              <!-- 过滤导航：首个/上一个/下一个/末个匹配词 -->
+              <span v-if="statusFilter !== 'all' && filteredWords.length" class="flex items-center gap-1">
+                <button
+                  type="button"
+                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="跳转到第一个匹配词"
+                  @click="gotoFilteredWord('first')"
+                >
+                  ⇤ 首个
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="跳转到上一个匹配词"
+                  @click="gotoFilteredWord(-1)"
+                >
+                  ↑ 上一个
+                </button>
+                <span class="w-12 shrink-0 text-center text-xs tabular-nums text-gray-500 dark:text-gray-400">
+                  {{ filterNavIndex >= 0 ? `${filterNavIndex + 1}/${filteredWords.length}` : `共${filteredWords.length}` }}
+                </span>
+                <button
+                  type="button"
+                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="跳转到下一个匹配词"
+                  @click="gotoFilteredWord(1)"
+                >
+                  下一个 ↓
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="跳转到最后一个匹配词"
+                  @click="gotoFilteredWord('last')"
+                >
+                  末个 ⇥
+                </button>
+              </span>
               <span class="mx-0.5 h-4 w-px shrink-0 bg-gray-300 dark:bg-gray-600" />
               <button
                 v-if="source === 'ielts'"
@@ -589,7 +693,7 @@ function copyAllError() {
           <div class="flex flex-wrap items-center">
             <select
               v-model="source"
-              class="block w-40 shrink-0 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+              class="block w-40 shrink-0 border border-gray-300 rounded-lg bg-gray-50 px-2.5 py-1.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
             >
               <option v-for="s in sourceOptions" :key="s.key" :value="s.key">
                 {{ s.label }}
@@ -597,7 +701,7 @@ function copyAllError() {
             </select>
             <select
               v-model="category"
-              class="ml-2 block w-52 shrink-0 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+              class="ml-2 block w-52 shrink-0 border border-gray-300 rounded-lg bg-gray-50 px-2.5 py-1.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
             >
               <option v-for="k in chapterOptions" :key="k" :value="k">
                 {{ k }}
@@ -609,7 +713,7 @@ function copyAllError() {
               </div>
               <input
                 ref="searchInputRef" v-model="searchKeywordRaw" type="search"
-                class="block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:placeholder-gray-400"
+                class="block w-full border border-gray-300 rounded-lg bg-gray-50 py-1.5 pl-10 pr-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:placeholder-gray-400"
                 placeholder="搜索 / 释义（按 / 聚焦）"
                 @focus="isSearchPanelOpen = true"
                 @input="isSearchPanelOpen = true"
