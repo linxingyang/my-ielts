@@ -69,18 +69,22 @@ import sentences from './100sentences'
                         <td class="p-4 border-r-1" rowspan="2">
                           {{ item.sentence }}
                         </td>
-                        <td class="p-4 border-b-1 flex items-center">
-                          <div class="mr-4" title="来自书上标准答案"><i class="i-carbon-book block"></i></div>
-                          <div>{{ item.translationFromBook }}</div>
+                        <td class="border-b-1 p-4">
+                          <div class="flex items-start">
+                            <div class="mr-4 shrink-0" title="来自书上标准答案"><i class="i-carbon-book block"></i></div>
+                            <div class="min-w-0 flex-1">{{ item.translationFromBook }}</div>
+                          </div>
                         </td>
                         <td class="p-4 border-x-1 w-30% whitespace-pre-line" rowspan="2">
                           {{ item.remark }}
                         </td>
                       </tr>
                       <tr>
-                        <td class="p-4 flex items-center">
-                          <div class="mr-4" title="来自 ChatGPT"><i class="i-simple-icons-openai block"></i></div>
-                          <div>{{ item.chatgpt }}</div>
+                        <td class="p-4">
+                          <div class="flex items-start">
+                            <div class="mr-4 shrink-0" title="来自 ChatGPT"><i class="i-simple-icons-openai block"></i></div>
+                            <div class="min-w-0 flex-1">{{ item.chatgpt }}</div>
+                          </div>
                         </td>
                       </tr>
                     </template>

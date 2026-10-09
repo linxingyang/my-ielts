@@ -21,7 +21,7 @@ const keyword = ref('')
       <span class="text-base font-normal text-gray-500 dark:text-gray-400">考点词以及对应的同义替换</span>
     </div>
     <div class="items-center sm:flex">
-      <div class="flex items-center">
+      <div class="flex flex-wrap items-center gap-3 sm:gap-0">
         <button
           type="button"
           class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -30,7 +30,7 @@ const keyword = ref('')
           练习
         </button>
         <!-- <input type="text" name="email" class="ml-3 block w-full border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 focus:border-primary-500 dark:bg-gray-700 sm:text-sm dark:text-white focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500 dark:placeholder-gray-400" placeholder="关键词"> -->
-        <div class="relative ml-2 flex-1">
+        <div class="relative w-full flex-1 sm:ml-2">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -45,37 +45,37 @@ const keyword = ref('')
       </div>
     </div>
   </div>
-  <div class="mt-6">
+  <div class="mt-6 overflow-x-auto">
     <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
       <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-          <th class="w-0 px-6 py-3">
+          <th class="w-0 px-3 py-3 sm:px-6">
             #
           </th>
-          <th class="w-0 px-6 py-3" />
-          <th scope="col" class="w-0 px-6 py-3">
+          <th class="w-0 px-3 py-3 sm:px-6" />
+          <th scope="col" class="w-0 px-3 py-3 sm:px-6">
             考点词
           </th>
-          <th scope="col" class="w-0 px-6 py-3">
+          <th scope="col" class="w-0 px-3 py-3 sm:px-6">
             词性
           </th>
-          <th scope="col" class="w-80 px-6 py-3">
+          <th scope="col" class="w-80 px-3 py-3 sm:px-6">
             词义
           </th>
-          <th scope="col" class="px-6 py-3">
+          <th scope="col" class="px-3 py-3 sm:px-6">
             同义替换
           </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="w in ws" :key="w.index" class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.index }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             <a href="javascript:;" class="i-carbon-volume-up-filled block" @click="play(w.word)" />
           </td>
-          <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+          <th scope="row" class="whitespace-nowrap px-3 py-4 sm:px-6 font-medium text-gray-900 dark:text-white">
             <a
               class="hover:underline"
               :title="`在剑桥词典中查询 ${w.word}`"
@@ -83,13 +83,13 @@ const keyword = ref('')
               target="_blank"
             >{{ w.word }}</a>
           </th>
-          <td class="px-6 py-4 italic">
+          <td class="px-3 py-4 sm:px-6 italic">
             {{ w.type }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.meaning }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.replace.join(', ') }}
           </td>
         </tr>

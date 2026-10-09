@@ -32,12 +32,22 @@ const scoreTable = [
       <table class="w-full text-center text-sm text-gray-500 dark:text-gray-400">
         <tbody>
           <tr class="border bg-white dark:border-gray-700 dark:bg-gray-800">
-            <td v-for="v in scoreTable" :key="v[0]" class="border px-6 py-4">
+            <td v-for="v in scoreTable.slice(0, 9)" :key="v[0]" class="border px-1 py-3 text-xs sm:px-6 sm:py-4 sm:text-sm">
               {{ v[0] }}
             </td>
           </tr>
           <tr class="border bg-white dark:border-gray-700 dark:bg-gray-800">
-            <td v-for="v in scoreTable" :key="v[0]" class="border px-6 py-4">
+            <td v-for="v in scoreTable.slice(0, 9)" :key="v[0]" class="border px-1 py-3 text-xs sm:px-6 sm:py-4 sm:text-sm">
+              {{ v[1] }}
+            </td>
+          </tr>
+          <tr class="border bg-white dark:border-gray-700 dark:bg-gray-800">
+            <td v-for="v in scoreTable.slice(9)" :key="v[0]" class="border px-1 py-3 text-xs sm:px-6 sm:py-4 sm:text-sm">
+              {{ v[0] }}
+            </td>
+          </tr>
+          <tr class="border bg-white dark:border-gray-700 dark:bg-gray-800">
+            <td v-for="v in scoreTable.slice(9)" :key="v[0]" class="border px-1 py-3 text-xs sm:px-6 sm:py-4 sm:text-sm">
               {{ v[1] }}
             </td>
           </tr>

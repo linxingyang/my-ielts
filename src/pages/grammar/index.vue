@@ -29,10 +29,12 @@
       </h3>
       <div class="mb-4">
         <p>听完课跟着老师画的，使用的百度脑图</p>
-        <svg
-          class="stroke-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1" width="100%" style="visibility: visible;" viewBox="0 0 1552 5255"
-        >
+        <!-- 思维导图文字较小，小屏保持最小宽度可读，横向滚动查看 -->
+        <div class="overflow-x-auto">
+          <svg
+            class="stroke-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1" width="100%" style="visibility: visible; min-width: 1100px;" viewBox="0 0 1552 5255"
+          >
           <defs id="kity_defs_7">
             <linearGradient id="kity_linearGradient_17" x1="0" y1="0" x2="0" y2="1">
               <stop id="kity_stop_18" offset="0" stop-color="rgb(255, 255, 255)" />
@@ -5798,6 +5800,7 @@
             </g>
           </g>
         </svg>
+        </div>
       </div>
     </div>
   </div>

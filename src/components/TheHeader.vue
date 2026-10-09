@@ -44,7 +44,7 @@ const showMobileMenu = ref(false)
     <nav class="fixed z-30 w-full border-b border-gray-200 bg-white px-4 py-3 dark:border-gray-700 dark:bg-gray-800">
       <div class="mx-auto max-w-screen-2xl flex items-center justify-between">
         <div class="flex items-center justify-start">
-          <a href="/" class="mr-14 flex">
+          <a href="/" class="flex sm:mr-14">
             <span class="hidden self-center whitespace-nowrap text-2xl font-semibold sm:flex dark:text-white">My
               <span class="ml-1 text-red-600"> IELTS™</span>
             </span>
@@ -90,19 +90,19 @@ const showMobileMenu = ref(false)
         </div>
       </div>
     </nav>
-    <nav class="bg-white dark:bg-gray-900">
+    <nav
+      v-show="showMobileMenu"
+      class="fixed inset-x-0 top-0 z-20 border-b border-gray-200 bg-white pt-16 shadow-lg dark:border-gray-700 dark:bg-gray-900 lg:hidden"
+    >
       <!-- Mobile menu -->
-      <ul
-        v-show="showMobileMenu"
-        class="mt-0 w-full flex-col pt-16 text-sm font-medium lg:hidden"
-      >
+      <ul class="w-full flex-col pb-2 text-sm font-medium">
         <li
           v-for="m in menus"
           :key="m.label"
-          class="block border-b dark:border-gray-700"
+          class="block border-b last:border-b-0 dark:border-gray-700"
         >
           <router-link
-            class="block px-4 py-3 text-gray-900 lg:px-0 lg:py-0 dark:text-white lg:hover:underline"
+            class="block px-4 py-3 text-gray-900 dark:text-white active:bg-gray-100 dark:active:bg-gray-800"
             :to="m.link"
             @click="showMobileMenu = false"
           >

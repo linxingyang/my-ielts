@@ -35,7 +35,7 @@ const curChapter = computed(() => {
       <span class="text-base font-normal text-gray-500 dark:text-gray-400">包括各种词性、特殊训练</span>
     </div>
     <div class="items-center sm:flex">
-      <div class="flex items-center">
+      <div class="flex flex-wrap items-center gap-3 sm:gap-0">
         <select
           v-model="chapter"
           class="block w-full flex-1 border border-gray-300 rounded-lg bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
@@ -51,7 +51,7 @@ const curChapter = computed(() => {
             {{ k }}
           </option>
         </select>
-        <div class="relative ml-2 flex-1">
+        <div class="relative mt-3 w-full flex-1 sm:ml-2 sm:mt-0">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -76,7 +76,8 @@ const curChapter = computed(() => {
           <span class="text-base font-normal text-gray-500 dark:text-gray-400">{{ curChapter.desc }}</span>
         </div>
       </div>
-      <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th class="w-0 px-6 py-3">
@@ -100,13 +101,13 @@ const curChapter = computed(() => {
             :key="row[0]"
             class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
           >
-            <td class="px-6 py-4">
+            <td class="px-3 py-4 sm:px-6">
               {{ index }}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-3 py-4 sm:px-6">
               <a href="javascript:;" class="i-carbon-volume-up-filled block" @click="play(row[0])" />
             </td>
-            <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+            <th class="whitespace-nowrap px-3 py-4 sm:px-6 font-medium text-gray-900 dark:text-white">
               <a
                 class="hover:underline"
                 :title="`在剑桥词典中查询 ${row[0][0]}`"
@@ -114,15 +115,16 @@ const curChapter = computed(() => {
                 target="_blank"
               >{{ row[0].join(', ') }}</a>
             </th>
-            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+            <td class="whitespace-nowrap px-3 py-4 sm:px-6 font-medium text-gray-900 dark:text-white">
               {{ row[1] }}
             </td>
-            <td class="whitespace-nowrap px-6 py-4">
+            <td class="whitespace-nowrap px-3 py-4 sm:px-6">
               {{ row[2] }}
             </td>
           </tr>
         </tbody>
       </table>
+      </div>
     </template>
     <!-- <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
       <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -147,25 +149,25 @@ const curChapter = computed(() => {
       </thead>
       <tbody>
         <tr v-for="w in ws" :key="w.index" class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.index }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             <a href="javascript:;" class="i-carbon-volume-up-filled block" @click="play(w.word)" />
           </td>
-          <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+          <th scope="row" class="whitespace-nowrap px-3 py-4 sm:px-6 font-medium text-gray-900 dark:text-white">
             <a
               :href="`https://dictionary.cambridge.org/dictionary/english-chinese-simplified/${w.word}`"
               target="_blank"
             >{{ w.word }}</a>
           </th>
-          <td class="px-6 py-4 italic">
+          <td class="px-3 py-4 sm:px-6 italic">
             {{ w.type }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.meaning }}
           </td>
-          <td class="px-6 py-4">
+          <td class="px-3 py-4 sm:px-6">
             {{ w.replace.join(', ') }}
           </td>
         </tr>

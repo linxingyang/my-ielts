@@ -144,10 +144,10 @@ onMounted(() => {
             </template>
           </p>
         </div>
-        <div class="flex shrink-0 items-center gap-2">
+        <div class="flex w-full shrink-0 items-center gap-2 sm:w-auto">
           <select
             v-model="source"
-            class="block w-36 border border-gray-300 rounded-lg bg-white p-2.5 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-blue-500"
+            class="block min-w-0 flex-1 border border-gray-300 rounded-lg bg-white p-2.5 text-sm sm:w-36 sm:flex-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-blue-500"
           >
             <option
               v-for="s in sourceOptions"
@@ -159,7 +159,7 @@ onMounted(() => {
           </select>
           <select
             v-model="selectedChapter"
-            class="block w-48 border border-gray-300 rounded-lg bg-white p-2.5 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-blue-500"
+            class="block min-w-0 flex-1 border border-gray-300 rounded-lg bg-white p-2.5 text-sm sm:w-48 sm:flex-none dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-blue-500"
           >
             <option
               v-for="c in chapterOptions"
@@ -173,7 +173,7 @@ onMounted(() => {
       </div>
 
       <!-- Stats -->
-      <div class="grid grid-cols-3 mb-8 gap-4">
+      <div class="grid grid-cols-3 mb-8 gap-2 sm:gap-4">
         <div
           class="border border-gray-200 rounded-xl bg-white p-4 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800"
         >
@@ -181,7 +181,7 @@ onMounted(() => {
             准确率
           </div>
           <div
-            class="text-2xl font-bold"
+            class="text-xl font-bold sm:text-2xl"
             :class="accuracy < 90 ? 'text-red-500' : 'text-green-500'"
           >
             {{ accuracy }}%
@@ -193,7 +193,7 @@ onMounted(() => {
           <div class="mb-1 text-xs tracking-wider uppercase text-gray-500">
             WPM (速度)
           </div>
-          <div class="text-2xl font-bold text-blue-500">
+          <div class="text-xl font-bold text-blue-500 sm:text-2xl">
             {{ wpm }}
           </div>
         </div>
@@ -203,7 +203,7 @@ onMounted(() => {
           <div class="mb-1 text-xs tracking-wider uppercase text-gray-500">
             进度
           </div>
-          <div class="text-2xl font-bold dark:text-white">
+          <div class="text-xl font-bold sm:text-2xl dark:text-white">
             {{ currentWordIndex + 1 }} / {{ words.length }}
           </div>
         </div>

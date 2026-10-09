@@ -150,7 +150,7 @@ watch(activeId, () => {
       <!-- 音标大按钮 -->
       <div class="grid grid-cols-3 mb-4 items-center gap-2 text-center">
         <button
-          class="mx-auto flex cursor-pointer items-center gap-2 border-2 border-primary-300 rounded-xl bg-primary-50 px-6 py-3 text-2xl font-bold text-primary-600 transition-all duration-150 active:scale-95 dark:border-primary-500/50 dark:bg-primary-500/10 hover:bg-primary-500 dark:text-primary-400 hover:text-white"
+          class="mx-auto flex cursor-pointer items-center justify-center gap-2 border-2 border-primary-300 rounded-xl bg-primary-50 px-2 py-3 text-xl font-bold text-primary-600 transition-all duration-150 active:scale-95 sm:px-6 sm:text-2xl dark:border-primary-500/50 dark:bg-primary-500/10 hover:bg-primary-500 dark:text-primary-400 hover:text-white"
           @click="playPhoneme(activeGroup.phonemeA, 'a')"
         >
           <div class="i-carbon-volume-up" />
@@ -158,7 +158,7 @@ watch(activeId, () => {
         </button>
         <span class="text-lg text-gray-400">VS</span>
         <button
-          class="mx-auto flex cursor-pointer items-center gap-2 border-2 border-orange-300 rounded-xl bg-orange-50 px-6 py-3 text-2xl font-bold text-orange-600 transition-all duration-150 active:scale-95 dark:border-orange-500/50 dark:bg-orange-500/10 hover:bg-orange-500 dark:text-orange-400 hover:text-white"
+          class="mx-auto flex cursor-pointer items-center justify-center gap-2 border-2 border-orange-300 rounded-xl bg-orange-50 px-2 py-3 text-xl font-bold text-orange-600 transition-all duration-150 active:scale-95 sm:px-6 sm:text-2xl dark:border-orange-500/50 dark:bg-orange-500/10 hover:bg-orange-500 dark:text-orange-400 hover:text-white"
           @click="playPhoneme(activeGroup.phonemeB, 'b')"
         >
           <div class="i-carbon-volume-up" />
@@ -187,7 +187,7 @@ watch(activeId, () => {
             <td class="w-[24%] py-1 text-xs text-gray-400">
               {{ pair.meaning }}
               <button
-                class="ml-1 cursor-pointer rounded-full px-2 py-0.5 text-primary-500 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-500/15"
+                class="ml-1 cursor-pointer rounded-full px-2.5 py-1.5 text-primary-500 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-500/15"
                 title="连续对比播放"
                 @click="compareRow(pair.a, pair.b)"
               >

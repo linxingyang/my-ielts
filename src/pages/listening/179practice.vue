@@ -90,42 +90,43 @@ function next(index) {
       <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th class="w-0 px-6 py-3">
+            <th class="w-0 px-3 py-3 sm:px-6">
               #
             </th>
 
-            <th class="w-0 px-6 py-3">
+            <th class="w-0 px-3 py-3 sm:px-6">
               词性
             </th>
-            <th class="w-20 px-6 py-3">
+            <th class="w-20 px-3 py-3 sm:px-6">
               音频
             </th>
-            <th class="px-6 py-3">
+            <th class="px-3 py-3 sm:px-6">
               考点词/同义替换
             </th>
-            <th class="px-6 py-3">
+            <th class="px-3 py-3 sm:px-6">
               结果
             </th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(w, i) in ws" :key="w.index" class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-            <td class="px-6 py-4">
+            <td class="px-3 py-4 sm:px-6">
               {{ w.index }}
             </td>
-            <td class="px-6 py-4 italic">
+            <td class="px-3 py-4 sm:px-6 italic">
               {{ w.type }}
             </td>
-            <td class="px-6 py-4">
-              <button class="i-carbon-volume-up-filled" @click="play(w.word)" />
+            <td class="px-3 py-4 sm:px-6">
+              <button class="i-carbon-volume-up-filled p-2 text-xl" @click="play(w.word)" />
             </td>
             <td
-              class="flex flex-row items-center justify-start px-6 py-4"
+              class="flex flex-col items-start gap-2 px-3 py-4 sm:flex-row sm:items-center sm:gap-0 sm:px-6"
               @keydown="onKeydown($event, w.word)"
             >
               <input
                 :id="`input_${w.index}`"
                 v-model="w.form.word"
+                class="w-full sm:w-[150px]"
                 p="x-2 y-1"
                 w="150px"
                 bg="transparent"
@@ -140,6 +141,7 @@ function next(index) {
               </div>
               <input
                 v-model="w.form.replaceStr"
+                class="w-full sm:w-[300px]"
                 p="x-2 y-1"
                 w="300px"
                 bg="transparent"
@@ -151,7 +153,7 @@ function next(index) {
                 @keydown.enter="next(i)"
               >
             </td>
-            <td class="px-6 py-4">
+            <td class="px-3 py-4 sm:px-6">
               <i v-if="w.result.checked && w.result.errorWords.length < 1" class="i-carbon-checkmark block text-green-700" />
               <p v-if="w.result.checked && w.result.errorWords.length > 0">
                 {{ w.result.errorWords.join(', ') }}

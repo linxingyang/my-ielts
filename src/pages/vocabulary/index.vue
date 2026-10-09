@@ -518,11 +518,11 @@ function copyAllError() {
     <div class="border border-gray-200 rounded-lg bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
       <!-- 学习总览：全部词库统计，点击行切换词库 -->
       <div class="mb-4 border border-gray-200 rounded-lg p-3 dark:border-gray-700">
-        <div class="mb-2 flex items-center justify-between">
+        <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
           <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
             学习总览（共 {{ allSourcesProgress.reduce((sum, s) => sum + s.total, 0) }} 词，点击行切换词库）
           </span>
-          <span class="flex shrink-0 items-center">
+          <span class="flex shrink-0 flex-wrap items-center gap-2">
             <button
               type="button"
               class="inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
@@ -532,7 +532,7 @@ function copyAllError() {
             </button>
             <button
               type="button"
-              class="ml-2 inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
+              class="inline-block border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-gray-600 dark:bg-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-600"
               @click="fileInput?.click()"
             >
               导入学习进度
@@ -541,9 +541,9 @@ function copyAllError() {
           </span>
         </div>
         <!-- 全部词库去重汇总行：跨词库重复单词只计一次 -->
-        <div class="mb-1 flex items-center border-b border-gray-100 rounded-lg bg-gray-50 px-2 py-1.5 dark:border-gray-700 dark:bg-gray-700/40">
+        <div class="mb-1 flex flex-wrap items-center border-b border-gray-100 rounded-lg bg-gray-50 px-2 py-1.5 dark:border-gray-700 dark:bg-gray-700/40">
           <span class="w-28 shrink-0 text-sm font-bold text-gray-900 dark:text-white">全部（去重）</span>
-          <span class="w-80 shrink-0 whitespace-nowrap text-xs text-gray-500 dark:text-gray-400">
+          <span class="w-full whitespace-nowrap text-xs text-gray-500 sm:w-80 sm:shrink-0 dark:text-gray-400">
             共 <b class="inline-block w-9 text-right tabular-nums">{{ allUniqueProgress.total }}</b> 词 ·
             已认识 <b class="inline-block w-8 text-right tabular-nums text-green-500">{{ allUniqueProgress.known }}</b> ·
             模糊 <b class="inline-block w-8 text-right tabular-nums text-yellow-500">{{ allUniqueProgress.fuzzy }}</b> ·
@@ -557,14 +557,14 @@ function copyAllError() {
         <div
           v-for="row in allSourcesProgress"
           :key="row.key"
-          class="flex cursor-pointer items-center rounded-lg px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-700"
+          class="flex cursor-pointer flex-wrap items-center rounded-lg px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-gray-700"
           @click="source = row.key"
         >
           <span
             class="w-28 shrink-0 text-sm"
             :class="row.key === source ? 'font-bold text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'"
           >{{ row.label }}</span>
-          <span class="w-80 shrink-0 whitespace-nowrap text-xs text-gray-500 dark:text-gray-400">
+          <span class="w-full whitespace-nowrap text-xs text-gray-500 sm:w-80 sm:shrink-0 dark:text-gray-400">
             共 <b class="inline-block w-9 text-right tabular-nums">{{ row.total }}</b> 词 ·
             已认识 <b class="inline-block w-8 text-right tabular-nums text-green-500">{{ row.known }}</b> ·
             模糊 <b class="inline-block w-8 text-right tabular-nums text-yellow-500">{{ row.fuzzy }}</b> ·
@@ -577,13 +577,13 @@ function copyAllError() {
         </div>
       </div>
       <!-- Card header：上=操作区，分隔线下=章节信息区；滚动时吸顶 -->
-      <div class="sticky top-16 z-20 mb-4 flex flex-col border border-gray-200 rounded-lg bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div class="mb-4 flex flex-col border border-gray-200 rounded-lg bg-white p-3 shadow-sm sm:sticky sm:top-16 sm:z-20 dark:border-gray-700 dark:bg-gray-800">
         <!-- 章节信息区 -->
         <div class="order-2 mt-3 border-t border-gray-200 pt-3 dark:border-gray-700">
           <div class="flex flex-wrap items-center gap-x-2 gap-y-1 px-2">
-            <span class="truncate text-xs text-gray-500 dark:text-gray-400">{{ sourceDesc }}</span>
+            <span class="hidden truncate text-xs text-gray-500 sm:inline dark:text-gray-400">{{ sourceDesc }}</span>
             <span class="rounded-full bg-primary-50 px-2.5 py-0.5 text-sm font-bold text-primary-600 dark:bg-primary-500/15 dark:text-primary-400" :title="sourceDesc">{{ category }}</span>
-            <span class="text-sm text-gray-500 dark:text-gray-400">
+            <span class="text-xs text-gray-500 sm:text-sm dark:text-gray-400">
               共 <b class="tabular-nums text-gray-700 dark:text-gray-200">{{ curMeta?.wordCount ?? '-' }}</b> 词 ·
               已认识 <b class="tabular-nums text-green-500">{{ progress.known }}</b> ·
               模糊 <b class="tabular-nums text-yellow-500">{{ progress.fuzzy }}</b> ·
@@ -612,7 +612,7 @@ function copyAllError() {
               <span v-if="statusFilter !== 'all' && filteredWords.length" class="flex items-center gap-1">
                 <button
                   type="button"
-                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   title="跳转到第一个匹配词"
                   @click="gotoFilteredWord('first')"
                 >
@@ -620,7 +620,7 @@ function copyAllError() {
                 </button>
                 <button
                   type="button"
-                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   title="跳转到上一个匹配词"
                   @click="gotoFilteredWord(-1)"
                 >
@@ -631,7 +631,7 @@ function copyAllError() {
                 </span>
                 <button
                   type="button"
-                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   title="跳转到下一个匹配词"
                   @click="gotoFilteredWord(1)"
                 >
@@ -639,7 +639,7 @@ function copyAllError() {
                 </button>
                 <button
                   type="button"
-                  class="cursor-pointer rounded border border-gray-300 px-1.5 py-0.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   title="跳转到最后一个匹配词"
                   @click="gotoFilteredWord('last')"
                 >
@@ -693,7 +693,7 @@ function copyAllError() {
           <div class="flex flex-wrap items-center">
             <select
               v-model="source"
-              class="block w-40 shrink-0 border border-gray-300 rounded-lg bg-gray-50 px-2.5 py-1.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+              class="block w-[calc(50%-0.25rem)] border border-gray-300 rounded-lg bg-gray-50 px-2.5 py-1.5 text-sm text-gray-900 sm:w-40 sm:shrink-0 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
             >
               <option v-for="s in sourceOptions" :key="s.key" :value="s.key">
                 {{ s.label }}
@@ -701,13 +701,13 @@ function copyAllError() {
             </select>
             <select
               v-model="category"
-              class="ml-2 block w-52 shrink-0 border border-gray-300 rounded-lg bg-gray-50 px-2.5 py-1.5 text-sm text-gray-900 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
+              class="block w-[calc(50%-0.25rem)] border border-gray-300 rounded-lg bg-gray-50 px-2 py-1.5 text-sm text-gray-900 sm:ml-2 sm:mt-0 sm:w-52 sm:shrink-0 sm:px-2.5 dark:border-gray-600 focus:border-blue-500 dark:bg-gray-700 dark:text-white focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 dark:placeholder-gray-400"
             >
               <option v-for="k in chapterOptions" :key="k" :value="k">
                 {{ k }}
               </option>
             </select>
-            <div class="relative ml-2 w-56">
+            <div class="relative mt-2 w-full sm:ml-2 sm:mt-0 sm:w-56">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <i class="i-ph-magnifying-glass h-4 w-4 text-gray-500 dark:text-gray-400" />
               </div>
@@ -843,7 +843,7 @@ function copyAllError() {
                           <!-- 左侧大喇叭：仅有真经原书真人音频的词显示（真经词及其他词库中源自真经的词） -->
                           <i
                             v-if="wordHasBookAudio(item.word[0])"
-                            class="i-ph-speaker-simple-high-bold inline-block cursor-pointer"
+                            class="i-ph-speaker-simple-high-bold inline-block cursor-pointer p-1.5 text-xl"
                             title="播放原书真人发音"
                             @click="play(wordAudioUrl(item.word[0], 'book'))"
                           />
@@ -851,7 +851,7 @@ function copyAllError() {
                           <i
                             :class="statusIconMap[getWordStatus(item.word[0])]"
                             :title="statusTitleMap[getWordStatus(item.word[0])]"
-                            class="ml-4 inline-block cursor-pointer align-middle text-base"
+                            class="ml-2 inline-block cursor-pointer align-middle text-base p-1.5 sm:ml-4"
                             @click="cycleWordStatus(item.word[0])"
                           />
 
@@ -891,7 +891,7 @@ function copyAllError() {
                             </p>
 
                             <div
-                              class="absolute right-0 top-0 hidden h-100% items-center group-hover:flex"
+                              class="absolute right-0 top-0 flex h-100% items-center text-gray-300 opacity-40 hover:opacity-100"
                               @click="copyText(item)"
                             >
                               <i class="i-ph-copy block cursor-pointer px-4" />
@@ -965,7 +965,7 @@ function copyAllError() {
             {{ trainingStats }}
           </p>
         </div>
-        <div v-if="isTrainingModel" class="flex-shrink-0">
+        <div v-if="isTrainingModel" class="mt-2 flex flex-wrap gap-2 sm:mt-0 sm:flex-shrink-0">
           <button
             type="button"
             class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -975,14 +975,14 @@ function copyAllError() {
           </button>
           <button
             type="button"
-            class="ml-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             @click="isOnlyShowErrors = !isOnlyShowErrors"
           >
             {{ isOnlyShowErrors ? '展示所有' : '仅展示错词' }}
           </button>
           <button
             type="button"
-            class="ml-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white dark:bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             @click="copyAllError"
           >
             拷贝错词
@@ -996,7 +996,7 @@ function copyAllError() {
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
       @click.self="pendingImport = null"
     >
-      <div class="mx-4 w-96 rounded-lg bg-white p-5 shadow-xl dark:bg-gray-800">
+      <div class="mx-4 w-full max-w-sm rounded-lg bg-white p-5 shadow-xl dark:bg-gray-800">
         <h4 class="mb-2 text-base font-bold text-gray-900 dark:text-white">
           导入学习记录
         </h4>

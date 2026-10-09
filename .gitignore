@@ -10,6 +10,9 @@ node_modules
 # git rm --cached auto-imports.d.ts
 auto-imports.d.ts
 
+
+dist-mobile-check
+
 # Python 缓存
 __pycache__/
 
@@ -33,3 +36,4 @@ public/vocabulary/audio/_shared/*.tmp
 build.err
 dev.err
 push.err
+dev-mobile.err
