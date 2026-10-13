@@ -8,6 +8,9 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AccentToggle: typeof import('./src/components/AccentToggle.vue')['default']
+    EndingQuiz: typeof import('./src/components/speaking/EndingQuiz.vue')['default']
+    LetterDictation: typeof import('./src/components/speaking/LetterDictation.vue')['default']
+    PairQuiz: typeof import('./src/components/speaking/PairQuiz.vue')['default']
     RelationGroupView: typeof import('./src/components/RelationGroupView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

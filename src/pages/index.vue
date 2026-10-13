@@ -40,7 +40,8 @@ const menus = reactive<MenuItem[]>([
     icon: 'i-carbon-microphone',
     link: '/speaking',
     badge: '新增',
-    desc: '音标学习、易错音对比、听音辨词',
+    desc: '音标学习、易错音对比、拼读规则、辅音连缀、单词重音、听音辨词',
+    tags: ['44 音素', '拼读规则', '辅音连缀', '单词重音', '同音词听辨'],
   },
   {
     label: '阅读',
