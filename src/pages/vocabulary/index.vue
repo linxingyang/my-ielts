@@ -165,6 +165,15 @@ const allUniqueProgress = computed(() => {
   }
 })
 
+// 去重合并词典（parser.py 生成的 unique 词库）是否存在；存在时「全部（去重）」行可点击进入
+const hasUniqueSource = computed(() => VOCAB_SOURCES.some(s => s.key === 'unique'))
+
+// 从「全部（去重）」汇总行进入去重合并词典
+function gotoUniqueSource() {
+  if (hasUniqueSource.value)
+    source.value = 'unique'
+}
+
 const fileInput = ref(null)
 
 function exportStatus() {
@@ -540,8 +549,13 @@ function copyAllError() {
             <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" @change="onImportFile">
           </span>
         </div>
-        <!-- 全部词库去重汇总行：跨词库重复单词只计一次 -->
-        <div class="mb-1 flex flex-wrap items-center border-b border-gray-100 rounded-lg bg-gray-50 px-2 py-1.5 dark:border-gray-700 dark:bg-gray-700/40">
+        <!-- 全部词库去重汇总行：跨词库重复单词只计一次；存在合并词典时可点击进入 -->
+        <div
+          class="mb-1 flex flex-wrap items-center border-b border-gray-100 rounded-lg bg-gray-50 px-2 py-1.5 dark:border-gray-700 dark:bg-gray-700/40"
+          :class="hasUniqueSource ? 'cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/60' : ''"
+          :title="hasUniqueSource ? '进入「全部词汇（去重）」词典' : ''"
+          @click="gotoUniqueSource"
+        >
           <span class="w-28 shrink-0 text-sm font-bold text-gray-900 dark:text-white">全部（去重）</span>
           <span class="w-full whitespace-nowrap text-xs text-gray-500 sm:w-80 sm:shrink-0 dark:text-gray-400">
             共 <b class="inline-block w-9 text-right tabular-nums">{{ allUniqueProgress.total }}</b> 词 ·

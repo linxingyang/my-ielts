@@ -50,6 +50,7 @@ const SOURCE_META: Record<string, { label: string; desc: string }> = {
   ngsl: { label: 'NGSL 高频词', desc: '通用高频词 2801 · 按频率分段' },
   nawl: { label: 'NAWL 学术词', desc: 'NAWL 新学术词汇表（AWL 新版）· 按频率分段' },
   opal: { label: 'OPAL 学术词汇', desc: 'Oxford Phrasal Academic Lexicon · 学术单词与短语' },
+  unique: { label: '全部词汇（去重）', desc: '全部词库去重合并 · 按字母 A-Z 分组' },
 }
 
 export const VOCAB_SOURCES: VocabSource[] = VOCAB_MANIFEST.sources

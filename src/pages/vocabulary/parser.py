@@ -277,6 +277,47 @@ def build_relations(vocab):
     return rel_map, relation_groups
 
 
+def build_unique_source(result):
+    """全部词库去重合并词典（大小写不敏感、保留首次出现的完整词条），按首字母 A-Z 分章。
+
+    去重遍历顺序与前端「全部（去重）」统计完全一致：按 result 的插入顺序
+    （即 manifest 章节顺序）遍历，因此合并词典的词数与「全部（去重）」严格相同。
+    结果作为独立 source（unique）追加到 result 末尾，随常规产物一起输出。"""
+    seen = set()
+    buckets = defaultdict(list)
+    for ch in result.values():
+        for group in ch['words']:
+            for item in group:
+                first = item['word'][0].strip()
+                key = first.lower()
+                if not first or key in seen:
+                    continue
+                seen.add(key)
+                letter = first[0].upper() if 'a' <= first[0].lower() <= 'z' else '#'
+                buckets[letter].append(item)
+    letters = sorted(l for l in buckets if l != '#') + (['#'] if '#' in buckets else [])
+    for letter in letters:
+        words = buckets[letter]
+        # 每字母一章；词数多时按 100 词一组切分，保证单表可读性
+        groups, cur = [], []
+        for w in words:
+            cur.append(w)
+            if len(cur) >= 100:
+                groups.append(cur)
+                cur = []
+        if cur:
+            groups.append(cur)
+        result[letter] = {
+            'label': letter,
+            'source': 'unique',
+            'audio': '',
+            'groupCount': len(groups),
+            'wordCount': len(words),
+            'words': groups,
+        }
+    print(f'[unique] 去重合并词典：共 {len(seen)} 词，分 {len(letters)} 个字母章节')
+
+
 def parse(phonetics):
     translations = load_translations()
     notes = load_notes()
@@ -351,6 +392,9 @@ def parse(phonetics):
             if group:
                 category_body['words'].append(group)
         category_body['wordCount'] = word_count
+
+    # 去重合并词典：作为独立 source（unique）按首字母分章，追加到 result 末尾
+    build_unique_source(result)
 
     # ---------------- 输出：index 清单 + 每词库独立 js + relationGroups ----------------
     # index 清单：章节元信息 + 纯词串列表（word[0]），体积小、打开页面即加载；
