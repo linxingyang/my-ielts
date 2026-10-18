@@ -50,6 +50,8 @@ watch(category, (newVal) => {
 // 过滤导航：不改变布局，用 上一个/下一个 在匹配词之间跳转
 const statusFilter = ref('all')
 const filterNavIndex = ref(-1)
+// 上一个/下一个跳转时是否同时朗读当前词发音
+const isReadOnNav = ref(false)
 const filteredWords = computed(() =>
   (curChapter.value?.words || []).flat().filter(item => !isRowHiddenByFilter(item)),
 )
@@ -65,7 +67,11 @@ function gotoFilteredWord(delta) {
     filterNavIndex.value = list.length - 1
   else
     filterNavIndex.value = (filterNavIndex.value + delta + list.length) % list.length
-  const id = list[filterNavIndex.value].id
+  const item = list[filterNavIndex.value]
+  const id = item.id
+  // 勾选「读音」时，跳转的同时朗读当前词发音（默认美音）
+  if (isReadOnNav.value)
+    play(wordAudioUrl(item.word[0], 'us'))
   nextTick(() => {
     const el = document.getElementById(`tr_${id}`)
     el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -75,6 +81,15 @@ function gotoFilteredWord(delta) {
     }
   })
 }
+
+// 本词重读：重新朗读当前定位到的单词（默认美音，与跳转读音保持一致）
+function replayCurrentWord() {
+  const list = filteredWords.value
+  if (!list.length || filterNavIndex.value < 0)
+    return
+  play(wordAudioUrl(list[filterNavIndex.value].word[0], 'us'))
+}
+
 const statusFilterOptions = [
   { value: 'all', label: '全部' },
   { value: 'known', label: '已认识' },
@@ -622,8 +637,8 @@ function copyAllError() {
                   {{ opt.label }}
                 </button>
               </div>
-              <!-- 过滤导航：首个/上一个/下一个/末个匹配词 -->
-              <span v-if="statusFilter !== 'all' && filteredWords.length" class="flex items-center gap-1">
+              <!-- 词条导航：首个/上一个/下一个/末个（过滤状态下在匹配词间跳转，全部状态遍历全表） -->
+              <span v-if="filteredWords.length" class="flex items-center gap-1">
                 <button
                   type="button"
                   class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
@@ -658,6 +673,22 @@ function copyAllError() {
                   @click="gotoFilteredWord('last')"
                 >
                   末个 ⇥
+                </button>
+                <label
+                  class="ml-1 inline-flex cursor-pointer select-none items-center gap-1 whitespace-nowrap rounded px-1.5 py-1 text-xs text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="跳转时同时朗读当前词发音"
+                >
+                  <input v-model="isReadOnNav" type="checkbox" class="h-3.5 w-3.5 accent-blue-600">
+                  读音
+                </label>
+                <button
+                  type="button"
+                  class="cursor-pointer rounded border border-gray-300 px-2.5 py-1.5 text-xs text-gray-600 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                  title="重新朗读当前定位的单词（美音）"
+                  :disabled="filterNavIndex < 0"
+                  @click="replayCurrentWord"
+                >
+                  ↻ 本词重读
                 </button>
               </span>
               <span class="mx-0.5 h-4 w-px shrink-0 bg-gray-300 dark:bg-gray-600" />
