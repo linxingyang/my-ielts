@@ -57,6 +57,18 @@ const filteredWords = computed(() =>
 )
 watch(statusFilter, () => (filterNavIndex.value = -1))
 
+// 滚动定位到单词行并短暂高亮（导航跳转/搜索跳转/连读播到该词时共用）
+function flashWordRow(id) {
+  nextTick(() => {
+    const el = document.getElementById(`tr_${id}`)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (el) {
+      el.classList.add('search-flash')
+      setTimeout(() => el.classList.remove('search-flash'), 2000)
+    }
+  })
+}
+
 function gotoFilteredWord(delta) {
   const list = filteredWords.value
   if (!list.length)
@@ -68,18 +80,10 @@ function gotoFilteredWord(delta) {
   else
     filterNavIndex.value = (filterNavIndex.value + delta + list.length) % list.length
   const item = list[filterNavIndex.value]
-  const id = item.id
   // 勾选「读音」时，跳转的同时朗读当前词发音（默认美音）
   if (isReadOnNav.value)
     play(wordAudioUrl(item.word[0], 'us'))
-  nextTick(() => {
-    const el = document.getElementById(`tr_${id}`)
-    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    if (el) {
-      el.classList.add('search-flash')
-      setTimeout(() => el.classList.remove('search-flash'), 2000)
-    }
-  })
+  flashWordRow(item.id)
 }
 
 // 本词重读：重新朗读当前定位到的单词（默认美音，与跳转读音保持一致）
@@ -329,17 +333,28 @@ function play(audioPath) {
 let seqAudio = null
 let seqToken = 0
 let seqResume = null // 暂停时挂起的队列继续函数
+let seqAccent = null // 当前连读使用的口音，过滤切换时按原口音重建队列
 const isSeqPlaying = ref(false)
 const isSeqPaused = ref(false)
 
+// 连读词间间隔档位（与口语页「全部播放」的间隔选择一致），localStorage 持久化
+const SEQ_GAP_KEY = 'vocabulary_seq_interval'
+const seqGapOptions = [
+  { label: '快速', ms: 500 },
+  { label: '1秒', ms: 1000 },
+  { label: '2秒', ms: 2000 },
+  { label: '3秒', ms: 3000 },
+]
+const seqGapMs = useLocalStorage(SEQ_GAP_KEY, 500)
+
 function playChapterSequence(accent) {
   stopSequence()
+  seqAccent = accent
   // 与表格行相同的可见性过滤：连读只播当前过滤模式下显示的词
-  const words = (curChapter.value?.words || [])
+  const items = (curChapter.value?.words || [])
     .flat()
     .filter(item => !isRowHiddenByFilter(item))
-    .map(item => item.word[0])
-  if (words.length < 1)
+  if (items.length < 1)
     return
   const token = ++seqToken
   isSeqPlaying.value = true
@@ -353,20 +368,29 @@ function playChapterSequence(accent) {
       seqResume = playNext
       return
     }
-    if (i >= words.length) {
+    if (i >= items.length) {
       isSeqPlaying.value = false
       isSeqPaused.value = false
       return
     }
-    const w = words[i++]
-    seqAudio.src = wordAudioUrl(w, accent)
+    const item = items[i++]
+    // 与上一个/下一个导航一致：连读位置同步到过滤导航（1/N 计数随播放推进）
+    filterNavIndex.value = i - 1
+    flashWordRow(item.id)
+    seqAudio.src = wordAudioUrl(item.word[0], accent)
     // 音频缺失/加载失败、或播放被浏览器拒绝时跳过继续，否则整个连读会卡停
     seqAudio.onerror = () => { if (token === seqToken) setTimeout(playNext, 50) }
-    seqAudio.onended = () => { if (token === seqToken) setTimeout(playNext, 500) }
+    seqAudio.onended = () => { if (token === seqToken) setTimeout(playNext, seqGapMs.value) }
     seqAudio.play().catch(() => { if (token === seqToken) setTimeout(playNext, 100) })
   }
   playNext()
 }
+
+// 连读播放中切换学习状态过滤（全部/已认识/模糊/未学）：按新过滤重建队列，保持当前口音从头连播
+watch(statusFilter, () => {
+  if (isSeqPlaying.value && seqAccent)
+    playChapterSequence(seqAccent)
+})
 
 function pauseOrResumeSequence() {
   if (!seqAudio || !isSeqPlaying.value)
@@ -477,14 +501,7 @@ async function gotoResult(r) {
   const id = r.item ? r.item.id : findWordId(r.chapter, r.word)
   if (id == null)
     return
-  nextTick(() => {
-    const el = document.getElementById(`tr_${id}`)
-    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    if (el) {
-      el.classList.add('search-flash')
-      setTimeout(() => el.classList.remove('search-flash'), 2000)
-    }
-  })
+  flashWordRow(id)
 }
 
 // 点击关联词标签：跳转到目标词所在词库/章节并高亮（复用搜索跳转逻辑）
@@ -492,14 +509,7 @@ async function gotoRelation(r) {
   await loadVocabularySource(r.source)
   source.value = r.source
   category.value = r.chapter
-  nextTick(() => {
-    const el = document.getElementById(`tr_${r.id}`)
-    el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    if (el) {
-      el.classList.add('search-flash')
-      setTimeout(() => el.classList.remove('search-flash'), 2000)
-    }
-  })
+  flashWordRow(r.id)
 }
 
 // 按 / 快速聚焦搜索框（在输入框/选择框内时不生效）
@@ -725,6 +735,22 @@ function copyAllError() {
               >
                 停止
               </button>
+              <!-- 连读词间间隔：与口语页连读相同档位 -->
+              <div class="ml-1 flex items-center gap-1 rounded-lg bg-gray-100 px-1.5 py-1 dark:bg-gray-800">
+                <span class="text-xs text-gray-500 dark:text-gray-400">间隔</span>
+                <button
+                  v-for="op in seqGapOptions"
+                  :key="op.ms"
+                  type="button"
+                  class="cursor-pointer rounded-full px-2 py-0.5 text-xs transition-colors duration-200"
+                  :class="seqGapMs === op.ms
+                    ? 'bg-primary-500 text-white'
+                    : 'text-gray-600 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-400'"
+                  @click="seqGapMs = op.ms"
+                >
+                  {{ op.label }}
+                </button>
+              </div>
             </div>
           </div>
           <!-- 章节进度条 -->
